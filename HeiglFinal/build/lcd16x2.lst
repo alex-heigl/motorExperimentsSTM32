@@ -1,0 +1,2133 @@
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"lcd16x2.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.DWT_Delay_Init,"ax",%progbits
+  20              		.align	1
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	DWT_Delay_Init:
+  26              	.LFB1107:
+  27              		.file 1 "Core/Src/lcd16x2.c"
+   1:Core/Src/lcd16x2.c **** #include "lcd16x2.h"
+   2:Core/Src/lcd16x2.c **** #include <string.h>
+   3:Core/Src/lcd16x2.c **** #include <stdio.h>
+   4:Core/Src/lcd16x2.c **** #include <stdarg.h>
+   5:Core/Src/lcd16x2.c **** 
+   6:Core/Src/lcd16x2.c **** //Milisecond function
+   7:Core/Src/lcd16x2.c **** #define LCD_MS_DELAY(X) (HAL_Delay(X))
+   8:Core/Src/lcd16x2.c **** 
+   9:Core/Src/lcd16x2.c **** /* List of COMMANDS */
+  10:Core/Src/lcd16x2.c **** #define LCD_CLEARDISPLAY      0x01
+  11:Core/Src/lcd16x2.c **** #define LCD_RETURNHOME        0x02
+  12:Core/Src/lcd16x2.c **** #define LCD_ENTRYMODESET      0x04
+  13:Core/Src/lcd16x2.c **** #define LCD_DISPLAYCONTROL    0x08
+  14:Core/Src/lcd16x2.c **** #define LCD_CURSORSHIFT       0x10
+  15:Core/Src/lcd16x2.c **** #define LCD_FUNCTIONSET       0x20
+  16:Core/Src/lcd16x2.c **** #define LCD_SETCGRAMADDR      0x40
+  17:Core/Src/lcd16x2.c **** #define LCD_SETDDRAMADDR      0x80
+  18:Core/Src/lcd16x2.c **** 
+  19:Core/Src/lcd16x2.c **** /* List of commands Bitfields */
+  20:Core/Src/lcd16x2.c **** //1) Entry mode Bitfields
+  21:Core/Src/lcd16x2.c **** #define LCD_ENTRY_SH          0x01
+  22:Core/Src/lcd16x2.c **** #define LCD_ENTRY_ID          0x02
+  23:Core/Src/lcd16x2.c **** //2) Entry mode Bitfields
+  24:Core/Src/lcd16x2.c **** #define LCD_ENTRY_SH          0x01
+  25:Core/Src/lcd16x2.c **** #define LCD_ENTRY_ID          0x02
+  26:Core/Src/lcd16x2.c **** //3) Display control
+  27:Core/Src/lcd16x2.c **** #define LCD_DISPLAY_B         0x01
+  28:Core/Src/lcd16x2.c **** #define LCD_DISPLAY_C         0x02
+  29:Core/Src/lcd16x2.c **** #define LCD_DISPLAY_D         0x04
+  30:Core/Src/lcd16x2.c **** //4) Shift control
+  31:Core/Src/lcd16x2.c **** #define LCD_SHIFT_RL          0x04
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 2
+
+
+  32:Core/Src/lcd16x2.c **** #define LCD_SHIFT_SC          0x08
+  33:Core/Src/lcd16x2.c **** //5) Function set control
+  34:Core/Src/lcd16x2.c **** #define LCD_FUNCTION_F        0x04
+  35:Core/Src/lcd16x2.c **** #define LCD_FUNCTION_N        0x08
+  36:Core/Src/lcd16x2.c **** #define LCD_FUNCTION_DL       0x10
+  37:Core/Src/lcd16x2.c **** 
+  38:Core/Src/lcd16x2.c **** /* LCD Library Variables */
+  39:Core/Src/lcd16x2.c **** static bool is8BitsMode = true;
+  40:Core/Src/lcd16x2.c **** static GPIO_TypeDef* PORT_RS_and_E;               // RS and E PORT
+  41:Core/Src/lcd16x2.c **** static uint16_t PIN_RS, PIN_E;                    // RS and E pins
+  42:Core/Src/lcd16x2.c **** static GPIO_TypeDef* PORT_LSB;                    // LSBs D0, D1, D2 and D3 PORT
+  43:Core/Src/lcd16x2.c **** static uint16_t D0_PIN, D1_PIN, D2_PIN, D3_PIN;   // LSBs D0, D1, D2 and D3 pins
+  44:Core/Src/lcd16x2.c **** static GPIO_TypeDef* PORT_MSB;                    // MSBs D5, D6, D7 and D8 PORT
+  45:Core/Src/lcd16x2.c **** static uint16_t D4_PIN, D5_PIN, D6_PIN, D7_PIN;   // MSBs D5, D6, D7 and D8 pins
+  46:Core/Src/lcd16x2.c **** #define T_CONST   20
+  47:Core/Src/lcd16x2.c **** static uint8_t DisplayControl = 0x0F;
+  48:Core/Src/lcd16x2.c **** static uint8_t FunctionSet = 0x38;
+  49:Core/Src/lcd16x2.c **** 
+  50:Core/Src/lcd16x2.c **** /* private functions prototypes */
+  51:Core/Src/lcd16x2.c **** /**
+  52:Core/Src/lcd16x2.c ****  * @brief DWT Cortex Tick counter for Microsecond delay
+  53:Core/Src/lcd16x2.c ****  */
+  54:Core/Src/lcd16x2.c **** static uint32_t DWT_Delay_Init(void) {
+  28              		.loc 1 54 38 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  55:Core/Src/lcd16x2.c ****   /* Disable TRC */
+  56:Core/Src/lcd16x2.c ****   CoreDebug->DEMCR &= ~CoreDebug_DEMCR_TRCENA_Msk;
+  33              		.loc 1 56 3 view .LVU1
+  34              		.loc 1 56 20 is_stmt 0 view .LVU2
+  35 0000 104B     		ldr	r3, .L4
+  36 0002 D3F8FC20 		ldr	r2, [r3, #252]
+  37 0006 22F08072 		bic	r2, r2, #16777216
+  38 000a C3F8FC20 		str	r2, [r3, #252]
+  57:Core/Src/lcd16x2.c ****   /* Enable TRC */
+  58:Core/Src/lcd16x2.c ****   CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+  39              		.loc 1 58 3 is_stmt 1 view .LVU3
+  40              		.loc 1 58 20 is_stmt 0 view .LVU4
+  41 000e D3F8FC20 		ldr	r2, [r3, #252]
+  42 0012 42F08072 		orr	r2, r2, #16777216
+  43 0016 C3F8FC20 		str	r2, [r3, #252]
+  59:Core/Src/lcd16x2.c ****   /* Disable clock cycle counter */
+  60:Core/Src/lcd16x2.c ****   DWT->CTRL &= ~DWT_CTRL_CYCCNTENA_Msk;
+  44              		.loc 1 60 3 is_stmt 1 view .LVU5
+  45              		.loc 1 60 13 is_stmt 0 view .LVU6
+  46 001a A3F55D43 		sub	r3, r3, #56576
+  47 001e 1A68     		ldr	r2, [r3]
+  48 0020 22F00102 		bic	r2, r2, #1
+  49 0024 1A60     		str	r2, [r3]
+  61:Core/Src/lcd16x2.c ****   /* Enable clock cycle counter */
+  62:Core/Src/lcd16x2.c ****   DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+  50              		.loc 1 62 3 is_stmt 1 view .LVU7
+  51              		.loc 1 62 13 is_stmt 0 view .LVU8
+  52 0026 1A68     		ldr	r2, [r3]
+  53 0028 42F00102 		orr	r2, r2, #1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 3
+
+
+  54 002c 1A60     		str	r2, [r3]
+  63:Core/Src/lcd16x2.c ****   /* Reset the clock cycle counter value */
+  64:Core/Src/lcd16x2.c ****   DWT->CYCCNT = 0;
+  55              		.loc 1 64 3 is_stmt 1 view .LVU9
+  56              		.loc 1 64 15 is_stmt 0 view .LVU10
+  57 002e 0022     		movs	r2, #0
+  58 0030 5A60     		str	r2, [r3, #4]
+  65:Core/Src/lcd16x2.c ****   /* 3 NO OPERATION instructions */
+  66:Core/Src/lcd16x2.c ****   __NOP();
+  59              		.loc 1 66 3 is_stmt 1 view .LVU11
+  60              		.syntax unified
+  61              	@ 66 "Core/Src/lcd16x2.c" 1
+  62 0032 00BF     		nop
+  63              	@ 0 "" 2
+  67:Core/Src/lcd16x2.c ****   __NOP();
+  64              		.loc 1 67 3 view .LVU12
+  65              	@ 67 "Core/Src/lcd16x2.c" 1
+  66 0034 00BF     		nop
+  67              	@ 0 "" 2
+  68:Core/Src/lcd16x2.c ****   __NOP();
+  68              		.loc 1 68 3 view .LVU13
+  69              	@ 68 "Core/Src/lcd16x2.c" 1
+  70 0036 00BF     		nop
+  71              	@ 0 "" 2
+  69:Core/Src/lcd16x2.c ****   /* Check if clock cycle counter has started */
+  70:Core/Src/lcd16x2.c ****   if(DWT->CYCCNT)
+  72              		.loc 1 70 3 view .LVU14
+  73              		.loc 1 70 9 is_stmt 0 view .LVU15
+  74              		.thumb
+  75              		.syntax unified
+  76 0038 5B68     		ldr	r3, [r3, #4]
+  77              		.loc 1 70 5 view .LVU16
+  78 003a 0BB1     		cbz	r3, .L3
+  71:Core/Src/lcd16x2.c ****   {
+  72:Core/Src/lcd16x2.c ****     return 0;
+  79              		.loc 1 72 12 view .LVU17
+  80 003c 1046     		mov	r0, r2
+  81 003e 7047     		bx	lr
+  82              	.L3:
+  73:Core/Src/lcd16x2.c ****   }
+  74:Core/Src/lcd16x2.c ****   else
+  75:Core/Src/lcd16x2.c ****   {
+  76:Core/Src/lcd16x2.c ****     return 1;
+  83              		.loc 1 76 12 view .LVU18
+  84 0040 0120     		movs	r0, #1
+  77:Core/Src/lcd16x2.c ****   }
+  78:Core/Src/lcd16x2.c **** }
+  85              		.loc 1 78 1 view .LVU19
+  86 0042 7047     		bx	lr
+  87              	.L5:
+  88              		.align	2
+  89              	.L4:
+  90 0044 00ED00E0 		.word	-536810240
+  91              		.cfi_endproc
+  92              	.LFE1107:
+  94              		.section	.text.lcd16x2_rs,"ax",%progbits
+  95              		.align	1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 4
+
+
+  96              		.syntax unified
+  97              		.thumb
+  98              		.thumb_func
+ 100              	lcd16x2_rs:
+ 101              	.LVL0:
+ 102              	.LFB1110:
+  79:Core/Src/lcd16x2.c **** 
+  80:Core/Src/lcd16x2.c **** __STATIC_INLINE void DWT_Delay_us(volatile uint32_t usec)
+  81:Core/Src/lcd16x2.c **** {
+  82:Core/Src/lcd16x2.c ****  uint32_t clk_cycle_start = DWT->CYCCNT;
+  83:Core/Src/lcd16x2.c ****  usec *= (HAL_RCC_GetHCLKFreq() / 1000000);
+  84:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+  85:Core/Src/lcd16x2.c **** }
+  86:Core/Src/lcd16x2.c **** 
+  87:Core/Src/lcd16x2.c **** /**
+  88:Core/Src/lcd16x2.c ****  * @brief Enable Pulse function
+  89:Core/Src/lcd16x2.c ****  */
+  90:Core/Src/lcd16x2.c **** static void lcd16x2_enablePulse(void)
+  91:Core/Src/lcd16x2.c **** {
+  92:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_RS_and_E, PIN_E, GPIO_PIN_SET);
+  93:Core/Src/lcd16x2.c ****   DWT_Delay_us(T_CONST);
+  94:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_RS_and_E, PIN_E, GPIO_PIN_RESET);
+  95:Core/Src/lcd16x2.c ****   DWT_Delay_us(60);
+  96:Core/Src/lcd16x2.c **** }
+  97:Core/Src/lcd16x2.c **** 
+  98:Core/Src/lcd16x2.c **** /**
+  99:Core/Src/lcd16x2.c ****  * @brief RS control
+ 100:Core/Src/lcd16x2.c ****  */
+ 101:Core/Src/lcd16x2.c **** static void lcd16x2_rs(bool state)
+ 102:Core/Src/lcd16x2.c **** {
+ 103              		.loc 1 102 1 is_stmt 1 view -0
+ 104              		.cfi_startproc
+ 105              		@ args = 0, pretend = 0, frame = 0
+ 106              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107              		.loc 1 102 1 is_stmt 0 view .LVU21
+ 108 0000 08B5     		push	{r3, lr}
+ 109              		.cfi_def_cfa_offset 8
+ 110              		.cfi_offset 3, -8
+ 111              		.cfi_offset 14, -4
+ 112 0002 0246     		mov	r2, r0
+ 103:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_RS_and_E, PIN_RS, (GPIO_PinState)state);
+ 113              		.loc 1 103 3 is_stmt 1 view .LVU22
+ 114 0004 034B     		ldr	r3, .L8
+ 115 0006 1988     		ldrh	r1, [r3]
+ 116 0008 034B     		ldr	r3, .L8+4
+ 117 000a 1868     		ldr	r0, [r3]
+ 118              	.LVL1:
+ 119              		.loc 1 103 3 is_stmt 0 view .LVU23
+ 120 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 121              	.LVL2:
+ 104:Core/Src/lcd16x2.c **** }
+ 122              		.loc 1 104 1 view .LVU24
+ 123 0010 08BD     		pop	{r3, pc}
+ 124              	.L9:
+ 125 0012 00BF     		.align	2
+ 126              	.L8:
+ 127 0014 00000000 		.word	.LANCHOR0
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 5
+
+
+ 128 0018 00000000 		.word	.LANCHOR1
+ 129              		.cfi_endproc
+ 130              	.LFE1110:
+ 132              		.section	.text.lcd16x2_enablePulse,"ax",%progbits
+ 133              		.align	1
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ 138              	lcd16x2_enablePulse:
+ 139              	.LFB1109:
+  91:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_RS_and_E, PIN_E, GPIO_PIN_SET);
+ 140              		.loc 1 91 1 is_stmt 1 view -0
+ 141              		.cfi_startproc
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 38B5     		push	{r3, r4, r5, lr}
+ 145              		.cfi_def_cfa_offset 16
+ 146              		.cfi_offset 3, -16
+ 147              		.cfi_offset 4, -12
+ 148              		.cfi_offset 5, -8
+ 149              		.cfi_offset 14, -4
+  92:Core/Src/lcd16x2.c ****   DWT_Delay_us(T_CONST);
+ 150              		.loc 1 92 3 view .LVU26
+ 151 0002 0122     		movs	r2, #1
+ 152 0004 164B     		ldr	r3, .L14
+ 153 0006 1988     		ldrh	r1, [r3]
+ 154 0008 164B     		ldr	r3, .L14+4
+ 155 000a 1868     		ldr	r0, [r3]
+ 156 000c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 157              	.LVL3:
+  93:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_RS_and_E, PIN_E, GPIO_PIN_RESET);
+ 158              		.loc 1 93 3 view .LVU27
+ 159 0010 1424     		movs	r4, #20
+ 160              	.LVL4:
+ 161              	.LBB6:
+ 162              	.LBI6:
+  80:Core/Src/lcd16x2.c **** {
+ 163              		.loc 1 80 22 view .LVU28
+ 164              	.LBB7:
+  82:Core/Src/lcd16x2.c ****  usec *= (HAL_RCC_GetHCLKFreq() / 1000000);
+ 165              		.loc 1 82 2 view .LVU29
+  82:Core/Src/lcd16x2.c ****  usec *= (HAL_RCC_GetHCLKFreq() / 1000000);
+ 166              		.loc 1 82 11 is_stmt 0 view .LVU30
+ 167 0012 154B     		ldr	r3, .L14+8
+ 168 0014 5D68     		ldr	r5, [r3, #4]
+ 169              	.LVL5:
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 170              		.loc 1 83 2 is_stmt 1 view .LVU31
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 171              		.loc 1 83 11 is_stmt 0 view .LVU32
+ 172 0016 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 173              	.LVL6:
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 174              		.loc 1 83 33 view .LVU33
+ 175 001a 144B     		ldr	r3, .L14+12
+ 176 001c A3FB0023 		umull	r2, r3, r3, r0
+ 177 0020 9B0C     		lsrs	r3, r3, #18
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 6
+
+
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 178              		.loc 1 83 7 view .LVU34
+ 179 0022 03FB04F4 		mul	r4, r3, r4
+  84:Core/Src/lcd16x2.c **** }
+ 180              		.loc 1 84 2 is_stmt 1 view .LVU35
+ 181              	.L11:
+  84:Core/Src/lcd16x2.c **** }
+ 182              		.loc 1 84 41 view .LVU36
+  84:Core/Src/lcd16x2.c **** }
+ 183              		.loc 1 84 13 is_stmt 0 view .LVU37
+ 184 0026 104B     		ldr	r3, .L14+8
+ 185 0028 5B68     		ldr	r3, [r3, #4]
+  84:Core/Src/lcd16x2.c **** }
+ 186              		.loc 1 84 22 view .LVU38
+ 187 002a 5B1B     		subs	r3, r3, r5
+  84:Core/Src/lcd16x2.c **** }
+ 188              		.loc 1 84 41 view .LVU39
+ 189 002c A342     		cmp	r3, r4
+ 190 002e FAD3     		bcc	.L11
+ 191              	.LVL7:
+  84:Core/Src/lcd16x2.c **** }
+ 192              		.loc 1 84 41 view .LVU40
+ 193              	.LBE7:
+ 194              	.LBE6:
+  94:Core/Src/lcd16x2.c ****   DWT_Delay_us(60);
+ 195              		.loc 1 94 3 is_stmt 1 view .LVU41
+ 196 0030 0022     		movs	r2, #0
+ 197 0032 0B4B     		ldr	r3, .L14
+ 198 0034 1988     		ldrh	r1, [r3]
+ 199 0036 0B4B     		ldr	r3, .L14+4
+ 200 0038 1868     		ldr	r0, [r3]
+ 201 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 202              	.LVL8:
+  95:Core/Src/lcd16x2.c **** }
+ 203              		.loc 1 95 3 view .LVU42
+ 204 003e 3C24     		movs	r4, #60
+ 205              	.LVL9:
+ 206              	.LBB8:
+ 207              	.LBI8:
+  80:Core/Src/lcd16x2.c **** {
+ 208              		.loc 1 80 22 view .LVU43
+ 209              	.LBB9:
+  82:Core/Src/lcd16x2.c ****  usec *= (HAL_RCC_GetHCLKFreq() / 1000000);
+ 210              		.loc 1 82 2 view .LVU44
+  82:Core/Src/lcd16x2.c ****  usec *= (HAL_RCC_GetHCLKFreq() / 1000000);
+ 211              		.loc 1 82 11 is_stmt 0 view .LVU45
+ 212 0040 094B     		ldr	r3, .L14+8
+ 213 0042 5D68     		ldr	r5, [r3, #4]
+ 214              	.LVL10:
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 215              		.loc 1 83 2 is_stmt 1 view .LVU46
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 216              		.loc 1 83 11 is_stmt 0 view .LVU47
+ 217 0044 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 218              	.LVL11:
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 219              		.loc 1 83 33 view .LVU48
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 7
+
+
+ 220 0048 084B     		ldr	r3, .L14+12
+ 221 004a A3FB0023 		umull	r2, r3, r3, r0
+ 222 004e 9B0C     		lsrs	r3, r3, #18
+  83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
+ 223              		.loc 1 83 7 view .LVU49
+ 224 0050 03FB04F4 		mul	r4, r3, r4
+  84:Core/Src/lcd16x2.c **** }
+ 225              		.loc 1 84 2 is_stmt 1 view .LVU50
+ 226              	.L12:
+  84:Core/Src/lcd16x2.c **** }
+ 227              		.loc 1 84 41 view .LVU51
+  84:Core/Src/lcd16x2.c **** }
+ 228              		.loc 1 84 13 is_stmt 0 view .LVU52
+ 229 0054 044B     		ldr	r3, .L14+8
+ 230 0056 5B68     		ldr	r3, [r3, #4]
+  84:Core/Src/lcd16x2.c **** }
+ 231              		.loc 1 84 22 view .LVU53
+ 232 0058 5B1B     		subs	r3, r3, r5
+  84:Core/Src/lcd16x2.c **** }
+ 233              		.loc 1 84 41 view .LVU54
+ 234 005a A342     		cmp	r3, r4
+ 235 005c FAD3     		bcc	.L12
+ 236              	.LBE9:
+ 237              	.LBE8:
+  96:Core/Src/lcd16x2.c **** 
+ 238              		.loc 1 96 1 view .LVU55
+ 239 005e 38BD     		pop	{r3, r4, r5, pc}
+ 240              	.LVL12:
+ 241              	.L15:
+  96:Core/Src/lcd16x2.c **** 
+ 242              		.loc 1 96 1 view .LVU56
+ 243              		.align	2
+ 244              	.L14:
+ 245 0060 00000000 		.word	.LANCHOR2
+ 246 0064 00000000 		.word	.LANCHOR1
+ 247 0068 001000E0 		.word	-536866816
+ 248 006c 83DE1B43 		.word	1125899907
+ 249              		.cfi_endproc
+ 250              	.LFE1109:
+ 252              		.section	.text.lcd16x2_write,"ax",%progbits
+ 253              		.align	1
+ 254              		.syntax unified
+ 255              		.thumb
+ 256              		.thumb_func
+ 258              	lcd16x2_write:
+ 259              	.LVL13:
+ 260              	.LFB1111:
+ 105:Core/Src/lcd16x2.c **** 
+ 106:Core/Src/lcd16x2.c **** /**
+ 107:Core/Src/lcd16x2.c ****  * @brief Write parallel signal to lcd
+ 108:Core/Src/lcd16x2.c ****  */
+ 109:Core/Src/lcd16x2.c **** static void lcd16x2_write(uint8_t wbyte)
+ 110:Core/Src/lcd16x2.c **** {
+ 261              		.loc 1 110 1 is_stmt 1 view -0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 8
+
+
+ 265              		.loc 1 110 1 is_stmt 0 view .LVU58
+ 266 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 267              		.cfi_def_cfa_offset 32
+ 268              		.cfi_offset 4, -32
+ 269              		.cfi_offset 5, -28
+ 270              		.cfi_offset 6, -24
+ 271              		.cfi_offset 7, -20
+ 272              		.cfi_offset 8, -16
+ 273              		.cfi_offset 9, -12
+ 274              		.cfi_offset 10, -8
+ 275              		.cfi_offset 14, -4
+ 276 0004 0446     		mov	r4, r0
+ 111:Core/Src/lcd16x2.c ****   uint8_t LSB_nibble = wbyte&0xF, MSB_nibble = (wbyte>>4)&0xF;
+ 277              		.loc 1 111 3 is_stmt 1 view .LVU59
+ 278              	.LVL14:
+ 279              		.loc 1 111 35 is_stmt 0 view .LVU60
+ 280 0006 0609     		lsrs	r6, r0, #4
+ 281              	.LVL15:
+ 112:Core/Src/lcd16x2.c ****   if(is8BitsMode)
+ 282              		.loc 1 112 3 is_stmt 1 view .LVU61
+ 283              		.loc 1 112 6 is_stmt 0 view .LVU62
+ 284 0008 424B     		ldr	r3, .L20
+ 285 000a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 286              		.loc 1 112 5 view .LVU63
+ 287 000c 002B     		cmp	r3, #0
+ 288 000e 3DD0     		beq	.L17
+ 113:Core/Src/lcd16x2.c ****   {
+ 114:Core/Src/lcd16x2.c ****     //LSB data
+ 115:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_LSB, D0_PIN, (GPIO_PinState)(LSB_nibble&0x1));
+ 289              		.loc 1 115 5 is_stmt 1 view .LVU64
+ 290 0010 414D     		ldr	r5, .L20+4
+ 291 0012 00F00102 		and	r2, r0, #1
+ 292 0016 414B     		ldr	r3, .L20+8
+ 293 0018 1988     		ldrh	r1, [r3]
+ 294 001a 2868     		ldr	r0, [r5]
+ 295              	.LVL16:
+ 296              		.loc 1 115 5 is_stmt 0 view .LVU65
+ 297 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 298              	.LVL17:
+ 116:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_LSB, D1_PIN, (GPIO_PinState)(LSB_nibble&0x2));
+ 299              		.loc 1 116 5 is_stmt 1 view .LVU66
+ 300 0020 04F00202 		and	r2, r4, #2
+ 301 0024 3E4B     		ldr	r3, .L20+12
+ 302 0026 1988     		ldrh	r1, [r3]
+ 303 0028 2868     		ldr	r0, [r5]
+ 304 002a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 305              	.LVL18:
+ 117:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_LSB, D2_PIN, (GPIO_PinState)(LSB_nibble&0x4));
+ 306              		.loc 1 117 5 view .LVU67
+ 307 002e 04F00402 		and	r2, r4, #4
+ 308 0032 3C4B     		ldr	r3, .L20+16
+ 309 0034 1988     		ldrh	r1, [r3]
+ 310 0036 2868     		ldr	r0, [r5]
+ 311 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 312              	.LVL19:
+ 118:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_LSB, D3_PIN, (GPIO_PinState)(LSB_nibble&0x8));
+ 313              		.loc 1 118 5 view .LVU68
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 9
+
+
+ 314 003c 04F00802 		and	r2, r4, #8
+ 315 0040 394B     		ldr	r3, .L20+20
+ 316 0042 1988     		ldrh	r1, [r3]
+ 317 0044 2868     		ldr	r0, [r5]
+ 318 0046 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 319              	.LVL20:
+ 119:Core/Src/lcd16x2.c ****     //MSB data
+ 120:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D4_PIN, (GPIO_PinState)(MSB_nibble&0x1));
+ 320              		.loc 1 120 5 view .LVU69
+ 321 004a 384C     		ldr	r4, .L20+24
+ 322 004c 06F00102 		and	r2, r6, #1
+ 323 0050 374B     		ldr	r3, .L20+28
+ 324 0052 1988     		ldrh	r1, [r3]
+ 325 0054 2068     		ldr	r0, [r4]
+ 326 0056 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 327              	.LVL21:
+ 121:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(MSB_nibble&0x2));
+ 328              		.loc 1 121 5 view .LVU70
+ 329 005a 06F00202 		and	r2, r6, #2
+ 330 005e 354B     		ldr	r3, .L20+32
+ 331 0060 1988     		ldrh	r1, [r3]
+ 332 0062 2068     		ldr	r0, [r4]
+ 333 0064 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 334              	.LVL22:
+ 122:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(MSB_nibble&0x4));
+ 335              		.loc 1 122 5 view .LVU71
+ 336 0068 06F00402 		and	r2, r6, #4
+ 337 006c 324B     		ldr	r3, .L20+36
+ 338 006e 1988     		ldrh	r1, [r3]
+ 339 0070 2068     		ldr	r0, [r4]
+ 340 0072 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 341              	.LVL23:
+ 123:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D7_PIN, (GPIO_PinState)(MSB_nibble&0x8));
+ 342              		.loc 1 123 5 view .LVU72
+ 343 0076 06F00802 		and	r2, r6, #8
+ 344 007a 304B     		ldr	r3, .L20+40
+ 345 007c 1988     		ldrh	r1, [r3]
+ 346 007e 2068     		ldr	r0, [r4]
+ 347 0080 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 348              	.LVL24:
+ 124:Core/Src/lcd16x2.c ****     lcd16x2_enablePulse();
+ 349              		.loc 1 124 5 view .LVU73
+ 350 0084 FFF7FEFF 		bl	lcd16x2_enablePulse
+ 351              	.LVL25:
+ 352              	.L16:
+ 125:Core/Src/lcd16x2.c ****   }
+ 126:Core/Src/lcd16x2.c ****   else
+ 127:Core/Src/lcd16x2.c ****   {
+ 128:Core/Src/lcd16x2.c ****     //MSB data
+ 129:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D4_PIN, (GPIO_PinState)(MSB_nibble&0x1));
+ 130:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(MSB_nibble&0x2));
+ 131:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(MSB_nibble&0x4));
+ 132:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D7_PIN, (GPIO_PinState)(MSB_nibble&0x8));
+ 133:Core/Src/lcd16x2.c ****     lcd16x2_enablePulse();
+ 134:Core/Src/lcd16x2.c ****     //LSB data
+ 135:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D4_PIN, (GPIO_PinState)(LSB_nibble&0x1));
+ 136:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(LSB_nibble&0x2));
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 10
+
+
+ 137:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(LSB_nibble&0x4));
+ 138:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D7_PIN, (GPIO_PinState)(LSB_nibble&0x8));
+ 139:Core/Src/lcd16x2.c ****     lcd16x2_enablePulse();
+ 140:Core/Src/lcd16x2.c ****   }
+ 141:Core/Src/lcd16x2.c **** }
+ 353              		.loc 1 141 1 is_stmt 0 view .LVU74
+ 354 0088 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 355              	.LVL26:
+ 356              	.L17:
+ 129:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(MSB_nibble&0x2));
+ 357              		.loc 1 129 5 is_stmt 1 view .LVU75
+ 358 008c DFF8A0A0 		ldr	r10, .L20+28
+ 359 0090 264D     		ldr	r5, .L20+24
+ 360 0092 06F00102 		and	r2, r6, #1
+ 361 0096 BAF80010 		ldrh	r1, [r10]
+ 362 009a 2868     		ldr	r0, [r5]
+ 363              	.LVL27:
+ 129:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(MSB_nibble&0x2));
+ 364              		.loc 1 129 5 is_stmt 0 view .LVU76
+ 365 009c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 366              	.LVL28:
+ 130:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(MSB_nibble&0x4));
+ 367              		.loc 1 130 5 is_stmt 1 view .LVU77
+ 368 00a0 DFF89090 		ldr	r9, .L20+32
+ 369 00a4 06F00202 		and	r2, r6, #2
+ 370 00a8 B9F80010 		ldrh	r1, [r9]
+ 371 00ac 2868     		ldr	r0, [r5]
+ 372 00ae FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 373              	.LVL29:
+ 131:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D7_PIN, (GPIO_PinState)(MSB_nibble&0x8));
+ 374              		.loc 1 131 5 view .LVU78
+ 375 00b2 DFF88480 		ldr	r8, .L20+36
+ 376 00b6 06F00402 		and	r2, r6, #4
+ 377 00ba B8F80010 		ldrh	r1, [r8]
+ 378 00be 2868     		ldr	r0, [r5]
+ 379 00c0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 380              	.LVL30:
+ 132:Core/Src/lcd16x2.c ****     lcd16x2_enablePulse();
+ 381              		.loc 1 132 5 view .LVU79
+ 382 00c4 1D4F     		ldr	r7, .L20+40
+ 383 00c6 06F00802 		and	r2, r6, #8
+ 384 00ca 3988     		ldrh	r1, [r7]
+ 385 00cc 2868     		ldr	r0, [r5]
+ 386 00ce FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 387              	.LVL31:
+ 133:Core/Src/lcd16x2.c ****     //LSB data
+ 388              		.loc 1 133 5 view .LVU80
+ 389 00d2 FFF7FEFF 		bl	lcd16x2_enablePulse
+ 390              	.LVL32:
+ 135:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(LSB_nibble&0x2));
+ 391              		.loc 1 135 5 view .LVU81
+ 392 00d6 04F00102 		and	r2, r4, #1
+ 393 00da BAF80010 		ldrh	r1, [r10]
+ 394 00de 2868     		ldr	r0, [r5]
+ 395 00e0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 396              	.LVL33:
+ 136:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(LSB_nibble&0x4));
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 11
+
+
+ 397              		.loc 1 136 5 view .LVU82
+ 398 00e4 04F00202 		and	r2, r4, #2
+ 399 00e8 B9F80010 		ldrh	r1, [r9]
+ 400 00ec 2868     		ldr	r0, [r5]
+ 401 00ee FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 402              	.LVL34:
+ 137:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D7_PIN, (GPIO_PinState)(LSB_nibble&0x8));
+ 403              		.loc 1 137 5 view .LVU83
+ 404 00f2 04F00402 		and	r2, r4, #4
+ 405 00f6 B8F80010 		ldrh	r1, [r8]
+ 406 00fa 2868     		ldr	r0, [r5]
+ 407 00fc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 408              	.LVL35:
+ 138:Core/Src/lcd16x2.c ****     lcd16x2_enablePulse();
+ 409              		.loc 1 138 5 view .LVU84
+ 410 0100 04F00802 		and	r2, r4, #8
+ 411 0104 3988     		ldrh	r1, [r7]
+ 412 0106 2868     		ldr	r0, [r5]
+ 413 0108 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 414              	.LVL36:
+ 139:Core/Src/lcd16x2.c ****   }
+ 415              		.loc 1 139 5 view .LVU85
+ 416 010c FFF7FEFF 		bl	lcd16x2_enablePulse
+ 417              	.LVL37:
+ 418              		.loc 1 141 1 is_stmt 0 view .LVU86
+ 419 0110 BAE7     		b	.L16
+ 420              	.L21:
+ 421 0112 00BF     		.align	2
+ 422              	.L20:
+ 423 0114 00000000 		.word	.LANCHOR3
+ 424 0118 00000000 		.word	.LANCHOR5
+ 425 011c 00000000 		.word	.LANCHOR4
+ 426 0120 00000000 		.word	.LANCHOR6
+ 427 0124 00000000 		.word	.LANCHOR7
+ 428 0128 00000000 		.word	.LANCHOR8
+ 429 012c 00000000 		.word	.LANCHOR10
+ 430 0130 00000000 		.word	.LANCHOR9
+ 431 0134 00000000 		.word	.LANCHOR11
+ 432 0138 00000000 		.word	.LANCHOR12
+ 433 013c 00000000 		.word	.LANCHOR13
+ 434              		.cfi_endproc
+ 435              	.LFE1111:
+ 437              		.section	.text.lcd16x2_writeCommand,"ax",%progbits
+ 438              		.align	1
+ 439              		.syntax unified
+ 440              		.thumb
+ 441              		.thumb_func
+ 443              	lcd16x2_writeCommand:
+ 444              	.LVL38:
+ 445              	.LFB1112:
+ 142:Core/Src/lcd16x2.c **** 
+ 143:Core/Src/lcd16x2.c **** /**
+ 144:Core/Src/lcd16x2.c ****  * @brief Write command
+ 145:Core/Src/lcd16x2.c ****  */
+ 146:Core/Src/lcd16x2.c **** static void lcd16x2_writeCommand(uint8_t cmd)
+ 147:Core/Src/lcd16x2.c **** {
+ 446              		.loc 1 147 1 is_stmt 1 view -0
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 12
+
+
+ 447              		.cfi_startproc
+ 448              		@ args = 0, pretend = 0, frame = 0
+ 449              		@ frame_needed = 0, uses_anonymous_args = 0
+ 450              		.loc 1 147 1 is_stmt 0 view .LVU88
+ 451 0000 10B5     		push	{r4, lr}
+ 452              		.cfi_def_cfa_offset 8
+ 453              		.cfi_offset 4, -8
+ 454              		.cfi_offset 14, -4
+ 455 0002 0446     		mov	r4, r0
+ 148:Core/Src/lcd16x2.c ****   lcd16x2_rs(false);
+ 456              		.loc 1 148 3 is_stmt 1 view .LVU89
+ 457 0004 0020     		movs	r0, #0
+ 458              	.LVL39:
+ 459              		.loc 1 148 3 is_stmt 0 view .LVU90
+ 460 0006 FFF7FEFF 		bl	lcd16x2_rs
+ 461              	.LVL40:
+ 149:Core/Src/lcd16x2.c ****   lcd16x2_write(cmd);
+ 462              		.loc 1 149 3 is_stmt 1 view .LVU91
+ 463 000a 2046     		mov	r0, r4
+ 464 000c FFF7FEFF 		bl	lcd16x2_write
+ 465              	.LVL41:
+ 150:Core/Src/lcd16x2.c **** }
+ 466              		.loc 1 150 1 is_stmt 0 view .LVU92
+ 467 0010 10BD     		pop	{r4, pc}
+ 468              		.cfi_endproc
+ 469              	.LFE1112:
+ 471              		.section	.text.lcd16x2_writeData,"ax",%progbits
+ 472              		.align	1
+ 473              		.syntax unified
+ 474              		.thumb
+ 475              		.thumb_func
+ 477              	lcd16x2_writeData:
+ 478              	.LVL42:
+ 479              	.LFB1113:
+ 151:Core/Src/lcd16x2.c **** 
+ 152:Core/Src/lcd16x2.c **** /**
+ 153:Core/Src/lcd16x2.c ****  * @brief Write data
+ 154:Core/Src/lcd16x2.c ****  */
+ 155:Core/Src/lcd16x2.c **** static void lcd16x2_writeData(uint8_t data)
+ 156:Core/Src/lcd16x2.c **** {
+ 480              		.loc 1 156 1 is_stmt 1 view -0
+ 481              		.cfi_startproc
+ 482              		@ args = 0, pretend = 0, frame = 0
+ 483              		@ frame_needed = 0, uses_anonymous_args = 0
+ 484              		.loc 1 156 1 is_stmt 0 view .LVU94
+ 485 0000 10B5     		push	{r4, lr}
+ 486              		.cfi_def_cfa_offset 8
+ 487              		.cfi_offset 4, -8
+ 488              		.cfi_offset 14, -4
+ 489 0002 0446     		mov	r4, r0
+ 157:Core/Src/lcd16x2.c ****   lcd16x2_rs(true);
+ 490              		.loc 1 157 3 is_stmt 1 view .LVU95
+ 491 0004 0120     		movs	r0, #1
+ 492              	.LVL43:
+ 493              		.loc 1 157 3 is_stmt 0 view .LVU96
+ 494 0006 FFF7FEFF 		bl	lcd16x2_rs
+ 495              	.LVL44:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 13
+
+
+ 158:Core/Src/lcd16x2.c ****   lcd16x2_write(data);
+ 496              		.loc 1 158 3 is_stmt 1 view .LVU97
+ 497 000a 2046     		mov	r0, r4
+ 498 000c FFF7FEFF 		bl	lcd16x2_write
+ 499              	.LVL45:
+ 159:Core/Src/lcd16x2.c **** }
+ 500              		.loc 1 159 1 is_stmt 0 view .LVU98
+ 501 0010 10BD     		pop	{r4, pc}
+ 502              		.cfi_endproc
+ 503              	.LFE1113:
+ 505              		.section	.text.lcd16x2_write4,"ax",%progbits
+ 506              		.align	1
+ 507              		.syntax unified
+ 508              		.thumb
+ 509              		.thumb_func
+ 511              	lcd16x2_write4:
+ 512              	.LVL46:
+ 513              	.LFB1114:
+ 160:Core/Src/lcd16x2.c **** 
+ 161:Core/Src/lcd16x2.c **** /**
+ 162:Core/Src/lcd16x2.c ****  * @brief 4-bits write
+ 163:Core/Src/lcd16x2.c ****  */
+ 164:Core/Src/lcd16x2.c **** static void lcd16x2_write4(uint8_t nib)
+ 165:Core/Src/lcd16x2.c **** {
+ 514              		.loc 1 165 1 is_stmt 1 view -0
+ 515              		.cfi_startproc
+ 516              		@ args = 0, pretend = 0, frame = 0
+ 517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 518              		.loc 1 165 1 is_stmt 0 view .LVU100
+ 519 0000 38B5     		push	{r3, r4, r5, lr}
+ 520              		.cfi_def_cfa_offset 16
+ 521              		.cfi_offset 3, -16
+ 522              		.cfi_offset 4, -12
+ 523              		.cfi_offset 5, -8
+ 524              		.cfi_offset 14, -4
+ 525 0002 0446     		mov	r4, r0
+ 166:Core/Src/lcd16x2.c ****   nib &= 0xF;
+ 526              		.loc 1 166 3 is_stmt 1 view .LVU101
+ 527              	.LVL47:
+ 167:Core/Src/lcd16x2.c ****   lcd16x2_rs(false);
+ 528              		.loc 1 167 3 view .LVU102
+ 529 0004 0020     		movs	r0, #0
+ 530 0006 FFF7FEFF 		bl	lcd16x2_rs
+ 531              	.LVL48:
+ 168:Core/Src/lcd16x2.c ****   //LSB data
+ 169:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_MSB, D4_PIN, (GPIO_PinState)(nib&0x1));
+ 532              		.loc 1 169 3 view .LVU103
+ 533 000a 104D     		ldr	r5, .L28
+ 534 000c 04F00102 		and	r2, r4, #1
+ 535 0010 0F4B     		ldr	r3, .L28+4
+ 536 0012 1988     		ldrh	r1, [r3]
+ 537 0014 2868     		ldr	r0, [r5]
+ 538 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 539              	.LVL49:
+ 170:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(nib&0x2));
+ 540              		.loc 1 170 3 view .LVU104
+ 541 001a 04F00202 		and	r2, r4, #2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 14
+
+
+ 542 001e 0D4B     		ldr	r3, .L28+8
+ 543 0020 1988     		ldrh	r1, [r3]
+ 544 0022 2868     		ldr	r0, [r5]
+ 545 0024 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 546              	.LVL50:
+ 171:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(nib&0x4));
+ 547              		.loc 1 171 3 view .LVU105
+ 548 0028 04F00402 		and	r2, r4, #4
+ 549 002c 0A4B     		ldr	r3, .L28+12
+ 550 002e 1988     		ldrh	r1, [r3]
+ 551 0030 2868     		ldr	r0, [r5]
+ 552 0032 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 553              	.LVL51:
+ 172:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_MSB, D7_PIN, (GPIO_PinState)(nib&0x8));
+ 554              		.loc 1 172 3 view .LVU106
+ 555 0036 04F00802 		and	r2, r4, #8
+ 556 003a 084B     		ldr	r3, .L28+16
+ 557 003c 1988     		ldrh	r1, [r3]
+ 558 003e 2868     		ldr	r0, [r5]
+ 559 0040 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 560              	.LVL52:
+ 173:Core/Src/lcd16x2.c ****   lcd16x2_enablePulse();
+ 561              		.loc 1 173 3 view .LVU107
+ 562 0044 FFF7FEFF 		bl	lcd16x2_enablePulse
+ 563              	.LVL53:
+ 174:Core/Src/lcd16x2.c **** }
+ 564              		.loc 1 174 1 is_stmt 0 view .LVU108
+ 565 0048 38BD     		pop	{r3, r4, r5, pc}
+ 566              	.LVL54:
+ 567              	.L29:
+ 568              		.loc 1 174 1 view .LVU109
+ 569 004a 00BF     		.align	2
+ 570              	.L28:
+ 571 004c 00000000 		.word	.LANCHOR10
+ 572 0050 00000000 		.word	.LANCHOR9
+ 573 0054 00000000 		.word	.LANCHOR11
+ 574 0058 00000000 		.word	.LANCHOR12
+ 575 005c 00000000 		.word	.LANCHOR13
+ 576              		.cfi_endproc
+ 577              	.LFE1114:
+ 579              		.section	.text.lcd16x2_init_8bits,"ax",%progbits
+ 580              		.align	1
+ 581              		.global	lcd16x2_init_8bits
+ 582              		.syntax unified
+ 583              		.thumb
+ 584              		.thumb_func
+ 586              	lcd16x2_init_8bits:
+ 587              	.LVL55:
+ 588              	.LFB1115:
+ 175:Core/Src/lcd16x2.c **** 
+ 176:Core/Src/lcd16x2.c **** /* Public functions definitions */
+ 177:Core/Src/lcd16x2.c **** 
+ 178:Core/Src/lcd16x2.c **** /**
+ 179:Core/Src/lcd16x2.c ****  * @brief Initialise LCD on 8-bits mode
+ 180:Core/Src/lcd16x2.c ****  * @param[in] *port_rs_e RS and EN GPIO Port (e.g. GPIOB)
+ 181:Core/Src/lcd16x2.c ****  * @param[in] *port_0_3 D0 to D3 GPIO Port
+ 182:Core/Src/lcd16x2.c ****  * @param[in] *port_4_7 D4 to D7 GPIO Port
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 15
+
+
+ 183:Core/Src/lcd16x2.c ****  * @param[in] x_pin GPIO pin (e.g. GPIO_PIN_1)
+ 184:Core/Src/lcd16x2.c ****  */
+ 185:Core/Src/lcd16x2.c **** void lcd16x2_init_8bits(
+ 186:Core/Src/lcd16x2.c ****     GPIO_TypeDef* port_rs_e, uint16_t rs_pin, uint16_t e_pin,
+ 187:Core/Src/lcd16x2.c ****     GPIO_TypeDef* port_0_3, uint16_t d0_pin, uint16_t d1_pin, uint16_t d2_pin, uint16_t d3_pin,
+ 188:Core/Src/lcd16x2.c ****     GPIO_TypeDef* port_4_7, uint16_t d4_pin, uint16_t d5_pin, uint16_t d6_pin, uint16_t d7_pin)
+ 189:Core/Src/lcd16x2.c **** {
+ 589              		.loc 1 189 1 is_stmt 1 view -0
+ 590              		.cfi_startproc
+ 591              		@ args = 36, pretend = 0, frame = 0
+ 592              		@ frame_needed = 0, uses_anonymous_args = 0
+ 593              		.loc 1 189 1 is_stmt 0 view .LVU111
+ 594 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 595              		.cfi_def_cfa_offset 24
+ 596              		.cfi_offset 3, -24
+ 597              		.cfi_offset 4, -20
+ 598              		.cfi_offset 5, -16
+ 599              		.cfi_offset 6, -12
+ 600              		.cfi_offset 7, -8
+ 601              		.cfi_offset 14, -4
+ 602 0002 0746     		mov	r7, r0
+ 603 0004 0E46     		mov	r6, r1
+ 604 0006 1546     		mov	r5, r2
+ 605 0008 1C46     		mov	r4, r3
+ 190:Core/Src/lcd16x2.c ****   DWT_Delay_Init();
+ 606              		.loc 1 190 3 is_stmt 1 view .LVU112
+ 607 000a FFF7FEFF 		bl	DWT_Delay_Init
+ 608              	.LVL56:
+ 191:Core/Src/lcd16x2.c ****   //Set GPIO Ports and Pins data
+ 192:Core/Src/lcd16x2.c ****   PORT_RS_and_E = port_rs_e;
+ 609              		.loc 1 192 3 view .LVU113
+ 610              		.loc 1 192 17 is_stmt 0 view .LVU114
+ 611 000e 294B     		ldr	r3, .L32
+ 612 0010 1F60     		str	r7, [r3]
+ 193:Core/Src/lcd16x2.c ****   PIN_RS = rs_pin;
+ 613              		.loc 1 193 3 is_stmt 1 view .LVU115
+ 614              		.loc 1 193 10 is_stmt 0 view .LVU116
+ 615 0012 294B     		ldr	r3, .L32+4
+ 616 0014 1E80     		strh	r6, [r3]	@ movhi
+ 194:Core/Src/lcd16x2.c ****   PIN_E = e_pin;
+ 617              		.loc 1 194 3 is_stmt 1 view .LVU117
+ 618              		.loc 1 194 9 is_stmt 0 view .LVU118
+ 619 0016 294B     		ldr	r3, .L32+8
+ 620 0018 1D80     		strh	r5, [r3]	@ movhi
+ 195:Core/Src/lcd16x2.c ****   PORT_LSB = port_0_3;
+ 621              		.loc 1 195 3 is_stmt 1 view .LVU119
+ 622              		.loc 1 195 12 is_stmt 0 view .LVU120
+ 623 001a 294B     		ldr	r3, .L32+12
+ 624 001c 1C60     		str	r4, [r3]
+ 196:Core/Src/lcd16x2.c ****   D0_PIN = d0_pin;
+ 625              		.loc 1 196 3 is_stmt 1 view .LVU121
+ 626              		.loc 1 196 10 is_stmt 0 view .LVU122
+ 627 001e BDF81820 		ldrh	r2, [sp, #24]
+ 628 0022 284B     		ldr	r3, .L32+16
+ 629 0024 1A80     		strh	r2, [r3]	@ movhi
+ 197:Core/Src/lcd16x2.c ****   D1_PIN = d1_pin;
+ 630              		.loc 1 197 3 is_stmt 1 view .LVU123
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 16
+
+
+ 631              		.loc 1 197 10 is_stmt 0 view .LVU124
+ 632 0026 BDF81C20 		ldrh	r2, [sp, #28]
+ 633 002a 274B     		ldr	r3, .L32+20
+ 634 002c 1A80     		strh	r2, [r3]	@ movhi
+ 198:Core/Src/lcd16x2.c ****   D2_PIN = d2_pin;
+ 635              		.loc 1 198 3 is_stmt 1 view .LVU125
+ 636              		.loc 1 198 10 is_stmt 0 view .LVU126
+ 637 002e BDF82020 		ldrh	r2, [sp, #32]
+ 638 0032 264B     		ldr	r3, .L32+24
+ 639 0034 1A80     		strh	r2, [r3]	@ movhi
+ 199:Core/Src/lcd16x2.c ****   D3_PIN = d3_pin;
+ 640              		.loc 1 199 3 is_stmt 1 view .LVU127
+ 641              		.loc 1 199 10 is_stmt 0 view .LVU128
+ 642 0036 BDF82420 		ldrh	r2, [sp, #36]
+ 643 003a 254B     		ldr	r3, .L32+28
+ 644 003c 1A80     		strh	r2, [r3]	@ movhi
+ 200:Core/Src/lcd16x2.c ****   PORT_MSB = port_4_7;
+ 645              		.loc 1 200 3 is_stmt 1 view .LVU129
+ 646              		.loc 1 200 12 is_stmt 0 view .LVU130
+ 647 003e 0A9A     		ldr	r2, [sp, #40]
+ 648 0040 244B     		ldr	r3, .L32+32
+ 649 0042 1A60     		str	r2, [r3]
+ 201:Core/Src/lcd16x2.c ****   D4_PIN = d4_pin;
+ 650              		.loc 1 201 3 is_stmt 1 view .LVU131
+ 651              		.loc 1 201 10 is_stmt 0 view .LVU132
+ 652 0044 BDF82C20 		ldrh	r2, [sp, #44]
+ 653 0048 234B     		ldr	r3, .L32+36
+ 654 004a 1A80     		strh	r2, [r3]	@ movhi
+ 202:Core/Src/lcd16x2.c ****   D5_PIN = d5_pin;
+ 655              		.loc 1 202 3 is_stmt 1 view .LVU133
+ 656              		.loc 1 202 10 is_stmt 0 view .LVU134
+ 657 004c BDF83020 		ldrh	r2, [sp, #48]
+ 658 0050 224B     		ldr	r3, .L32+40
+ 659 0052 1A80     		strh	r2, [r3]	@ movhi
+ 203:Core/Src/lcd16x2.c ****   D6_PIN = d6_pin;
+ 660              		.loc 1 203 3 is_stmt 1 view .LVU135
+ 661              		.loc 1 203 10 is_stmt 0 view .LVU136
+ 662 0054 BDF83420 		ldrh	r2, [sp, #52]
+ 663 0058 214B     		ldr	r3, .L32+44
+ 664 005a 1A80     		strh	r2, [r3]	@ movhi
+ 204:Core/Src/lcd16x2.c ****   D7_PIN = d7_pin;
+ 665              		.loc 1 204 3 is_stmt 1 view .LVU137
+ 666              		.loc 1 204 10 is_stmt 0 view .LVU138
+ 667 005c BDF83820 		ldrh	r2, [sp, #56]
+ 668 0060 204B     		ldr	r3, .L32+48
+ 669 0062 1A80     		strh	r2, [r3]	@ movhi
+ 205:Core/Src/lcd16x2.c ****   is8BitsMode = true;
+ 670              		.loc 1 205 3 is_stmt 1 view .LVU139
+ 671              		.loc 1 205 15 is_stmt 0 view .LVU140
+ 672 0064 0124     		movs	r4, #1
+ 673              	.LVL57:
+ 674              		.loc 1 205 15 view .LVU141
+ 675 0066 204B     		ldr	r3, .L32+52
+ 676 0068 1C70     		strb	r4, [r3]
+ 206:Core/Src/lcd16x2.c ****   FunctionSet = 0x38;
+ 677              		.loc 1 206 3 is_stmt 1 view .LVU142
+ 678              		.loc 1 206 15 is_stmt 0 view .LVU143
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 17
+
+
+ 679 006a 3825     		movs	r5, #56
+ 680 006c 1F4B     		ldr	r3, .L32+56
+ 681 006e 1D70     		strb	r5, [r3]
+ 207:Core/Src/lcd16x2.c **** 
+ 208:Core/Src/lcd16x2.c ****   //Initialise LCD
+ 209:Core/Src/lcd16x2.c ****   //1. Wait at least 15ms
+ 210:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(20);
+ 682              		.loc 1 210 3 is_stmt 1 view .LVU144
+ 683 0070 1420     		movs	r0, #20
+ 684 0072 FFF7FEFF 		bl	HAL_Delay
+ 685              	.LVL58:
+ 211:Core/Src/lcd16x2.c ****   //2. Attentions sequence
+ 212:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(0x30);
+ 686              		.loc 1 212 3 view .LVU145
+ 687 0076 3020     		movs	r0, #48
+ 688 0078 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 689              	.LVL59:
+ 213:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(5);
+ 690              		.loc 1 213 3 view .LVU146
+ 691 007c 0520     		movs	r0, #5
+ 692 007e FFF7FEFF 		bl	HAL_Delay
+ 693              	.LVL60:
+ 214:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(0x30);
+ 694              		.loc 1 214 3 view .LVU147
+ 695 0082 3020     		movs	r0, #48
+ 696 0084 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 697              	.LVL61:
+ 215:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(1);
+ 698              		.loc 1 215 3 view .LVU148
+ 699 0088 2046     		mov	r0, r4
+ 700 008a FFF7FEFF 		bl	HAL_Delay
+ 701              	.LVL62:
+ 216:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(0x30);
+ 702              		.loc 1 216 3 view .LVU149
+ 703 008e 3020     		movs	r0, #48
+ 704 0090 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 705              	.LVL63:
+ 217:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(1);
+ 706              		.loc 1 217 3 view .LVU150
+ 707 0094 2046     		mov	r0, r4
+ 708 0096 FFF7FEFF 		bl	HAL_Delay
+ 709              	.LVL64:
+ 218:Core/Src/lcd16x2.c ****   //3. Function set; Enable 2 lines, Data length to 8 bits
+ 219:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_FUNCTIONSET | LCD_FUNCTION_N | LCD_FUNCTION_DL);
+ 710              		.loc 1 219 3 view .LVU151
+ 711 009a 2846     		mov	r0, r5
+ 712 009c FFF7FEFF 		bl	lcd16x2_writeCommand
+ 713              	.LVL65:
+ 220:Core/Src/lcd16x2.c ****   //4. Display control (Display ON, Cursor ON, blink cursor)
+ 221:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_DISPLAYCONTROL | LCD_DISPLAY_B | LCD_DISPLAY_C | LCD_DISPLAY_D);
+ 714              		.loc 1 221 3 view .LVU152
+ 715 00a0 0F20     		movs	r0, #15
+ 716 00a2 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 717              	.LVL66:
+ 222:Core/Src/lcd16x2.c ****   //5. Clear LCD and return home
+ 223:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_CLEARDISPLAY);
+ 718              		.loc 1 223 3 view .LVU153
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 18
+
+
+ 719 00a6 2046     		mov	r0, r4
+ 720 00a8 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 721              	.LVL67:
+ 224:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(2);
+ 722              		.loc 1 224 3 view .LVU154
+ 723 00ac 0220     		movs	r0, #2
+ 724 00ae FFF7FEFF 		bl	HAL_Delay
+ 725              	.LVL68:
+ 225:Core/Src/lcd16x2.c **** }
+ 726              		.loc 1 225 1 is_stmt 0 view .LVU155
+ 727 00b2 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 728              	.LVL69:
+ 729              	.L33:
+ 730              		.loc 1 225 1 view .LVU156
+ 731              		.align	2
+ 732              	.L32:
+ 733 00b4 00000000 		.word	.LANCHOR1
+ 734 00b8 00000000 		.word	.LANCHOR0
+ 735 00bc 00000000 		.word	.LANCHOR2
+ 736 00c0 00000000 		.word	.LANCHOR5
+ 737 00c4 00000000 		.word	.LANCHOR4
+ 738 00c8 00000000 		.word	.LANCHOR6
+ 739 00cc 00000000 		.word	.LANCHOR7
+ 740 00d0 00000000 		.word	.LANCHOR8
+ 741 00d4 00000000 		.word	.LANCHOR10
+ 742 00d8 00000000 		.word	.LANCHOR9
+ 743 00dc 00000000 		.word	.LANCHOR11
+ 744 00e0 00000000 		.word	.LANCHOR12
+ 745 00e4 00000000 		.word	.LANCHOR13
+ 746 00e8 00000000 		.word	.LANCHOR3
+ 747 00ec 00000000 		.word	.LANCHOR14
+ 748              		.cfi_endproc
+ 749              	.LFE1115:
+ 751              		.section	.text.lcd16x2_init_4bits,"ax",%progbits
+ 752              		.align	1
+ 753              		.global	lcd16x2_init_4bits
+ 754              		.syntax unified
+ 755              		.thumb
+ 756              		.thumb_func
+ 758              	lcd16x2_init_4bits:
+ 759              	.LVL70:
+ 760              	.LFB1116:
+ 226:Core/Src/lcd16x2.c **** 
+ 227:Core/Src/lcd16x2.c **** /**
+ 228:Core/Src/lcd16x2.c ****  * @brief Initialise LCD on 4-bits mode
+ 229:Core/Src/lcd16x2.c ****  * @param[in] *port_4_7 D4 to D7 GPIO Port
+ 230:Core/Src/lcd16x2.c ****  * @param[in] x_pin GPIO pin (e.g. GPIO_PIN_1)
+ 231:Core/Src/lcd16x2.c ****  */
+ 232:Core/Src/lcd16x2.c **** void lcd16x2_init_4bits(
+ 233:Core/Src/lcd16x2.c ****     GPIO_TypeDef* port_rs_e, uint16_t rs_pin, uint16_t e_pin,
+ 234:Core/Src/lcd16x2.c ****     GPIO_TypeDef* port_4_7, uint16_t d4_pin, uint16_t d5_pin, uint16_t d6_pin, uint16_t d7_pin)
+ 235:Core/Src/lcd16x2.c **** {
+ 761              		.loc 1 235 1 is_stmt 1 view -0
+ 762              		.cfi_startproc
+ 763              		@ args = 16, pretend = 0, frame = 0
+ 764              		@ frame_needed = 0, uses_anonymous_args = 0
+ 765              		.loc 1 235 1 is_stmt 0 view .LVU158
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 19
+
+
+ 766 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 767              		.cfi_def_cfa_offset 24
+ 768              		.cfi_offset 3, -24
+ 769              		.cfi_offset 4, -20
+ 770              		.cfi_offset 5, -16
+ 771              		.cfi_offset 6, -12
+ 772              		.cfi_offset 7, -8
+ 773              		.cfi_offset 14, -4
+ 774 0002 0746     		mov	r7, r0
+ 775 0004 0E46     		mov	r6, r1
+ 776 0006 1546     		mov	r5, r2
+ 777 0008 1C46     		mov	r4, r3
+ 236:Core/Src/lcd16x2.c ****   DWT_Delay_Init();
+ 778              		.loc 1 236 3 is_stmt 1 view .LVU159
+ 779 000a FFF7FEFF 		bl	DWT_Delay_Init
+ 780              	.LVL71:
+ 237:Core/Src/lcd16x2.c ****   //Set GPIO Ports and Pins data
+ 238:Core/Src/lcd16x2.c ****   PORT_RS_and_E = port_rs_e;
+ 781              		.loc 1 238 3 view .LVU160
+ 782              		.loc 1 238 17 is_stmt 0 view .LVU161
+ 783 000e 234B     		ldr	r3, .L36
+ 784 0010 1F60     		str	r7, [r3]
+ 239:Core/Src/lcd16x2.c ****   PIN_RS = rs_pin;
+ 785              		.loc 1 239 3 is_stmt 1 view .LVU162
+ 786              		.loc 1 239 10 is_stmt 0 view .LVU163
+ 787 0012 234B     		ldr	r3, .L36+4
+ 788 0014 1E80     		strh	r6, [r3]	@ movhi
+ 240:Core/Src/lcd16x2.c ****   PIN_E = e_pin;
+ 789              		.loc 1 240 3 is_stmt 1 view .LVU164
+ 790              		.loc 1 240 9 is_stmt 0 view .LVU165
+ 791 0016 234B     		ldr	r3, .L36+8
+ 792 0018 1D80     		strh	r5, [r3]	@ movhi
+ 241:Core/Src/lcd16x2.c ****   PORT_MSB = port_4_7;
+ 793              		.loc 1 241 3 is_stmt 1 view .LVU166
+ 794              		.loc 1 241 12 is_stmt 0 view .LVU167
+ 795 001a 234B     		ldr	r3, .L36+12
+ 796 001c 1C60     		str	r4, [r3]
+ 242:Core/Src/lcd16x2.c ****   D4_PIN = d4_pin;
+ 797              		.loc 1 242 3 is_stmt 1 view .LVU168
+ 798              		.loc 1 242 10 is_stmt 0 view .LVU169
+ 799 001e BDF81820 		ldrh	r2, [sp, #24]
+ 800 0022 224B     		ldr	r3, .L36+16
+ 801 0024 1A80     		strh	r2, [r3]	@ movhi
+ 243:Core/Src/lcd16x2.c ****   D5_PIN = d5_pin;
+ 802              		.loc 1 243 3 is_stmt 1 view .LVU170
+ 803              		.loc 1 243 10 is_stmt 0 view .LVU171
+ 804 0026 BDF81C20 		ldrh	r2, [sp, #28]
+ 805 002a 214B     		ldr	r3, .L36+20
+ 806 002c 1A80     		strh	r2, [r3]	@ movhi
+ 244:Core/Src/lcd16x2.c ****   D6_PIN = d6_pin;
+ 807              		.loc 1 244 3 is_stmt 1 view .LVU172
+ 808              		.loc 1 244 10 is_stmt 0 view .LVU173
+ 809 002e BDF82020 		ldrh	r2, [sp, #32]
+ 810 0032 204B     		ldr	r3, .L36+24
+ 811 0034 1A80     		strh	r2, [r3]	@ movhi
+ 245:Core/Src/lcd16x2.c ****   D7_PIN = d7_pin;
+ 812              		.loc 1 245 3 is_stmt 1 view .LVU174
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 20
+
+
+ 813              		.loc 1 245 10 is_stmt 0 view .LVU175
+ 814 0036 BDF82420 		ldrh	r2, [sp, #36]
+ 815 003a 1F4B     		ldr	r3, .L36+28
+ 816 003c 1A80     		strh	r2, [r3]	@ movhi
+ 246:Core/Src/lcd16x2.c ****   is8BitsMode = false;
+ 817              		.loc 1 246 3 is_stmt 1 view .LVU176
+ 818              		.loc 1 246 15 is_stmt 0 view .LVU177
+ 819 003e 1F4B     		ldr	r3, .L36+32
+ 820 0040 0022     		movs	r2, #0
+ 821 0042 1A70     		strb	r2, [r3]
+ 247:Core/Src/lcd16x2.c ****   FunctionSet = 0x28;
+ 822              		.loc 1 247 3 is_stmt 1 view .LVU178
+ 823              		.loc 1 247 15 is_stmt 0 view .LVU179
+ 824 0044 2824     		movs	r4, #40
+ 825              	.LVL72:
+ 826              		.loc 1 247 15 view .LVU180
+ 827 0046 1E4B     		ldr	r3, .L36+36
+ 828 0048 1C70     		strb	r4, [r3]
+ 248:Core/Src/lcd16x2.c **** 
+ 249:Core/Src/lcd16x2.c ****   //Initialise LCD
+ 250:Core/Src/lcd16x2.c ****   //1. Wait at least 15ms
+ 251:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(20);
+ 829              		.loc 1 251 3 is_stmt 1 view .LVU181
+ 830 004a 1420     		movs	r0, #20
+ 831 004c FFF7FEFF 		bl	HAL_Delay
+ 832              	.LVL73:
+ 252:Core/Src/lcd16x2.c ****   //2. Attentions sequence
+ 253:Core/Src/lcd16x2.c ****   lcd16x2_write4(0x3);
+ 833              		.loc 1 253 3 view .LVU182
+ 834 0050 0320     		movs	r0, #3
+ 835 0052 FFF7FEFF 		bl	lcd16x2_write4
+ 836              	.LVL74:
+ 254:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(5);
+ 837              		.loc 1 254 3 view .LVU183
+ 838 0056 0520     		movs	r0, #5
+ 839 0058 FFF7FEFF 		bl	HAL_Delay
+ 840              	.LVL75:
+ 255:Core/Src/lcd16x2.c ****   lcd16x2_write4(0x3);
+ 841              		.loc 1 255 3 view .LVU184
+ 842 005c 0320     		movs	r0, #3
+ 843 005e FFF7FEFF 		bl	lcd16x2_write4
+ 844              	.LVL76:
+ 256:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(1);
+ 845              		.loc 1 256 3 view .LVU185
+ 846 0062 0120     		movs	r0, #1
+ 847 0064 FFF7FEFF 		bl	HAL_Delay
+ 848              	.LVL77:
+ 257:Core/Src/lcd16x2.c ****   lcd16x2_write4(0x3);
+ 849              		.loc 1 257 3 view .LVU186
+ 850 0068 0320     		movs	r0, #3
+ 851 006a FFF7FEFF 		bl	lcd16x2_write4
+ 852              	.LVL78:
+ 258:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(1);
+ 853              		.loc 1 258 3 view .LVU187
+ 854 006e 0120     		movs	r0, #1
+ 855 0070 FFF7FEFF 		bl	HAL_Delay
+ 856              	.LVL79:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 21
+
+
+ 259:Core/Src/lcd16x2.c ****   lcd16x2_write4(0x2);  //4 bit mode
+ 857              		.loc 1 259 3 view .LVU188
+ 858 0074 0220     		movs	r0, #2
+ 859 0076 FFF7FEFF 		bl	lcd16x2_write4
+ 860              	.LVL80:
+ 260:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(1);
+ 861              		.loc 1 260 3 view .LVU189
+ 862 007a 0120     		movs	r0, #1
+ 863 007c FFF7FEFF 		bl	HAL_Delay
+ 864              	.LVL81:
+ 261:Core/Src/lcd16x2.c ****   //4. Function set; Enable 2 lines, Data length to 4 bits
+ 262:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_FUNCTIONSET | LCD_FUNCTION_N);
+ 865              		.loc 1 262 3 view .LVU190
+ 866 0080 2046     		mov	r0, r4
+ 867 0082 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 868              	.LVL82:
+ 263:Core/Src/lcd16x2.c ****   //3. Display control (Display ON, Cursor ON, blink cursor)
+ 264:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_DISPLAYCONTROL | LCD_DISPLAY_B | LCD_DISPLAY_C | LCD_DISPLAY_D);
+ 869              		.loc 1 264 3 view .LVU191
+ 870 0086 0F20     		movs	r0, #15
+ 871 0088 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 872              	.LVL83:
+ 265:Core/Src/lcd16x2.c ****   //4. Clear LCD and return home
+ 266:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_CLEARDISPLAY);
+ 873              		.loc 1 266 3 view .LVU192
+ 874 008c 0120     		movs	r0, #1
+ 875 008e FFF7FEFF 		bl	lcd16x2_writeCommand
+ 876              	.LVL84:
+ 267:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(3);
+ 877              		.loc 1 267 3 view .LVU193
+ 878 0092 0320     		movs	r0, #3
+ 879 0094 FFF7FEFF 		bl	HAL_Delay
+ 880              	.LVL85:
+ 268:Core/Src/lcd16x2.c **** }
+ 881              		.loc 1 268 1 is_stmt 0 view .LVU194
+ 882 0098 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 883              	.LVL86:
+ 884              	.L37:
+ 885              		.loc 1 268 1 view .LVU195
+ 886 009a 00BF     		.align	2
+ 887              	.L36:
+ 888 009c 00000000 		.word	.LANCHOR1
+ 889 00a0 00000000 		.word	.LANCHOR0
+ 890 00a4 00000000 		.word	.LANCHOR2
+ 891 00a8 00000000 		.word	.LANCHOR10
+ 892 00ac 00000000 		.word	.LANCHOR9
+ 893 00b0 00000000 		.word	.LANCHOR11
+ 894 00b4 00000000 		.word	.LANCHOR12
+ 895 00b8 00000000 		.word	.LANCHOR13
+ 896 00bc 00000000 		.word	.LANCHOR3
+ 897 00c0 00000000 		.word	.LANCHOR14
+ 898              		.cfi_endproc
+ 899              	.LFE1116:
+ 901              		.section	.text.lcd16x2_setCursor,"ax",%progbits
+ 902              		.align	1
+ 903              		.global	lcd16x2_setCursor
+ 904              		.syntax unified
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 22
+
+
+ 905              		.thumb
+ 906              		.thumb_func
+ 908              	lcd16x2_setCursor:
+ 909              	.LVL87:
+ 910              	.LFB1117:
+ 269:Core/Src/lcd16x2.c **** 
+ 270:Core/Src/lcd16x2.c **** /**
+ 271:Core/Src/lcd16x2.c ****  * @brief Set cursor position
+ 272:Core/Src/lcd16x2.c ****  * @param[in] row - 0 or 1 for line1 or line2
+ 273:Core/Src/lcd16x2.c ****  * @param[in] col - 0 - 15 (16 columns LCD)
+ 274:Core/Src/lcd16x2.c ****  */
+ 275:Core/Src/lcd16x2.c **** void lcd16x2_setCursor(uint8_t row, uint8_t col)
+ 276:Core/Src/lcd16x2.c **** {
+ 911              		.loc 1 276 1 is_stmt 1 view -0
+ 912              		.cfi_startproc
+ 913              		@ args = 0, pretend = 0, frame = 0
+ 914              		@ frame_needed = 0, uses_anonymous_args = 0
+ 915              		.loc 1 276 1 is_stmt 0 view .LVU197
+ 916 0000 08B5     		push	{r3, lr}
+ 917              		.cfi_def_cfa_offset 8
+ 918              		.cfi_offset 3, -8
+ 919              		.cfi_offset 14, -4
+ 277:Core/Src/lcd16x2.c ****   uint8_t maskData;
+ 920              		.loc 1 277 3 is_stmt 1 view .LVU198
+ 278:Core/Src/lcd16x2.c ****   maskData = (col)&0x0F;
+ 921              		.loc 1 278 3 view .LVU199
+ 922              		.loc 1 278 12 is_stmt 0 view .LVU200
+ 923 0002 01F00F01 		and	r1, r1, #15
+ 924              	.LVL88:
+ 279:Core/Src/lcd16x2.c ****   if(row==0)
+ 925              		.loc 1 279 3 is_stmt 1 view .LVU201
+ 926              		.loc 1 279 5 is_stmt 0 view .LVU202
+ 927 0006 20B9     		cbnz	r0, .L39
+ 280:Core/Src/lcd16x2.c ****   {
+ 281:Core/Src/lcd16x2.c ****     maskData |= (0x80);
+ 928              		.loc 1 281 5 is_stmt 1 view .LVU203
+ 929              	.LVL89:
+ 282:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(maskData);
+ 930              		.loc 1 282 5 view .LVU204
+ 931 0008 41F08000 		orr	r0, r1, #128
+ 932              	.LVL90:
+ 933              		.loc 1 282 5 is_stmt 0 view .LVU205
+ 934 000c FFF7FEFF 		bl	lcd16x2_writeCommand
+ 935              	.LVL91:
+ 936              	.L38:
+ 283:Core/Src/lcd16x2.c ****   }
+ 284:Core/Src/lcd16x2.c ****   else
+ 285:Core/Src/lcd16x2.c ****   {
+ 286:Core/Src/lcd16x2.c ****     maskData |= (0xc0);
+ 287:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(maskData);
+ 288:Core/Src/lcd16x2.c ****   }
+ 289:Core/Src/lcd16x2.c **** }
+ 937              		.loc 1 289 1 view .LVU206
+ 938 0010 08BD     		pop	{r3, pc}
+ 939              	.LVL92:
+ 940              	.L39:
+ 286:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(maskData);
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 23
+
+
+ 941              		.loc 1 286 5 is_stmt 1 view .LVU207
+ 287:Core/Src/lcd16x2.c ****   }
+ 942              		.loc 1 287 5 view .LVU208
+ 943 0012 41F0C000 		orr	r0, r1, #192
+ 944              	.LVL93:
+ 287:Core/Src/lcd16x2.c ****   }
+ 945              		.loc 1 287 5 is_stmt 0 view .LVU209
+ 946 0016 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 947              	.LVL94:
+ 948              		.loc 1 289 1 view .LVU210
+ 949 001a F9E7     		b	.L38
+ 950              		.cfi_endproc
+ 951              	.LFE1117:
+ 953              		.section	.text.lcd16x2_1stLine,"ax",%progbits
+ 954              		.align	1
+ 955              		.global	lcd16x2_1stLine
+ 956              		.syntax unified
+ 957              		.thumb
+ 958              		.thumb_func
+ 960              	lcd16x2_1stLine:
+ 961              	.LFB1118:
+ 290:Core/Src/lcd16x2.c **** /**
+ 291:Core/Src/lcd16x2.c ****  * @brief Move to beginning of 1st line
+ 292:Core/Src/lcd16x2.c ****  */
+ 293:Core/Src/lcd16x2.c **** void lcd16x2_1stLine(void)
+ 294:Core/Src/lcd16x2.c **** {
+ 962              		.loc 1 294 1 is_stmt 1 view -0
+ 963              		.cfi_startproc
+ 964              		@ args = 0, pretend = 0, frame = 0
+ 965              		@ frame_needed = 0, uses_anonymous_args = 0
+ 966 0000 08B5     		push	{r3, lr}
+ 967              		.cfi_def_cfa_offset 8
+ 968              		.cfi_offset 3, -8
+ 969              		.cfi_offset 14, -4
+ 295:Core/Src/lcd16x2.c ****   lcd16x2_setCursor(0,0);
+ 970              		.loc 1 295 3 view .LVU212
+ 971 0002 0021     		movs	r1, #0
+ 972 0004 0846     		mov	r0, r1
+ 973 0006 FFF7FEFF 		bl	lcd16x2_setCursor
+ 974              	.LVL95:
+ 296:Core/Src/lcd16x2.c **** }
+ 975              		.loc 1 296 1 is_stmt 0 view .LVU213
+ 976 000a 08BD     		pop	{r3, pc}
+ 977              		.cfi_endproc
+ 978              	.LFE1118:
+ 980              		.section	.text.lcd16x2_2ndLine,"ax",%progbits
+ 981              		.align	1
+ 982              		.global	lcd16x2_2ndLine
+ 983              		.syntax unified
+ 984              		.thumb
+ 985              		.thumb_func
+ 987              	lcd16x2_2ndLine:
+ 988              	.LFB1119:
+ 297:Core/Src/lcd16x2.c **** /**
+ 298:Core/Src/lcd16x2.c ****  * @brief Move to beginning of 2nd line
+ 299:Core/Src/lcd16x2.c ****  */
+ 300:Core/Src/lcd16x2.c **** void lcd16x2_2ndLine(void)
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 24
+
+
+ 301:Core/Src/lcd16x2.c **** {
+ 989              		.loc 1 301 1 is_stmt 1 view -0
+ 990              		.cfi_startproc
+ 991              		@ args = 0, pretend = 0, frame = 0
+ 992              		@ frame_needed = 0, uses_anonymous_args = 0
+ 993 0000 08B5     		push	{r3, lr}
+ 994              		.cfi_def_cfa_offset 8
+ 995              		.cfi_offset 3, -8
+ 996              		.cfi_offset 14, -4
+ 302:Core/Src/lcd16x2.c ****   lcd16x2_setCursor(1,0);
+ 997              		.loc 1 302 3 view .LVU215
+ 998 0002 0021     		movs	r1, #0
+ 999 0004 0120     		movs	r0, #1
+ 1000 0006 FFF7FEFF 		bl	lcd16x2_setCursor
+ 1001              	.LVL96:
+ 303:Core/Src/lcd16x2.c **** }
+ 1002              		.loc 1 303 1 is_stmt 0 view .LVU216
+ 1003 000a 08BD     		pop	{r3, pc}
+ 1004              		.cfi_endproc
+ 1005              	.LFE1119:
+ 1007              		.section	.text.lcd16x2_twoLines,"ax",%progbits
+ 1008              		.align	1
+ 1009              		.global	lcd16x2_twoLines
+ 1010              		.syntax unified
+ 1011              		.thumb
+ 1012              		.thumb_func
+ 1014              	lcd16x2_twoLines:
+ 1015              	.LFB1120:
+ 304:Core/Src/lcd16x2.c **** 
+ 305:Core/Src/lcd16x2.c **** /**
+ 306:Core/Src/lcd16x2.c ****  * @brief Select LCD Number of lines mode
+ 307:Core/Src/lcd16x2.c ****  */
+ 308:Core/Src/lcd16x2.c **** void lcd16x2_twoLines(void)
+ 309:Core/Src/lcd16x2.c **** {
+ 1016              		.loc 1 309 1 is_stmt 1 view -0
+ 1017              		.cfi_startproc
+ 1018              		@ args = 0, pretend = 0, frame = 0
+ 1019              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1020 0000 08B5     		push	{r3, lr}
+ 1021              		.cfi_def_cfa_offset 8
+ 1022              		.cfi_offset 3, -8
+ 1023              		.cfi_offset 14, -4
+ 310:Core/Src/lcd16x2.c ****   FunctionSet |= (0x08);
+ 1024              		.loc 1 310 3 view .LVU218
+ 1025              		.loc 1 310 15 is_stmt 0 view .LVU219
+ 1026 0002 044B     		ldr	r3, .L48
+ 1027 0004 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1028 0006 40F00800 		orr	r0, r0, #8
+ 1029 000a 1870     		strb	r0, [r3]
+ 311:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(FunctionSet);
+ 1030              		.loc 1 311 3 is_stmt 1 view .LVU220
+ 1031 000c FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1032              	.LVL97:
+ 312:Core/Src/lcd16x2.c **** }
+ 1033              		.loc 1 312 1 is_stmt 0 view .LVU221
+ 1034 0010 08BD     		pop	{r3, pc}
+ 1035              	.L49:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 25
+
+
+ 1036 0012 00BF     		.align	2
+ 1037              	.L48:
+ 1038 0014 00000000 		.word	.LANCHOR14
+ 1039              		.cfi_endproc
+ 1040              	.LFE1120:
+ 1042              		.section	.text.lcd16x2_oneLine,"ax",%progbits
+ 1043              		.align	1
+ 1044              		.global	lcd16x2_oneLine
+ 1045              		.syntax unified
+ 1046              		.thumb
+ 1047              		.thumb_func
+ 1049              	lcd16x2_oneLine:
+ 1050              	.LFB1121:
+ 313:Core/Src/lcd16x2.c **** void lcd16x2_oneLine(void)
+ 314:Core/Src/lcd16x2.c **** {
+ 1051              		.loc 1 314 1 is_stmt 1 view -0
+ 1052              		.cfi_startproc
+ 1053              		@ args = 0, pretend = 0, frame = 0
+ 1054              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1055 0000 08B5     		push	{r3, lr}
+ 1056              		.cfi_def_cfa_offset 8
+ 1057              		.cfi_offset 3, -8
+ 1058              		.cfi_offset 14, -4
+ 315:Core/Src/lcd16x2.c ****   FunctionSet &= ~(0x08);
+ 1059              		.loc 1 315 3 view .LVU223
+ 1060              		.loc 1 315 15 is_stmt 0 view .LVU224
+ 1061 0002 044B     		ldr	r3, .L52
+ 1062 0004 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1063 0006 00F0F700 		and	r0, r0, #247
+ 1064 000a 1870     		strb	r0, [r3]
+ 316:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(FunctionSet);
+ 1065              		.loc 1 316 3 is_stmt 1 view .LVU225
+ 1066 000c FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1067              	.LVL98:
+ 317:Core/Src/lcd16x2.c **** }
+ 1068              		.loc 1 317 1 is_stmt 0 view .LVU226
+ 1069 0010 08BD     		pop	{r3, pc}
+ 1070              	.L53:
+ 1071 0012 00BF     		.align	2
+ 1072              	.L52:
+ 1073 0014 00000000 		.word	.LANCHOR14
+ 1074              		.cfi_endproc
+ 1075              	.LFE1121:
+ 1077              		.section	.text.lcd16x2_cursorShow,"ax",%progbits
+ 1078              		.align	1
+ 1079              		.global	lcd16x2_cursorShow
+ 1080              		.syntax unified
+ 1081              		.thumb
+ 1082              		.thumb_func
+ 1084              	lcd16x2_cursorShow:
+ 1085              	.LVL99:
+ 1086              	.LFB1122:
+ 318:Core/Src/lcd16x2.c **** 
+ 319:Core/Src/lcd16x2.c **** /**
+ 320:Core/Src/lcd16x2.c ****  * @brief Cursor ON/OFF
+ 321:Core/Src/lcd16x2.c ****  */
+ 322:Core/Src/lcd16x2.c **** void lcd16x2_cursorShow(bool state)
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 26
+
+
+ 323:Core/Src/lcd16x2.c **** {
+ 1087              		.loc 1 323 1 is_stmt 1 view -0
+ 1088              		.cfi_startproc
+ 1089              		@ args = 0, pretend = 0, frame = 0
+ 1090              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1091              		.loc 1 323 1 is_stmt 0 view .LVU228
+ 1092 0000 08B5     		push	{r3, lr}
+ 1093              		.cfi_def_cfa_offset 8
+ 1094              		.cfi_offset 3, -8
+ 1095              		.cfi_offset 14, -4
+ 324:Core/Src/lcd16x2.c ****   if(state)
+ 1096              		.loc 1 324 3 is_stmt 1 view .LVU229
+ 1097              		.loc 1 324 5 is_stmt 0 view .LVU230
+ 1098 0002 38B1     		cbz	r0, .L55
+ 325:Core/Src/lcd16x2.c ****   {
+ 326:Core/Src/lcd16x2.c ****     DisplayControl |= (0x03);
+ 1099              		.loc 1 326 5 is_stmt 1 view .LVU231
+ 1100              		.loc 1 326 20 is_stmt 0 view .LVU232
+ 1101 0004 074B     		ldr	r3, .L58
+ 1102 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1103              	.LVL100:
+ 1104              		.loc 1 326 20 view .LVU233
+ 1105 0008 40F00300 		orr	r0, r0, #3
+ 1106 000c 1870     		strb	r0, [r3]
+ 327:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1107              		.loc 1 327 5 is_stmt 1 view .LVU234
+ 1108 000e FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1109              	.LVL101:
+ 1110              	.L54:
+ 328:Core/Src/lcd16x2.c ****   }
+ 329:Core/Src/lcd16x2.c ****   else
+ 330:Core/Src/lcd16x2.c ****   {
+ 331:Core/Src/lcd16x2.c ****     DisplayControl &= ~(0x03);
+ 332:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 333:Core/Src/lcd16x2.c ****   }
+ 334:Core/Src/lcd16x2.c **** }
+ 1111              		.loc 1 334 1 is_stmt 0 view .LVU235
+ 1112 0012 08BD     		pop	{r3, pc}
+ 1113              	.LVL102:
+ 1114              	.L55:
+ 331:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1115              		.loc 1 331 5 is_stmt 1 view .LVU236
+ 331:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1116              		.loc 1 331 20 is_stmt 0 view .LVU237
+ 1117 0014 034B     		ldr	r3, .L58
+ 1118 0016 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1119              	.LVL103:
+ 331:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1120              		.loc 1 331 20 view .LVU238
+ 1121 0018 00F0FC00 		and	r0, r0, #252
+ 1122 001c 1870     		strb	r0, [r3]
+ 332:Core/Src/lcd16x2.c ****   }
+ 1123              		.loc 1 332 5 is_stmt 1 view .LVU239
+ 1124 001e FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1125              	.LVL104:
+ 1126              		.loc 1 334 1 is_stmt 0 view .LVU240
+ 1127 0022 F6E7     		b	.L54
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 27
+
+
+ 1128              	.L59:
+ 1129              		.align	2
+ 1130              	.L58:
+ 1131 0024 00000000 		.word	.LANCHOR15
+ 1132              		.cfi_endproc
+ 1133              	.LFE1122:
+ 1135              		.section	.text.lcd16x2_clear,"ax",%progbits
+ 1136              		.align	1
+ 1137              		.global	lcd16x2_clear
+ 1138              		.syntax unified
+ 1139              		.thumb
+ 1140              		.thumb_func
+ 1142              	lcd16x2_clear:
+ 1143              	.LFB1123:
+ 335:Core/Src/lcd16x2.c **** 
+ 336:Core/Src/lcd16x2.c **** /**
+ 337:Core/Src/lcd16x2.c ****  * @brief Display clear
+ 338:Core/Src/lcd16x2.c ****  */
+ 339:Core/Src/lcd16x2.c **** void lcd16x2_clear(void)
+ 340:Core/Src/lcd16x2.c **** {
+ 1144              		.loc 1 340 1 is_stmt 1 view -0
+ 1145              		.cfi_startproc
+ 1146              		@ args = 0, pretend = 0, frame = 0
+ 1147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1148 0000 08B5     		push	{r3, lr}
+ 1149              		.cfi_def_cfa_offset 8
+ 1150              		.cfi_offset 3, -8
+ 1151              		.cfi_offset 14, -4
+ 341:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_CLEARDISPLAY);
+ 1152              		.loc 1 341 3 view .LVU242
+ 1153 0002 0120     		movs	r0, #1
+ 1154 0004 FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1155              	.LVL105:
+ 342:Core/Src/lcd16x2.c ****   LCD_MS_DELAY(3);
+ 1156              		.loc 1 342 3 view .LVU243
+ 1157 0008 0320     		movs	r0, #3
+ 1158 000a FFF7FEFF 		bl	HAL_Delay
+ 1159              	.LVL106:
+ 343:Core/Src/lcd16x2.c **** }
+ 1160              		.loc 1 343 1 is_stmt 0 view .LVU244
+ 1161 000e 08BD     		pop	{r3, pc}
+ 1162              		.cfi_endproc
+ 1163              	.LFE1123:
+ 1165              		.section	.text.lcd16x2_display,"ax",%progbits
+ 1166              		.align	1
+ 1167              		.global	lcd16x2_display
+ 1168              		.syntax unified
+ 1169              		.thumb
+ 1170              		.thumb_func
+ 1172              	lcd16x2_display:
+ 1173              	.LVL107:
+ 1174              	.LFB1124:
+ 344:Core/Src/lcd16x2.c **** 
+ 345:Core/Src/lcd16x2.c **** /**
+ 346:Core/Src/lcd16x2.c ****  * @brief Display ON/OFF, to hide all characters, but not clear
+ 347:Core/Src/lcd16x2.c ****  */
+ 348:Core/Src/lcd16x2.c **** void lcd16x2_display(bool state)
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 28
+
+
+ 349:Core/Src/lcd16x2.c **** {
+ 1175              		.loc 1 349 1 is_stmt 1 view -0
+ 1176              		.cfi_startproc
+ 1177              		@ args = 0, pretend = 0, frame = 0
+ 1178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1179              		.loc 1 349 1 is_stmt 0 view .LVU246
+ 1180 0000 08B5     		push	{r3, lr}
+ 1181              		.cfi_def_cfa_offset 8
+ 1182              		.cfi_offset 3, -8
+ 1183              		.cfi_offset 14, -4
+ 350:Core/Src/lcd16x2.c ****   if(state)
+ 1184              		.loc 1 350 3 is_stmt 1 view .LVU247
+ 1185              		.loc 1 350 5 is_stmt 0 view .LVU248
+ 1186 0002 38B1     		cbz	r0, .L63
+ 351:Core/Src/lcd16x2.c ****   {
+ 352:Core/Src/lcd16x2.c ****     DisplayControl |= (0x04);
+ 1187              		.loc 1 352 5 is_stmt 1 view .LVU249
+ 1188              		.loc 1 352 20 is_stmt 0 view .LVU250
+ 1189 0004 074B     		ldr	r3, .L66
+ 1190 0006 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1191              	.LVL108:
+ 1192              		.loc 1 352 20 view .LVU251
+ 1193 0008 40F00400 		orr	r0, r0, #4
+ 1194 000c 1870     		strb	r0, [r3]
+ 353:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1195              		.loc 1 353 5 is_stmt 1 view .LVU252
+ 1196 000e FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1197              	.LVL109:
+ 1198              	.L62:
+ 354:Core/Src/lcd16x2.c ****   }
+ 355:Core/Src/lcd16x2.c ****   else
+ 356:Core/Src/lcd16x2.c ****   {
+ 357:Core/Src/lcd16x2.c ****     DisplayControl &= ~(0x04);
+ 358:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 359:Core/Src/lcd16x2.c ****   }
+ 360:Core/Src/lcd16x2.c **** }
+ 1199              		.loc 1 360 1 is_stmt 0 view .LVU253
+ 1200 0012 08BD     		pop	{r3, pc}
+ 1201              	.LVL110:
+ 1202              	.L63:
+ 357:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1203              		.loc 1 357 5 is_stmt 1 view .LVU254
+ 357:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1204              		.loc 1 357 20 is_stmt 0 view .LVU255
+ 1205 0014 034B     		ldr	r3, .L66
+ 1206 0016 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1207              	.LVL111:
+ 357:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(DisplayControl);
+ 1208              		.loc 1 357 20 view .LVU256
+ 1209 0018 00F0FB00 		and	r0, r0, #251
+ 1210 001c 1870     		strb	r0, [r3]
+ 358:Core/Src/lcd16x2.c ****   }
+ 1211              		.loc 1 358 5 is_stmt 1 view .LVU257
+ 1212 001e FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1213              	.LVL112:
+ 1214              		.loc 1 360 1 is_stmt 0 view .LVU258
+ 1215 0022 F6E7     		b	.L62
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 29
+
+
+ 1216              	.L67:
+ 1217              		.align	2
+ 1218              	.L66:
+ 1219 0024 00000000 		.word	.LANCHOR15
+ 1220              		.cfi_endproc
+ 1221              	.LFE1124:
+ 1223              		.section	.text.lcd16x2_shiftRight,"ax",%progbits
+ 1224              		.align	1
+ 1225              		.global	lcd16x2_shiftRight
+ 1226              		.syntax unified
+ 1227              		.thumb
+ 1228              		.thumb_func
+ 1230              	lcd16x2_shiftRight:
+ 1231              	.LVL113:
+ 1232              	.LFB1125:
+ 361:Core/Src/lcd16x2.c **** 
+ 362:Core/Src/lcd16x2.c **** /**
+ 363:Core/Src/lcd16x2.c ****  * @brief Shift content to right
+ 364:Core/Src/lcd16x2.c ****  */
+ 365:Core/Src/lcd16x2.c **** void lcd16x2_shiftRight(uint8_t offset)
+ 366:Core/Src/lcd16x2.c **** {
+ 1233              		.loc 1 366 1 is_stmt 1 view -0
+ 1234              		.cfi_startproc
+ 1235              		@ args = 0, pretend = 0, frame = 0
+ 1236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1237              		.loc 1 366 1 is_stmt 0 view .LVU260
+ 1238 0000 38B5     		push	{r3, r4, r5, lr}
+ 1239              		.cfi_def_cfa_offset 16
+ 1240              		.cfi_offset 3, -16
+ 1241              		.cfi_offset 4, -12
+ 1242              		.cfi_offset 5, -8
+ 1243              		.cfi_offset 14, -4
+ 1244 0002 0546     		mov	r5, r0
+ 367:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1245              		.loc 1 367 3 is_stmt 1 view .LVU261
+ 1246              	.LBB10:
+ 1247              		.loc 1 367 7 view .LVU262
+ 1248              	.LVL114:
+ 1249              		.loc 1 367 15 is_stmt 0 view .LVU263
+ 1250 0004 0024     		movs	r4, #0
+ 1251              		.loc 1 367 3 view .LVU264
+ 1252 0006 04E0     		b	.L69
+ 1253              	.LVL115:
+ 1254              	.L70:
+ 368:Core/Src/lcd16x2.c ****   {
+ 369:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(0x1c);
+ 1255              		.loc 1 369 5 is_stmt 1 discriminator 3 view .LVU265
+ 1256 0008 1C20     		movs	r0, #28
+ 1257 000a FFF7FEFF 		bl	lcd16x2_writeCommand
+ 1258              	.LVL116:
+ 367:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1259              		.loc 1 367 30 discriminator 3 view .LVU266
+ 1260 000e 0134     		adds	r4, r4, #1
+ 1261              	.LVL117:
+ 367:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1262              		.loc 1 367 30 is_stmt 0 discriminator 3 view .LVU267
+ 1263 0010 E4B2     		uxtb	r4, r4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 30
+
+
+ 1264              	.LVL118:
+ 1265              	.L69:
+ 367:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1266              		.loc 1 367 21 is_stmt 1 discriminator 1 view .LVU268
+ 1267 0012 AC42     		cmp	r4, r5
+ 1268 0014 F8D3     		bcc	.L70
+ 1269              	.LBE10:
+ 370:Core/Src/lcd16x2.c ****   }
+ 371:Core/Src/lcd16x2.c **** }
+ 1270              		.loc 1 371 1 is_stmt 0 view .LVU269
+ 1271 0016 38BD     		pop	{r3, r4, r5, pc}
+ 1272              		.loc 1 371 1 view .LVU270
+ 1273              		.cfi_endproc
+ 1274              	.LFE1125:
+ 1276              		.section	.text.lcd16x2_shiftLeft,"ax",%progbits
+ 1277              		.align	1
+ 1278              		.global	lcd16x2_shiftLeft
+ 1279              		.syntax unified
+ 1280              		.thumb
+ 1281              		.thumb_func
+ 1283              	lcd16x2_shiftLeft:
+ 1284              	.LVL119:
+ 1285              	.LFB1126:
+ 372:Core/Src/lcd16x2.c **** 
+ 373:Core/Src/lcd16x2.c **** /**
+ 374:Core/Src/lcd16x2.c ****  * @brief Shift content to left
+ 375:Core/Src/lcd16x2.c ****  */
+ 376:Core/Src/lcd16x2.c **** void lcd16x2_shiftLeft(uint8_t offset)
+ 377:Core/Src/lcd16x2.c **** {
+ 1286              		.loc 1 377 1 is_stmt 1 view -0
+ 1287              		.cfi_startproc
+ 1288              		@ args = 0, pretend = 0, frame = 0
+ 1289              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1290              		.loc 1 377 1 is_stmt 0 view .LVU272
+ 1291 0000 38B5     		push	{r3, r4, r5, lr}
+ 1292              		.cfi_def_cfa_offset 16
+ 1293              		.cfi_offset 3, -16
+ 1294              		.cfi_offset 4, -12
+ 1295              		.cfi_offset 5, -8
+ 1296              		.cfi_offset 14, -4
+ 1297 0002 0546     		mov	r5, r0
+ 378:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1298              		.loc 1 378 3 is_stmt 1 view .LVU273
+ 1299              	.LBB11:
+ 1300              		.loc 1 378 7 view .LVU274
+ 1301              	.LVL120:
+ 1302              		.loc 1 378 15 is_stmt 0 view .LVU275
+ 1303 0004 0024     		movs	r4, #0
+ 1304              		.loc 1 378 3 view .LVU276
+ 1305 0006 04E0     		b	.L73
+ 1306              	.LVL121:
+ 1307              	.L74:
+ 379:Core/Src/lcd16x2.c ****   {
+ 380:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(0x18);
+ 1308              		.loc 1 380 5 is_stmt 1 discriminator 3 view .LVU277
+ 1309 0008 1820     		movs	r0, #24
+ 1310 000a FFF7FEFF 		bl	lcd16x2_writeCommand
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 31
+
+
+ 1311              	.LVL122:
+ 378:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1312              		.loc 1 378 30 discriminator 3 view .LVU278
+ 1313 000e 0134     		adds	r4, r4, #1
+ 1314              	.LVL123:
+ 378:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1315              		.loc 1 378 30 is_stmt 0 discriminator 3 view .LVU279
+ 1316 0010 E4B2     		uxtb	r4, r4
+ 1317              	.LVL124:
+ 1318              	.L73:
+ 378:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
+ 1319              		.loc 1 378 21 is_stmt 1 discriminator 1 view .LVU280
+ 1320 0012 AC42     		cmp	r4, r5
+ 1321 0014 F8D3     		bcc	.L74
+ 1322              	.LBE11:
+ 381:Core/Src/lcd16x2.c ****   }
+ 382:Core/Src/lcd16x2.c **** }
+ 1323              		.loc 1 382 1 is_stmt 0 view .LVU281
+ 1324 0016 38BD     		pop	{r3, r4, r5, pc}
+ 1325              		.loc 1 382 1 view .LVU282
+ 1326              		.cfi_endproc
+ 1327              	.LFE1126:
+ 1329              		.section	.text.lcd16x2_printf,"ax",%progbits
+ 1330              		.align	1
+ 1331              		.global	lcd16x2_printf
+ 1332              		.syntax unified
+ 1333              		.thumb
+ 1334              		.thumb_func
+ 1336              	lcd16x2_printf:
+ 1337              	.LVL125:
+ 1338              	.LFB1127:
+ 383:Core/Src/lcd16x2.c **** 
+ 384:Core/Src/lcd16x2.c **** /**
+ 385:Core/Src/lcd16x2.c ****  * @brief Print to display any datatype (e.g. lcd16x2_printf("Value1 = %.1f", 123.45))
+ 386:Core/Src/lcd16x2.c ****  */
+ 387:Core/Src/lcd16x2.c **** void lcd16x2_printf(const char* str, ...)
+ 388:Core/Src/lcd16x2.c **** {
+ 1339              		.loc 1 388 1 is_stmt 1 view -0
+ 1340              		.cfi_startproc
+ 1341              		@ args = 4, pretend = 16, frame = 24
+ 1342              		@ frame_needed = 0, uses_anonymous_args = 1
+ 1343              		.loc 1 388 1 is_stmt 0 view .LVU284
+ 1344 0000 0FB4     		push	{r0, r1, r2, r3}
+ 1345              		.cfi_def_cfa_offset 16
+ 1346              		.cfi_offset 0, -16
+ 1347              		.cfi_offset 1, -12
+ 1348              		.cfi_offset 2, -8
+ 1349              		.cfi_offset 3, -4
+ 1350 0002 10B5     		push	{r4, lr}
+ 1351              		.cfi_def_cfa_offset 24
+ 1352              		.cfi_offset 4, -24
+ 1353              		.cfi_offset 14, -20
+ 1354 0004 86B0     		sub	sp, sp, #24
+ 1355              		.cfi_def_cfa_offset 48
+ 1356 0006 08AA     		add	r2, sp, #32
+ 1357 0008 52F8041B 		ldr	r1, [r2], #4
+ 389:Core/Src/lcd16x2.c ****   char stringArray[20];
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 32
+
+
+ 1358              		.loc 1 389 3 is_stmt 1 view .LVU285
+ 390:Core/Src/lcd16x2.c ****   va_list args;
+ 1359              		.loc 1 390 3 view .LVU286
+ 391:Core/Src/lcd16x2.c ****   va_start(args, str);
+ 1360              		.loc 1 391 3 view .LVU287
+ 1361 000c 0092     		str	r2, [sp]
+ 392:Core/Src/lcd16x2.c ****   vsprintf(stringArray, str, args);
+ 1362              		.loc 1 392 3 view .LVU288
+ 1363 000e 01A8     		add	r0, sp, #4
+ 1364 0010 FFF7FEFF 		bl	vsprintf
+ 1365              	.LVL126:
+ 393:Core/Src/lcd16x2.c ****   va_end(args);
+ 1366              		.loc 1 393 3 view .LVU289
+ 394:Core/Src/lcd16x2.c ****   for(uint8_t i=0;  i<strlen(stringArray) && i<16; i++)
+ 1367              		.loc 1 394 3 view .LVU290
+ 1368              	.LBB12:
+ 1369              		.loc 1 394 7 view .LVU291
+ 1370              		.loc 1 394 15 is_stmt 0 view .LVU292
+ 1371 0014 0024     		movs	r4, #0
+ 1372              	.LVL127:
+ 1373              	.L77:
+ 1374              		.loc 1 394 43 is_stmt 1 discriminator 1 view .LVU293
+ 1375              		.loc 1 394 23 is_stmt 0 discriminator 1 view .LVU294
+ 1376 0016 01A8     		add	r0, sp, #4
+ 1377 0018 FFF7FEFF 		bl	strlen
+ 1378              	.LVL128:
+ 1379              		.loc 1 394 43 discriminator 1 view .LVU295
+ 1380 001c 8442     		cmp	r4, r0
+ 1381 001e 0BD2     		bcs	.L76
+ 1382              		.loc 1 394 43 discriminator 3 view .LVU296
+ 1383 0020 0F2C     		cmp	r4, #15
+ 1384 0022 09D8     		bhi	.L76
+ 395:Core/Src/lcd16x2.c ****   {
+ 396:Core/Src/lcd16x2.c ****     lcd16x2_writeData((uint8_t)stringArray[i]);
+ 1385              		.loc 1 396 5 is_stmt 1 discriminator 4 view .LVU297
+ 1386              		.loc 1 396 43 is_stmt 0 discriminator 4 view .LVU298
+ 1387 0024 04F11803 		add	r3, r4, #24
+ 1388 0028 6B44     		add	r3, sp, r3
+ 1389              		.loc 1 396 5 discriminator 4 view .LVU299
+ 1390 002a 13F8140C 		ldrb	r0, [r3, #-20]	@ zero_extendqisi2
+ 1391 002e FFF7FEFF 		bl	lcd16x2_writeData
+ 1392              	.LVL129:
+ 394:Core/Src/lcd16x2.c ****   for(uint8_t i=0;  i<strlen(stringArray) && i<16; i++)
+ 1393              		.loc 1 394 53 is_stmt 1 discriminator 4 view .LVU300
+ 1394 0032 0134     		adds	r4, r4, #1
+ 1395              	.LVL130:
+ 394:Core/Src/lcd16x2.c ****   for(uint8_t i=0;  i<strlen(stringArray) && i<16; i++)
+ 1396              		.loc 1 394 53 is_stmt 0 discriminator 4 view .LVU301
+ 1397 0034 E4B2     		uxtb	r4, r4
+ 1398              	.LVL131:
+ 394:Core/Src/lcd16x2.c ****   for(uint8_t i=0;  i<strlen(stringArray) && i<16; i++)
+ 1399              		.loc 1 394 53 discriminator 4 view .LVU302
+ 1400 0036 EEE7     		b	.L77
+ 1401              	.L76:
+ 394:Core/Src/lcd16x2.c ****   for(uint8_t i=0;  i<strlen(stringArray) && i<16; i++)
+ 1402              		.loc 1 394 53 discriminator 4 view .LVU303
+ 1403              	.LBE12:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 33
+
+
+ 397:Core/Src/lcd16x2.c ****   }
+ 398:Core/Src/lcd16x2.c **** }...
+ 1404              		.loc 1 398 1 view .LVU304
+ 1405 0038 06B0     		add	sp, sp, #24
+ 1406              		.cfi_def_cfa_offset 24
+ 1407              		@ sp needed
+ 1408 003a BDE81040 		pop	{r4, lr}
+ 1409              		.cfi_restore 14
+ 1410              		.cfi_restore 4
+ 1411              		.cfi_def_cfa_offset 16
+ 1412              	.LVL132:
+ 1413              		.loc 1 398 1 view .LVU305
+ 1414 003e 04B0     		add	sp, sp, #16
+ 1415              		.cfi_restore 3
+ 1416              		.cfi_restore 2
+ 1417              		.cfi_restore 1
+ 1418              		.cfi_restore 0
+ 1419              		.cfi_def_cfa_offset 0
+ 1420 0040 7047     		bx	lr
+ 1421              		.cfi_endproc
+ 1422              	.LFE1127:
+ 1424              		.section	.bss.D0_PIN,"aw",%nobits
+ 1425              		.align	1
+ 1426              		.set	.LANCHOR4,. + 0
+ 1429              	D0_PIN:
+ 1430 0000 0000     		.space	2
+ 1431              		.section	.bss.D1_PIN,"aw",%nobits
+ 1432              		.align	1
+ 1433              		.set	.LANCHOR6,. + 0
+ 1436              	D1_PIN:
+ 1437 0000 0000     		.space	2
+ 1438              		.section	.bss.D2_PIN,"aw",%nobits
+ 1439              		.align	1
+ 1440              		.set	.LANCHOR7,. + 0
+ 1443              	D2_PIN:
+ 1444 0000 0000     		.space	2
+ 1445              		.section	.bss.D3_PIN,"aw",%nobits
+ 1446              		.align	1
+ 1447              		.set	.LANCHOR8,. + 0
+ 1450              	D3_PIN:
+ 1451 0000 0000     		.space	2
+ 1452              		.section	.bss.D4_PIN,"aw",%nobits
+ 1453              		.align	1
+ 1454              		.set	.LANCHOR9,. + 0
+ 1457              	D4_PIN:
+ 1458 0000 0000     		.space	2
+ 1459              		.section	.bss.D5_PIN,"aw",%nobits
+ 1460              		.align	1
+ 1461              		.set	.LANCHOR11,. + 0
+ 1464              	D5_PIN:
+ 1465 0000 0000     		.space	2
+ 1466              		.section	.bss.D6_PIN,"aw",%nobits
+ 1467              		.align	1
+ 1468              		.set	.LANCHOR12,. + 0
+ 1471              	D6_PIN:
+ 1472 0000 0000     		.space	2
+ 1473              		.section	.bss.D7_PIN,"aw",%nobits
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 34
+
+
+ 1474              		.align	1
+ 1475              		.set	.LANCHOR13,. + 0
+ 1478              	D7_PIN:
+ 1479 0000 0000     		.space	2
+ 1480              		.section	.bss.PIN_E,"aw",%nobits
+ 1481              		.align	1
+ 1482              		.set	.LANCHOR2,. + 0
+ 1485              	PIN_E:
+ 1486 0000 0000     		.space	2
+ 1487              		.section	.bss.PIN_RS,"aw",%nobits
+ 1488              		.align	1
+ 1489              		.set	.LANCHOR0,. + 0
+ 1492              	PIN_RS:
+ 1493 0000 0000     		.space	2
+ 1494              		.section	.bss.PORT_LSB,"aw",%nobits
+ 1495              		.align	2
+ 1496              		.set	.LANCHOR5,. + 0
+ 1499              	PORT_LSB:
+ 1500 0000 00000000 		.space	4
+ 1501              		.section	.bss.PORT_MSB,"aw",%nobits
+ 1502              		.align	2
+ 1503              		.set	.LANCHOR10,. + 0
+ 1506              	PORT_MSB:
+ 1507 0000 00000000 		.space	4
+ 1508              		.section	.bss.PORT_RS_and_E,"aw",%nobits
+ 1509              		.align	2
+ 1510              		.set	.LANCHOR1,. + 0
+ 1513              	PORT_RS_and_E:
+ 1514 0000 00000000 		.space	4
+ 1515              		.section	.data.DisplayControl,"aw"
+ 1516              		.set	.LANCHOR15,. + 0
+ 1519              	DisplayControl:
+ 1520 0000 0F       		.byte	15
+ 1521              		.section	.data.FunctionSet,"aw"
+ 1522              		.set	.LANCHOR14,. + 0
+ 1525              	FunctionSet:
+ 1526 0000 38       		.byte	56
+ 1527              		.section	.data.is8BitsMode,"aw"
+ 1528              		.set	.LANCHOR3,. + 0
+ 1531              	is8BitsMode:
+ 1532 0000 01       		.byte	1
+ 1533              		.text
+ 1534              	.Letext0:
+ 1535              		.file 2 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 1536              		.file 3 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 1537              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 1538              		.file 5 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wb55xx.h"
+ 1539              		.file 6 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 1540              		.file 7 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_gpio.h"
+ 1541              		.file 8 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 1542              		.file 9 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 1543              		.file 10 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/
+ 1544              		.file 11 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h"
+ 1545              		.file 12 "<built-in>"
+ 1546              		.file 13 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc.h"
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 35
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 lcd16x2.c
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:20     .text.DWT_Delay_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:25     .text.DWT_Delay_Init:0000000000000000 DWT_Delay_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:90     .text.DWT_Delay_Init:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:95     .text.lcd16x2_rs:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:100    .text.lcd16x2_rs:0000000000000000 lcd16x2_rs
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:127    .text.lcd16x2_rs:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:133    .text.lcd16x2_enablePulse:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:138    .text.lcd16x2_enablePulse:0000000000000000 lcd16x2_enablePulse
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:245    .text.lcd16x2_enablePulse:0000000000000060 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:253    .text.lcd16x2_write:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:258    .text.lcd16x2_write:0000000000000000 lcd16x2_write
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:423    .text.lcd16x2_write:0000000000000114 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:438    .text.lcd16x2_writeCommand:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:443    .text.lcd16x2_writeCommand:0000000000000000 lcd16x2_writeCommand
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:472    .text.lcd16x2_writeData:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:477    .text.lcd16x2_writeData:0000000000000000 lcd16x2_writeData
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:506    .text.lcd16x2_write4:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:511    .text.lcd16x2_write4:0000000000000000 lcd16x2_write4
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:571    .text.lcd16x2_write4:000000000000004c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:580    .text.lcd16x2_init_8bits:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:586    .text.lcd16x2_init_8bits:0000000000000000 lcd16x2_init_8bits
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:733    .text.lcd16x2_init_8bits:00000000000000b4 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:752    .text.lcd16x2_init_4bits:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:758    .text.lcd16x2_init_4bits:0000000000000000 lcd16x2_init_4bits
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:888    .text.lcd16x2_init_4bits:000000000000009c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:902    .text.lcd16x2_setCursor:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:908    .text.lcd16x2_setCursor:0000000000000000 lcd16x2_setCursor
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:954    .text.lcd16x2_1stLine:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:960    .text.lcd16x2_1stLine:0000000000000000 lcd16x2_1stLine
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:981    .text.lcd16x2_2ndLine:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:987    .text.lcd16x2_2ndLine:0000000000000000 lcd16x2_2ndLine
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1008   .text.lcd16x2_twoLines:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1014   .text.lcd16x2_twoLines:0000000000000000 lcd16x2_twoLines
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1038   .text.lcd16x2_twoLines:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1043   .text.lcd16x2_oneLine:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1049   .text.lcd16x2_oneLine:0000000000000000 lcd16x2_oneLine
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1073   .text.lcd16x2_oneLine:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1078   .text.lcd16x2_cursorShow:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1084   .text.lcd16x2_cursorShow:0000000000000000 lcd16x2_cursorShow
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1131   .text.lcd16x2_cursorShow:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1136   .text.lcd16x2_clear:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1142   .text.lcd16x2_clear:0000000000000000 lcd16x2_clear
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1166   .text.lcd16x2_display:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1172   .text.lcd16x2_display:0000000000000000 lcd16x2_display
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1219   .text.lcd16x2_display:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1224   .text.lcd16x2_shiftRight:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1230   .text.lcd16x2_shiftRight:0000000000000000 lcd16x2_shiftRight
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1277   .text.lcd16x2_shiftLeft:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1283   .text.lcd16x2_shiftLeft:0000000000000000 lcd16x2_shiftLeft
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1330   .text.lcd16x2_printf:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1336   .text.lcd16x2_printf:0000000000000000 lcd16x2_printf
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1425   .bss.D0_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1429   .bss.D0_PIN:0000000000000000 D0_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1432   .bss.D1_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1436   .bss.D1_PIN:0000000000000000 D1_PIN
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 36
+
+
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1439   .bss.D2_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1443   .bss.D2_PIN:0000000000000000 D2_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1446   .bss.D3_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1450   .bss.D3_PIN:0000000000000000 D3_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1453   .bss.D4_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1457   .bss.D4_PIN:0000000000000000 D4_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1460   .bss.D5_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1464   .bss.D5_PIN:0000000000000000 D5_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1467   .bss.D6_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1471   .bss.D6_PIN:0000000000000000 D6_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1474   .bss.D7_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1478   .bss.D7_PIN:0000000000000000 D7_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1481   .bss.PIN_E:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1485   .bss.PIN_E:0000000000000000 PIN_E
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1488   .bss.PIN_RS:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1492   .bss.PIN_RS:0000000000000000 PIN_RS
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1495   .bss.PORT_LSB:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1499   .bss.PORT_LSB:0000000000000000 PORT_LSB
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1502   .bss.PORT_MSB:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1506   .bss.PORT_MSB:0000000000000000 PORT_MSB
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1509   .bss.PORT_RS_and_E:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1513   .bss.PORT_RS_and_E:0000000000000000 PORT_RS_and_E
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1519   .data.DisplayControl:0000000000000000 DisplayControl
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1525   .data.FunctionSet:0000000000000000 FunctionSet
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1531   .data.is8BitsMode:0000000000000000 is8BitsMode
+
+UNDEFINED SYMBOLS
+HAL_GPIO_WritePin
+HAL_RCC_GetHCLKFreq
+HAL_Delay
+vsprintf
+strlen
