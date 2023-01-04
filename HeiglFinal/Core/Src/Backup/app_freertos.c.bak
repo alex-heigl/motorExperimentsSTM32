@@ -1,0 +1,213 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * File Name          : app_freertos.c
+  * Description        : Code for freertos applications
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2022 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "main.h"
+#include "cmsis_os.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "lcd16x2.h"
+#include "tim.h"
+#include "adc.h"
+#include "DHT.h"
+#include "DC_MOTOR.h"
+#define DC_MOTOR1 0
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+/* USER CODE BEGIN Variables */
+
+/* USER CODE END Variables */
+/* Definitions for defaultTask */
+osThreadId_t defaultTaskHandle;
+const osThreadAttr_t defaultTask_attributes = {
+  .name = "defaultTask",
+  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for tempCheck */
+osTimerId_t tempCheckHandle;
+const osTimerAttr_t tempCheck_attributes = {
+  .name = "tempCheck"
+};
+/* Definitions for checkADC */
+osTimerId_t checkADCHandle;
+const osTimerAttr_t checkADC_attributes = {
+  .name = "checkADC"
+};
+
+/* Private function prototypes -----------------------------------------------*/
+/* USER CODE BEGIN FunctionPrototypes */
+
+void Display_Temp(float Temp, float Rh){
+  lcd16x2_clear();
+  lcd16x2_1stLine();
+  lcd16x2_printf("Temp: %dC RH: %d", (int)Temp, (int)Rh);
+}
+
+DHT_DataTypedef DHT11_Data;
+float Temperature = 0;
+float Humidity = 0;
+
+/* USER CODE END FunctionPrototypes */
+
+void StartDefaultTask(void *argument);
+void tempCheckCallBack(void *argument);
+void checkADCCallBack(void *argument);
+
+void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/**
+  * @brief  FreeRTOS initialization
+  * @param  None
+  * @retval None
+  */
+void MX_FREERTOS_Init(void) {
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* USER CODE BEGIN RTOS_MUTEX */
+  /* add mutexes, ... */
+  /* USER CODE END RTOS_MUTEX */
+
+  /* USER CODE BEGIN RTOS_SEMAPHORES */
+  /* add semaphores, ... */
+  /* USER CODE END RTOS_SEMAPHORES */
+
+  /* Create the timer(s) */
+  /* creation of tempCheck */
+  tempCheckHandle = osTimerNew(tempCheckCallBack, osTimerPeriodic, NULL, &tempCheck_attributes);
+
+  /* creation of checkADC */
+  checkADCHandle = osTimerNew(checkADCCallBack, osTimerPeriodic, NULL, &checkADC_attributes);
+
+  /* USER CODE BEGIN RTOS_TIMERS */
+  /* start timers, add new ones, ... */
+  /* USER CODE END RTOS_TIMERS */
+
+  /* USER CODE BEGIN RTOS_QUEUES */
+  /* add queues, ... */
+  /* USER CODE END RTOS_QUEUES */
+
+  /* Create the thread(s) */
+  /* creation of defaultTask */
+  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* USER CODE BEGIN RTOS_THREADS */
+  /* add threads, ... */
+  /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  /* USER CODE END RTOS_EVENTS */
+
+}
+
+/* USER CODE BEGIN Header_StartDefaultTask */
+/**
+  * @brief  Function implementing the defaultTask thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_StartDefaultTask */
+void StartDefaultTask(void *argument)
+{
+  /* USER CODE BEGIN StartDefaultTask */
+  MX_TIM2_Init();
+  HAL_TIM_Base_Start(&htim2);
+
+  MX_ADC1_Init();
+
+
+  lcd16x2_init_4bits(GPIOA, RS_Pin, E_Pin, GPIOA, D4_Pin, D5_Pin, D6_Pin, D7_Pin);
+  lcd16x2_printf("Starting Program!");
+
+  osTimerStart(tempCheckHandle, 3000);
+  osTimerStart(checkADCHandle, 200);
+
+  DC_MOTOR_Init(DC_MOTOR1);
+  DC_MOTOR_Start(DC_MOTOR1, DIR_CW, 0);
+  /* Infinite loop */
+  for (;;){
+    osDelay(1);
+  }
+  /* USER CODE END StartDefaultTask */
+}
+
+/* tempCheckCallBack function */
+void tempCheckCallBack(void *argument)
+{
+  /* USER CODE BEGIN tempCheckCallBack */
+  DHT_GetData(&DHT11_Data);
+  Temperature = DHT11_Data.Temperature;
+  Humidity = DHT11_Data.Humidity;
+  Display_Temp(Temperature, Humidity);
+  /* USER CODE END tempCheckCallBack */
+}
+
+/* checkADCCallBack function */
+void checkADCCallBack(void *argument)
+{
+  /* USER CODE BEGIN checkADCCallBack */
+  // Get ADC value
+  uint16_t raw;
+  uint16_t cThreshold;
+  int convertedC;
+  
+  HAL_ADC_Start(&hadc1);
+  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+  raw = HAL_ADC_GetValue(&hadc1);
+  convertedC = (raw * 40) / 4095; // User can set the desired temp from 0-40 celcius
+  lcd16x2_2ndLine();
+  lcd16x2_printf("Desired Temp:%dC", convertedC);
+  if (convertedC > Temperature){
+    cThreshold = 0;
+    DC_MOTOR_Set_Speed(DC_MOTOR1, cThreshold);
+  }
+  else{
+    cThreshold = raw;
+    DC_MOTOR_Set_Speed(DC_MOTOR1, (4095 - cThreshold) >> 2);
+  }
+  /* USER CODE END checkADCCallBack */
+}
+
+/* Private application code --------------------------------------------------*/
+/* USER CODE BEGIN Application */
+
+/* USER CODE END Application */
+
