@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
   38              		.cfi_offset 5, -28
   39              		.cfi_offset 6, -24
   40              		.cfi_offset 7, -20
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 2
 
 
   41              		.cfi_offset 8, -16
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
   83 0030 4301     		lsls	r3, r0, #5
   84 0032 654A     		ldr	r2, .L15
   85 0034 D358     		ldr	r3, [r2, r3]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 3
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 3
 
 
   86              		.loc 1 30 7 view .LVU16
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  124              		.loc 1 46 70 discriminator 1 view .LVU30
  125 006c 8A42     		cmp	r2, r1
  126 006e 16D1     		bne	.L4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 4
 
 
  127              	.L11:
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
   47:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @addtogroup STM32WBxx_LL_Driver
   48:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
   49:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 5
 
 
   50:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  104:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_ADC            RCC_AHB2ENR_ADCEN
  105:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
  106:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(AES1)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 6
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 6
 
 
  107:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_AES1           RCC_AHB2ENR_AES1EN
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  161:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
  162:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
  163:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP2_PERIPH_ALL            (0xFFFFFFFFU)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 7
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 7
 
 
  164:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  218:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_TSC          RCC_C2AHB1ENR_TSCEN
  219:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
  220:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 8
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 8
 
 
  221:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  275:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_I2C3         RCC_C2APB1ENR1_I2C3EN
  276:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_CRS          RCC_C2APB1ENR1_CRSEN
  277:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_USB          RCC_C2APB1ENR1_USBEN
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 9
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 9
 
 
  278:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  332:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
  333:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
  334:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 10
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 10
 
 
  335:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  389:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE uint32_t LL_AHB1_GRP1_IsEnabledClock(uint32_t Periphs)
  390:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
  391:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   return ((READ_BIT(RCC->AHB1ENR, Periphs) == (Periphs)) ? 1UL : 0UL);
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 11
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 11
 
 
  392:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  446:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
  447:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
  448:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 12
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 12
 
 
  449:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  503:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
  504:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_DisableClockSleep(uint32_t Periphs)
  505:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 13
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 13
 
 
  506:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   CLEAR_BIT(RCC->AHB1SMENR, Periphs);
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  147              		.loc 2 545 3 is_stmt 1 view .LVU38
  148 0084 059B     		ldr	r3, [sp, #20]
  546:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 14
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 14
 
 
  149              		.loc 2 546 1 is_stmt 0 view .LVU39
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  191 00b0 2895     		str	r5, [sp, #160]
   52:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
  192              		.loc 1 52 2 is_stmt 1 view .LVU55
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 15
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 15
 
 
   53:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_Init(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, &GPIO_InitStruct);
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  235              		.loc 1 64 2 view .LVU72
   65:Core/Src/DC_MOTOR.c **** 	for(i=0; i<DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_RES_BITS; i++)
  236              		.loc 1 65 2 view .LVU73
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 16
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 16
 
 
  237              		.loc 1 65 7 is_stmt 0 view .LVU74
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  278 0108 4FF0B043 		mov	r3, #1476395008
  279 010c DA6C     		ldr	r2, [r3, #76]
  280 010e 42F00402 		orr	r2, r2, #4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 17
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 17
 
 
  281 0112 DA64     		str	r2, [r3, #76]
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
   66:Core/Src/DC_MOTOR.c **** 	{
   67:Core/Src/DC_MOTOR.c **** 		ARR_Value *= 2;
  323              		.loc 1 67 3 is_stmt 1 discriminator 3 view .LVU107
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 18
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 18
 
 
  324              		.loc 1 67 13 is_stmt 0 discriminator 3 view .LVU108
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
   74:Core/Src/DC_MOTOR.c **** 
   75:Core/Src/DC_MOTOR.c **** 	htim.Instance = DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance;
  367              		.loc 1 75 2 is_stmt 1 view .LVU125
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 19
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 19
 
 
  368              		.loc 1 75 55 is_stmt 0 view .LVU126
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  411              		.loc 1 86 2 is_stmt 1 view .LVU146
  412              		.loc 1 86 32 is_stmt 0 view .LVU147
  413 0194 2294     		str	r4, [sp, #136]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 20
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 20
 
 
   87:Core/Src/DC_MOTOR.c **** 	HAL_TIMEx_MasterConfigSynchronization(&htim, &sMasterConfig);
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  456              		.loc 1 98 1 view .LVU163
  457              		.align	2
  458              	.L15:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 21
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 21
 
 
  459 01c8 00000000 		.word	DC_MOTOR_CfgParam
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  114:Core/Src/DC_MOTOR.c **** 	/* Write The Speed Value To The PWM CH DutyCycle Register */
  115:Core/Src/DC_MOTOR.c **** 	if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_1)
  500              		.loc 1 115 2 is_stmt 1 view .LVU170
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 22
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 22
 
 
  501              		.loc 1 115 42 is_stmt 0 view .LVU171
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  533 002e C058     		ldr	r0, [r0, r3]
  534 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
  535              	.LVL35:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 23
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 23
 
 
  106:Core/Src/DC_MOTOR.c **** 	}
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  129:Core/Src/DC_MOTOR.c **** 	}
  578              		.loc 1 129 3 is_stmt 1 view .LVU195
  129:Core/Src/DC_MOTOR.c **** 	}
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 24
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 24
 
 
  579              		.loc 1 129 40 is_stmt 0 view .LVU196
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  625              		@ frame_needed = 0, uses_anonymous_args = 0
  626              		@ link register save eliminated.
  135:Core/Src/DC_MOTOR.c **** 	/* Write The Speed Value To The PWM CH DutyCycle Register */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 25
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 25
 
 
  136:Core/Src/DC_MOTOR.c **** 	if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_1)
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  662              		.loc 1 142 40 is_stmt 0 view .LVU221
  663 002a 064B     		ldr	r3, .L38
  664 002c 03EB4013 		add	r3, r3, r0, lsl #5
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 26
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 26
 
 
  665 0030 DB68     		ldr	r3, [r3, #12]
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  707              		.loc 1 162 7 is_stmt 1 view .LVU230
  708              		.loc 1 162 9 is_stmt 0 view .LVU231
  709 0004 0129     		cmp	r1, #1
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 27
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 27
 
 
  710 0006 11D0     		beq	.L45
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
  750              		.loc 1 164 3 view .LVU242
  751 003a 53F80C00 		ldr	r0, [r3, ip]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 28
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 28
 
 
  752              	.LVL53:
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  801 000c 0022     		movs	r2, #0
  802 000e 2989     		ldrh	r1, [r5, #8]
  803 0010 1858     		ldr	r0, [r3, r0]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 29
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 29
 
 
  804 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  834 0032 0DD0     		beq	.L55
  190:Core/Src/DC_MOTOR.c **** 	}
  835              		.loc 1 190 3 is_stmt 1 view .LVU264
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 30
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 30
 
 
  190:Core/Src/DC_MOTOR.c **** 	}
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  195:Core/Src/DC_MOTOR.c **** {
  882              		.loc 1 195 1 is_stmt 1 view -0
  883              		.cfi_startproc
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 31
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 31
 
 
  884              		@ args = 0, pretend = 0, frame = 0
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  924              	.LVL66:
  925              		.loc 1 203 60 view .LVU291
  926 0020 034B     		ldr	r3, .L61+4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 32
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 32
 
 
  927 0022 03FB00F0 		mul	r0, r3, r0
@@ -1885,29 +1885,29 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
  948              		.file 10 "Core/Inc/DC_MOTOR.h"
  949              		.file 11 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_tim_ex.h"
  950              		.file 12 "Core/Inc/DC_MOTOR_cfg.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 33
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s 			page 33
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 DC_MOTOR.c
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:20     .text.DC_MOTOR_Init:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:26     .text.DC_MOTOR_Init:0000000000000000 DC_MOTOR_Init
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:459    .text.DC_MOTOR_Init:00000000000001c8 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:469    .text.DC_MOTOR_Start:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:475    .text.DC_MOTOR_Start:0000000000000000 DC_MOTOR_Start
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:608    .text.DC_MOTOR_Start:000000000000008c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:613    .text.DC_MOTOR_Set_Speed:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:619    .text.DC_MOTOR_Set_Speed:0000000000000000 DC_MOTOR_Set_Speed
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:681    .text.DC_MOTOR_Set_Speed:0000000000000044 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:686    .text.DC_MOTOR_Set_Dir:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:692    .text.DC_MOTOR_Set_Dir:0000000000000000 DC_MOTOR_Set_Dir
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:767    .text.DC_MOTOR_Set_Dir:0000000000000050 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:772    .text.DC_MOTOR_Stop:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:778    .text.DC_MOTOR_Stop:0000000000000000 DC_MOTOR_Stop
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:868    .text.DC_MOTOR_Stop:0000000000000060 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:873    .text.DC_MOTOR_Get_MaxFreq:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:879    .text.DC_MOTOR_Get_MaxFreq:0000000000000000 DC_MOTOR_Get_MaxFreq
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:934    .text.DC_MOTOR_Get_MaxFreq:000000000000002c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:20     .text.DC_MOTOR_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:26     .text.DC_MOTOR_Init:0000000000000000 DC_MOTOR_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:459    .text.DC_MOTOR_Init:00000000000001c8 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:469    .text.DC_MOTOR_Start:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:475    .text.DC_MOTOR_Start:0000000000000000 DC_MOTOR_Start
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:608    .text.DC_MOTOR_Start:000000000000008c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:613    .text.DC_MOTOR_Set_Speed:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:619    .text.DC_MOTOR_Set_Speed:0000000000000000 DC_MOTOR_Set_Speed
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:681    .text.DC_MOTOR_Set_Speed:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:686    .text.DC_MOTOR_Set_Dir:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:692    .text.DC_MOTOR_Set_Dir:0000000000000000 DC_MOTOR_Set_Dir
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:767    .text.DC_MOTOR_Set_Dir:0000000000000050 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:772    .text.DC_MOTOR_Stop:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:778    .text.DC_MOTOR_Stop:0000000000000000 DC_MOTOR_Stop
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:868    .text.DC_MOTOR_Stop:0000000000000060 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:873    .text.DC_MOTOR_Get_MaxFreq:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:879    .text.DC_MOTOR_Get_MaxFreq:0000000000000000 DC_MOTOR_Get_MaxFreq
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccQ5F7IW.s:934    .text.DC_MOTOR_Get_MaxFreq:000000000000002c $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_Init

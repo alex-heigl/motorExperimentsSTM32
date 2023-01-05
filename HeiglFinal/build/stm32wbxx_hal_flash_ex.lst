@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
   29:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****            capability (RWW)
   30:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****        (+) Single bank memory organization
   31:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****        (+) PCROP protection
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 2
 
 
   32:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****        (+) WRP protection
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
   86:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @brief FLASH Extended HAL module driver
   87:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @{
   88:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 3
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 3
 
 
   89:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  143:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @param[in]  pEraseInit Pointer to an @ref FLASH_EraseInitTypeDef structure that
  144:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         contains the configuration information for the erasing.
  145:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @param[out]  PageError Pointer to variable that contains the configuration
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 4
 
 
  146:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         information on faulty page in case of error (0xFFFFFFFF means that all
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  200:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  201:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   return status;
  202:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 5
 
 
  203:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  257:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @brief  Program Option bytes.
  258:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @param  pOBInit Pointer to an @ref FLASH_OBProgramInitTypeDef structure that
  259:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         contains the configuration information for the programming.
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 6
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 6
 
 
  260:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @note   To configure any option bytes, the option lock bit OPTLOCK must be
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  314:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  315:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   /* PCROP Configuration */
  316:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   if ((pOBInit->OptionType & OPTIONBYTE_PCROP) != 0U)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 7
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 7
 
 
  317:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   {
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  371:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   pOBInit->OptionType = OPTIONBYTE_ALL;
  372:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  373:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   if ((pOBInit->WRPArea == OB_WRPAREA_BANK1_AREAA) || (pOBInit->WRPArea == OB_WRPAREA_BANK1_AREAB))
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 8
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 8
 
 
  374:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   {
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  428:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  429:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   MODIFY_REG(FLASH->ACR, FLASH_ACR_EMPTY, FlashEmpty);
  430:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 9
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 9
 
 
  431:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  485:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   */
  486:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  487:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** /**
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 10
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 10
 
 
  488:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @}
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
   46              		.loc 1 523 5 view .LVU6
   47 0014 1A68     		ldr	r2, [r3]
   48 0016 42F40062 		orr	r2, r2, #2048
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 11
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 11
 
 
   49 001a 1A60     		str	r2, [r3]
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
   88 0058 7047     		bx	lr
   89              	.L5:
   90 005a 00BF     		.align	2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 12
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 12
 
 
   91              	.L4:
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  555:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         it is not possible to program or erase Flash memory if the CPU debug
  556:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         features are connected (JTAG or single wire) or boot code is being
  557:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         executed from RAM or System flash, even if WRP is not activated.
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 13
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 13
 
 
  558:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @note   To configure the WRP options, the option lock bit OPTLOCK must be
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  587:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****     MODIFY_REG(FLASH->WRP1BR, (FLASH_WRP1BR_WRP1B_STRT | FLASH_WRP1BR_WRP1B_END),
  158              		.loc 1 587 5 is_stmt 1 view .LVU32
  159 0014 0448     		ldr	r0, .L12
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 14
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 14
 
 
  160              	.LVL4:
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  617:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         @arg @ref OB_BOOT0_FROM_OB or @ref OB_BOOT0_FROM_PIN
  618:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         @arg @ref OB_BOOT0_RESET or @ref OB_BOOT0_SET
  619:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         @arg @ref OB_RESET_MODE_INPUT_ONLY or @ref OB_RESET_MODE_GPIO or @ref OB_RESET_MODE_INP
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 15
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 15
 
 
  620:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *         @arg @ref OB_AGC_TRIM_0 or @ref OB_AGC_TRIM_1 or ... or @ref OB_AGC_TRIM_7
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  641:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** }
  220              		.loc 1 641 1 view .LVU51
  221 0014 5DF8044B 		ldr	r4, [sp], #4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 16
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 16
 
 
  222              		.cfi_restore 4
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  668:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  669:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   /* get pcrop 1A end register */
  670:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   pcrop1aend = FLASH->PCROP1AER;
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 17
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 17
 
 
  252              		.loc 1 670 3 view .LVU59
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  686:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  687:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   /* Set RDP erase protection if needed. This bit is only set & will be reset by mass erase */
  688:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   if ((PCROPConfig & OB_PCROP_RDP_ERASE) != 0U)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 18
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 18
 
 
  290              		.loc 1 688 3 is_stmt 1 view .LVU75
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  330              	.LVL24:
  331              	.L28:
  690:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 19
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 19
 
 
  332              		.loc 1 690 5 is_stmt 1 view .LVU87
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  719:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   startoffset = ((PCROP1BStartAddr - FLASH_BASE) >> FLASH_PCROP_GRANULARITY_OFFSET); /* 2K pages */
  363              		.loc 1 719 3 view .LVU95
  364              		.loc 1 719 36 is_stmt 0 view .LVU96
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 20
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 20
 
 
  365 0000 00F17840 		add	r0, r0, #-134217728
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  400              		.loc 1 740 1 is_stmt 1 view -0
  401              		.cfi_startproc
  402              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 21
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 21
 
 
  403              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  441              		.loc 1 758 3 view .LVU112
  442              		.loc 1 758 12 is_stmt 0 view .LVU113
  443 0000 294B     		ldr	r3, .L45
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 22
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 22
 
 
  444 0002 D3F88020 		ldr	r2, [r3, #128]
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  479 003c A2F56032 		sub	r2, r2, #229376
  480 0040 920A     		lsrs	r2, r2, #10
  481 0042 5206     		lsls	r2, r2, #25
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 23
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 23
 
 
  482 0044 42EA8C42 		orr	r2, r2, ip, lsl #18
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  505              	.LVL44:
  506              		.loc 1 808 6 view .LVU135
  507 0062 12F4807F 		tst	r2, #256
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 24
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 24
 
 
  508 0066 0CD0     		beq	.L41
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  790:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** #endif
  541              		.loc 1 790 7 is_stmt 0 view .LVU147
  542 0092 E2E7     		b	.L40
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 25
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 25
 
 
  543              	.LVL50:
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  579              		.loc 1 844 3 view .LVU152
  845:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  846:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   /* Get the configuration of the write protected area */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 26
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 26
 
 
  847:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   if (WRPArea == OB_WRPAREA_BANK1_AREAA)
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  623 0028 00400058 		.word	1476411392
  624              		.cfi_endproc
  625              	.LFE1122:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 27
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 27
 
 
  627              		.section	.text.FLASH_OB_GetRDP,"ax",%progbits
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  660              	.L56:
  661 0012 00BF     		.align	2
  662              	.L55:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 28
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 28
 
 
  663 0014 00400058 		.word	1476411392
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  691              		.loc 1 907 1 view .LVU187
  692 0008 7047     		bx	lr
  693              	.L59:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 29
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 29
 
 
  694 000a 00BF     		.align	2
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  730 0008 04EAC626 		and	r6, r4, r6, lsl #11
  731              	.LVL63:
  732              		.loc 1 927 66 view .LVU195
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 30
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 30
 
 
  733 000c 06F10066 		add	r6, r6, #134217728
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  776              		.loc 1 938 51 view .LVU217
  777 003a 03F00043 		and	r3, r3, #-2147483648
  778              		.loc 1 938 21 view .LVU218
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 31
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 31
 
 
  779 003e 0360     		str	r3, [r0]
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  825 0018 F0FF0300 		.word	262128
  826              		.cfi_endproc
  827              	.LFE1126:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 32
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 32
 
 
  829              		.section	.text.FLASH_OB_GetSecureMemoryConfig,"ax",%progbits
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  863              		.loc 1 969 60 is_stmt 0 view .LVU235
  864 000e 05F50045 		add	r5, r5, #32768
  865              	.LVL75:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 33
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 33
 
 
  866              		.loc 1 969 60 view .LVU236
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  989:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   /* Get Secure Area mode */
  990:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   *SecureMode = (READ_BIT(FLASH->OPTR, FLASH_OPTR_ESE));
  901              		.loc 1 990 3 is_stmt 1 view .LVU252
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 34
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 34
 
 
  902              		.loc 1 990 18 is_stmt 0 view .LVU253
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
 1003:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   if (*C2BootResetRegion == OB_C2_BOOT_FROM_FLASH)
  946              		.loc 1 1003 3 is_stmt 1 view .LVU262
  947              		.loc 1 1003 6 is_stmt 0 view .LVU263
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 35
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 35
 
 
  948 000c 4BB9     		cbnz	r3, .L74
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
 1012:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
 1013:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** /**
 1014:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @brief  Proceed the OB Write Operation.
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 36
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 36
 
 
 1015:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   * @retval HAL Status
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1022 0018 4FF47A70 		mov	r0, #1000
  1023 001c FFF7FEFF 		bl	FLASH_WaitForLastOperation
  1024              	.LVL87:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 37
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 37
 
 
 1030:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   }
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1069              		.loc 1 279 20 is_stmt 0 discriminator 2 view .LVU297
  1070 0012 0022     		movs	r2, #0
  1071 0014 5A60     		str	r2, [r3, #4]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 38
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 38
 
 
  282:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   {
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  321:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****     {
  1108              		.loc 1 321 8 view .LVU316
  1109 003e 244B     		ldr	r3, .L106+4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 39
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 39
 
 
  1110 0040 1842     		tst	r0, r3
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1148              	.L98:
  285:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   }
  1149              		.loc 1 285 5 is_stmt 1 view .LVU333
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 40
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 40
 
 
  1150 0068 C268     		ldr	r2, [r0, #12]
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  308:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   }
  1193              		.loc 1 308 5 is_stmt 0 view .LVU345
  1194 009c FFF7FEFF 		bl	FLASH_OB_OptrConfig
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 41
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 41
 
 
  1195              	.LVL101:
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1243              		.align	1
  1244              		.global	HAL_FLASHEx_OBGetConfig
  1245              		.syntax unified
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 42
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 42
 
 
  1246              		.thumb
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  384:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  1288              		.loc 1 384 3 is_stmt 1 view .LVU366
  384:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 43
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 43
 
 
  1289              		.loc 1 384 21 is_stmt 0 view .LVU367
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1333              		.loc 1 376 5 is_stmt 1 view .LVU377
  1334 006e 04F10C02 		add	r2, r4, #12
  1335 0072 04F10801 		add	r1, r4, #8
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 44
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 44
 
 
  1336 0076 FFF7FEFF 		bl	FLASH_OB_GetWRP
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  427:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  1389              		.loc 1 427 3 view .LVU383
  429:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 45
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 45
 
 
  1390              		.loc 1 429 3 view .LVU384
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1443              		.cfi_startproc
  1444              		@ args = 0, pretend = 0, frame = 0
  1445              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 46
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 46
 
 
  1446              		@ link register save eliminated.
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1492 000e 00BF     		.align	2
  1493              	.L129:
  1494 0010 00400058 		.word	1476411392
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 47
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 47
 
 
  1495              		.cfi_endproc
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  151:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****   HAL_StatusTypeDef status;
  1547              		.loc 1 151 1 is_stmt 0 view .LVU406
  1548 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 48
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 48
 
 
  1549              		.cfi_def_cfa_offset 24
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  169:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****     {
  1588              		.loc 1 169 19 is_stmt 0 view .LVU422
  1589 0024 2368     		ldr	r3, [r4]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 49
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 49
 
 
  169:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****     {
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1629              		.loc 1 174 57 is_stmt 0 discriminator 1 view .LVU437
  1630 0044 6368     		ldr	r3, [r4, #4]
  174:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****       {
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 50
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 50
 
 
  1631              		.loc 1 174 76 discriminator 1 view .LVU438
@@ -2998,7 +2998,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1674              		.section	.text.HAL_FLASHEx_Erase_IT,"ax",%progbits
  1675              		.align	1
  1676              		.global	HAL_FLASHEx_Erase_IT
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 51
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 51
 
 
  1677              		.syntax unified
@@ -3058,7 +3058,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1718              		.loc 1 229 3 is_stmt 1 discriminator 2 view .LVU464
  229:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c **** 
  1719              		.loc 1 229 12 is_stmt 0 discriminator 2 view .LVU465
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 52
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 52
 
 
  1720 001a 4FF47A70 		mov	r0, #1000
@@ -3118,7 +3118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  244:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****       pFlash.Page = pEraseInit->Page;
  1758              		.loc 1 244 41 is_stmt 0 view .LVU482
  1759 0040 A268     		ldr	r2, [r4, #8]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 53
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 53
 
 
  244:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.c ****       pFlash.Page = pEraseInit->Page;
@@ -3159,92 +3159,92 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 1
  1790              		.file 4 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wb55xx.h"
  1791              		.file 5 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h"
  1792              		.file 6 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_flash.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 54
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 54
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32wbxx_hal_flash_ex.c
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:20     .text.FLASH_FlushCaches:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:25     .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:92     .text.FLASH_FlushCaches:000000000000005c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:97     .text.FLASH_AcknowledgePageErase:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:102    .text.FLASH_AcknowledgePageErase:0000000000000000 FLASH_AcknowledgePageErase
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:120    .text.FLASH_AcknowledgePageErase:0000000000000010 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:125    .text.FLASH_OB_WRPConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:130    .text.FLASH_OB_WRPConfig:0000000000000000 FLASH_OB_WRPConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:174    .text.FLASH_OB_WRPConfig:0000000000000028 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:179    .text.FLASH_OB_OptrConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:184    .text.FLASH_OB_OptrConfig:0000000000000000 FLASH_OB_OptrConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:228    .text.FLASH_OB_OptrConfig:000000000000001c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:233    .text.FLASH_OB_PCROP1AConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:238    .text.FLASH_OB_PCROP1AConfig:0000000000000000 FLASH_OB_PCROP1AConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:341    .text.FLASH_OB_PCROP1AConfig:000000000000004c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:346    .text.FLASH_OB_PCROP1BConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:351    .text.FLASH_OB_PCROP1BConfig:0000000000000000 FLASH_OB_PCROP1BConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:387    .text.FLASH_OB_PCROP1BConfig:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:392    .text.FLASH_OB_IPCCBufferAddrConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:397    .text.FLASH_OB_IPCCBufferAddrConfig:0000000000000000 FLASH_OB_IPCCBufferAddrConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:423    .text.FLASH_OB_IPCCBufferAddrConfig:0000000000000010 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:428    .text.FLASH_OB_SecureConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:433    .text.FLASH_OB_SecureConfig:0000000000000000 FLASH_OB_SecureConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:560    .text.FLASH_OB_SecureConfig:00000000000000a8 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:566    .text.FLASH_OB_GetWRP:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:571    .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:623    .text.FLASH_OB_GetWRP:0000000000000028 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:628    .text.FLASH_OB_GetRDP:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:633    .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:663    .text.FLASH_OB_GetRDP:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:668    .text.FLASH_OB_GetUser:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:673    .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:696    .text.FLASH_OB_GetUser:000000000000000c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:702    .text.FLASH_OB_GetPCROP:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:707    .text.FLASH_OB_GetPCROP:0000000000000000 FLASH_OB_GetPCROP
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:792    .text.FLASH_OB_GetPCROP:0000000000000044 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:798    .text.FLASH_OB_GetIPCCBufferAddr:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:803    .text.FLASH_OB_GetIPCCBufferAddr:0000000000000000 FLASH_OB_GetIPCCBufferAddr
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:824    .text.FLASH_OB_GetIPCCBufferAddr:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:830    .text.FLASH_OB_GetSecureMemoryConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:835    .text.FLASH_OB_GetSecureMemoryConfig:0000000000000000 FLASH_OB_GetSecureMemoryConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:921    .text.FLASH_OB_GetSecureMemoryConfig:0000000000000048 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:926    .text.FLASH_OB_GetC2BootResetConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:931    .text.FLASH_OB_GetC2BootResetConfig:0000000000000000 FLASH_OB_GetC2BootResetConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:978    .text.FLASH_OB_GetC2BootResetConfig:0000000000000038 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:984    .text.FLASH_OB_ProceedWriteOperation:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:989    .text.FLASH_OB_ProceedWriteOperation:0000000000000000 FLASH_OB_ProceedWriteOperation
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1030   .text.FLASH_OB_ProceedWriteOperation:0000000000000024 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1035   .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1041   .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1237   .text.HAL_FLASHEx_OBProgram:00000000000000cc $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1243   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1249   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1342   .text.HAL_FLASHEx_OBGetConfig:000000000000007c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1347   .text.HAL_FLASHEx_FlashEmptyCheck:0000000000000000 $t
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s 			page 55
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:20     .text.FLASH_FlushCaches:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:25     .text.FLASH_FlushCaches:0000000000000000 FLASH_FlushCaches
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:92     .text.FLASH_FlushCaches:000000000000005c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:97     .text.FLASH_AcknowledgePageErase:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:102    .text.FLASH_AcknowledgePageErase:0000000000000000 FLASH_AcknowledgePageErase
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:120    .text.FLASH_AcknowledgePageErase:0000000000000010 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:125    .text.FLASH_OB_WRPConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:130    .text.FLASH_OB_WRPConfig:0000000000000000 FLASH_OB_WRPConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:174    .text.FLASH_OB_WRPConfig:0000000000000028 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:179    .text.FLASH_OB_OptrConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:184    .text.FLASH_OB_OptrConfig:0000000000000000 FLASH_OB_OptrConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:228    .text.FLASH_OB_OptrConfig:000000000000001c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:233    .text.FLASH_OB_PCROP1AConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:238    .text.FLASH_OB_PCROP1AConfig:0000000000000000 FLASH_OB_PCROP1AConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:341    .text.FLASH_OB_PCROP1AConfig:000000000000004c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:346    .text.FLASH_OB_PCROP1BConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:351    .text.FLASH_OB_PCROP1BConfig:0000000000000000 FLASH_OB_PCROP1BConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:387    .text.FLASH_OB_PCROP1BConfig:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:392    .text.FLASH_OB_IPCCBufferAddrConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:397    .text.FLASH_OB_IPCCBufferAddrConfig:0000000000000000 FLASH_OB_IPCCBufferAddrConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:423    .text.FLASH_OB_IPCCBufferAddrConfig:0000000000000010 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:428    .text.FLASH_OB_SecureConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:433    .text.FLASH_OB_SecureConfig:0000000000000000 FLASH_OB_SecureConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:560    .text.FLASH_OB_SecureConfig:00000000000000a8 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:566    .text.FLASH_OB_GetWRP:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:571    .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:623    .text.FLASH_OB_GetWRP:0000000000000028 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:628    .text.FLASH_OB_GetRDP:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:633    .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:663    .text.FLASH_OB_GetRDP:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:668    .text.FLASH_OB_GetUser:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:673    .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:696    .text.FLASH_OB_GetUser:000000000000000c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:702    .text.FLASH_OB_GetPCROP:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:707    .text.FLASH_OB_GetPCROP:0000000000000000 FLASH_OB_GetPCROP
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:792    .text.FLASH_OB_GetPCROP:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:798    .text.FLASH_OB_GetIPCCBufferAddr:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:803    .text.FLASH_OB_GetIPCCBufferAddr:0000000000000000 FLASH_OB_GetIPCCBufferAddr
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:824    .text.FLASH_OB_GetIPCCBufferAddr:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:830    .text.FLASH_OB_GetSecureMemoryConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:835    .text.FLASH_OB_GetSecureMemoryConfig:0000000000000000 FLASH_OB_GetSecureMemoryConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:921    .text.FLASH_OB_GetSecureMemoryConfig:0000000000000048 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:926    .text.FLASH_OB_GetC2BootResetConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:931    .text.FLASH_OB_GetC2BootResetConfig:0000000000000000 FLASH_OB_GetC2BootResetConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:978    .text.FLASH_OB_GetC2BootResetConfig:0000000000000038 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:984    .text.FLASH_OB_ProceedWriteOperation:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:989    .text.FLASH_OB_ProceedWriteOperation:0000000000000000 FLASH_OB_ProceedWriteOperation
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1030   .text.FLASH_OB_ProceedWriteOperation:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1035   .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1041   .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1237   .text.HAL_FLASHEx_OBProgram:00000000000000cc $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1243   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1249   .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1342   .text.HAL_FLASHEx_OBGetConfig:000000000000007c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1347   .text.HAL_FLASHEx_FlashEmptyCheck:0000000000000000 $t
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s 			page 55
 
 
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1353   .text.HAL_FLASHEx_FlashEmptyCheck:0000000000000000 HAL_FLASHEx_FlashEmptyCheck
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1370   .text.HAL_FLASHEx_FlashEmptyCheck:000000000000000c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1375   .text.HAL_FLASHEx_ForceFlashEmpty:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1381   .text.HAL_FLASHEx_ForceFlashEmpty:0000000000000000 HAL_FLASHEx_ForceFlashEmpty
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1401   .text.HAL_FLASHEx_ForceFlashEmpty:0000000000000010 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1406   .text.HAL_FLASHEx_SuspendOperation:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1412   .text.HAL_FLASHEx_SuspendOperation:0000000000000000 HAL_FLASHEx_SuspendOperation
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1429   .text.HAL_FLASHEx_SuspendOperation:000000000000000c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1434   .text.HAL_FLASHEx_AllowOperation:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1440   .text.HAL_FLASHEx_AllowOperation:0000000000000000 HAL_FLASHEx_AllowOperation
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1457   .text.HAL_FLASHEx_AllowOperation:000000000000000c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1462   .text.HAL_FLASHEx_IsOperationSuspended:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1468   .text.HAL_FLASHEx_IsOperationSuspended:0000000000000000 HAL_FLASHEx_IsOperationSuspended
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1494   .text.HAL_FLASHEx_IsOperationSuspended:0000000000000010 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1499   .text.FLASH_PageErase:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1505   .text.FLASH_PageErase:0000000000000000 FLASH_PageErase
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1529   .text.FLASH_PageErase:0000000000000018 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1534   .text.HAL_FLASHEx_Erase:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1540   .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1670   .text.HAL_FLASHEx_Erase:0000000000000070 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1675   .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1681   .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccDtoTmm.s:1781   .text.HAL_FLASHEx_Erase_IT:0000000000000054 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1353   .text.HAL_FLASHEx_FlashEmptyCheck:0000000000000000 HAL_FLASHEx_FlashEmptyCheck
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1370   .text.HAL_FLASHEx_FlashEmptyCheck:000000000000000c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1375   .text.HAL_FLASHEx_ForceFlashEmpty:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1381   .text.HAL_FLASHEx_ForceFlashEmpty:0000000000000000 HAL_FLASHEx_ForceFlashEmpty
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1401   .text.HAL_FLASHEx_ForceFlashEmpty:0000000000000010 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1406   .text.HAL_FLASHEx_SuspendOperation:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1412   .text.HAL_FLASHEx_SuspendOperation:0000000000000000 HAL_FLASHEx_SuspendOperation
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1429   .text.HAL_FLASHEx_SuspendOperation:000000000000000c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1434   .text.HAL_FLASHEx_AllowOperation:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1440   .text.HAL_FLASHEx_AllowOperation:0000000000000000 HAL_FLASHEx_AllowOperation
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1457   .text.HAL_FLASHEx_AllowOperation:000000000000000c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1462   .text.HAL_FLASHEx_IsOperationSuspended:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1468   .text.HAL_FLASHEx_IsOperationSuspended:0000000000000000 HAL_FLASHEx_IsOperationSuspended
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1494   .text.HAL_FLASHEx_IsOperationSuspended:0000000000000010 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1499   .text.FLASH_PageErase:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1505   .text.FLASH_PageErase:0000000000000000 FLASH_PageErase
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1529   .text.FLASH_PageErase:0000000000000018 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1534   .text.HAL_FLASHEx_Erase:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1540   .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1670   .text.HAL_FLASHEx_Erase:0000000000000070 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1675   .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1681   .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccyPVFKD.s:1781   .text.HAL_FLASHEx_Erase_IT:0000000000000054 $d
 
 UNDEFINED SYMBOLS
 FLASH_WaitForLastOperation

@@ -1,0 +1,1922 @@
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"DC_MOTOR.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.DC_MOTOR_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	DC_MOTOR_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	DC_MOTOR_Init:
+  27              	.LVL0:
+  28              	.LFB1104:
+  29              		.file 1 "Core/Src/DC_MOTOR.c"
+   1:Core/Src/DC_MOTOR.c **** /*
+   2:Core/Src/DC_MOTOR.c ****  * File: DC_MOTOR.c
+   3:Core/Src/DC_MOTOR.c ****  * Driver Name: [[ DC MOTOR ]]
+   4:Core/Src/DC_MOTOR.c ****  * SW Layer:   ECUAL
+   5:Core/Src/DC_MOTOR.c ****  * Created on: Jun 28, 2020
+   6:Core/Src/DC_MOTOR.c ****  * Author:     Khaled Magdy
+   7:Core/Src/DC_MOTOR.c ****  * -------------------------------------------
+   8:Core/Src/DC_MOTOR.c ****  * For More Information, Tutorials, etc.
+   9:Core/Src/DC_MOTOR.c ****  * Visit Website: www.DeepBlueMbedded.com
+  10:Core/Src/DC_MOTOR.c ****  *
+  11:Core/Src/DC_MOTOR.c ****  */
+  12:Core/Src/DC_MOTOR.c **** 
+  13:Core/Src/DC_MOTOR.c **** #include "DC_MOTOR.h"
+  14:Core/Src/DC_MOTOR.c **** #include "DC_MOTOR_cfg.h"
+  15:Core/Src/DC_MOTOR.c **** #include "main.h"
+  16:Core/Src/DC_MOTOR.c **** 
+  17:Core/Src/DC_MOTOR.c **** void DC_MOTOR_Init(uint8_t au8_MOTOR_Instance)
+  18:Core/Src/DC_MOTOR.c **** {
+  30              		.loc 1 18 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 176
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 18 1 is_stmt 0 view .LVU1
+  35 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  36              		.cfi_def_cfa_offset 32
+  37              		.cfi_offset 4, -32
+  38              		.cfi_offset 5, -28
+  39              		.cfi_offset 6, -24
+  40              		.cfi_offset 7, -20
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 2
+
+
+  41              		.cfi_offset 8, -16
+  42              		.cfi_offset 9, -12
+  43              		.cfi_offset 10, -8
+  44              		.cfi_offset 14, -4
+  45 0004 ACB0     		sub	sp, sp, #176
+  46              		.cfi_def_cfa_offset 208
+  47 0006 0646     		mov	r6, r0
+  19:Core/Src/DC_MOTOR.c **** 	GPIO_InitTypeDef GPIO_InitStruct = {0};
+  48              		.loc 1 19 2 is_stmt 1 view .LVU2
+  49              		.loc 1 19 19 is_stmt 0 view .LVU3
+  50 0008 0023     		movs	r3, #0
+  51 000a 2793     		str	r3, [sp, #156]
+  52 000c 2893     		str	r3, [sp, #160]
+  53 000e 2993     		str	r3, [sp, #164]
+  54 0010 2A93     		str	r3, [sp, #168]
+  55 0012 2B93     		str	r3, [sp, #172]
+  20:Core/Src/DC_MOTOR.c **** 	TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  56              		.loc 1 20 2 is_stmt 1 view .LVU4
+  57              		.loc 1 20 25 is_stmt 0 view .LVU5
+  58 0014 2393     		str	r3, [sp, #140]
+  59 0016 2493     		str	r3, [sp, #144]
+  60 0018 2593     		str	r3, [sp, #148]
+  61 001a 2693     		str	r3, [sp, #152]
+  21:Core/Src/DC_MOTOR.c ****     TIM_MasterConfigTypeDef sMasterConfig = {0};
+  62              		.loc 1 21 5 is_stmt 1 view .LVU6
+  63              		.loc 1 21 29 is_stmt 0 view .LVU7
+  64 001c 2093     		str	r3, [sp, #128]
+  65 001e 2193     		str	r3, [sp, #132]
+  66 0020 2293     		str	r3, [sp, #136]
+  22:Core/Src/DC_MOTOR.c ****     TIM_OC_InitTypeDef sConfigOC = {0};
+  67              		.loc 1 22 5 is_stmt 1 view .LVU8
+  68              		.loc 1 22 24 is_stmt 0 view .LVU9
+  69 0022 1993     		str	r3, [sp, #100]
+  70 0024 1A93     		str	r3, [sp, #104]
+  71 0026 1B93     		str	r3, [sp, #108]
+  72 0028 1C93     		str	r3, [sp, #112]
+  73 002a 1D93     		str	r3, [sp, #116]
+  74 002c 1E93     		str	r3, [sp, #120]
+  75 002e 1F93     		str	r3, [sp, #124]
+  23:Core/Src/DC_MOTOR.c ****     TIM_HandleTypeDef htim;
+  76              		.loc 1 23 5 is_stmt 1 view .LVU10
+  24:Core/Src/DC_MOTOR.c ****     uint32_t PSC_Value = 0;
+  77              		.loc 1 24 5 view .LVU11
+  78              	.LVL1:
+  25:Core/Src/DC_MOTOR.c ****     uint32_t ARR_Value = 0;
+  79              		.loc 1 25 5 view .LVU12
+  26:Core/Src/DC_MOTOR.c ****     uint8_t i = 0;
+  80              		.loc 1 26 5 view .LVU13
+  27:Core/Src/DC_MOTOR.c **** 
+  28:Core/Src/DC_MOTOR.c **** 	/*--------[ Configure The 2 Direction Control GPIO Pins ]-------*/
+  29:Core/Src/DC_MOTOR.c **** 
+  30:Core/Src/DC_MOTOR.c ****     if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO == GPIOA || DC_MOTOR_CfgParam[au8_MOTOR_Inst
+  81              		.loc 1 30 5 view .LVU14
+  82              		.loc 1 30 45 is_stmt 0 view .LVU15
+  83 0030 4301     		lsls	r3, r0, #5
+  84 0032 654A     		ldr	r2, .L15
+  85 0034 D358     		ldr	r3, [r2, r3]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 3
+
+
+  86              		.loc 1 30 7 view .LVU16
+  87 0036 B3F1904F 		cmp	r3, #1207959552
+  88 003a 25D0     		beq	.L2
+  89              		.loc 1 30 105 discriminator 1 view .LVU17
+  90 003c 02EB4012 		add	r2, r2, r0, lsl #5
+  91 0040 5268     		ldr	r2, [r2, #4]
+  92              		.loc 1 30 65 discriminator 1 view .LVU18
+  93 0042 B2F1904F 		cmp	r2, #1207959552
+  94 0046 1FD0     		beq	.L2
+  31:Core/Src/DC_MOTOR.c ****     {
+  32:Core/Src/DC_MOTOR.c ****     	__HAL_RCC_GPIOA_CLK_ENABLE();
+  33:Core/Src/DC_MOTOR.c ****     }
+  34:Core/Src/DC_MOTOR.c ****     else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO == GPIOB || DC_MOTOR_CfgParam[au8_MOTOR
+  95              		.loc 1 34 10 is_stmt 1 view .LVU19
+  96              		.loc 1 34 12 is_stmt 0 view .LVU20
+  97 0048 6049     		ldr	r1, .L15+4
+  98 004a 8B42     		cmp	r3, r1
+  99 004c 50D0     		beq	.L5
+ 100              		.loc 1 34 70 discriminator 1 view .LVU21
+ 101 004e 8A42     		cmp	r2, r1
+ 102 0050 4ED0     		beq	.L5
+  35:Core/Src/DC_MOTOR.c ****     {
+  36:Core/Src/DC_MOTOR.c ****     	__HAL_RCC_GPIOB_CLK_ENABLE();
+  37:Core/Src/DC_MOTOR.c ****     }
+  38:Core/Src/DC_MOTOR.c ****     else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO == GPIOC || DC_MOTOR_CfgParam[au8_MOTOR
+ 103              		.loc 1 38 10 is_stmt 1 view .LVU22
+ 104              		.loc 1 38 12 is_stmt 0 view .LVU23
+ 105 0052 5F49     		ldr	r1, .L15+8
+ 106 0054 8B42     		cmp	r3, r1
+ 107 0056 57D0     		beq	.L7
+ 108              		.loc 1 38 70 discriminator 1 view .LVU24
+ 109 0058 8A42     		cmp	r2, r1
+ 110 005a 55D0     		beq	.L7
+  39:Core/Src/DC_MOTOR.c ****     {
+  40:Core/Src/DC_MOTOR.c ****         __HAL_RCC_GPIOC_CLK_ENABLE();
+  41:Core/Src/DC_MOTOR.c ****     }
+  42:Core/Src/DC_MOTOR.c ****     else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO == GPIOD || DC_MOTOR_CfgParam[au8_MOTOR
+ 111              		.loc 1 42 10 is_stmt 1 view .LVU25
+ 112              		.loc 1 42 12 is_stmt 0 view .LVU26
+ 113 005c 5D49     		ldr	r1, .L15+12
+ 114 005e 8B42     		cmp	r3, r1
+ 115 0060 5ED0     		beq	.L9
+ 116              		.loc 1 42 70 discriminator 1 view .LVU27
+ 117 0062 8A42     		cmp	r2, r1
+ 118 0064 5CD0     		beq	.L9
+  43:Core/Src/DC_MOTOR.c ****     {
+  44:Core/Src/DC_MOTOR.c ****         __HAL_RCC_GPIOD_CLK_ENABLE();
+  45:Core/Src/DC_MOTOR.c ****     }
+  46:Core/Src/DC_MOTOR.c ****     else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO == GPIOE || DC_MOTOR_CfgParam[au8_MOTOR
+ 119              		.loc 1 46 10 is_stmt 1 view .LVU28
+ 120              		.loc 1 46 12 is_stmt 0 view .LVU29
+ 121 0066 5C49     		ldr	r1, .L15+16
+ 122 0068 8B42     		cmp	r3, r1
+ 123 006a 01D0     		beq	.L11
+ 124              		.loc 1 46 70 discriminator 1 view .LVU30
+ 125 006c 8A42     		cmp	r2, r1
+ 126 006e 16D1     		bne	.L4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 4
+
+
+ 127              	.L11:
+  47:Core/Src/DC_MOTOR.c ****     {
+  48:Core/Src/DC_MOTOR.c ****         __HAL_RCC_GPIOE_CLK_ENABLE();
+ 128              		.loc 1 48 9 is_stmt 1 view .LVU31
+ 129              	.LVL2:
+ 130              	.LBB12:
+ 131              	.LBI12:
+ 132              		.file 2 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h"
+   1:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+   2:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   ******************************************************************************
+   3:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @file    stm32wbxx_ll_bus.h
+   4:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @author  MCD Application Team
+   5:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief   Header file of BUS LL module.
+   6:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   ******************************************************************************
+   7:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @attention
+   8:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *
+   9:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * Copyright (c) 2019 STMicroelectronics.
+  10:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * All rights reserved.
+  11:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *
+  12:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * in the root directory of this software component.
+  14:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *
+  16:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   ******************************************************************************
+  17:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   @verbatim
+  18:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****                       ##### RCC Limitations #####
+  19:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   ==============================================================================
+  20:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****     [..]
+  21:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****       A delay between an RCC peripheral clock enable and the effective peripheral
+  22:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****       enabling should be taken into account in order to manage the peripheral read/write
+  23:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****       from/to registers.
+  24:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****       (+) This delay depends on the peripheral mapping.
+  25:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****         (++) AHB & APB peripherals, 1 dummy read is necessary
+  26:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  27:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****     [..]
+  28:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****       Workarounds:
+  29:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****       (#) For AHB & APB peripherals, a dummy read to the peripheral register has been
+  30:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****           inserted in each LL_{BUS}_GRP{x}_EnableClock() function.
+  31:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  32:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   @endverbatim
+  33:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   ******************************************************************************
+  34:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+  35:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  36:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Define to prevent recursive inclusion -------------------------------------*/
+  37:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #ifndef STM32WBxx_LL_BUS_H
+  38:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define STM32WBxx_LL_BUS_H
+  39:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  40:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #ifdef __cplusplus
+  41:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** extern "C" {
+  42:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+  43:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  44:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Includes ------------------------------------------------------------------*/
+  45:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #include "stm32wbxx.h"
+  46:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  47:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @addtogroup STM32WBxx_LL_Driver
+  48:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+  49:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 5
+
+
+  50:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  51:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(RCC)
+  52:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  53:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL BUS
+  54:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+  55:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+  56:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  57:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Private types -------------------------------------------------------------*/
+  58:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Private variables ---------------------------------------------------------*/
+  59:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  60:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Private constants ---------------------------------------------------------*/
+  61:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  62:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Private macros ------------------------------------------------------------*/
+  63:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  64:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Exported types ------------------------------------------------------------*/
+  65:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  66:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Exported constants --------------------------------------------------------*/
+  67:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_Exported_Constants BUS Exported Constants
+  68:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+  69:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+  70:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  71:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_AHB1_GRP1_PERIPH  AHB1 GRP1 PERIPH
+  72:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+  73:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+  74:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_ALL            (0xFFFFFFFFU)
+  75:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  76:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_DMA1           RCC_AHB1ENR_DMA1EN
+  77:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(DMA2)
+  78:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_DMA2           RCC_AHB1ENR_DMA2EN
+  79:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+  80:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_DMAMUX1        RCC_AHB1ENR_DMAMUX1EN
+  81:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_SRAM1          RCC_AHB1SMENR_SRAM1SMEN
+  82:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_CRC            RCC_AHB1ENR_CRCEN
+  83:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(TSC)
+  84:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_TSC            RCC_AHB1ENR_TSCEN
+  85:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+  86:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+  87:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+  88:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+  89:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  90:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_AHB2_GRP1_PERIPH  AHB2 GRP1 PERIPH
+  91:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+  92:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+  93:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_ALL            (0xFFFFFFFFU)
+  94:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+  95:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_GPIOA          RCC_AHB2ENR_GPIOAEN
+  96:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_GPIOB          RCC_AHB2ENR_GPIOBEN
+  97:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_GPIOC          RCC_AHB2ENR_GPIOCEN
+  98:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(GPIOD)
+  99:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_GPIOD          RCC_AHB2ENR_GPIODEN
+ 100:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 101:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_GPIOE          RCC_AHB2ENR_GPIOEEN
+ 102:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_GPIOH          RCC_AHB2ENR_GPIOHEN
+ 103:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(ADC_SUPPORT_5_MSPS)
+ 104:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_ADC            RCC_AHB2ENR_ADCEN
+ 105:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 106:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(AES1)
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 6
+
+
+ 107:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB2_GRP1_PERIPH_AES1           RCC_AHB2ENR_AES1EN
+ 108:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 109:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 110:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 111:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 112:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 113:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_AHB3_GRP1_PERIPH  AHB3 GRP1 PERIPH
+ 114:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 115:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 116:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_ALL            (0xFFFFFFFFU)
+ 117:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(QUADSPI)
+ 118:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_QUADSPI        RCC_AHB3ENR_QUADSPIEN
+ 119:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 120:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_PKA            RCC_AHB3ENR_PKAEN
+ 121:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_AES2           RCC_AHB3ENR_AES2EN
+ 122:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_RNG            RCC_AHB3ENR_RNGEN
+ 123:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_HSEM           RCC_AHB3ENR_HSEMEN
+ 124:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_IPCC           RCC_AHB3ENR_IPCCEN
+ 125:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_SRAM2          RCC_AHB3SMENR_SRAM2SMEN
+ 126:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_AHB3_GRP1_PERIPH_FLASH          RCC_AHB3ENR_FLASHEN
+ 127:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 128:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 129:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 130:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 131:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_APB1_GRP1_PERIPH  APB1 GRP1 PERIPH
+ 132:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 133:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 134:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_ALL            (0xFFFFFFFFU)
+ 135:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_TIM2           RCC_APB1ENR1_TIM2EN
+ 136:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(LCD)
+ 137:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_LCD            RCC_APB1ENR1_LCDEN
+ 138:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 139:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_RTCAPB         RCC_APB1ENR1_RTCAPBEN
+ 140:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_WWDG           RCC_APB1ENR1_WWDGEN
+ 141:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(SPI2)
+ 142:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_SPI2           RCC_APB1ENR1_SPI2EN
+ 143:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 144:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_I2C1           RCC_APB1ENR1_I2C1EN
+ 145:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(I2C3)
+ 146:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_I2C3           RCC_APB1ENR1_I2C3EN
+ 147:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 148:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(CRS)
+ 149:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_CRS            RCC_APB1ENR1_CRSEN
+ 150:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 151:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(USB)
+ 152:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_USB            RCC_APB1ENR1_USBEN
+ 153:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 154:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_LPTIM1         RCC_APB1ENR1_LPTIM1EN
+ 155:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 156:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 157:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 158:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 159:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 160:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_APB1_GRP2_PERIPH  APB1 GRP2 PERIPH
+ 161:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 162:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 163:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP2_PERIPH_ALL            (0xFFFFFFFFU)
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 7
+
+
+ 164:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 165:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(LPUART1)
+ 166:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP2_PERIPH_LPUART1        RCC_APB1ENR2_LPUART1EN
+ 167:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 168:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB1_GRP2_PERIPH_LPTIM2         RCC_APB1ENR2_LPTIM2EN
+ 169:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 170:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 171:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 172:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 173:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_APB2_GRP1_PERIPH  APB2 GRP1 PERIPH
+ 174:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 175:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 176:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_ALL            (0xFFFFFFFFU)
+ 177:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 178:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(ADC_SUPPORT_2_5_MSPS)
+ 179:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_ADC            RCC_APB2ENR_ADCEN
+ 180:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 181:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_TIM1           RCC_APB2ENR_TIM1EN
+ 182:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_SPI1           RCC_APB2ENR_SPI1EN
+ 183:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_USART1         RCC_APB2ENR_USART1EN
+ 184:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(TIM16)
+ 185:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_TIM16          RCC_APB2ENR_TIM16EN
+ 186:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 187:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(TIM17)
+ 188:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_TIM17          RCC_APB2ENR_TIM17EN
+ 189:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 190:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(SAI1)
+ 191:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_SAI1           RCC_APB2ENR_SAI1EN
+ 192:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 193:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 194:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 195:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 196:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 197:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_APB3_GRP1_PERIPH  APB3 GRP1 PERIPH
+ 198:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 199:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 200:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB3_GRP1_PERIPH_ALL            (0xFFFFFFFFU)
+ 201:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_APB3_GRP1_PERIPH_RF             RCC_APB3RSTR_RFRST
+ 202:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 203:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 204:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 205:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 206:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 207:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_AHB1_GRP1_PERIPH  C2 AHB1 GRP1 PERIPH
+ 208:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 209:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 210:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_DMA1         RCC_C2AHB1ENR_DMA1EN
+ 211:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(DMA2)
+ 212:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_DMA2         RCC_C2AHB1ENR_DMA2EN
+ 213:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 214:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_DMAMUX1      RCC_C2AHB1ENR_DMAMUX1EN
+ 215:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_SRAM1        RCC_C2AHB1ENR_SRAM1EN
+ 216:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_CRC          RCC_C2AHB1ENR_CRCEN
+ 217:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(TSC)
+ 218:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB1_GRP1_PERIPH_TSC          RCC_C2AHB1ENR_TSCEN
+ 219:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 220:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 8
+
+
+ 221:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 222:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 223:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 224:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 225:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_AHB2_GRP1_PERIPH  C2 AHB2 GRP1 PERIPH
+ 226:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 227:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 228:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_GPIOA        RCC_C2AHB2ENR_GPIOAEN
+ 229:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_GPIOB        RCC_C2AHB2ENR_GPIOBEN
+ 230:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_GPIOC        RCC_C2AHB2ENR_GPIOCEN
+ 231:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(GPIOD)
+ 232:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_GPIOD        RCC_C2AHB2ENR_GPIODEN
+ 233:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 234:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_GPIOE        RCC_C2AHB2ENR_GPIOEEN
+ 235:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_GPIOH        RCC_C2AHB2ENR_GPIOHEN
+ 236:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(ADC_SUPPORT_5_MSPS)
+ 237:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_ADC          RCC_C2AHB2ENR_ADCEN
+ 238:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 239:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(AES1)
+ 240:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB2_GRP1_PERIPH_AES1         RCC_C2AHB2ENR_AES1EN
+ 241:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 242:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 243:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 244:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 245:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 246:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 247:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_AHB3_GRP1_PERIPH  C2 AHB3 GRP1 PERIPH
+ 248:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 249:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 250:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_PKA          RCC_C2AHB3ENR_PKAEN
+ 251:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_AES2         RCC_C2AHB3ENR_AES2EN
+ 252:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_RNG          RCC_C2AHB3ENR_RNGEN
+ 253:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_HSEM         RCC_C2AHB3ENR_HSEMEN
+ 254:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_IPCC         RCC_C2AHB3ENR_IPCCEN
+ 255:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_FLASH        RCC_C2AHB3ENR_FLASHEN
+ 256:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_AHB3_GRP1_PERIPH_SRAM2        RCC_C2AHB3SMENR_SRAM2SMEN
+ 257:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 258:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 259:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 260:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 261:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 262:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_APB1_GRP1_PERIPH  C2 APB1 GRP1 PERIPH
+ 263:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 264:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 265:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_TIM2         RCC_C2APB1ENR1_TIM2EN
+ 266:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(LCD)
+ 267:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_LCD          RCC_C2APB1ENR1_LCDEN
+ 268:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 269:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_RTCAPB       RCC_C2APB1ENR1_RTCAPBEN
+ 270:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(SPI2)
+ 271:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_SPI2         RCC_C2APB1ENR1_SPI2EN
+ 272:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 273:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_I2C1         RCC_C2APB1ENR1_I2C1EN
+ 274:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(I2C3)
+ 275:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_I2C3         RCC_C2APB1ENR1_I2C3EN
+ 276:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_CRS          RCC_C2APB1ENR1_CRSEN
+ 277:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_USB          RCC_C2APB1ENR1_USBEN
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 9
+
+
+ 278:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 279:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP1_PERIPH_LPTIM1       RCC_C2APB1ENR1_LPTIM1EN
+ 280:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 281:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 282:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 283:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 284:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 285:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_APB1_GRP2_PERIPH  C2 APB1 GRP2 PERIPH
+ 286:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 287:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 288:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(LPUART1)
+ 289:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP2_PERIPH_LPUART1      RCC_C2APB1ENR2_LPUART1EN
+ 290:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 291:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB1_GRP2_PERIPH_LPTIM2       RCC_C2APB1ENR2_LPTIM2EN
+ 292:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 293:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 294:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 295:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 296:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 297:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_APB2_GRP1_PERIPH  C2 APB2 GRP1 PERIPH
+ 298:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 299:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 300:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(ADC_SUPPORT_2_5_MSPS)
+ 301:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_ADC          RCC_C2APB2ENR_ADCEN
+ 302:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 303:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_TIM1         RCC_C2APB2ENR_TIM1EN
+ 304:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_SPI1         RCC_C2APB2ENR_SPI1EN
+ 305:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_USART1       RCC_C2APB2ENR_USART1EN
+ 306:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(TIM16)
+ 307:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_TIM16        RCC_C2APB2ENR_TIM16EN
+ 308:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 309:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(TIM17)
+ 310:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_TIM17        RCC_C2APB2ENR_TIM17EN
+ 311:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 312:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(SAI1)
+ 313:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB2_GRP1_PERIPH_SAI1         RCC_C2APB2ENR_SAI1EN
+ 314:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 315:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 316:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 317:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 318:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 319:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 320:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EC_C2_APB3_GRP1_PERIPH  C2 APB3 GRP1 PERIPH
+ 321:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 322:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 323:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB3_GRP1_PERIPH_BLE          RCC_C2APB3ENR_BLEEN
+ 324:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #if defined(RCC_802_SUPPORT)
+ 325:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #define LL_C2_APB3_GRP1_PERIPH_802          RCC_C2APB3ENR_802EN
+ 326:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** #endif
+ 327:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 328:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 329:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 330:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 331:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 332:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 333:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 334:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 10
+
+
+ 335:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 336:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Exported macro ------------------------------------------------------------*/
+ 337:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 338:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /* Exported functions --------------------------------------------------------*/
+ 339:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 340:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_Exported_Functions BUS Exported Functions
+ 341:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 342:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 343:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 344:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EF_AHB1 AHB1
+ 345:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 346:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 347:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 348:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 349:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Enable AHB1 peripherals clock.
+ 350:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1ENR      DMA1EN        LL_AHB1_GRP1_EnableClock\n
+ 351:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      DMA2EN        LL_AHB1_GRP1_EnableClock\n
+ 352:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      DMAMUX1EN      LL_AHB1_GRP1_EnableClock\n
+ 353:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      CRCEN         LL_AHB1_GRP1_EnableClock\n
+ 354:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      TSCEN         LL_AHB1_GRP1_EnableClock
+ 355:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 356:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 357:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 358:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ 359:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 360:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 361:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 362:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 363:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 364:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_EnableClock(uint32_t Periphs)
+ 365:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 366:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   __IO uint32_t tmpreg;
+ 367:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB1ENR, Periphs);
+ 368:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 369:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   tmpreg = READ_BIT(RCC->AHB1ENR, Periphs);
+ 370:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 371:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 372:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 373:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 374:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Check if AHB1 peripheral clock is enabled or not
+ 375:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1ENR      DMA1EN        LL_AHB1_GRP1_IsEnabledClock\n
+ 376:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      DMA2EN        LL_AHB1_GRP1_IsEnabledClock\n
+ 377:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      DMAMUX1EN      LL_AHB1_GRP1_IsEnabledClock\n
+ 378:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      CRCEN         LL_AHB1_GRP1_IsEnabledClock\n
+ 379:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      TSCEN         LL_AHB1_GRP1_IsEnabledClock
+ 380:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 381:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 382:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 383:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ 384:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 385:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 386:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 387:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval uint32_t
+ 388:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 389:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE uint32_t LL_AHB1_GRP1_IsEnabledClock(uint32_t Periphs)
+ 390:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 391:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   return ((READ_BIT(RCC->AHB1ENR, Periphs) == (Periphs)) ? 1UL : 0UL);
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 11
+
+
+ 392:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 393:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 394:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 395:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Disable AHB1 peripherals clock.
+ 396:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1ENR      DMA1EN        LL_AHB1_GRP1_DisableClock\n
+ 397:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      DMA2EN        LL_AHB1_GRP1_DisableClock\n
+ 398:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      DMAMUX1EN      LL_AHB1_GRP1_DisableClock\n
+ 399:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      CRCEN         LL_AHB1_GRP1_DisableClock\n
+ 400:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1ENR      TSCEN         LL_AHB1_GRP1_DisableClock
+ 401:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 402:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 403:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 404:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ 405:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 406:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 407:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 408:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 409:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 410:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_DisableClock(uint32_t Periphs)
+ 411:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 412:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   CLEAR_BIT(RCC->AHB1ENR, Periphs);
+ 413:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 414:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 415:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 416:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Force AHB1 peripherals reset.
+ 417:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1RSTR     DMA1RST       LL_AHB1_GRP1_ForceReset\n
+ 418:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     DMA2RST       LL_AHB1_GRP1_ForceReset\n
+ 419:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     DMAMUX1RST     LL_AHB1_GRP1_ForceReset\n
+ 420:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     CRCRST        LL_AHB1_GRP1_ForceReset\n
+ 421:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     TSCRST        LL_AHB1_GRP1_ForceReset
+ 422:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 423:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_ALL
+ 424:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 425:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 426:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ 427:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 428:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 429:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 430:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 431:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 432:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_ForceReset(uint32_t Periphs)
+ 433:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 434:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB1RSTR, Periphs);
+ 435:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 436:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 437:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 438:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Release AHB1 peripherals reset.
+ 439:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1RSTR     DMA1RST       LL_AHB1_GRP1_ReleaseReset\n
+ 440:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     DMA2RST       LL_AHB1_GRP1_ReleaseReset\n
+ 441:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     DMAMUX1RST     LL_AHB1_GRP1_ReleaseReset\n
+ 442:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     CRCRST        LL_AHB1_GRP1_ReleaseReset\n
+ 443:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1RSTR     TSCRST        LL_AHB1_GRP1_ReleaseReset
+ 444:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 445:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_ALL
+ 446:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 447:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 448:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 12
+
+
+ 449:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 450:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 451:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 452:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 453:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 454:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_ReleaseReset(uint32_t Periphs)
+ 455:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 456:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   CLEAR_BIT(RCC->AHB1RSTR, Periphs);
+ 457:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 458:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 459:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 460:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Enable AHB1 peripherals clock during Low Power (Sleep) mode.
+ 461:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1SMENR    DMA1SMEN      LL_AHB1_GRP1_EnableClockSleep\n
+ 462:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    DMA2SMEN      LL_AHB1_GRP1_EnableClockSleep\n
+ 463:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    DMAMUX1SMEN    LL_AHB1_GRP1_EnableClockSleep\n
+ 464:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    SRAM1SMEN     LL_AHB1_GRP1_EnableClockSleep\n
+ 465:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    CRCSMEN       LL_AHB1_GRP1_EnableClockSleep\n
+ 466:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    TSCSMEN       LL_AHB1_GRP1_EnableClockSleep
+ 467:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 468:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 469:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 470:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ 471:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_SRAM1
+ 472:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 473:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 474:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 475:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 476:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 477:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_EnableClockSleep(uint32_t Periphs)
+ 478:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 479:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   __IO uint32_t tmpreg;
+ 480:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB1SMENR, Periphs);
+ 481:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 482:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   tmpreg = READ_BIT(RCC->AHB1SMENR, Periphs);
+ 483:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 484:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 485:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 486:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 487:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Disable AHB1 peripherals clock during Low Power (Sleep) mode.
+ 488:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB1SMENR    DMA1SMEN      LL_AHB1_GRP1_DisableClockSleep\n
+ 489:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    DMA2SMEN      LL_AHB1_GRP1_DisableClockSleep\n
+ 490:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    DMAMUX1SMEN    LL_AHB1_GRP1_DisableClockSleep\n
+ 491:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    SRAM1SMEN     LL_AHB1_GRP1_DisableClockSleep\n
+ 492:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    CRCSMEN       LL_AHB1_GRP1_DisableClockSleep\n
+ 493:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB1SMENR    TSCSMEN       LL_AHB1_GRP1_DisableClockSleep
+ 494:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 495:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA1
+ 496:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMA2 (*)
+ 497:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_DMAMUX1
+ 498:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_SRAM1
+ 499:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
+ 500:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_TSC
+ 501:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 502:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 503:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 504:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB1_GRP1_DisableClockSleep(uint32_t Periphs)
+ 505:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 13
+
+
+ 506:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   CLEAR_BIT(RCC->AHB1SMENR, Periphs);
+ 507:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 508:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 509:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 510:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @}
+ 511:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 512:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 513:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /** @defgroup BUS_LL_EF_AHB2 AHB2
+ 514:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @{
+ 515:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 516:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** 
+ 517:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** /**
+ 518:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @brief  Enable AHB2 peripherals clock.
+ 519:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @rmtoll AHB2ENR      GPIOAEN       LL_AHB2_GRP1_EnableClock\n
+ 520:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      GPIOBEN       LL_AHB2_GRP1_EnableClock\n
+ 521:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      GPIOCEN       LL_AHB2_GRP1_EnableClock\n
+ 522:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      GPIODEN       LL_AHB2_GRP1_EnableClock\n
+ 523:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      GPIOEEN       LL_AHB2_GRP1_EnableClock\n
+ 524:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      GPIOHEN       LL_AHB2_GRP1_EnableClock\n
+ 525:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      ADCEN         LL_AHB2_GRP1_EnableClock\n
+ 526:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         AHB2ENR      AES1EN        LL_AHB2_GRP1_EnableClock
+ 527:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
+ 528:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA
+ 529:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB
+ 530:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC
+ 531:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD (*)
+ 532:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE
+ 533:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH
+ 534:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC (*)
+ 535:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   *         @arg @ref LL_AHB2_GRP1_PERIPH_AES1 (*)
+ 536:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @note  (*) Not supported by all the devices
+ 537:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   * @retval None
+ 538:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   */
+ 539:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** __STATIC_INLINE void LL_AHB2_GRP1_EnableClock(uint32_t Periphs)
+ 133              		.loc 2 539 22 view .LVU32
+ 134              	.LBB13:
+ 540:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 541:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   __IO uint32_t tmpreg;
+ 135              		.loc 2 541 3 view .LVU33
+ 542:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB2ENR, Periphs);
+ 136              		.loc 2 542 3 view .LVU34
+ 137 0070 4FF0B043 		mov	r3, #1476395008
+ 138 0074 DA6C     		ldr	r2, [r3, #76]
+ 139 0076 42F01002 		orr	r2, r2, #16
+ 140 007a DA64     		str	r2, [r3, #76]
+ 543:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   tmpreg = READ_BIT(RCC->AHB2ENR, Periphs);
+ 141              		.loc 2 544 3 view .LVU35
+ 142              		.loc 2 544 12 is_stmt 0 view .LVU36
+ 143 007c DB6C     		ldr	r3, [r3, #76]
+ 144 007e 03F01003 		and	r3, r3, #16
+ 145              		.loc 2 544 10 view .LVU37
+ 146 0082 0593     		str	r3, [sp, #20]
+ 545:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 147              		.loc 2 545 3 is_stmt 1 view .LVU38
+ 148 0084 059B     		ldr	r3, [sp, #20]
+ 546:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 14
+
+
+ 149              		.loc 2 546 1 is_stmt 0 view .LVU39
+ 150 0086 0AE0     		b	.L4
+ 151              	.LVL3:
+ 152              	.L2:
+ 153              		.loc 2 546 1 view .LVU40
+ 154              	.LBE13:
+ 155              	.LBE12:
+  32:Core/Src/DC_MOTOR.c ****     }
+ 156              		.loc 1 32 6 is_stmt 1 view .LVU41
+ 157              	.LBB14:
+ 158              	.LBI14:
+ 539:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 159              		.loc 2 539 22 view .LVU42
+ 160              	.LBB15:
+ 541:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB2ENR, Periphs);
+ 161              		.loc 2 541 3 view .LVU43
+ 542:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 162              		.loc 2 542 3 view .LVU44
+ 163 0088 4FF0B043 		mov	r3, #1476395008
+ 164 008c DA6C     		ldr	r2, [r3, #76]
+ 165 008e 42F00102 		orr	r2, r2, #1
+ 166 0092 DA64     		str	r2, [r3, #76]
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 167              		.loc 2 544 3 view .LVU45
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 168              		.loc 2 544 12 is_stmt 0 view .LVU46
+ 169 0094 DB6C     		ldr	r3, [r3, #76]
+ 170 0096 03F00103 		and	r3, r3, #1
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 171              		.loc 2 544 10 view .LVU47
+ 172 009a 0193     		str	r3, [sp, #4]
+ 545:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 173              		.loc 2 545 3 is_stmt 1 view .LVU48
+ 174 009c 019B     		ldr	r3, [sp, #4]
+ 175              	.LVL4:
+ 176              	.L4:
+ 545:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 177              		.loc 2 545 3 is_stmt 0 view .LVU49
+ 178              	.LBE15:
+ 179              	.LBE14:
+  49:Core/Src/DC_MOTOR.c ****     }
+  50:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Pin = DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_PIN;
+ 180              		.loc 1 50 2 is_stmt 1 view .LVU50
+ 181              		.loc 1 50 61 is_stmt 0 view .LVU51
+ 182 009e 4A4A     		ldr	r2, .L15
+ 183 00a0 7301     		lsls	r3, r6, #5
+ 184 00a2 02EB4617 		add	r7, r2, r6, lsl #5
+ 185 00a6 B7F80880 		ldrh	r8, [r7, #8]
+ 186              		.loc 1 50 22 view .LVU52
+ 187 00aa CDF89C80 		str	r8, [sp, #156]
+  51:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 188              		.loc 1 51 2 is_stmt 1 view .LVU53
+ 189              		.loc 1 51 23 is_stmt 0 view .LVU54
+ 190 00ae 0125     		movs	r5, #1
+ 191 00b0 2895     		str	r5, [sp, #160]
+  52:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 192              		.loc 1 52 2 is_stmt 1 view .LVU55
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 15
+
+
+  53:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_Init(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, &GPIO_InitStruct);
+ 193              		.loc 1 53 2 view .LVU56
+ 194              		.loc 1 53 53 is_stmt 0 view .LVU57
+ 195 00b2 52F803A0 		ldr	r10, [r2, r3]
+ 196              		.loc 1 53 2 view .LVU58
+ 197 00b6 27A9     		add	r1, sp, #156
+ 198 00b8 5046     		mov	r0, r10
+ 199              	.LVL5:
+ 200              		.loc 1 53 2 view .LVU59
+ 201 00ba FFF7FEFF 		bl	HAL_GPIO_Init
+ 202              	.LVL6:
+  54:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Pin = DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_PIN;
+ 203              		.loc 1 54 2 is_stmt 1 view .LVU60
+ 204              		.loc 1 54 61 is_stmt 0 view .LVU61
+ 205 00be B7F80A90 		ldrh	r9, [r7, #10]
+ 206              		.loc 1 54 22 view .LVU62
+ 207 00c2 CDF89C90 		str	r9, [sp, #156]
+  55:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 208              		.loc 1 55 2 is_stmt 1 view .LVU63
+ 209              		.loc 1 55 23 is_stmt 0 view .LVU64
+ 210 00c6 2895     		str	r5, [sp, #160]
+  56:Core/Src/DC_MOTOR.c **** 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 211              		.loc 1 56 2 is_stmt 1 view .LVU65
+ 212              		.loc 1 56 24 is_stmt 0 view .LVU66
+ 213 00c8 0024     		movs	r4, #0
+ 214 00ca 2A94     		str	r4, [sp, #168]
+  57:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_Init(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, &GPIO_InitStruct);
+ 215              		.loc 1 57 2 is_stmt 1 view .LVU67
+ 216              		.loc 1 57 53 is_stmt 0 view .LVU68
+ 217 00cc 7F68     		ldr	r7, [r7, #4]
+ 218              		.loc 1 57 2 view .LVU69
+ 219 00ce 27A9     		add	r1, sp, #156
+ 220 00d0 3846     		mov	r0, r7
+ 221 00d2 FFF7FEFF 		bl	HAL_GPIO_Init
+ 222              	.LVL7:
+  58:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_Ins
+ 223              		.loc 1 58 2 is_stmt 1 view .LVU70
+ 224 00d6 2246     		mov	r2, r4
+ 225 00d8 4146     		mov	r1, r8
+ 226 00da 5046     		mov	r0, r10
+ 227 00dc FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 228              	.LVL8:
+  59:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_Ins
+ 229              		.loc 1 59 2 view .LVU71
+ 230 00e0 2246     		mov	r2, r4
+ 231 00e2 4946     		mov	r1, r9
+ 232 00e4 3846     		mov	r0, r7
+ 233 00e6 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 234              	.LVL9:
+  60:Core/Src/DC_MOTOR.c **** 
+  61:Core/Src/DC_MOTOR.c **** 	/*--------[ Calculate The PSC & ARR Values To Set PWM Resolution And Approx. The F_pwm ]-------*/
+  62:Core/Src/DC_MOTOR.c **** 
+  63:Core/Src/DC_MOTOR.c **** 	/* Those Equations Sets The PWM Resolution & Approximates The F_pwm */
+  64:Core/Src/DC_MOTOR.c **** 	ARR_Value = 1;
+ 235              		.loc 1 64 2 view .LVU72
+  65:Core/Src/DC_MOTOR.c **** 	for(i=0; i<DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_RES_BITS; i++)
+ 236              		.loc 1 65 2 view .LVU73
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 16
+
+
+ 237              		.loc 1 65 7 is_stmt 0 view .LVU74
+ 238 00ea 2246     		mov	r2, r4
+  64:Core/Src/DC_MOTOR.c **** 	for(i=0; i<DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_RES_BITS; i++)
+ 239              		.loc 1 64 12 view .LVU75
+ 240 00ec 2946     		mov	r1, r5
+ 241              		.loc 1 65 2 view .LVU76
+ 242 00ee 26E0     		b	.L12
+ 243              	.LVL10:
+ 244              	.L5:
+  36:Core/Src/DC_MOTOR.c ****     }
+ 245              		.loc 1 36 6 is_stmt 1 view .LVU77
+ 246              	.LBB16:
+ 247              	.LBI16:
+ 539:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 248              		.loc 2 539 22 view .LVU78
+ 249              	.LBB17:
+ 541:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB2ENR, Periphs);
+ 250              		.loc 2 541 3 view .LVU79
+ 542:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 251              		.loc 2 542 3 view .LVU80
+ 252 00f0 4FF0B043 		mov	r3, #1476395008
+ 253 00f4 DA6C     		ldr	r2, [r3, #76]
+ 254 00f6 42F00202 		orr	r2, r2, #2
+ 255 00fa DA64     		str	r2, [r3, #76]
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 256              		.loc 2 544 3 view .LVU81
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 257              		.loc 2 544 12 is_stmt 0 view .LVU82
+ 258 00fc DB6C     		ldr	r3, [r3, #76]
+ 259 00fe 03F00203 		and	r3, r3, #2
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 260              		.loc 2 544 10 view .LVU83
+ 261 0102 0293     		str	r3, [sp, #8]
+ 545:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 262              		.loc 2 545 3 is_stmt 1 view .LVU84
+ 263 0104 029B     		ldr	r3, [sp, #8]
+ 264              		.loc 2 546 1 is_stmt 0 view .LVU85
+ 265 0106 CAE7     		b	.L4
+ 266              	.LVL11:
+ 267              	.L7:
+ 268              		.loc 2 546 1 view .LVU86
+ 269              	.LBE17:
+ 270              	.LBE16:
+  40:Core/Src/DC_MOTOR.c ****     }
+ 271              		.loc 1 40 9 is_stmt 1 view .LVU87
+ 272              	.LBB18:
+ 273              	.LBI18:
+ 539:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 274              		.loc 2 539 22 view .LVU88
+ 275              	.LBB19:
+ 541:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB2ENR, Periphs);
+ 276              		.loc 2 541 3 view .LVU89
+ 542:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 277              		.loc 2 542 3 view .LVU90
+ 278 0108 4FF0B043 		mov	r3, #1476395008
+ 279 010c DA6C     		ldr	r2, [r3, #76]
+ 280 010e 42F00402 		orr	r2, r2, #4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 17
+
+
+ 281 0112 DA64     		str	r2, [r3, #76]
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 282              		.loc 2 544 3 view .LVU91
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 283              		.loc 2 544 12 is_stmt 0 view .LVU92
+ 284 0114 DB6C     		ldr	r3, [r3, #76]
+ 285 0116 03F00403 		and	r3, r3, #4
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 286              		.loc 2 544 10 view .LVU93
+ 287 011a 0393     		str	r3, [sp, #12]
+ 545:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 288              		.loc 2 545 3 is_stmt 1 view .LVU94
+ 289 011c 039B     		ldr	r3, [sp, #12]
+ 290              		.loc 2 546 1 is_stmt 0 view .LVU95
+ 291 011e BEE7     		b	.L4
+ 292              	.LVL12:
+ 293              	.L9:
+ 294              		.loc 2 546 1 view .LVU96
+ 295              	.LBE19:
+ 296              	.LBE18:
+  44:Core/Src/DC_MOTOR.c ****     }
+ 297              		.loc 1 44 9 is_stmt 1 view .LVU97
+ 298              	.LBB20:
+ 299              	.LBI20:
+ 539:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** {
+ 300              		.loc 2 539 22 view .LVU98
+ 301              	.LBB21:
+ 541:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   SET_BIT(RCC->AHB2ENR, Periphs);
+ 302              		.loc 2 541 3 view .LVU99
+ 542:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   /* Delay after an RCC peripheral clock enabling */
+ 303              		.loc 2 542 3 view .LVU100
+ 304 0120 4FF0B043 		mov	r3, #1476395008
+ 305 0124 DA6C     		ldr	r2, [r3, #76]
+ 306 0126 42F00802 		orr	r2, r2, #8
+ 307 012a DA64     		str	r2, [r3, #76]
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 308              		.loc 2 544 3 view .LVU101
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 309              		.loc 2 544 12 is_stmt 0 view .LVU102
+ 310 012c DB6C     		ldr	r3, [r3, #76]
+ 311 012e 03F00803 		and	r3, r3, #8
+ 544:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h ****   (void)tmpreg;
+ 312              		.loc 2 544 10 view .LVU103
+ 313 0132 0493     		str	r3, [sp, #16]
+ 545:Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h **** }
+ 314              		.loc 2 545 3 is_stmt 1 view .LVU104
+ 315 0134 049B     		ldr	r3, [sp, #16]
+ 316              		.loc 2 546 1 is_stmt 0 view .LVU105
+ 317 0136 B2E7     		b	.L4
+ 318              	.LVL13:
+ 319              	.L13:
+ 320              		.loc 2 546 1 view .LVU106
+ 321              	.LBE21:
+ 322              	.LBE20:
+  66:Core/Src/DC_MOTOR.c **** 	{
+  67:Core/Src/DC_MOTOR.c **** 		ARR_Value *= 2;
+ 323              		.loc 1 67 3 is_stmt 1 discriminator 3 view .LVU107
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 18
+
+
+ 324              		.loc 1 67 13 is_stmt 0 discriminator 3 view .LVU108
+ 325 0138 4900     		lsls	r1, r1, #1
+ 326              	.LVL14:
+  65:Core/Src/DC_MOTOR.c **** 	{
+ 327              		.loc 1 65 66 is_stmt 1 discriminator 3 view .LVU109
+ 328 013a 0132     		adds	r2, r2, #1
+ 329              	.LVL15:
+  65:Core/Src/DC_MOTOR.c **** 	{
+ 330              		.loc 1 65 66 is_stmt 0 discriminator 3 view .LVU110
+ 331 013c D2B2     		uxtb	r2, r2
+ 332              	.LVL16:
+ 333              	.L12:
+  65:Core/Src/DC_MOTOR.c **** 	{
+ 334              		.loc 1 65 12 is_stmt 1 discriminator 1 view .LVU111
+  65:Core/Src/DC_MOTOR.c **** 	{
+ 335              		.loc 1 65 50 is_stmt 0 discriminator 1 view .LVU112
+ 336 013e 224B     		ldr	r3, .L15
+ 337 0140 03EB4613 		add	r3, r3, r6, lsl #5
+ 338 0144 1B7F     		ldrb	r3, [r3, #28]	@ zero_extendqisi2
+  65:Core/Src/DC_MOTOR.c **** 	{
+ 339              		.loc 1 65 12 discriminator 1 view .LVU113
+ 340 0146 9342     		cmp	r3, r2
+ 341 0148 F6D8     		bhi	.L13
+  68:Core/Src/DC_MOTOR.c **** 	}
+  69:Core/Src/DC_MOTOR.c **** 	PSC_Value = (uint32_t) ((DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_CLK_MHz*1000000) / (ARR_Value*D
+ 342              		.loc 1 69 2 is_stmt 1 view .LVU114
+ 343              		.loc 1 69 64 is_stmt 0 view .LVU115
+ 344 014a 1F4D     		ldr	r5, .L15
+ 345 014c 05EB4615 		add	r5, r5, r6, lsl #5
+ 346 0150 AB8A     		ldrh	r3, [r5, #20]
+ 347              		.loc 1 69 76 view .LVU116
+ 348 0152 224A     		ldr	r2, .L15+20
+ 349              	.LVL17:
+ 350              		.loc 1 69 76 view .LVU117
+ 351 0154 02FB03F3 		mul	r3, r2, r3
+ 352              		.loc 1 69 136 view .LVU118
+ 353 0158 AA69     		ldr	r2, [r5, #24]
+ 354              		.loc 1 69 98 view .LVU119
+ 355 015a 01FB02F2 		mul	r2, r1, r2
+ 356              		.loc 1 69 12 view .LVU120
+ 357 015e B3FBF2F3 		udiv	r3, r3, r2
+ 358              	.LVL18:
+  70:Core/Src/DC_MOTOR.c **** 	PSC_Value--;
+ 359              		.loc 1 70 2 is_stmt 1 view .LVU121
+ 360              		.loc 1 70 11 is_stmt 0 view .LVU122
+ 361 0162 013B     		subs	r3, r3, #1
+ 362              	.LVL19:
+  71:Core/Src/DC_MOTOR.c **** 	ARR_Value -= 2;
+ 363              		.loc 1 71 2 is_stmt 1 view .LVU123
+ 364              		.loc 1 71 12 is_stmt 0 view .LVU124
+ 365 0164 0239     		subs	r1, r1, #2
+ 366              	.LVL20:
+  72:Core/Src/DC_MOTOR.c **** 
+  73:Core/Src/DC_MOTOR.c **** 	/*--------[ Configure The DC Motor PWM Timer Channel ]-------*/
+  74:Core/Src/DC_MOTOR.c **** 
+  75:Core/Src/DC_MOTOR.c **** 	htim.Instance = DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance;
+ 367              		.loc 1 75 2 is_stmt 1 view .LVU125
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 19
+
+
+ 368              		.loc 1 75 55 is_stmt 0 view .LVU126
+ 369 0166 EA68     		ldr	r2, [r5, #12]
+ 370              		.loc 1 75 16 view .LVU127
+ 371 0168 0692     		str	r2, [sp, #24]
+  76:Core/Src/DC_MOTOR.c **** 	htim.Init.Prescaler = PSC_Value;
+ 372              		.loc 1 76 2 is_stmt 1 view .LVU128
+ 373              		.loc 1 76 22 is_stmt 0 view .LVU129
+ 374 016a 0793     		str	r3, [sp, #28]
+  77:Core/Src/DC_MOTOR.c **** 	htim.Init.CounterMode = TIM_COUNTERMODE_UP;
+ 375              		.loc 1 77 2 is_stmt 1 view .LVU130
+ 376              		.loc 1 77 24 is_stmt 0 view .LVU131
+ 377 016c 0024     		movs	r4, #0
+ 378 016e 0894     		str	r4, [sp, #32]
+  78:Core/Src/DC_MOTOR.c **** 	htim.Init.Period = ARR_Value;
+ 379              		.loc 1 78 2 is_stmt 1 view .LVU132
+ 380              		.loc 1 78 19 is_stmt 0 view .LVU133
+ 381 0170 0991     		str	r1, [sp, #36]
+  79:Core/Src/DC_MOTOR.c **** 	htim.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+ 382              		.loc 1 79 2 is_stmt 1 view .LVU134
+ 383              		.loc 1 79 26 is_stmt 0 view .LVU135
+ 384 0172 0A94     		str	r4, [sp, #40]
+  80:Core/Src/DC_MOTOR.c **** 	htim.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+ 385              		.loc 1 80 2 is_stmt 1 view .LVU136
+ 386              		.loc 1 80 30 is_stmt 0 view .LVU137
+ 387 0174 8023     		movs	r3, #128
+ 388              	.LVL21:
+ 389              		.loc 1 80 30 view .LVU138
+ 390 0176 0C93     		str	r3, [sp, #48]
+  81:Core/Src/DC_MOTOR.c **** 	HAL_TIM_Base_Init(&htim);
+ 391              		.loc 1 81 2 is_stmt 1 view .LVU139
+ 392 0178 06A8     		add	r0, sp, #24
+ 393 017a FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 394              	.LVL22:
+  82:Core/Src/DC_MOTOR.c **** 	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+ 395              		.loc 1 82 2 view .LVU140
+ 396              		.loc 1 82 33 is_stmt 0 view .LVU141
+ 397 017e 4FF48053 		mov	r3, #4096
+ 398 0182 2393     		str	r3, [sp, #140]
+  83:Core/Src/DC_MOTOR.c **** 	HAL_TIM_ConfigClockSource(&htim, &sClockSourceConfig);
+ 399              		.loc 1 83 2 is_stmt 1 view .LVU142
+ 400 0184 23A9     		add	r1, sp, #140
+ 401 0186 06A8     		add	r0, sp, #24
+ 402 0188 FFF7FEFF 		bl	HAL_TIM_ConfigClockSource
+ 403              	.LVL23:
+  84:Core/Src/DC_MOTOR.c **** 	HAL_TIM_PWM_Init(&htim);
+ 404              		.loc 1 84 2 view .LVU143
+ 405 018c 06A8     		add	r0, sp, #24
+ 406 018e FFF7FEFF 		bl	HAL_TIM_PWM_Init
+ 407              	.LVL24:
+  85:Core/Src/DC_MOTOR.c **** 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+ 408              		.loc 1 85 2 view .LVU144
+ 409              		.loc 1 85 36 is_stmt 0 view .LVU145
+ 410 0192 2094     		str	r4, [sp, #128]
+  86:Core/Src/DC_MOTOR.c **** 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+ 411              		.loc 1 86 2 is_stmt 1 view .LVU146
+ 412              		.loc 1 86 32 is_stmt 0 view .LVU147
+ 413 0194 2294     		str	r4, [sp, #136]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 20
+
+
+  87:Core/Src/DC_MOTOR.c **** 	HAL_TIMEx_MasterConfigSynchronization(&htim, &sMasterConfig);
+ 414              		.loc 1 87 2 is_stmt 1 view .LVU148
+ 415 0196 20A9     		add	r1, sp, #128
+ 416 0198 06A8     		add	r0, sp, #24
+ 417 019a FFF7FEFF 		bl	HAL_TIMEx_MasterConfigSynchronization
+ 418              	.LVL25:
+  88:Core/Src/DC_MOTOR.c **** 	sConfigOC.OCMode = TIM_OCMODE_PWM1;
+ 419              		.loc 1 88 2 view .LVU149
+ 420              		.loc 1 88 19 is_stmt 0 view .LVU150
+ 421 019e 6023     		movs	r3, #96
+ 422 01a0 1993     		str	r3, [sp, #100]
+  89:Core/Src/DC_MOTOR.c **** 	sConfigOC.Pulse = 0;
+ 423              		.loc 1 89 2 is_stmt 1 view .LVU151
+ 424              		.loc 1 89 18 is_stmt 0 view .LVU152
+ 425 01a2 1A94     		str	r4, [sp, #104]
+  90:Core/Src/DC_MOTOR.c **** 	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+ 426              		.loc 1 90 2 is_stmt 1 view .LVU153
+ 427              		.loc 1 90 23 is_stmt 0 view .LVU154
+ 428 01a4 1B94     		str	r4, [sp, #108]
+  91:Core/Src/DC_MOTOR.c **** 	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+ 429              		.loc 1 91 2 is_stmt 1 view .LVU155
+ 430              		.loc 1 91 23 is_stmt 0 view .LVU156
+ 431 01a6 1D94     		str	r4, [sp, #116]
+  92:Core/Src/DC_MOTOR.c **** 	HAL_TIM_PWM_ConfigChannel(&htim, &sConfigOC, DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH);
+ 432              		.loc 1 92 2 is_stmt 1 view .LVU157
+ 433              		.loc 1 92 84 is_stmt 0 view .LVU158
+ 434 01a8 2C69     		ldr	r4, [r5, #16]
+ 435              		.loc 1 92 2 view .LVU159
+ 436 01aa 2246     		mov	r2, r4
+ 437 01ac 19A9     		add	r1, sp, #100
+ 438 01ae 06A8     		add	r0, sp, #24
+ 439 01b0 FFF7FEFF 		bl	HAL_TIM_PWM_ConfigChannel
+ 440              	.LVL26:
+  93:Core/Src/DC_MOTOR.c **** 	HAL_TIM_MspPostInit(&htim);
+ 441              		.loc 1 93 2 is_stmt 1 view .LVU160
+ 442 01b4 06A8     		add	r0, sp, #24
+ 443 01b6 FFF7FEFF 		bl	HAL_TIM_MspPostInit
+ 444              	.LVL27:
+  94:Core/Src/DC_MOTOR.c **** 
+  95:Core/Src/DC_MOTOR.c **** 	/*--------[ Start The PWM Channel ]-------*/
+  96:Core/Src/DC_MOTOR.c **** 
+  97:Core/Src/DC_MOTOR.c **** 	HAL_TIM_PWM_Start(&htim, DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH);
+ 445              		.loc 1 97 2 view .LVU161
+ 446 01ba 2146     		mov	r1, r4
+ 447 01bc 06A8     		add	r0, sp, #24
+ 448 01be FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 449              	.LVL28:
+  98:Core/Src/DC_MOTOR.c **** }
+ 450              		.loc 1 98 1 is_stmt 0 view .LVU162
+ 451 01c2 2CB0     		add	sp, sp, #176
+ 452              		.cfi_def_cfa_offset 32
+ 453              		@ sp needed
+ 454 01c4 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 455              	.L16:
+ 456              		.loc 1 98 1 view .LVU163
+ 457              		.align	2
+ 458              	.L15:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 21
+
+
+ 459 01c8 00000000 		.word	DC_MOTOR_CfgParam
+ 460 01cc 00040048 		.word	1207960576
+ 461 01d0 00080048 		.word	1207961600
+ 462 01d4 000C0048 		.word	1207962624
+ 463 01d8 00100048 		.word	1207963648
+ 464 01dc 40420F00 		.word	1000000
+ 465              		.cfi_endproc
+ 466              	.LFE1104:
+ 468              		.section	.text.DC_MOTOR_Start,"ax",%progbits
+ 469              		.align	1
+ 470              		.global	DC_MOTOR_Start
+ 471              		.syntax unified
+ 472              		.thumb
+ 473              		.thumb_func
+ 475              	DC_MOTOR_Start:
+ 476              	.LVL29:
+ 477              	.LFB1105:
+  99:Core/Src/DC_MOTOR.c **** 
+ 100:Core/Src/DC_MOTOR.c **** void DC_MOTOR_Start(uint8_t au8_MOTOR_Instance, uint8_t au8_DIR, uint16_t au16_SPEED)
+ 101:Core/Src/DC_MOTOR.c **** {
+ 478              		.loc 1 101 1 is_stmt 1 view -0
+ 479              		.cfi_startproc
+ 480              		@ args = 0, pretend = 0, frame = 0
+ 481              		@ frame_needed = 0, uses_anonymous_args = 0
+ 482              		.loc 1 101 1 is_stmt 0 view .LVU165
+ 483 0000 70B5     		push	{r4, r5, r6, lr}
+ 484              		.cfi_def_cfa_offset 16
+ 485              		.cfi_offset 4, -16
+ 486              		.cfi_offset 5, -12
+ 487              		.cfi_offset 6, -8
+ 488              		.cfi_offset 14, -4
+ 489 0002 0446     		mov	r4, r0
+ 490 0004 1546     		mov	r5, r2
+ 102:Core/Src/DC_MOTOR.c **** 	/* Write To The 2 Direction Control Pins */
+ 103:Core/Src/DC_MOTOR.c **** 	if(au8_DIR == DIR_CW)
+ 491              		.loc 1 103 2 is_stmt 1 view .LVU166
+ 492              		.loc 1 103 4 is_stmt 0 view .LVU167
+ 493 0006 61B1     		cbz	r1, .L25
+ 104:Core/Src/DC_MOTOR.c **** 	{
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 106:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 107:Core/Src/DC_MOTOR.c **** 	}
+ 108:Core/Src/DC_MOTOR.c **** 	else if(au8_DIR == DIR_CCW)
+ 494              		.loc 1 108 7 is_stmt 1 view .LVU168
+ 495              		.loc 1 108 9 is_stmt 0 view .LVU169
+ 496 0008 0129     		cmp	r1, #1
+ 497 000a 19D0     		beq	.L26
+ 498              	.LVL30:
+ 499              	.L19:
+ 109:Core/Src/DC_MOTOR.c **** 	{
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 111:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 112:Core/Src/DC_MOTOR.c **** 	}
+ 113:Core/Src/DC_MOTOR.c **** 
+ 114:Core/Src/DC_MOTOR.c **** 	/* Write The Speed Value To The PWM CH DutyCycle Register */
+ 115:Core/Src/DC_MOTOR.c **** 	if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_1)
+ 500              		.loc 1 115 2 is_stmt 1 view .LVU170
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 22
+
+
+ 501              		.loc 1 115 42 is_stmt 0 view .LVU171
+ 502 000c 1F4B     		ldr	r3, .L29
+ 503 000e 03EB4413 		add	r3, r3, r4, lsl #5
+ 504 0012 1B69     		ldr	r3, [r3, #16]
+ 505              		.loc 1 115 4 view .LVU172
+ 506 0014 1BBB     		cbnz	r3, .L20
+ 116:Core/Src/DC_MOTOR.c **** 	{
+ 117:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR1 = au16_SPEED;
+ 507              		.loc 1 117 3 is_stmt 1 view .LVU173
+ 508              		.loc 1 117 40 is_stmt 0 view .LVU174
+ 509 0016 1D4B     		ldr	r3, .L29
+ 510 0018 03EB4413 		add	r3, r3, r4, lsl #5
+ 511 001c DB68     		ldr	r3, [r3, #12]
+ 512              		.loc 1 117 60 view .LVU175
+ 513 001e 5D63     		str	r5, [r3, #52]
+ 514              	.L17:
+ 118:Core/Src/DC_MOTOR.c **** 	}
+ 119:Core/Src/DC_MOTOR.c **** 	else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_2)
+ 120:Core/Src/DC_MOTOR.c **** 	{
+ 121:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR2 = au16_SPEED;
+ 122:Core/Src/DC_MOTOR.c **** 	}
+ 123:Core/Src/DC_MOTOR.c **** 	else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_3)
+ 124:Core/Src/DC_MOTOR.c **** 	{
+ 125:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR3 = au16_SPEED;
+ 126:Core/Src/DC_MOTOR.c **** 	}
+ 127:Core/Src/DC_MOTOR.c **** 	else
+ 128:Core/Src/DC_MOTOR.c **** 	{
+ 129:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR4 = au16_SPEED;
+ 130:Core/Src/DC_MOTOR.c **** 	}
+ 131:Core/Src/DC_MOTOR.c **** }
+ 515              		.loc 1 131 1 view .LVU176
+ 516 0020 70BD     		pop	{r4, r5, r6, pc}
+ 517              	.LVL31:
+ 518              	.L25:
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 519              		.loc 1 105 3 is_stmt 1 view .LVU177
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 520              		.loc 1 105 58 is_stmt 0 view .LVU178
+ 521 0022 1A48     		ldr	r0, .L29
+ 522              	.LVL32:
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 523              		.loc 1 105 58 view .LVU179
+ 524 0024 6301     		lsls	r3, r4, #5
+ 525 0026 00EB4416 		add	r6, r0, r4, lsl #5
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 526              		.loc 1 105 3 view .LVU180
+ 527 002a 0122     		movs	r2, #1
+ 528              	.LVL33:
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 529              		.loc 1 105 3 view .LVU181
+ 530 002c 3189     		ldrh	r1, [r6, #8]
+ 531              	.LVL34:
+ 105:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 532              		.loc 1 105 3 view .LVU182
+ 533 002e C058     		ldr	r0, [r0, r3]
+ 534 0030 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 535              	.LVL35:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 23
+
+
+ 106:Core/Src/DC_MOTOR.c **** 	}
+ 536              		.loc 1 106 3 is_stmt 1 view .LVU183
+ 537 0034 0022     		movs	r2, #0
+ 538 0036 7189     		ldrh	r1, [r6, #10]
+ 539 0038 7068     		ldr	r0, [r6, #4]
+ 540 003a FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 541              	.LVL36:
+ 542 003e E5E7     		b	.L19
+ 543              	.LVL37:
+ 544              	.L26:
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 545              		.loc 1 110 3 view .LVU184
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 546              		.loc 1 110 58 is_stmt 0 view .LVU185
+ 547 0040 1248     		ldr	r0, .L29
+ 548              	.LVL38:
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 549              		.loc 1 110 58 view .LVU186
+ 550 0042 6301     		lsls	r3, r4, #5
+ 551 0044 00EB4416 		add	r6, r0, r4, lsl #5
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 552              		.loc 1 110 3 view .LVU187
+ 553 0048 0022     		movs	r2, #0
+ 554              	.LVL39:
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 555              		.loc 1 110 3 view .LVU188
+ 556 004a 3189     		ldrh	r1, [r6, #8]
+ 557              	.LVL40:
+ 110:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 558              		.loc 1 110 3 view .LVU189
+ 559 004c C058     		ldr	r0, [r0, r3]
+ 560 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 561              	.LVL41:
+ 111:Core/Src/DC_MOTOR.c **** 	}
+ 562              		.loc 1 111 3 is_stmt 1 view .LVU190
+ 563 0052 0122     		movs	r2, #1
+ 564 0054 7189     		ldrh	r1, [r6, #10]
+ 565 0056 7068     		ldr	r0, [r6, #4]
+ 566 0058 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 567              	.LVL42:
+ 568 005c D6E7     		b	.L19
+ 569              	.L20:
+ 119:Core/Src/DC_MOTOR.c **** 	{
+ 570              		.loc 1 119 7 view .LVU191
+ 119:Core/Src/DC_MOTOR.c **** 	{
+ 571              		.loc 1 119 9 is_stmt 0 view .LVU192
+ 572 005e 042B     		cmp	r3, #4
+ 573 0060 07D0     		beq	.L27
+ 123:Core/Src/DC_MOTOR.c **** 	{
+ 574              		.loc 1 123 7 is_stmt 1 view .LVU193
+ 123:Core/Src/DC_MOTOR.c **** 	{
+ 575              		.loc 1 123 9 is_stmt 0 view .LVU194
+ 576 0062 082B     		cmp	r3, #8
+ 577 0064 0BD0     		beq	.L28
+ 129:Core/Src/DC_MOTOR.c **** 	}
+ 578              		.loc 1 129 3 is_stmt 1 view .LVU195
+ 129:Core/Src/DC_MOTOR.c **** 	}
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 24
+
+
+ 579              		.loc 1 129 40 is_stmt 0 view .LVU196
+ 580 0066 094B     		ldr	r3, .L29
+ 581 0068 03EB4413 		add	r3, r3, r4, lsl #5
+ 582 006c DB68     		ldr	r3, [r3, #12]
+ 129:Core/Src/DC_MOTOR.c **** 	}
+ 583              		.loc 1 129 60 view .LVU197
+ 584 006e 1D64     		str	r5, [r3, #64]
+ 585              		.loc 1 131 1 view .LVU198
+ 586 0070 D6E7     		b	.L17
+ 587              	.L27:
+ 121:Core/Src/DC_MOTOR.c **** 	}
+ 588              		.loc 1 121 3 is_stmt 1 view .LVU199
+ 121:Core/Src/DC_MOTOR.c **** 	}
+ 589              		.loc 1 121 40 is_stmt 0 view .LVU200
+ 590 0072 064B     		ldr	r3, .L29
+ 591 0074 03EB4413 		add	r3, r3, r4, lsl #5
+ 592 0078 DB68     		ldr	r3, [r3, #12]
+ 121:Core/Src/DC_MOTOR.c **** 	}
+ 593              		.loc 1 121 60 view .LVU201
+ 594 007a 9D63     		str	r5, [r3, #56]
+ 595 007c D0E7     		b	.L17
+ 596              	.L28:
+ 125:Core/Src/DC_MOTOR.c **** 	}
+ 597              		.loc 1 125 3 is_stmt 1 view .LVU202
+ 125:Core/Src/DC_MOTOR.c **** 	}
+ 598              		.loc 1 125 40 is_stmt 0 view .LVU203
+ 599 007e 034B     		ldr	r3, .L29
+ 600 0080 03EB4413 		add	r3, r3, r4, lsl #5
+ 601 0084 DB68     		ldr	r3, [r3, #12]
+ 125:Core/Src/DC_MOTOR.c **** 	}
+ 602              		.loc 1 125 60 view .LVU204
+ 603 0086 DD63     		str	r5, [r3, #60]
+ 604 0088 CAE7     		b	.L17
+ 605              	.L30:
+ 606 008a 00BF     		.align	2
+ 607              	.L29:
+ 608 008c 00000000 		.word	DC_MOTOR_CfgParam
+ 609              		.cfi_endproc
+ 610              	.LFE1105:
+ 612              		.section	.text.DC_MOTOR_Set_Speed,"ax",%progbits
+ 613              		.align	1
+ 614              		.global	DC_MOTOR_Set_Speed
+ 615              		.syntax unified
+ 616              		.thumb
+ 617              		.thumb_func
+ 619              	DC_MOTOR_Set_Speed:
+ 620              	.LVL43:
+ 621              	.LFB1106:
+ 132:Core/Src/DC_MOTOR.c **** 
+ 133:Core/Src/DC_MOTOR.c **** void DC_MOTOR_Set_Speed(uint8_t au8_MOTOR_Instance, uint16_t au16_SPEED)
+ 134:Core/Src/DC_MOTOR.c **** {
+ 622              		.loc 1 134 1 is_stmt 1 view -0
+ 623              		.cfi_startproc
+ 624              		@ args = 0, pretend = 0, frame = 0
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 626              		@ link register save eliminated.
+ 135:Core/Src/DC_MOTOR.c **** 	/* Write The Speed Value To The PWM CH DutyCycle Register */
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 25
+
+
+ 136:Core/Src/DC_MOTOR.c **** 	if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_1)
+ 627              		.loc 1 136 2 view .LVU206
+ 628              		.loc 1 136 42 is_stmt 0 view .LVU207
+ 629 0000 104B     		ldr	r3, .L38
+ 630 0002 03EB4013 		add	r3, r3, r0, lsl #5
+ 631 0006 1B69     		ldr	r3, [r3, #16]
+ 632              		.loc 1 136 4 view .LVU208
+ 633 0008 2BB9     		cbnz	r3, .L32
+ 137:Core/Src/DC_MOTOR.c **** 	{
+ 138:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR1 = au16_SPEED;
+ 634              		.loc 1 138 3 is_stmt 1 view .LVU209
+ 635              		.loc 1 138 40 is_stmt 0 view .LVU210
+ 636 000a 0E4B     		ldr	r3, .L38
+ 637 000c 03EB4013 		add	r3, r3, r0, lsl #5
+ 638 0010 DB68     		ldr	r3, [r3, #12]
+ 639              		.loc 1 138 60 view .LVU211
+ 640 0012 5963     		str	r1, [r3, #52]
+ 641 0014 7047     		bx	lr
+ 642              	.L32:
+ 139:Core/Src/DC_MOTOR.c **** 	}
+ 140:Core/Src/DC_MOTOR.c **** 	else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_2)
+ 643              		.loc 1 140 7 is_stmt 1 view .LVU212
+ 644              		.loc 1 140 9 is_stmt 0 view .LVU213
+ 645 0016 042B     		cmp	r3, #4
+ 646 0018 07D0     		beq	.L36
+ 141:Core/Src/DC_MOTOR.c **** 	{
+ 142:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR2 = au16_SPEED;
+ 143:Core/Src/DC_MOTOR.c **** 	}
+ 144:Core/Src/DC_MOTOR.c **** 	else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_3)
+ 647              		.loc 1 144 7 is_stmt 1 view .LVU214
+ 648              		.loc 1 144 9 is_stmt 0 view .LVU215
+ 649 001a 082B     		cmp	r3, #8
+ 650 001c 0BD0     		beq	.L37
+ 145:Core/Src/DC_MOTOR.c **** 	{
+ 146:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR3 = au16_SPEED;
+ 147:Core/Src/DC_MOTOR.c **** 	}
+ 148:Core/Src/DC_MOTOR.c **** 	else
+ 149:Core/Src/DC_MOTOR.c **** 	{
+ 150:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR4 = au16_SPEED;
+ 651              		.loc 1 150 3 is_stmt 1 view .LVU216
+ 652              		.loc 1 150 40 is_stmt 0 view .LVU217
+ 653 001e 094B     		ldr	r3, .L38
+ 654 0020 03EB4013 		add	r3, r3, r0, lsl #5
+ 655 0024 DB68     		ldr	r3, [r3, #12]
+ 656              		.loc 1 150 60 view .LVU218
+ 657 0026 1964     		str	r1, [r3, #64]
+ 151:Core/Src/DC_MOTOR.c **** 	}
+ 152:Core/Src/DC_MOTOR.c **** }
+ 658              		.loc 1 152 1 view .LVU219
+ 659 0028 7047     		bx	lr
+ 660              	.L36:
+ 142:Core/Src/DC_MOTOR.c **** 	}
+ 661              		.loc 1 142 3 is_stmt 1 view .LVU220
+ 142:Core/Src/DC_MOTOR.c **** 	}
+ 662              		.loc 1 142 40 is_stmt 0 view .LVU221
+ 663 002a 064B     		ldr	r3, .L38
+ 664 002c 03EB4013 		add	r3, r3, r0, lsl #5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 26
+
+
+ 665 0030 DB68     		ldr	r3, [r3, #12]
+ 142:Core/Src/DC_MOTOR.c **** 	}
+ 666              		.loc 1 142 60 view .LVU222
+ 667 0032 9963     		str	r1, [r3, #56]
+ 668 0034 7047     		bx	lr
+ 669              	.L37:
+ 146:Core/Src/DC_MOTOR.c **** 	}
+ 670              		.loc 1 146 3 is_stmt 1 view .LVU223
+ 146:Core/Src/DC_MOTOR.c **** 	}
+ 671              		.loc 1 146 40 is_stmt 0 view .LVU224
+ 672 0036 034B     		ldr	r3, .L38
+ 673 0038 03EB4013 		add	r3, r3, r0, lsl #5
+ 674 003c DB68     		ldr	r3, [r3, #12]
+ 146:Core/Src/DC_MOTOR.c **** 	}
+ 675              		.loc 1 146 60 view .LVU225
+ 676 003e D963     		str	r1, [r3, #60]
+ 677 0040 7047     		bx	lr
+ 678              	.L39:
+ 679 0042 00BF     		.align	2
+ 680              	.L38:
+ 681 0044 00000000 		.word	DC_MOTOR_CfgParam
+ 682              		.cfi_endproc
+ 683              	.LFE1106:
+ 685              		.section	.text.DC_MOTOR_Set_Dir,"ax",%progbits
+ 686              		.align	1
+ 687              		.global	DC_MOTOR_Set_Dir
+ 688              		.syntax unified
+ 689              		.thumb
+ 690              		.thumb_func
+ 692              	DC_MOTOR_Set_Dir:
+ 693              	.LVL44:
+ 694              	.LFB1107:
+ 153:Core/Src/DC_MOTOR.c **** 
+ 154:Core/Src/DC_MOTOR.c **** void DC_MOTOR_Set_Dir(uint8_t au8_MOTOR_Instance, uint8_t au8_DIR)
+ 155:Core/Src/DC_MOTOR.c **** {
+ 695              		.loc 1 155 1 is_stmt 1 view -0
+ 696              		.cfi_startproc
+ 697              		@ args = 0, pretend = 0, frame = 0
+ 698              		@ frame_needed = 0, uses_anonymous_args = 0
+ 699              		.loc 1 155 1 is_stmt 0 view .LVU227
+ 700 0000 10B5     		push	{r4, lr}
+ 701              		.cfi_def_cfa_offset 8
+ 702              		.cfi_offset 4, -8
+ 703              		.cfi_offset 14, -4
+ 156:Core/Src/DC_MOTOR.c **** 	/* Write To The 2 Direction Control Pins */
+ 157:Core/Src/DC_MOTOR.c **** 	if(au8_DIR == DIR_CW)
+ 704              		.loc 1 157 2 is_stmt 1 view .LVU228
+ 705              		.loc 1 157 4 is_stmt 0 view .LVU229
+ 706 0002 11B1     		cbz	r1, .L44
+ 158:Core/Src/DC_MOTOR.c **** 	{
+ 159:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 160:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 161:Core/Src/DC_MOTOR.c **** 	}
+ 162:Core/Src/DC_MOTOR.c **** 	else if(au8_DIR == DIR_CCW)
+ 707              		.loc 1 162 7 is_stmt 1 view .LVU230
+ 708              		.loc 1 162 9 is_stmt 0 view .LVU231
+ 709 0004 0129     		cmp	r1, #1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 27
+
+
+ 710 0006 11D0     		beq	.L45
+ 711              	.LVL45:
+ 712              	.L40:
+ 163:Core/Src/DC_MOTOR.c **** 	{
+ 164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 165:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 166:Core/Src/DC_MOTOR.c **** 	}
+ 167:Core/Src/DC_MOTOR.c **** }
+ 713              		.loc 1 167 1 view .LVU232
+ 714 0008 10BD     		pop	{r4, pc}
+ 715              	.LVL46:
+ 716              	.L44:
+ 159:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 717              		.loc 1 159 3 is_stmt 1 view .LVU233
+ 159:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 718              		.loc 1 159 58 is_stmt 0 view .LVU234
+ 719 000a 114B     		ldr	r3, .L46
+ 720 000c 4FEA401C 		lsl	ip, r0, #5
+ 721 0010 03EB4014 		add	r4, r3, r0, lsl #5
+ 159:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 722              		.loc 1 159 3 view .LVU235
+ 723 0014 0122     		movs	r2, #1
+ 724 0016 2189     		ldrh	r1, [r4, #8]
+ 725              	.LVL47:
+ 159:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 726              		.loc 1 159 3 view .LVU236
+ 727 0018 53F80C00 		ldr	r0, [r3, ip]
+ 728              	.LVL48:
+ 159:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 729              		.loc 1 159 3 view .LVU237
+ 730 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 731              	.LVL49:
+ 160:Core/Src/DC_MOTOR.c **** 	}
+ 732              		.loc 1 160 3 is_stmt 1 view .LVU238
+ 733 0020 0022     		movs	r2, #0
+ 734 0022 6189     		ldrh	r1, [r4, #10]
+ 735 0024 6068     		ldr	r0, [r4, #4]
+ 736 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 737              	.LVL50:
+ 738 002a EDE7     		b	.L40
+ 739              	.LVL51:
+ 740              	.L45:
+ 164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 741              		.loc 1 164 3 view .LVU239
+ 164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 742              		.loc 1 164 58 is_stmt 0 view .LVU240
+ 743 002c 084B     		ldr	r3, .L46
+ 744 002e 4FEA401C 		lsl	ip, r0, #5
+ 745 0032 03EB4014 		add	r4, r3, r0, lsl #5
+ 164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 746              		.loc 1 164 3 view .LVU241
+ 747 0036 0022     		movs	r2, #0
+ 748 0038 2189     		ldrh	r1, [r4, #8]
+ 749              	.LVL52:
+ 164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 750              		.loc 1 164 3 view .LVU242
+ 751 003a 53F80C00 		ldr	r0, [r3, ip]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 28
+
+
+ 752              	.LVL53:
+ 164:Core/Src/DC_MOTOR.c **** 		HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_In
+ 753              		.loc 1 164 3 view .LVU243
+ 754 003e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 755              	.LVL54:
+ 165:Core/Src/DC_MOTOR.c **** 	}
+ 756              		.loc 1 165 3 is_stmt 1 view .LVU244
+ 757 0042 0122     		movs	r2, #1
+ 758 0044 6189     		ldrh	r1, [r4, #10]
+ 759 0046 6068     		ldr	r0, [r4, #4]
+ 760 0048 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 761              	.LVL55:
+ 762              		.loc 1 167 1 is_stmt 0 view .LVU245
+ 763 004c DCE7     		b	.L40
+ 764              	.L47:
+ 765 004e 00BF     		.align	2
+ 766              	.L46:
+ 767 0050 00000000 		.word	DC_MOTOR_CfgParam
+ 768              		.cfi_endproc
+ 769              	.LFE1107:
+ 771              		.section	.text.DC_MOTOR_Stop,"ax",%progbits
+ 772              		.align	1
+ 773              		.global	DC_MOTOR_Stop
+ 774              		.syntax unified
+ 775              		.thumb
+ 776              		.thumb_func
+ 778              	DC_MOTOR_Stop:
+ 779              	.LVL56:
+ 780              	.LFB1108:
+ 168:Core/Src/DC_MOTOR.c **** 
+ 169:Core/Src/DC_MOTOR.c **** void DC_MOTOR_Stop(uint8_t au8_MOTOR_Instance)
+ 170:Core/Src/DC_MOTOR.c **** {
+ 781              		.loc 1 170 1 is_stmt 1 view -0
+ 782              		.cfi_startproc
+ 783              		@ args = 0, pretend = 0, frame = 0
+ 784              		@ frame_needed = 0, uses_anonymous_args = 0
+ 785              		.loc 1 170 1 is_stmt 0 view .LVU247
+ 786 0000 38B5     		push	{r3, r4, r5, lr}
+ 787              		.cfi_def_cfa_offset 16
+ 788              		.cfi_offset 3, -16
+ 789              		.cfi_offset 4, -12
+ 790              		.cfi_offset 5, -8
+ 791              		.cfi_offset 14, -4
+ 792 0002 0446     		mov	r4, r0
+ 171:Core/Src/DC_MOTOR.c **** 	/* Write To The 2 Direction Control Pins */
+ 172:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR1_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_Ins
+ 793              		.loc 1 172 2 is_stmt 1 view .LVU248
+ 794              		.loc 1 172 57 is_stmt 0 view .LVU249
+ 795 0004 164B     		ldr	r3, .L56
+ 796 0006 4001     		lsls	r0, r0, #5
+ 797              	.LVL57:
+ 798              		.loc 1 172 57 view .LVU250
+ 799 0008 03EB4415 		add	r5, r3, r4, lsl #5
+ 800              		.loc 1 172 2 view .LVU251
+ 801 000c 0022     		movs	r2, #0
+ 802 000e 2989     		ldrh	r1, [r5, #8]
+ 803 0010 1858     		ldr	r0, [r3, r0]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 29
+
+
+ 804 0012 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 805              	.LVL58:
+ 173:Core/Src/DC_MOTOR.c **** 	HAL_GPIO_WritePin(DC_MOTOR_CfgParam[au8_MOTOR_Instance].DIR2_GPIO, DC_MOTOR_CfgParam[au8_MOTOR_Ins
+ 806              		.loc 1 173 2 is_stmt 1 view .LVU252
+ 807 0016 0022     		movs	r2, #0
+ 808 0018 6989     		ldrh	r1, [r5, #10]
+ 809 001a 6868     		ldr	r0, [r5, #4]
+ 810 001c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 811              	.LVL59:
+ 174:Core/Src/DC_MOTOR.c **** 
+ 175:Core/Src/DC_MOTOR.c **** 	/* Write ZERO To The PWM Ch DutyCycle Register */
+ 176:Core/Src/DC_MOTOR.c **** 	if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_1)
+ 812              		.loc 1 176 2 view .LVU253
+ 813              		.loc 1 176 42 is_stmt 0 view .LVU254
+ 814 0020 2B69     		ldr	r3, [r5, #16]
+ 815              		.loc 1 176 4 view .LVU255
+ 816 0022 1BB9     		cbnz	r3, .L49
+ 177:Core/Src/DC_MOTOR.c **** 	{
+ 178:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR1 = 0;
+ 817              		.loc 1 178 3 is_stmt 1 view .LVU256
+ 818              		.loc 1 178 40 is_stmt 0 view .LVU257
+ 819 0024 EB68     		ldr	r3, [r5, #12]
+ 820              		.loc 1 178 60 view .LVU258
+ 821 0026 0022     		movs	r2, #0
+ 822 0028 5A63     		str	r2, [r3, #52]
+ 823              	.L48:
+ 179:Core/Src/DC_MOTOR.c **** 	}
+ 180:Core/Src/DC_MOTOR.c **** 	else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_2)
+ 181:Core/Src/DC_MOTOR.c **** 	{
+ 182:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR2 = 0;
+ 183:Core/Src/DC_MOTOR.c **** 	}
+ 184:Core/Src/DC_MOTOR.c **** 	else if(DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_TIM_CH == TIM_CHANNEL_3)
+ 185:Core/Src/DC_MOTOR.c **** 	{
+ 186:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR3 = 0;
+ 187:Core/Src/DC_MOTOR.c **** 	}
+ 188:Core/Src/DC_MOTOR.c **** 	else
+ 189:Core/Src/DC_MOTOR.c **** 	{
+ 190:Core/Src/DC_MOTOR.c **** 		DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_Instance->CCR4 = 0;
+ 191:Core/Src/DC_MOTOR.c **** 	}
+ 192:Core/Src/DC_MOTOR.c **** }
+ 824              		.loc 1 192 1 view .LVU259
+ 825 002a 38BD     		pop	{r3, r4, r5, pc}
+ 826              	.L49:
+ 180:Core/Src/DC_MOTOR.c **** 	{
+ 827              		.loc 1 180 7 is_stmt 1 view .LVU260
+ 180:Core/Src/DC_MOTOR.c **** 	{
+ 828              		.loc 1 180 9 is_stmt 0 view .LVU261
+ 829 002c 042B     		cmp	r3, #4
+ 830 002e 08D0     		beq	.L54
+ 184:Core/Src/DC_MOTOR.c **** 	{
+ 831              		.loc 1 184 7 is_stmt 1 view .LVU262
+ 184:Core/Src/DC_MOTOR.c **** 	{
+ 832              		.loc 1 184 9 is_stmt 0 view .LVU263
+ 833 0030 082B     		cmp	r3, #8
+ 834 0032 0DD0     		beq	.L55
+ 190:Core/Src/DC_MOTOR.c **** 	}
+ 835              		.loc 1 190 3 is_stmt 1 view .LVU264
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 30
+
+
+ 190:Core/Src/DC_MOTOR.c **** 	}
+ 836              		.loc 1 190 40 is_stmt 0 view .LVU265
+ 837 0034 0A4B     		ldr	r3, .L56
+ 838 0036 03EB4413 		add	r3, r3, r4, lsl #5
+ 839 003a DB68     		ldr	r3, [r3, #12]
+ 190:Core/Src/DC_MOTOR.c **** 	}
+ 840              		.loc 1 190 60 view .LVU266
+ 841 003c 0022     		movs	r2, #0
+ 842 003e 1A64     		str	r2, [r3, #64]
+ 843              		.loc 1 192 1 view .LVU267
+ 844 0040 F3E7     		b	.L48
+ 845              	.L54:
+ 182:Core/Src/DC_MOTOR.c **** 	}
+ 846              		.loc 1 182 3 is_stmt 1 view .LVU268
+ 182:Core/Src/DC_MOTOR.c **** 	}
+ 847              		.loc 1 182 40 is_stmt 0 view .LVU269
+ 848 0042 074B     		ldr	r3, .L56
+ 849 0044 03EB4413 		add	r3, r3, r4, lsl #5
+ 850 0048 DB68     		ldr	r3, [r3, #12]
+ 182:Core/Src/DC_MOTOR.c **** 	}
+ 851              		.loc 1 182 60 view .LVU270
+ 852 004a 0022     		movs	r2, #0
+ 853 004c 9A63     		str	r2, [r3, #56]
+ 854 004e ECE7     		b	.L48
+ 855              	.L55:
+ 186:Core/Src/DC_MOTOR.c **** 	}
+ 856              		.loc 1 186 3 is_stmt 1 view .LVU271
+ 186:Core/Src/DC_MOTOR.c **** 	}
+ 857              		.loc 1 186 40 is_stmt 0 view .LVU272
+ 858 0050 034B     		ldr	r3, .L56
+ 859 0052 03EB4413 		add	r3, r3, r4, lsl #5
+ 860 0056 DB68     		ldr	r3, [r3, #12]
+ 186:Core/Src/DC_MOTOR.c **** 	}
+ 861              		.loc 1 186 60 view .LVU273
+ 862 0058 0022     		movs	r2, #0
+ 863 005a DA63     		str	r2, [r3, #60]
+ 864 005c E5E7     		b	.L48
+ 865              	.L57:
+ 866 005e 00BF     		.align	2
+ 867              	.L56:
+ 868 0060 00000000 		.word	DC_MOTOR_CfgParam
+ 869              		.cfi_endproc
+ 870              	.LFE1108:
+ 872              		.section	.text.DC_MOTOR_Get_MaxFreq,"ax",%progbits
+ 873              		.align	1
+ 874              		.global	DC_MOTOR_Get_MaxFreq
+ 875              		.syntax unified
+ 876              		.thumb
+ 877              		.thumb_func
+ 879              	DC_MOTOR_Get_MaxFreq:
+ 880              	.LVL60:
+ 881              	.LFB1109:
+ 193:Core/Src/DC_MOTOR.c **** 
+ 194:Core/Src/DC_MOTOR.c **** uint32_t DC_MOTOR_Get_MaxFreq(uint8_t au8_MOTOR_Instance)
+ 195:Core/Src/DC_MOTOR.c **** {
+ 882              		.loc 1 195 1 is_stmt 1 view -0
+ 883              		.cfi_startproc
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 31
+
+
+ 884              		@ args = 0, pretend = 0, frame = 0
+ 885              		@ frame_needed = 0, uses_anonymous_args = 0
+ 886              		@ link register save eliminated.
+ 196:Core/Src/DC_MOTOR.c **** 	uint32_t ARR_Value = 1;
+ 887              		.loc 1 196 2 view .LVU275
+ 197:Core/Src/DC_MOTOR.c ****     uint8_t i = 0;
+ 888              		.loc 1 197 5 view .LVU276
+ 198:Core/Src/DC_MOTOR.c **** 
+ 199:Core/Src/DC_MOTOR.c **** 	for(i=0; i<DC_MOTOR_CfgParam[au8_MOTOR_Instance].PWM_RES_BITS; i++)
+ 889              		.loc 1 199 2 view .LVU277
+ 890              		.loc 1 199 7 is_stmt 0 view .LVU278
+ 891 0000 0023     		movs	r3, #0
+ 196:Core/Src/DC_MOTOR.c ****     uint8_t i = 0;
+ 892              		.loc 1 196 11 view .LVU279
+ 893 0002 0121     		movs	r1, #1
+ 894              		.loc 1 199 2 view .LVU280
+ 895 0004 02E0     		b	.L59
+ 896              	.LVL61:
+ 897              	.L60:
+ 200:Core/Src/DC_MOTOR.c **** 	{
+ 201:Core/Src/DC_MOTOR.c **** 		ARR_Value *= 2;
+ 898              		.loc 1 201 3 is_stmt 1 discriminator 3 view .LVU281
+ 899              		.loc 1 201 13 is_stmt 0 discriminator 3 view .LVU282
+ 900 0006 4900     		lsls	r1, r1, #1
+ 901              	.LVL62:
+ 199:Core/Src/DC_MOTOR.c **** 	{
+ 902              		.loc 1 199 66 is_stmt 1 discriminator 3 view .LVU283
+ 903 0008 0133     		adds	r3, r3, #1
+ 904              	.LVL63:
+ 199:Core/Src/DC_MOTOR.c **** 	{
+ 905              		.loc 1 199 66 is_stmt 0 discriminator 3 view .LVU284
+ 906 000a DBB2     		uxtb	r3, r3
+ 907              	.LVL64:
+ 908              	.L59:
+ 199:Core/Src/DC_MOTOR.c **** 	{
+ 909              		.loc 1 199 12 is_stmt 1 discriminator 1 view .LVU285
+ 199:Core/Src/DC_MOTOR.c **** 	{
+ 910              		.loc 1 199 50 is_stmt 0 discriminator 1 view .LVU286
+ 911 000c 074A     		ldr	r2, .L61
+ 912 000e 02EB4012 		add	r2, r2, r0, lsl #5
+ 913 0012 127F     		ldrb	r2, [r2, #28]	@ zero_extendqisi2
+ 199:Core/Src/DC_MOTOR.c **** 	{
+ 914              		.loc 1 199 12 discriminator 1 view .LVU287
+ 915 0014 9A42     		cmp	r2, r3
+ 916 0016 F6D8     		bhi	.L60
+ 202:Core/Src/DC_MOTOR.c **** 	}
+ 203:Core/Src/DC_MOTOR.c **** 	return ((DC_MOTOR_CfgParam[au8_MOTOR_Instance].TIM_CLK_MHz*1000000)/ARR_Value);
+ 917              		.loc 1 203 2 is_stmt 1 view .LVU288
+ 918              		.loc 1 203 48 is_stmt 0 view .LVU289
+ 919 0018 044B     		ldr	r3, .L61
+ 920              	.LVL65:
+ 921              		.loc 1 203 48 view .LVU290
+ 922 001a 03EB4013 		add	r3, r3, r0, lsl #5
+ 923 001e 988A     		ldrh	r0, [r3, #20]
+ 924              	.LVL66:
+ 925              		.loc 1 203 60 view .LVU291
+ 926 0020 034B     		ldr	r3, .L61+4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 32
+
+
+ 927 0022 03FB00F0 		mul	r0, r3, r0
+ 204:Core/Src/DC_MOTOR.c **** }
+ 928              		.loc 1 204 1 view .LVU292
+ 929 0026 B0FBF1F0 		udiv	r0, r0, r1
+ 930 002a 7047     		bx	lr
+ 931              	.L62:
+ 932              		.align	2
+ 933              	.L61:
+ 934 002c 00000000 		.word	DC_MOTOR_CfgParam
+ 935 0030 40420F00 		.word	1000000
+ 936              		.cfi_endproc
+ 937              	.LFE1109:
+ 939              		.text
+ 940              	.Letext0:
+ 941              		.file 3 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 942              		.file 4 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 943              		.file 5 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wb55xx.h"
+ 944              		.file 6 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h"
+ 945              		.file 7 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h"
+ 946              		.file 8 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_gpio.h"
+ 947              		.file 9 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_tim.h"
+ 948              		.file 10 "Core/Inc/DC_MOTOR.h"
+ 949              		.file 11 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_tim_ex.h"
+ 950              		.file 12 "Core/Inc/DC_MOTOR_cfg.h"
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s 			page 33
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 DC_MOTOR.c
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:20     .text.DC_MOTOR_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:26     .text.DC_MOTOR_Init:0000000000000000 DC_MOTOR_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:459    .text.DC_MOTOR_Init:00000000000001c8 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:469    .text.DC_MOTOR_Start:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:475    .text.DC_MOTOR_Start:0000000000000000 DC_MOTOR_Start
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:608    .text.DC_MOTOR_Start:000000000000008c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:613    .text.DC_MOTOR_Set_Speed:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:619    .text.DC_MOTOR_Set_Speed:0000000000000000 DC_MOTOR_Set_Speed
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:681    .text.DC_MOTOR_Set_Speed:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:686    .text.DC_MOTOR_Set_Dir:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:692    .text.DC_MOTOR_Set_Dir:0000000000000000 DC_MOTOR_Set_Dir
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:767    .text.DC_MOTOR_Set_Dir:0000000000000050 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:772    .text.DC_MOTOR_Stop:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:778    .text.DC_MOTOR_Stop:0000000000000000 DC_MOTOR_Stop
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:868    .text.DC_MOTOR_Stop:0000000000000060 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:873    .text.DC_MOTOR_Get_MaxFreq:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:879    .text.DC_MOTOR_Get_MaxFreq:0000000000000000 DC_MOTOR_Get_MaxFreq
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccgfWami.s:934    .text.DC_MOTOR_Get_MaxFreq:000000000000002c $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_WritePin
+HAL_TIM_Base_Init
+HAL_TIM_ConfigClockSource
+HAL_TIM_PWM_Init
+HAL_TIMEx_MasterConfigSynchronization
+HAL_TIM_PWM_ConfigChannel
+HAL_TIM_MspPostInit
+HAL_TIM_PWM_Start
+DC_MOTOR_CfgParam

@@ -1,0 +1,1179 @@
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"DHT.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.delayTimeout,"ax",%progbits
+  20              		.align	1
+  21              		.global	delayTimeout
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	delayTimeout:
+  27              	.LVL0:
+  28              	.LFB1104:
+  29              		.file 1 "Core/Src/DHT.c"
+   1:Core/Src/DHT.c **** 
+   2:Core/Src/DHT.c **** 
+   3:Core/Src/DHT.c **** /************** MAKE CHANGES HERE ********************/
+   4:Core/Src/DHT.c **** // #include "stm32wbxx_hal_conf.h"
+   5:Core/Src/DHT.c **** #include "stm32wbxx.h"
+   6:Core/Src/DHT.c **** #include "tim.h"
+   7:Core/Src/DHT.c **** 
+   8:Core/Src/DHT.c **** #define TYPE_DHT11    // define according to your sensor
+   9:Core/Src/DHT.c **** //#define TYPE_DHT22
+  10:Core/Src/DHT.c **** 
+  11:Core/Src/DHT.c **** #define DHT_PORT GPIOC
+  12:Core/Src/DHT.c **** #define DHT_PIN GPIO_PIN_0
+  13:Core/Src/DHT.c **** 
+  14:Core/Src/DHT.c **** // #define DHT11_PORT GPIOC
+  15:Core/Src/DHT.c **** // #define DHT11_PIN GPIO_PIN_0
+  16:Core/Src/DHT.c **** 
+  17:Core/Src/DHT.c **** /*******************************************     NO CHANGES AFTER THIS LINE      ******************
+  18:Core/Src/DHT.c **** 
+  19:Core/Src/DHT.c **** uint8_t Rh_byte1, Rh_byte2, Temp_byte1, Temp_byte2;
+  20:Core/Src/DHT.c **** uint16_t SUM; uint8_t Presence = 0;
+  21:Core/Src/DHT.c **** 
+  22:Core/Src/DHT.c **** #include "DHT.h"
+  23:Core/Src/DHT.c **** #include <stdint.h>
+  24:Core/Src/DHT.c **** 
+  25:Core/Src/DHT.c **** uint8_t delayTimeout(uint16_t time){
+  30              		.loc 1 25 36 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 2
+
+
+  34              		@ link register save eliminated.
+  26:Core/Src/DHT.c **** 	/* change your code here for the delay in microseconds */
+  27:Core/Src/DHT.c **** 	uint8_t Response = 0;
+  35              		.loc 1 27 2 view .LVU1
+  28:Core/Src/DHT.c **** 	__HAL_TIM_SET_COUNTER(&htim2, 0);
+  36              		.loc 1 28 2 view .LVU2
+  37 0000 044B     		ldr	r3, .L3
+  38 0002 1A68     		ldr	r2, [r3]
+  39 0004 0023     		movs	r3, #0
+  40 0006 5362     		str	r3, [r2, #36]
+  29:Core/Src/DHT.c **** 	while ((__HAL_TIM_GET_COUNTER(&htim2)) < time);
+  41              		.loc 1 29 2 view .LVU3
+  42              	.L2:
+  43              		.loc 1 29 41 discriminator 1 view .LVU4
+  44              		.loc 1 29 10 is_stmt 0 discriminator 1 view .LVU5
+  45 0008 536A     		ldr	r3, [r2, #36]
+  46              		.loc 1 29 41 discriminator 1 view .LVU6
+  47 000a 8342     		cmp	r3, r0
+  48 000c FCD3     		bcc	.L2
+  30:Core/Src/DHT.c **** 	return Response = 1; 
+  49              		.loc 1 30 2 is_stmt 1 view .LVU7
+  50              	.LVL1:
+  31:Core/Src/DHT.c **** }
+  51              		.loc 1 31 1 is_stmt 0 view .LVU8
+  52 000e 0120     		movs	r0, #1
+  53              	.LVL2:
+  54              		.loc 1 31 1 view .LVU9
+  55 0010 7047     		bx	lr
+  56              	.L4:
+  57 0012 00BF     		.align	2
+  58              	.L3:
+  59 0014 00000000 		.word	htim2
+  60              		.cfi_endproc
+  61              	.LFE1104:
+  63              		.section	.text.DWT_Delay_Init,"ax",%progbits
+  64              		.align	1
+  65              		.global	DWT_Delay_Init
+  66              		.syntax unified
+  67              		.thumb
+  68              		.thumb_func
+  70              	DWT_Delay_Init:
+  71              	.LFB1105:
+  32:Core/Src/DHT.c **** 
+  33:Core/Src/DHT.c **** uint32_t DWT_Delay_Init(void){
+  72              		.loc 1 33 30 is_stmt 1 view -0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  34:Core/Src/DHT.c ****   /* Disable TRC */
+  35:Core/Src/DHT.c ****   CoreDebug->DEMCR &= ~CoreDebug_DEMCR_TRCENA_Msk; // ~0x01000000;
+  77              		.loc 1 35 3 view .LVU11
+  78              		.loc 1 35 20 is_stmt 0 view .LVU12
+  79 0000 104B     		ldr	r3, .L8
+  80 0002 D3F8FC20 		ldr	r2, [r3, #252]
+  81 0006 22F08072 		bic	r2, r2, #16777216
+  82 000a C3F8FC20 		str	r2, [r3, #252]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 3
+
+
+  36:Core/Src/DHT.c ****   /* Enable TRC */
+  37:Core/Src/DHT.c ****   CoreDebug->DEMCR |=  CoreDebug_DEMCR_TRCENA_Msk; // 0x01000000;
+  83              		.loc 1 37 3 is_stmt 1 view .LVU13
+  84              		.loc 1 37 20 is_stmt 0 view .LVU14
+  85 000e D3F8FC20 		ldr	r2, [r3, #252]
+  86 0012 42F08072 		orr	r2, r2, #16777216
+  87 0016 C3F8FC20 		str	r2, [r3, #252]
+  38:Core/Src/DHT.c **** 
+  39:Core/Src/DHT.c ****   /* Disable clock cycle counter */
+  40:Core/Src/DHT.c ****   DWT->CTRL &= ~DWT_CTRL_CYCCNTENA_Msk; //~0x00000001;
+  88              		.loc 1 40 3 is_stmt 1 view .LVU15
+  89              		.loc 1 40 13 is_stmt 0 view .LVU16
+  90 001a A3F55D43 		sub	r3, r3, #56576
+  91 001e 1A68     		ldr	r2, [r3]
+  92 0020 22F00102 		bic	r2, r2, #1
+  93 0024 1A60     		str	r2, [r3]
+  41:Core/Src/DHT.c ****   /* Enable  clock cycle counter */
+  42:Core/Src/DHT.c ****   DWT->CTRL |=  DWT_CTRL_CYCCNTENA_Msk; //0x00000001;
+  94              		.loc 1 42 3 is_stmt 1 view .LVU17
+  95              		.loc 1 42 13 is_stmt 0 view .LVU18
+  96 0026 1A68     		ldr	r2, [r3]
+  97 0028 42F00102 		orr	r2, r2, #1
+  98 002c 1A60     		str	r2, [r3]
+  43:Core/Src/DHT.c **** 
+  44:Core/Src/DHT.c ****   /* Reset the clock cycle counter value */
+  45:Core/Src/DHT.c ****   DWT->CYCCNT = 0;
+  99              		.loc 1 45 3 is_stmt 1 view .LVU19
+ 100              		.loc 1 45 15 is_stmt 0 view .LVU20
+ 101 002e 0022     		movs	r2, #0
+ 102 0030 5A60     		str	r2, [r3, #4]
+  46:Core/Src/DHT.c **** 
+  47:Core/Src/DHT.c ****      /* 3 NO OPERATION instructions */
+  48:Core/Src/DHT.c ****      __ASM volatile ("NOP");
+ 103              		.loc 1 48 6 is_stmt 1 view .LVU21
+ 104              		.syntax unified
+ 105              	@ 48 "Core/Src/DHT.c" 1
+ 106 0032 00BF     		NOP
+ 107              	@ 0 "" 2
+  49:Core/Src/DHT.c ****      __ASM volatile ("NOP");
+ 108              		.loc 1 49 6 view .LVU22
+ 109              	@ 49 "Core/Src/DHT.c" 1
+ 110 0034 00BF     		NOP
+ 111              	@ 0 "" 2
+  50:Core/Src/DHT.c ****   __ASM volatile ("NOP");
+ 112              		.loc 1 50 3 view .LVU23
+ 113              	@ 50 "Core/Src/DHT.c" 1
+ 114 0036 00BF     		NOP
+ 115              	@ 0 "" 2
+  51:Core/Src/DHT.c **** 
+  52:Core/Src/DHT.c ****   /* Check if clock cycle counter has started */
+  53:Core/Src/DHT.c ****      if(DWT->CYCCNT)
+ 116              		.loc 1 53 6 view .LVU24
+ 117              		.loc 1 53 12 is_stmt 0 view .LVU25
+ 118              		.thumb
+ 119              		.syntax unified
+ 120 0038 5B68     		ldr	r3, [r3, #4]
+ 121              		.loc 1 53 8 view .LVU26
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 4
+
+
+ 122 003a 0BB1     		cbz	r3, .L7
+  54:Core/Src/DHT.c ****      {
+  55:Core/Src/DHT.c ****        return 0; /*clock cycle counter started*/
+ 123              		.loc 1 55 15 view .LVU27
+ 124 003c 1046     		mov	r0, r2
+ 125 003e 7047     		bx	lr
+ 126              	.L7:
+  56:Core/Src/DHT.c ****      }
+  57:Core/Src/DHT.c ****      else
+  58:Core/Src/DHT.c ****   {
+  59:Core/Src/DHT.c ****     return 1; /*clock cycle counter not started*/
+ 127              		.loc 1 59 12 view .LVU28
+ 128 0040 0120     		movs	r0, #1
+  60:Core/Src/DHT.c ****   }
+  61:Core/Src/DHT.c **** }
+ 129              		.loc 1 61 1 view .LVU29
+ 130 0042 7047     		bx	lr
+ 131              	.L9:
+ 132              		.align	2
+ 133              	.L8:
+ 134 0044 00ED00E0 		.word	-536810240
+ 135              		.cfi_endproc
+ 136              	.LFE1105:
+ 138              		.section	.text.Set_Pin_Output,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	Set_Pin_Output
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	Set_Pin_Output:
+ 146              	.LVL3:
+ 147              	.LFB1107:
+  62:Core/Src/DHT.c **** 
+  63:Core/Src/DHT.c **** __STATIC_INLINE void delay(volatile uint32_t microseconds)
+  64:Core/Src/DHT.c **** {
+  65:Core/Src/DHT.c ****   uint32_t clk_cycle_start = DWT->CYCCNT;
+  66:Core/Src/DHT.c **** 
+  67:Core/Src/DHT.c ****   /* Go to number of cycles for system */
+  68:Core/Src/DHT.c ****   microseconds *= (HAL_RCC_GetHCLKFreq() / 1000000);
+  69:Core/Src/DHT.c **** 
+  70:Core/Src/DHT.c ****   /* Delay till end */
+  71:Core/Src/DHT.c ****   while ((DWT->CYCCNT - clk_cycle_start) < microseconds);
+  72:Core/Src/DHT.c **** }
+  73:Core/Src/DHT.c **** 
+  74:Core/Src/DHT.c **** void Set_Pin_Output (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+  75:Core/Src/DHT.c **** {
+ 148              		.loc 1 75 1 is_stmt 1 view -0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 24
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		.loc 1 75 1 is_stmt 0 view .LVU31
+ 153 0000 00B5     		push	{lr}
+ 154              		.cfi_def_cfa_offset 4
+ 155              		.cfi_offset 14, -4
+ 156 0002 87B0     		sub	sp, sp, #28
+ 157              		.cfi_def_cfa_offset 32
+  76:Core/Src/DHT.c **** 	GPIO_InitTypeDef GPIO_InitStruct = {0};
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 5
+
+
+ 158              		.loc 1 76 2 is_stmt 1 view .LVU32
+ 159              		.loc 1 76 19 is_stmt 0 view .LVU33
+ 160 0004 0023     		movs	r3, #0
+ 161 0006 0193     		str	r3, [sp, #4]
+ 162 0008 0293     		str	r3, [sp, #8]
+ 163 000a 0393     		str	r3, [sp, #12]
+ 164 000c 0493     		str	r3, [sp, #16]
+ 165 000e 0593     		str	r3, [sp, #20]
+  77:Core/Src/DHT.c **** 	GPIO_InitStruct.Pin = GPIO_Pin;
+ 166              		.loc 1 77 2 is_stmt 1 view .LVU34
+ 167              		.loc 1 77 22 is_stmt 0 view .LVU35
+ 168 0010 0191     		str	r1, [sp, #4]
+  78:Core/Src/DHT.c **** 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 169              		.loc 1 78 2 is_stmt 1 view .LVU36
+ 170              		.loc 1 78 23 is_stmt 0 view .LVU37
+ 171 0012 0123     		movs	r3, #1
+ 172 0014 0293     		str	r3, [sp, #8]
+  79:Core/Src/DHT.c **** 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+ 173              		.loc 1 79 2 is_stmt 1 view .LVU38
+  80:Core/Src/DHT.c **** 	HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+ 174              		.loc 1 80 2 view .LVU39
+ 175 0016 01A9     		add	r1, sp, #4
+ 176              	.LVL4:
+ 177              		.loc 1 80 2 is_stmt 0 view .LVU40
+ 178 0018 FFF7FEFF 		bl	HAL_GPIO_Init
+ 179              	.LVL5:
+  81:Core/Src/DHT.c **** }
+ 180              		.loc 1 81 1 view .LVU41
+ 181 001c 07B0     		add	sp, sp, #28
+ 182              		.cfi_def_cfa_offset 4
+ 183              		@ sp needed
+ 184 001e 5DF804FB 		ldr	pc, [sp], #4
+ 185              		.cfi_endproc
+ 186              	.LFE1107:
+ 188              		.section	.text.Set_Pin_Input,"ax",%progbits
+ 189              		.align	1
+ 190              		.global	Set_Pin_Input
+ 191              		.syntax unified
+ 192              		.thumb
+ 193              		.thumb_func
+ 195              	Set_Pin_Input:
+ 196              	.LVL6:
+ 197              	.LFB1108:
+  82:Core/Src/DHT.c **** 
+  83:Core/Src/DHT.c **** void Set_Pin_Input (GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+  84:Core/Src/DHT.c **** {
+ 198              		.loc 1 84 1 is_stmt 1 view -0
+ 199              		.cfi_startproc
+ 200              		@ args = 0, pretend = 0, frame = 24
+ 201              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202              		.loc 1 84 1 is_stmt 0 view .LVU43
+ 203 0000 00B5     		push	{lr}
+ 204              		.cfi_def_cfa_offset 4
+ 205              		.cfi_offset 14, -4
+ 206 0002 87B0     		sub	sp, sp, #28
+ 207              		.cfi_def_cfa_offset 32
+  85:Core/Src/DHT.c **** 	GPIO_InitTypeDef GPIO_InitStruct = {0};
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 6
+
+
+ 208              		.loc 1 85 2 is_stmt 1 view .LVU44
+ 209              		.loc 1 85 19 is_stmt 0 view .LVU45
+ 210 0004 0023     		movs	r3, #0
+ 211 0006 0193     		str	r3, [sp, #4]
+ 212 0008 0293     		str	r3, [sp, #8]
+ 213 000a 0393     		str	r3, [sp, #12]
+ 214 000c 0493     		str	r3, [sp, #16]
+ 215 000e 0593     		str	r3, [sp, #20]
+  86:Core/Src/DHT.c **** 	GPIO_InitStruct.Pin = GPIO_Pin;
+ 216              		.loc 1 86 2 is_stmt 1 view .LVU46
+ 217              		.loc 1 86 22 is_stmt 0 view .LVU47
+ 218 0010 0191     		str	r1, [sp, #4]
+  87:Core/Src/DHT.c **** 	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+ 219              		.loc 1 87 2 is_stmt 1 view .LVU48
+  88:Core/Src/DHT.c **** 	GPIO_InitStruct.Pull = GPIO_NOPULL;
+ 220              		.loc 1 88 2 view .LVU49
+  89:Core/Src/DHT.c **** 	HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+ 221              		.loc 1 89 2 view .LVU50
+ 222 0012 01A9     		add	r1, sp, #4
+ 223              	.LVL7:
+ 224              		.loc 1 89 2 is_stmt 0 view .LVU51
+ 225 0014 FFF7FEFF 		bl	HAL_GPIO_Init
+ 226              	.LVL8:
+  90:Core/Src/DHT.c **** }
+ 227              		.loc 1 90 1 view .LVU52
+ 228 0018 07B0     		add	sp, sp, #28
+ 229              		.cfi_def_cfa_offset 4
+ 230              		@ sp needed
+ 231 001a 5DF804FB 		ldr	pc, [sp], #4
+ 232              		.cfi_endproc
+ 233              	.LFE1108:
+ 235              		.section	.text.DHT_Start,"ax",%progbits
+ 236              		.align	1
+ 237              		.global	DHT_Start
+ 238              		.syntax unified
+ 239              		.thumb
+ 240              		.thumb_func
+ 242              	DHT_Start:
+ 243              	.LFB1109:
+  91:Core/Src/DHT.c **** 
+  92:Core/Src/DHT.c **** 
+  93:Core/Src/DHT.c **** void DHT_Start (void)
+  94:Core/Src/DHT.c **** {
+ 244              		.loc 1 94 1 is_stmt 1 view -0
+ 245              		.cfi_startproc
+ 246              		@ args = 0, pretend = 0, frame = 0
+ 247              		@ frame_needed = 0, uses_anonymous_args = 0
+ 248 0000 38B5     		push	{r3, r4, r5, lr}
+ 249              		.cfi_def_cfa_offset 16
+ 250              		.cfi_offset 3, -16
+ 251              		.cfi_offset 4, -12
+ 252              		.cfi_offset 5, -8
+ 253              		.cfi_offset 14, -4
+  95:Core/Src/DHT.c **** 	DWT_Delay_Init();
+ 254              		.loc 1 95 2 view .LVU54
+ 255 0002 FFF7FEFF 		bl	DWT_Delay_Init
+ 256              	.LVL9:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 7
+
+
+  96:Core/Src/DHT.c **** 	Set_Pin_Output (DHT_PORT, DHT_PIN);  // set the pin as output
+ 257              		.loc 1 96 2 view .LVU55
+ 258 0006 1A4C     		ldr	r4, .L18
+ 259 0008 0121     		movs	r1, #1
+ 260 000a 2046     		mov	r0, r4
+ 261 000c FFF7FEFF 		bl	Set_Pin_Output
+ 262              	.LVL10:
+  97:Core/Src/DHT.c **** 	HAL_GPIO_WritePin (DHT_PORT, DHT_PIN, 0);   // pull the pin low
+ 263              		.loc 1 97 2 view .LVU56
+ 264 0010 0022     		movs	r2, #0
+ 265 0012 0121     		movs	r1, #1
+ 266 0014 2046     		mov	r0, r4
+ 267 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 268              	.LVL11:
+  98:Core/Src/DHT.c **** 
+  99:Core/Src/DHT.c **** #if defined(TYPE_DHT11)
+ 100:Core/Src/DHT.c **** 	delay (18000);   // wait for 18ms
+ 269              		.loc 1 100 2 view .LVU57
+ 270 001a 44F25064 		movw	r4, #18000
+ 271              	.LVL12:
+ 272              	.LBB6:
+ 273              	.LBI6:
+  63:Core/Src/DHT.c **** {
+ 274              		.loc 1 63 22 view .LVU58
+ 275              	.LBB7:
+  65:Core/Src/DHT.c **** 
+ 276              		.loc 1 65 3 view .LVU59
+  65:Core/Src/DHT.c **** 
+ 277              		.loc 1 65 12 is_stmt 0 view .LVU60
+ 278 001e 154B     		ldr	r3, .L18+4
+ 279 0020 5D68     		ldr	r5, [r3, #4]
+ 280              	.LVL13:
+  68:Core/Src/DHT.c **** 
+ 281              		.loc 1 68 3 is_stmt 1 view .LVU61
+  68:Core/Src/DHT.c **** 
+ 282              		.loc 1 68 20 is_stmt 0 view .LVU62
+ 283 0022 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 284              	.LVL14:
+  68:Core/Src/DHT.c **** 
+ 285              		.loc 1 68 42 view .LVU63
+ 286 0026 144B     		ldr	r3, .L18+8
+ 287 0028 A3FB0023 		umull	r2, r3, r3, r0
+ 288 002c 9B0C     		lsrs	r3, r3, #18
+  68:Core/Src/DHT.c **** 
+ 289              		.loc 1 68 16 view .LVU64
+ 290 002e 03FB04F4 		mul	r4, r3, r4
+  71:Core/Src/DHT.c **** }
+ 291              		.loc 1 71 3 is_stmt 1 view .LVU65
+ 292              	.L15:
+  71:Core/Src/DHT.c **** }
+ 293              		.loc 1 71 42 view .LVU66
+  71:Core/Src/DHT.c **** }
+ 294              		.loc 1 71 14 is_stmt 0 view .LVU67
+ 295 0032 104B     		ldr	r3, .L18+4
+ 296 0034 5B68     		ldr	r3, [r3, #4]
+  71:Core/Src/DHT.c **** }
+ 297              		.loc 1 71 23 view .LVU68
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 8
+
+
+ 298 0036 5B1B     		subs	r3, r3, r5
+  71:Core/Src/DHT.c **** }
+ 299              		.loc 1 71 42 view .LVU69
+ 300 0038 A342     		cmp	r3, r4
+ 301 003a FAD3     		bcc	.L15
+ 302              	.LVL15:
+  71:Core/Src/DHT.c **** }
+ 303              		.loc 1 71 42 view .LVU70
+ 304              	.LBE7:
+ 305              	.LBE6:
+ 101:Core/Src/DHT.c **** #endif
+ 102:Core/Src/DHT.c **** 
+ 103:Core/Src/DHT.c **** #if defined(TYPE_DHT22)
+ 104:Core/Src/DHT.c **** 	delay (1200);  // >1ms delay
+ 105:Core/Src/DHT.c **** #endif
+ 106:Core/Src/DHT.c **** 
+ 107:Core/Src/DHT.c ****     HAL_GPIO_WritePin (DHT_PORT, DHT_PIN, 1);   // pull the pin high
+ 306              		.loc 1 107 5 is_stmt 1 view .LVU71
+ 307 003c 0122     		movs	r2, #1
+ 308 003e 1146     		mov	r1, r2
+ 309 0040 0B48     		ldr	r0, .L18
+ 310 0042 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 311              	.LVL16:
+ 108:Core/Src/DHT.c ****     delay (20);   // wait for 30us
+ 312              		.loc 1 108 5 view .LVU72
+ 313 0046 1424     		movs	r4, #20
+ 314              	.LVL17:
+ 315              	.LBB8:
+ 316              	.LBI8:
+  63:Core/Src/DHT.c **** {
+ 317              		.loc 1 63 22 view .LVU73
+ 318              	.LBB9:
+  65:Core/Src/DHT.c **** 
+ 319              		.loc 1 65 3 view .LVU74
+  65:Core/Src/DHT.c **** 
+ 320              		.loc 1 65 12 is_stmt 0 view .LVU75
+ 321 0048 0A4B     		ldr	r3, .L18+4
+ 322 004a 5D68     		ldr	r5, [r3, #4]
+ 323              	.LVL18:
+  68:Core/Src/DHT.c **** 
+ 324              		.loc 1 68 3 is_stmt 1 view .LVU76
+  68:Core/Src/DHT.c **** 
+ 325              		.loc 1 68 20 is_stmt 0 view .LVU77
+ 326 004c FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 327              	.LVL19:
+  68:Core/Src/DHT.c **** 
+ 328              		.loc 1 68 42 view .LVU78
+ 329 0050 094B     		ldr	r3, .L18+8
+ 330 0052 A3FB0023 		umull	r2, r3, r3, r0
+ 331 0056 9B0C     		lsrs	r3, r3, #18
+  68:Core/Src/DHT.c **** 
+ 332              		.loc 1 68 16 view .LVU79
+ 333 0058 03FB04F4 		mul	r4, r3, r4
+  71:Core/Src/DHT.c **** }
+ 334              		.loc 1 71 3 is_stmt 1 view .LVU80
+ 335              	.L16:
+  71:Core/Src/DHT.c **** }
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 9
+
+
+ 336              		.loc 1 71 42 view .LVU81
+  71:Core/Src/DHT.c **** }
+ 337              		.loc 1 71 14 is_stmt 0 view .LVU82
+ 338 005c 054B     		ldr	r3, .L18+4
+ 339 005e 5B68     		ldr	r3, [r3, #4]
+  71:Core/Src/DHT.c **** }
+ 340              		.loc 1 71 23 view .LVU83
+ 341 0060 5B1B     		subs	r3, r3, r5
+  71:Core/Src/DHT.c **** }
+ 342              		.loc 1 71 42 view .LVU84
+ 343 0062 A342     		cmp	r3, r4
+ 344 0064 FAD3     		bcc	.L16
+ 345              	.LVL20:
+  71:Core/Src/DHT.c **** }
+ 346              		.loc 1 71 42 view .LVU85
+ 347              	.LBE9:
+ 348              	.LBE8:
+ 109:Core/Src/DHT.c **** 	Set_Pin_Input(DHT_PORT, DHT_PIN);    // set as input
+ 349              		.loc 1 109 2 is_stmt 1 view .LVU86
+ 350 0066 0121     		movs	r1, #1
+ 351 0068 0148     		ldr	r0, .L18
+ 352 006a FFF7FEFF 		bl	Set_Pin_Input
+ 353              	.LVL21:
+ 110:Core/Src/DHT.c **** }
+ 354              		.loc 1 110 1 is_stmt 0 view .LVU87
+ 355 006e 38BD     		pop	{r3, r4, r5, pc}
+ 356              	.L19:
+ 357              		.align	2
+ 358              	.L18:
+ 359 0070 00080048 		.word	1207961600
+ 360 0074 001000E0 		.word	-536866816
+ 361 0078 83DE1B43 		.word	1125899907
+ 362              		.cfi_endproc
+ 363              	.LFE1109:
+ 365              		.section	.text.DHT_Check_Response,"ax",%progbits
+ 366              		.align	1
+ 367              		.global	DHT_Check_Response
+ 368              		.syntax unified
+ 369              		.thumb
+ 370              		.thumb_func
+ 372              	DHT_Check_Response:
+ 373              	.LFB1110:
+ 111:Core/Src/DHT.c **** 
+ 112:Core/Src/DHT.c **** uint8_t DHT_Check_Response (void)
+ 113:Core/Src/DHT.c **** {
+ 374              		.loc 1 113 1 is_stmt 1 view -0
+ 375              		.cfi_startproc
+ 376              		@ args = 0, pretend = 0, frame = 0
+ 377              		@ frame_needed = 0, uses_anonymous_args = 0
+ 378 0000 38B5     		push	{r3, r4, r5, lr}
+ 379              		.cfi_def_cfa_offset 16
+ 380              		.cfi_offset 3, -16
+ 381              		.cfi_offset 4, -12
+ 382              		.cfi_offset 5, -8
+ 383              		.cfi_offset 14, -4
+ 114:Core/Src/DHT.c **** 	uint8_t Response = 0;
+ 384              		.loc 1 114 2 view .LVU89
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 10
+
+
+ 385              	.LVL22:
+ 115:Core/Src/DHT.c **** 	delay (40);
+ 386              		.loc 1 115 2 view .LVU90
+ 387 0002 2824     		movs	r4, #40
+ 388              	.LVL23:
+ 389              	.LBB14:
+ 390              	.LBI14:
+  63:Core/Src/DHT.c **** {
+ 391              		.loc 1 63 22 view .LVU91
+ 392              	.LBB15:
+  65:Core/Src/DHT.c **** 
+ 393              		.loc 1 65 3 view .LVU92
+  65:Core/Src/DHT.c **** 
+ 394              		.loc 1 65 12 is_stmt 0 view .LVU93
+ 395 0004 1A4B     		ldr	r3, .L29
+ 396 0006 5D68     		ldr	r5, [r3, #4]
+ 397              	.LVL24:
+  68:Core/Src/DHT.c **** 
+ 398              		.loc 1 68 3 is_stmt 1 view .LVU94
+  68:Core/Src/DHT.c **** 
+ 399              		.loc 1 68 20 is_stmt 0 view .LVU95
+ 400 0008 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 401              	.LVL25:
+  68:Core/Src/DHT.c **** 
+ 402              		.loc 1 68 42 view .LVU96
+ 403 000c 194B     		ldr	r3, .L29+4
+ 404 000e A3FB0023 		umull	r2, r3, r3, r0
+ 405 0012 9B0C     		lsrs	r3, r3, #18
+  68:Core/Src/DHT.c **** 
+ 406              		.loc 1 68 16 view .LVU97
+ 407 0014 03FB04F4 		mul	r4, r3, r4
+  71:Core/Src/DHT.c **** }
+ 408              		.loc 1 71 3 is_stmt 1 view .LVU98
+ 409              	.L21:
+  71:Core/Src/DHT.c **** }
+ 410              		.loc 1 71 42 view .LVU99
+  71:Core/Src/DHT.c **** }
+ 411              		.loc 1 71 14 is_stmt 0 view .LVU100
+ 412 0018 154B     		ldr	r3, .L29
+ 413 001a 5B68     		ldr	r3, [r3, #4]
+  71:Core/Src/DHT.c **** }
+ 414              		.loc 1 71 23 view .LVU101
+ 415 001c 5B1B     		subs	r3, r3, r5
+  71:Core/Src/DHT.c **** }
+ 416              		.loc 1 71 42 view .LVU102
+ 417 001e A342     		cmp	r3, r4
+ 418 0020 FAD3     		bcc	.L21
+ 419              	.LVL26:
+  71:Core/Src/DHT.c **** }
+ 420              		.loc 1 71 42 view .LVU103
+ 421              	.LBE15:
+ 422              	.LBE14:
+ 116:Core/Src/DHT.c **** 	if (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)))
+ 423              		.loc 1 116 2 is_stmt 1 view .LVU104
+ 424              		.loc 1 116 8 is_stmt 0 view .LVU105
+ 425 0022 0121     		movs	r1, #1
+ 426 0024 1448     		ldr	r0, .L29+8
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 11
+
+
+ 427 0026 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 428              	.LVL27:
+ 429              		.loc 1 116 5 view .LVU106
+ 430 002a 40B1     		cbz	r0, .L28
+ 114:Core/Src/DHT.c **** 	delay (40);
+ 431              		.loc 1 114 10 view .LVU107
+ 432 002c 0024     		movs	r4, #0
+ 433              	.LVL28:
+ 434              	.L24:
+ 117:Core/Src/DHT.c **** 	{
+ 118:Core/Src/DHT.c **** 		delay (80);
+ 119:Core/Src/DHT.c **** 		if ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))) Response = 1;
+ 120:Core/Src/DHT.c **** 		else Response = -1;
+ 121:Core/Src/DHT.c **** 	}
+ 122:Core/Src/DHT.c **** 	while ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))){
+ 123:Core/Src/DHT.c **** 		// if(delayTimeout(1000)){
+ 124:Core/Src/DHT.c **** 		// 	break; 
+ 125:Core/Src/DHT.c **** 		// }
+ 126:Core/Src/DHT.c **** 	};   // wait for the pin to go low
+ 435              		.loc 1 126 2 is_stmt 1 discriminator 1 view .LVU108
+ 122:Core/Src/DHT.c **** 		// if(delayTimeout(1000)){
+ 436              		.loc 1 122 9 discriminator 1 view .LVU109
+ 122:Core/Src/DHT.c **** 		// if(delayTimeout(1000)){
+ 437              		.loc 1 122 10 is_stmt 0 discriminator 1 view .LVU110
+ 438 002e 0121     		movs	r1, #1
+ 439 0030 1148     		ldr	r0, .L29+8
+ 440 0032 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 441              	.LVL29:
+ 122:Core/Src/DHT.c **** 		// if(delayTimeout(1000)){
+ 442              		.loc 1 122 9 discriminator 1 view .LVU111
+ 443 0036 0028     		cmp	r0, #0
+ 444 0038 F9D1     		bne	.L24
+ 445              		.loc 1 126 3 is_stmt 1 view .LVU112
+ 127:Core/Src/DHT.c **** 
+ 128:Core/Src/DHT.c **** 	return Response;
+ 446              		.loc 1 128 2 view .LVU113
+ 129:Core/Src/DHT.c **** }
+ 447              		.loc 1 129 1 is_stmt 0 view .LVU114
+ 448 003a 2046     		mov	r0, r4
+ 449 003c 38BD     		pop	{r3, r4, r5, pc}
+ 450              	.LVL30:
+ 451              	.L28:
+ 118:Core/Src/DHT.c **** 		if ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))) Response = 1;
+ 452              		.loc 1 118 3 is_stmt 1 view .LVU115
+ 453 003e 5024     		movs	r4, #80
+ 454              	.LVL31:
+ 455              	.LBB16:
+ 456              	.LBI16:
+  63:Core/Src/DHT.c **** {
+ 457              		.loc 1 63 22 view .LVU116
+ 458              	.LBB17:
+  65:Core/Src/DHT.c **** 
+ 459              		.loc 1 65 3 view .LVU117
+  65:Core/Src/DHT.c **** 
+ 460              		.loc 1 65 12 is_stmt 0 view .LVU118
+ 461 0040 0B4B     		ldr	r3, .L29
+ 462 0042 5D68     		ldr	r5, [r3, #4]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 12
+
+
+ 463              	.LVL32:
+  68:Core/Src/DHT.c **** 
+ 464              		.loc 1 68 3 is_stmt 1 view .LVU119
+  68:Core/Src/DHT.c **** 
+ 465              		.loc 1 68 20 is_stmt 0 view .LVU120
+ 466 0044 FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 467              	.LVL33:
+  68:Core/Src/DHT.c **** 
+ 468              		.loc 1 68 42 view .LVU121
+ 469 0048 0A4B     		ldr	r3, .L29+4
+ 470 004a A3FB0023 		umull	r2, r3, r3, r0
+ 471 004e 9B0C     		lsrs	r3, r3, #18
+  68:Core/Src/DHT.c **** 
+ 472              		.loc 1 68 16 view .LVU122
+ 473 0050 03FB04F4 		mul	r4, r3, r4
+  71:Core/Src/DHT.c **** }
+ 474              		.loc 1 71 3 is_stmt 1 view .LVU123
+ 475              	.L23:
+  71:Core/Src/DHT.c **** }
+ 476              		.loc 1 71 42 view .LVU124
+  71:Core/Src/DHT.c **** }
+ 477              		.loc 1 71 14 is_stmt 0 view .LVU125
+ 478 0054 064B     		ldr	r3, .L29
+ 479 0056 5B68     		ldr	r3, [r3, #4]
+  71:Core/Src/DHT.c **** }
+ 480              		.loc 1 71 23 view .LVU126
+ 481 0058 5B1B     		subs	r3, r3, r5
+  71:Core/Src/DHT.c **** }
+ 482              		.loc 1 71 42 view .LVU127
+ 483 005a A342     		cmp	r3, r4
+ 484 005c FAD3     		bcc	.L23
+ 485              	.LVL34:
+  71:Core/Src/DHT.c **** }
+ 486              		.loc 1 71 42 view .LVU128
+ 487              	.LBE17:
+ 488              	.LBE16:
+ 119:Core/Src/DHT.c **** 		else Response = -1;
+ 489              		.loc 1 119 3 is_stmt 1 view .LVU129
+ 119:Core/Src/DHT.c **** 		else Response = -1;
+ 490              		.loc 1 119 8 is_stmt 0 view .LVU130
+ 491 005e 0121     		movs	r1, #1
+ 492 0060 0548     		ldr	r0, .L29+8
+ 493 0062 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 494              	.LVL35:
+ 119:Core/Src/DHT.c **** 		else Response = -1;
+ 495              		.loc 1 119 6 view .LVU131
+ 496 0066 08B1     		cbz	r0, .L26
+ 119:Core/Src/DHT.c **** 		else Response = -1;
+ 497              		.loc 1 119 56 view .LVU132
+ 498 0068 0124     		movs	r4, #1
+ 499 006a E0E7     		b	.L24
+ 500              	.L26:
+ 120:Core/Src/DHT.c **** 	}
+ 501              		.loc 1 120 17 view .LVU133
+ 502 006c FF24     		movs	r4, #255
+ 503              	.LVL36:
+ 120:Core/Src/DHT.c **** 	}
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 13
+
+
+ 504              		.loc 1 120 17 view .LVU134
+ 505 006e DEE7     		b	.L24
+ 506              	.L30:
+ 507              		.align	2
+ 508              	.L29:
+ 509 0070 001000E0 		.word	-536866816
+ 510 0074 83DE1B43 		.word	1125899907
+ 511 0078 00080048 		.word	1207961600
+ 512              		.cfi_endproc
+ 513              	.LFE1110:
+ 515              		.section	.text.DHT_Read,"ax",%progbits
+ 516              		.align	1
+ 517              		.global	DHT_Read
+ 518              		.syntax unified
+ 519              		.thumb
+ 520              		.thumb_func
+ 522              	DHT_Read:
+ 523              	.LFB1111:
+ 130:Core/Src/DHT.c **** 
+ 131:Core/Src/DHT.c **** uint8_t DHT_Read (void){
+ 524              		.loc 1 131 24 is_stmt 1 view -0
+ 525              		.cfi_startproc
+ 526              		@ args = 0, pretend = 0, frame = 0
+ 527              		@ frame_needed = 0, uses_anonymous_args = 0
+ 528 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 529              		.cfi_def_cfa_offset 24
+ 530              		.cfi_offset 3, -24
+ 531              		.cfi_offset 4, -20
+ 532              		.cfi_offset 5, -16
+ 533              		.cfi_offset 6, -12
+ 534              		.cfi_offset 7, -8
+ 535              		.cfi_offset 14, -4
+ 536 0002 0026     		movs	r6, #0
+ 132:Core/Src/DHT.c **** 	uint8_t i,j;
+ 537              		.loc 1 132 2 view .LVU136
+ 133:Core/Src/DHT.c **** 	for (j=0;j<8;j++){
+ 538              		.loc 1 133 2 view .LVU137
+ 539              	.LVL37:
+ 540              		.loc 1 133 8 is_stmt 0 view .LVU138
+ 541 0004 3546     		mov	r5, r6
+ 542              		.loc 1 133 2 view .LVU139
+ 543 0006 0DE0     		b	.L32
+ 544              	.LVL38:
+ 545              	.L35:
+ 134:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 135:Core/Src/DHT.c **** 		delay (40);   // wait for 40 us
+ 136:Core/Src/DHT.c **** 		if (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)))   // if the pin is low
+ 137:Core/Src/DHT.c **** 		{
+ 138:Core/Src/DHT.c **** 			i&= ~(1<<(7-j));   // write 0
+ 139:Core/Src/DHT.c **** 		}
+ 140:Core/Src/DHT.c **** 		else i|= (1<<(7-j));  // if the pin is high, write 1
+ 546              		.loc 1 140 8 is_stmt 1 view .LVU140
+ 547              		.loc 1 140 18 is_stmt 0 view .LVU141
+ 548 0008 C5F10702 		rsb	r2, r5, #7
+ 549              		.loc 1 140 14 view .LVU142
+ 550 000c 0123     		movs	r3, #1
+ 551 000e 9340     		lsls	r3, r3, r2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 14
+
+
+ 552              		.loc 1 140 9 view .LVU143
+ 553 0010 3343     		orrs	r3, r3, r6
+ 554 0012 DEB2     		uxtb	r6, r3
+ 555              	.LVL39:
+ 556              	.L37:
+ 141:Core/Src/DHT.c **** 		while ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))){
+ 142:Core/Src/DHT.c **** 			// if (delayTimeout(1000)){
+ 143:Core/Src/DHT.c **** 			// 	break;
+ 144:Core/Src/DHT.c **** 			// }
+ 145:Core/Src/DHT.c **** 		};  // wait for the pin to go low
+ 557              		.loc 1 145 3 is_stmt 1 discriminator 1 view .LVU144
+ 141:Core/Src/DHT.c **** 		while ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))){
+ 558              		.loc 1 141 10 discriminator 1 view .LVU145
+ 141:Core/Src/DHT.c **** 		while ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))){
+ 559              		.loc 1 141 11 is_stmt 0 discriminator 1 view .LVU146
+ 560 0014 0121     		movs	r1, #1
+ 561 0016 1748     		ldr	r0, .L40
+ 562 0018 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 563              	.LVL40:
+ 141:Core/Src/DHT.c **** 		while ((HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN))){
+ 564              		.loc 1 141 10 discriminator 1 view .LVU147
+ 565 001c 0028     		cmp	r0, #0
+ 566 001e F9D1     		bne	.L37
+ 567              		.loc 1 145 4 is_stmt 1 discriminator 2 view .LVU148
+ 133:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 568              		.loc 1 133 16 discriminator 2 view .LVU149
+ 569 0020 0135     		adds	r5, r5, #1
+ 570              	.LVL41:
+ 133:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 571              		.loc 1 133 16 is_stmt 0 discriminator 2 view .LVU150
+ 572 0022 EDB2     		uxtb	r5, r5
+ 573              	.LVL42:
+ 574              	.L32:
+ 133:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 575              		.loc 1 133 12 is_stmt 1 discriminator 1 view .LVU151
+ 576 0024 072D     		cmp	r5, #7
+ 577 0026 23D8     		bhi	.L39
+ 578              	.L33:
+ 134:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 579              		.loc 1 134 10 discriminator 1 view .LVU152
+ 134:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 580              		.loc 1 134 12 is_stmt 0 discriminator 1 view .LVU153
+ 581 0028 0121     		movs	r1, #1
+ 582 002a 1248     		ldr	r0, .L40
+ 583 002c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 584              	.LVL43:
+ 134:Core/Src/DHT.c **** 		while (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)));   // wait for the pin to go high
+ 585              		.loc 1 134 10 discriminator 1 view .LVU154
+ 586 0030 0028     		cmp	r0, #0
+ 587 0032 F9D0     		beq	.L33
+ 135:Core/Src/DHT.c **** 		if (!(HAL_GPIO_ReadPin (DHT_PORT, DHT_PIN)))   // if the pin is low
+ 588              		.loc 1 135 3 is_stmt 1 view .LVU155
+ 589 0034 2824     		movs	r4, #40
+ 590              	.LVL44:
+ 591              	.LBB20:
+ 592              	.LBI20:
+  63:Core/Src/DHT.c **** {
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 15
+
+
+ 593              		.loc 1 63 22 view .LVU156
+ 594              	.LBB21:
+  65:Core/Src/DHT.c **** 
+ 595              		.loc 1 65 3 view .LVU157
+  65:Core/Src/DHT.c **** 
+ 596              		.loc 1 65 12 is_stmt 0 view .LVU158
+ 597 0036 104B     		ldr	r3, .L40+4
+ 598 0038 5F68     		ldr	r7, [r3, #4]
+ 599              	.LVL45:
+  68:Core/Src/DHT.c **** 
+ 600              		.loc 1 68 3 is_stmt 1 view .LVU159
+  68:Core/Src/DHT.c **** 
+ 601              		.loc 1 68 20 is_stmt 0 view .LVU160
+ 602 003a FFF7FEFF 		bl	HAL_RCC_GetHCLKFreq
+ 603              	.LVL46:
+  68:Core/Src/DHT.c **** 
+ 604              		.loc 1 68 42 view .LVU161
+ 605 003e 0F4B     		ldr	r3, .L40+8
+ 606 0040 A3FB0023 		umull	r2, r3, r3, r0
+ 607 0044 9B0C     		lsrs	r3, r3, #18
+  68:Core/Src/DHT.c **** 
+ 608              		.loc 1 68 16 view .LVU162
+ 609 0046 03FB04F4 		mul	r4, r3, r4
+  71:Core/Src/DHT.c **** }
+ 610              		.loc 1 71 3 is_stmt 1 view .LVU163
+ 611              	.L34:
+  71:Core/Src/DHT.c **** }
+ 612              		.loc 1 71 42 view .LVU164
+  71:Core/Src/DHT.c **** }
+ 613              		.loc 1 71 14 is_stmt 0 view .LVU165
+ 614 004a 0B4B     		ldr	r3, .L40+4
+ 615 004c 5B68     		ldr	r3, [r3, #4]
+  71:Core/Src/DHT.c **** }
+ 616              		.loc 1 71 23 view .LVU166
+ 617 004e DB1B     		subs	r3, r3, r7
+  71:Core/Src/DHT.c **** }
+ 618              		.loc 1 71 42 view .LVU167
+ 619 0050 A342     		cmp	r3, r4
+ 620 0052 FAD3     		bcc	.L34
+ 621              	.LVL47:
+  71:Core/Src/DHT.c **** }
+ 622              		.loc 1 71 42 view .LVU168
+ 623              	.LBE21:
+ 624              	.LBE20:
+ 136:Core/Src/DHT.c **** 		{
+ 625              		.loc 1 136 3 is_stmt 1 view .LVU169
+ 136:Core/Src/DHT.c **** 		{
+ 626              		.loc 1 136 9 is_stmt 0 view .LVU170
+ 627 0054 0121     		movs	r1, #1
+ 628 0056 0748     		ldr	r0, .L40
+ 629 0058 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 630              	.LVL48:
+ 136:Core/Src/DHT.c **** 		{
+ 631              		.loc 1 136 6 view .LVU171
+ 632 005c 0028     		cmp	r0, #0
+ 633 005e D3D1     		bne	.L35
+ 138:Core/Src/DHT.c **** 		}
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 16
+
+
+ 634              		.loc 1 138 4 is_stmt 1 view .LVU172
+ 138:Core/Src/DHT.c **** 		}
+ 635              		.loc 1 138 15 is_stmt 0 view .LVU173
+ 636 0060 C5F10702 		rsb	r2, r5, #7
+ 138:Core/Src/DHT.c **** 		}
+ 637              		.loc 1 138 11 view .LVU174
+ 638 0064 0123     		movs	r3, #1
+ 639 0066 9340     		lsls	r3, r3, r2
+ 138:Core/Src/DHT.c **** 		}
+ 640              		.loc 1 138 5 view .LVU175
+ 641 0068 DB43     		mvns	r3, r3
+ 642 006a 5BB2     		sxtb	r3, r3
+ 643 006c 1E40     		ands	r6, r6, r3
+ 644              	.LVL49:
+ 138:Core/Src/DHT.c **** 		}
+ 645              		.loc 1 138 5 view .LVU176
+ 646 006e D1E7     		b	.L37
+ 647              	.L39:
+ 146:Core/Src/DHT.c **** 	}
+ 147:Core/Src/DHT.c **** 	return i;
+ 648              		.loc 1 147 2 is_stmt 1 view .LVU177
+ 148:Core/Src/DHT.c **** }
+ 649              		.loc 1 148 1 is_stmt 0 view .LVU178
+ 650 0070 3046     		mov	r0, r6
+ 651 0072 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 652              	.LVL50:
+ 653              	.L41:
+ 654              		.loc 1 148 1 view .LVU179
+ 655              		.align	2
+ 656              	.L40:
+ 657 0074 00080048 		.word	1207961600
+ 658 0078 001000E0 		.word	-536866816
+ 659 007c 83DE1B43 		.word	1125899907
+ 660              		.cfi_endproc
+ 661              	.LFE1111:
+ 663              		.section	.text.DHT_GetData,"ax",%progbits
+ 664              		.align	1
+ 665              		.global	DHT_GetData
+ 666              		.syntax unified
+ 667              		.thumb
+ 668              		.thumb_func
+ 670              	DHT_GetData:
+ 671              	.LVL51:
+ 672              	.LFB1112:
+ 149:Core/Src/DHT.c **** 
+ 150:Core/Src/DHT.c **** 
+ 151:Core/Src/DHT.c **** 
+ 152:Core/Src/DHT.c **** void DHT_GetData (DHT_DataTypedef *DHT_Data)
+ 153:Core/Src/DHT.c **** {
+ 673              		.loc 1 153 1 is_stmt 1 view -0
+ 674              		.cfi_startproc
+ 675              		@ args = 0, pretend = 0, frame = 0
+ 676              		@ frame_needed = 0, uses_anonymous_args = 0
+ 677              		.loc 1 153 1 is_stmt 0 view .LVU181
+ 678 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 679              		.cfi_def_cfa_offset 24
+ 680              		.cfi_offset 4, -24
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 17
+
+
+ 681              		.cfi_offset 5, -20
+ 682              		.cfi_offset 6, -16
+ 683              		.cfi_offset 7, -12
+ 684              		.cfi_offset 8, -8
+ 685              		.cfi_offset 14, -4
+ 686 0004 0446     		mov	r4, r0
+ 154:Core/Src/DHT.c ****     DHT_Start ();
+ 687              		.loc 1 154 5 is_stmt 1 view .LVU182
+ 688 0006 FFF7FEFF 		bl	DHT_Start
+ 689              	.LVL52:
+ 155:Core/Src/DHT.c **** 	Presence = DHT_Check_Response ();
+ 690              		.loc 1 155 2 view .LVU183
+ 691              		.loc 1 155 13 is_stmt 0 view .LVU184
+ 692 000a FFF7FEFF 		bl	DHT_Check_Response
+ 693              	.LVL53:
+ 694              		.loc 1 155 11 view .LVU185
+ 695 000e 1A4B     		ldr	r3, .L46
+ 696 0010 1870     		strb	r0, [r3]
+ 156:Core/Src/DHT.c **** 	Rh_byte1 = DHT_Read ();
+ 697              		.loc 1 156 2 is_stmt 1 view .LVU186
+ 698              		.loc 1 156 13 is_stmt 0 view .LVU187
+ 699 0012 FFF7FEFF 		bl	DHT_Read
+ 700              	.LVL54:
+ 701              		.loc 1 156 11 view .LVU188
+ 702 0016 DFF87480 		ldr	r8, .L46+20
+ 703 001a 88F80000 		strb	r0, [r8]
+ 157:Core/Src/DHT.c **** 	Rh_byte2 = DHT_Read ();
+ 704              		.loc 1 157 2 is_stmt 1 view .LVU189
+ 705              		.loc 1 157 13 is_stmt 0 view .LVU190
+ 706 001e FFF7FEFF 		bl	DHT_Read
+ 707              	.LVL55:
+ 708              		.loc 1 157 11 view .LVU191
+ 709 0022 164F     		ldr	r7, .L46+4
+ 710 0024 3870     		strb	r0, [r7]
+ 158:Core/Src/DHT.c **** 	Temp_byte1 = DHT_Read ();
+ 711              		.loc 1 158 2 is_stmt 1 view .LVU192
+ 712              		.loc 1 158 15 is_stmt 0 view .LVU193
+ 713 0026 FFF7FEFF 		bl	DHT_Read
+ 714              	.LVL56:
+ 715              		.loc 1 158 13 view .LVU194
+ 716 002a 154E     		ldr	r6, .L46+8
+ 717 002c 3070     		strb	r0, [r6]
+ 159:Core/Src/DHT.c **** 	Temp_byte2 = DHT_Read ();
+ 718              		.loc 1 159 2 is_stmt 1 view .LVU195
+ 719              		.loc 1 159 15 is_stmt 0 view .LVU196
+ 720 002e FFF7FEFF 		bl	DHT_Read
+ 721              	.LVL57:
+ 722              		.loc 1 159 13 view .LVU197
+ 723 0032 144D     		ldr	r5, .L46+12
+ 724 0034 2870     		strb	r0, [r5]
+ 160:Core/Src/DHT.c **** 	SUM = DHT_Read();
+ 725              		.loc 1 160 2 is_stmt 1 view .LVU198
+ 726              		.loc 1 160 8 is_stmt 0 view .LVU199
+ 727 0036 FFF7FEFF 		bl	DHT_Read
+ 728              	.LVL58:
+ 729 003a 82B2     		uxth	r2, r0
+ 730              		.loc 1 160 6 view .LVU200
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 18
+
+
+ 731 003c 124B     		ldr	r3, .L46+16
+ 732 003e 1A80     		strh	r2, [r3]	@ movhi
+ 161:Core/Src/DHT.c **** 
+ 162:Core/Src/DHT.c **** 	if (SUM == (Rh_byte1+Rh_byte2+Temp_byte1+Temp_byte2))
+ 733              		.loc 1 162 2 is_stmt 1 view .LVU201
+ 734              		.loc 1 162 22 is_stmt 0 view .LVU202
+ 735 0040 98F80030 		ldrb	r3, [r8]	@ zero_extendqisi2
+ 736 0044 3978     		ldrb	r1, [r7]	@ zero_extendqisi2
+ 737 0046 0B44     		add	r3, r3, r1
+ 738              		.loc 1 162 31 view .LVU203
+ 739 0048 3078     		ldrb	r0, [r6]	@ zero_extendqisi2
+ 740 004a 0344     		add	r3, r3, r0
+ 741              		.loc 1 162 42 view .LVU204
+ 742 004c 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 743 004e 0B44     		add	r3, r3, r1
+ 744              		.loc 1 162 5 view .LVU205
+ 745 0050 9A42     		cmp	r2, r3
+ 746 0052 01D0     		beq	.L45
+ 747              	.L42:
+ 163:Core/Src/DHT.c **** 	{
+ 164:Core/Src/DHT.c **** 		#if defined(TYPE_DHT11)
+ 165:Core/Src/DHT.c **** 			DHT_Data->Temperature = Temp_byte1;
+ 166:Core/Src/DHT.c **** 			DHT_Data->Humidity = Rh_byte1;
+ 167:Core/Src/DHT.c **** 		#endif
+ 168:Core/Src/DHT.c **** 
+ 169:Core/Src/DHT.c **** 		#if defined(TYPE_DHT22)
+ 170:Core/Src/DHT.c **** 			DHT_Data->Temperature = ((Temp_byte1<<8)|Temp_byte2);
+ 171:Core/Src/DHT.c **** 			DHT_Data->Humidity = ((Rh_byte1<<8)|Rh_byte2);
+ 172:Core/Src/DHT.c **** 		#endif
+ 173:Core/Src/DHT.c **** 	}
+ 174:Core/Src/DHT.c **** }
+ 748              		.loc 1 174 1 view .LVU206
+ 749 0054 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 750              	.LVL59:
+ 751              	.L45:
+ 165:Core/Src/DHT.c **** 			DHT_Data->Humidity = Rh_byte1;
+ 752              		.loc 1 165 4 is_stmt 1 view .LVU207
+ 165:Core/Src/DHT.c **** 			DHT_Data->Humidity = Rh_byte1;
+ 753              		.loc 1 165 26 is_stmt 0 view .LVU208
+ 754 0058 07EE900A 		vmov	s15, r0	@ int
+ 755 005c F8EE677A 		vcvt.f32.u32	s15, s15
+ 756 0060 C4ED007A 		vstr.32	s15, [r4]
+ 166:Core/Src/DHT.c **** 		#endif
+ 757              		.loc 1 166 4 is_stmt 1 view .LVU209
+ 166:Core/Src/DHT.c **** 		#endif
+ 758              		.loc 1 166 23 is_stmt 0 view .LVU210
+ 759 0064 98F80030 		ldrb	r3, [r8]	@ zero_extendqisi2
+ 760 0068 07EE903A 		vmov	s15, r3	@ int
+ 761 006c F8EE677A 		vcvt.f32.u32	s15, s15
+ 762 0070 C4ED017A 		vstr.32	s15, [r4, #4]
+ 763              		.loc 1 174 1 view .LVU211
+ 764 0074 EEE7     		b	.L42
+ 765              	.L47:
+ 766 0076 00BF     		.align	2
+ 767              	.L46:
+ 768 0078 00000000 		.word	.LANCHOR0
+ 769 007c 00000000 		.word	.LANCHOR2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 19
+
+
+ 770 0080 00000000 		.word	.LANCHOR3
+ 771 0084 00000000 		.word	.LANCHOR4
+ 772 0088 00000000 		.word	.LANCHOR5
+ 773 008c 00000000 		.word	.LANCHOR1
+ 774              		.cfi_endproc
+ 775              	.LFE1112:
+ 777              		.global	Presence
+ 778              		.global	SUM
+ 779              		.global	Temp_byte2
+ 780              		.global	Temp_byte1
+ 781              		.global	Rh_byte2
+ 782              		.global	Rh_byte1
+ 783              		.section	.bss.Presence,"aw",%nobits
+ 784              		.set	.LANCHOR0,. + 0
+ 787              	Presence:
+ 788 0000 00       		.space	1
+ 789              		.section	.bss.Rh_byte1,"aw",%nobits
+ 790              		.set	.LANCHOR1,. + 0
+ 793              	Rh_byte1:
+ 794 0000 00       		.space	1
+ 795              		.section	.bss.Rh_byte2,"aw",%nobits
+ 796              		.set	.LANCHOR2,. + 0
+ 799              	Rh_byte2:
+ 800 0000 00       		.space	1
+ 801              		.section	.bss.SUM,"aw",%nobits
+ 802              		.align	1
+ 803              		.set	.LANCHOR5,. + 0
+ 806              	SUM:
+ 807 0000 0000     		.space	2
+ 808              		.section	.bss.Temp_byte1,"aw",%nobits
+ 809              		.set	.LANCHOR3,. + 0
+ 812              	Temp_byte1:
+ 813 0000 00       		.space	1
+ 814              		.section	.bss.Temp_byte2,"aw",%nobits
+ 815              		.set	.LANCHOR4,. + 0
+ 818              	Temp_byte2:
+ 819 0000 00       		.space	1
+ 820              		.text
+ 821              	.Letext0:
+ 822              		.file 2 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 823              		.file 3 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 824              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 825              		.file 5 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wb55xx.h"
+ 826              		.file 6 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h"
+ 827              		.file 7 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h"
+ 828              		.file 8 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_gpio.h"
+ 829              		.file 9 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_tim.h"
+ 830              		.file 10 "Core/Inc/tim.h"
+ 831              		.file 11 "Core/Inc/DHT.h"
+ 832              		.file 12 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc.h"
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 DHT.c
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:20     .text.delayTimeout:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:26     .text.delayTimeout:0000000000000000 delayTimeout
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:59     .text.delayTimeout:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:64     .text.DWT_Delay_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:70     .text.DWT_Delay_Init:0000000000000000 DWT_Delay_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:134    .text.DWT_Delay_Init:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:139    .text.Set_Pin_Output:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:145    .text.Set_Pin_Output:0000000000000000 Set_Pin_Output
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:189    .text.Set_Pin_Input:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:195    .text.Set_Pin_Input:0000000000000000 Set_Pin_Input
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:236    .text.DHT_Start:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:242    .text.DHT_Start:0000000000000000 DHT_Start
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:359    .text.DHT_Start:0000000000000070 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:366    .text.DHT_Check_Response:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:372    .text.DHT_Check_Response:0000000000000000 DHT_Check_Response
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:509    .text.DHT_Check_Response:0000000000000070 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:516    .text.DHT_Read:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:522    .text.DHT_Read:0000000000000000 DHT_Read
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:657    .text.DHT_Read:0000000000000074 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:664    .text.DHT_GetData:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:670    .text.DHT_GetData:0000000000000000 DHT_GetData
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:768    .text.DHT_GetData:0000000000000078 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:787    .bss.Presence:0000000000000000 Presence
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:806    .bss.SUM:0000000000000000 SUM
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:818    .bss.Temp_byte2:0000000000000000 Temp_byte2
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:812    .bss.Temp_byte1:0000000000000000 Temp_byte1
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:799    .bss.Rh_byte2:0000000000000000 Rh_byte2
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:793    .bss.Rh_byte1:0000000000000000 Rh_byte1
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:788    .bss.Presence:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:794    .bss.Rh_byte1:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:800    .bss.Rh_byte2:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:802    .bss.SUM:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:813    .bss.Temp_byte1:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:819    .bss.Temp_byte2:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+htim2
+HAL_GPIO_Init
+HAL_GPIO_WritePin
+HAL_RCC_GetHCLKFreq
+HAL_GPIO_ReadPin
