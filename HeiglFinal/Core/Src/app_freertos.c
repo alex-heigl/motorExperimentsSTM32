@@ -165,6 +165,8 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for (;;){
     osDelay(1);
+    HAL_GPIO_TogglePin(GPIOB, BlueLED_Pin);
+    vTaskDelay(500 / portTICK_PERIOD_MS); 
   }
   /* USER CODE END StartDefaultTask */
 }

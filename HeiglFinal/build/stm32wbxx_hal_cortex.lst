@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
   27:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****     ===========================================================
   28:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****     [..]
   29:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****     This section provides functions allowing to configure the NVIC interrupts (IRQ).
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 2
 
 
   30:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****     The Cortex M0+ exceptions are managed by CMSIS functions.
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
   84:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** 
   85:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** /** @addtogroup CORTEX
   86:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   * @{
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 3
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 3
 
 
   87:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   */
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
   34              		@ link register save eliminated.
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 4
 
 
  139:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   /* Check the parameters */
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
   45:Drivers/CMSIS/Include/core_cm4.h ****      Function definitions in header files are used to allow 'inlining'.
   46:Drivers/CMSIS/Include/core_cm4.h **** 
   47:Drivers/CMSIS/Include/core_cm4.h ****    \li Required Rule 18.4, declaration of union type or object of union type: '{...}'.<br>
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 5
 
 
   48:Drivers/CMSIS/Include/core_cm4.h ****      Unions are used for effective representation of core registers.
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  102:Drivers/CMSIS/Include/core_cm4.h ****     #if defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)
  103:Drivers/CMSIS/Include/core_cm4.h ****       #define __FPU_USED       1U
  104:Drivers/CMSIS/Include/core_cm4.h ****     #else
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 6
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 6
 
 
  105:Drivers/CMSIS/Include/core_cm4.h ****       #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  159:Drivers/CMSIS/Include/core_cm4.h **** 
  160:Drivers/CMSIS/Include/core_cm4.h **** #endif
  161:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 7
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 7
 
 
  162:Drivers/CMSIS/Include/core_cm4.h **** #include "cmsis_compiler.h"               /* CMSIS compiler specific defines */
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  216:Drivers/CMSIS/Include/core_cm4.h **** #ifdef __cplusplus
  217:Drivers/CMSIS/Include/core_cm4.h ****   #define   __I     volatile             /*!< Defines 'read only' permissions */
  218:Drivers/CMSIS/Include/core_cm4.h **** #else
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 8
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 8
 
 
  219:Drivers/CMSIS/Include/core_cm4.h ****   #define   __I     volatile const       /*!< Defines 'read only' permissions */
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  273:Drivers/CMSIS/Include/core_cm4.h **** } APSR_Type;
  274:Drivers/CMSIS/Include/core_cm4.h **** 
  275:Drivers/CMSIS/Include/core_cm4.h **** /* APSR Register Definitions */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 9
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 9
 
 
  276:Drivers/CMSIS/Include/core_cm4.h **** #define APSR_N_Pos                         31U                                            /*!< APSR
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  330:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t Z:1;                        /*!< bit:     30  Zero condition code flag */
  331:Drivers/CMSIS/Include/core_cm4.h ****     uint32_t N:1;                        /*!< bit:     31  Negative condition code flag */
  332:Drivers/CMSIS/Include/core_cm4.h ****   } b;                                   /*!< Structure used for bit  access */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 10
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 10
 
 
  333:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t w;                            /*!< Type      used for word access */
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  387:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_SPSEL_Pos                   1U                                            /*!< CONT
  388:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_SPSEL_Msk                  (1UL << CONTROL_SPSEL_Pos)                     /*!< CONT
  389:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 11
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 11
 
 
  390:Drivers/CMSIS/Include/core_cm4.h **** #define CONTROL_nPRIV_Pos                   0U                                            /*!< CONT
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  444:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t VTOR;                   /*!< Offset: 0x008 (R/W)  Vector Table Offset Register */
  445:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t AIRCR;                  /*!< Offset: 0x00C (R/W)  Application Interrupt and Reset 
  446:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t SCR;                    /*!< Offset: 0x010 (R/W)  System Control Register */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 12
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 12
 
 
  447:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CCR;                    /*!< Offset: 0x014 (R/W)  Configuration Control Register *
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  501:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_ISRPENDING_Msk            (1UL << SCB_ICSR_ISRPENDING_Pos)               /*!< SCB 
  502:Drivers/CMSIS/Include/core_cm4.h **** 
  503:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_VECTPENDING_Pos           12U                                            /*!< SCB 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 13
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 13
 
 
  504:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_ICSR_VECTPENDING_Msk           (0x1FFUL << SCB_ICSR_VECTPENDING_Pos)          /*!< SCB 
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  558:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_UNALIGN_TRP_Pos             3U                                            /*!< SCB 
  559:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_UNALIGN_TRP_Msk            (1UL << SCB_CCR_UNALIGN_TRP_Pos)               /*!< SCB 
  560:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 14
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 14
 
 
  561:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CCR_USERSETMPEND_Pos            1U                                            /*!< SCB 
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  615:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_BUSFAULTSR_Msk            (0xFFUL << SCB_CFSR_BUSFAULTSR_Pos)            /*!< SCB 
  616:Drivers/CMSIS/Include/core_cm4.h **** 
  617:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_MEMFAULTSR_Pos             0U                                            /*!< SCB 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 15
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 15
 
 
  618:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_MEMFAULTSR_Msk            (0xFFUL /*<< SCB_CFSR_MEMFAULTSR_Pos*/)        /*!< SCB 
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  672:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_INVPC_Msk                (1UL << SCB_CFSR_INVPC_Pos)                     /*!< SCB 
  673:Drivers/CMSIS/Include/core_cm4.h **** 
  674:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_INVSTATE_Pos             (SCB_CFSR_USGFAULTSR_Pos + 1U)                  /*!< SCB 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 16
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 16
 
 
  675:Drivers/CMSIS/Include/core_cm4.h **** #define SCB_CFSR_INVSTATE_Msk             (1UL << SCB_CFSR_INVSTATE_Pos)                  /*!< SCB 
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  729:Drivers/CMSIS/Include/core_cm4.h **** 
  730:Drivers/CMSIS/Include/core_cm4.h **** /* Auxiliary Control Register Definitions */
  731:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ACTLR_DISOOFP_Pos            9U                                         /*!< ACTLR: 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 17
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 17
 
 
  732:Drivers/CMSIS/Include/core_cm4.h **** #define SCnSCB_ACTLR_DISOOFP_Msk           (1UL << SCnSCB_ACTLR_DISOOFP_Pos)           /*!< ACTLR: 
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  786:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< SysTick_VAL_CURRENT_Pos*/)    /*!< SysT
  787:Drivers/CMSIS/Include/core_cm4.h **** 
  788:Drivers/CMSIS/Include/core_cm4.h **** /* SysTick Calibration Register Definitions */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 18
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 18
 
 
  789:Drivers/CMSIS/Include/core_cm4.h **** #define SysTick_CALIB_NOREF_Pos            31U                                            /*!< SysT
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  843:Drivers/CMSIS/Include/core_cm4.h **** 
  844:Drivers/CMSIS/Include/core_cm4.h **** /* ITM Trace Privilege Register Definitions */
  845:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TPR_PRIVMASK_Pos                0U                                            /*!< ITM 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 19
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 19
 
 
  846:Drivers/CMSIS/Include/core_cm4.h **** #define ITM_TPR_PRIVMASK_Msk               (0xFFFFFFFFUL /*<< ITM_TPR_PRIVMASK_Pos*/)     /*!< ITM 
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  900:Drivers/CMSIS/Include/core_cm4.h **** {
  901:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CTRL;                   /*!< Offset: 0x000 (R/W)  Control Register */
  902:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CYCCNT;                 /*!< Offset: 0x004 (R/W)  Cycle Count Register */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 20
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 20
 
 
  903:Drivers/CMSIS/Include/core_cm4.h ****   __IOM uint32_t CPICNT;                 /*!< Offset: 0x008 (R/W)  CPI Count Register */
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  957:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CPIEVTENA_Pos             17U                                         /*!< DWT CTR
  958:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_CPIEVTENA_Msk             (0x1UL << DWT_CTRL_CPIEVTENA_Pos)           /*!< DWT CTR
  959:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 21
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 21
 
 
  960:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_CTRL_EXCTRCENA_Pos             16U                                         /*!< DWT CTR
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1014:Drivers/CMSIS/Include/core_cm4.h **** 
 1015:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_DATAVSIZE_Pos         10U                                         /*!< DWT FUN
 1016:Drivers/CMSIS/Include/core_cm4.h **** #define DWT_FUNCTION_DATAVSIZE_Msk         (0x3UL << DWT_FUNCTION_DATAVSIZE_Pos)       /*!< DWT FUN
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 22
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 22
 
 
 1017:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1071:Drivers/CMSIS/Include/core_cm4.h ****   __IM  uint32_t DEVTYPE;                /*!< Offset: 0xFCC (R/ )  TPIU_DEVTYPE */
 1072:Drivers/CMSIS/Include/core_cm4.h **** } TPI_Type;
 1073:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 23
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 23
 
 
 1074:Drivers/CMSIS/Include/core_cm4.h **** /* TPI Asynchronous Clock Prescaler Register Definitions */
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1128:Drivers/CMSIS/Include/core_cm4.h **** /* TPI ITATBCTR2 Register Definitions */
 1129:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITATBCTR2_ATREADY2_Pos          0U                                         /*!< TPI ITA
 1130:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_ITATBCTR2_ATREADY2_Msk         (0x1UL /*<< TPI_ITATBCTR2_ATREADY2_Pos*/)   /*!< TPI ITA
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 24
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 24
 
 
 1131:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1185:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVID_NrTraceInput_Msk         (0x1FUL /*<< TPI_DEVID_NrTraceInput_Pos*/)  /*!< TPI DEV
 1186:Drivers/CMSIS/Include/core_cm4.h **** 
 1187:Drivers/CMSIS/Include/core_cm4.h **** /* TPI DEVTYPE Register Definitions */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 25
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 25
 
 
 1188:Drivers/CMSIS/Include/core_cm4.h **** #define TPI_DEVTYPE_SubType_Pos             4U                                         /*!< TPI DEV
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1242:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_CTRL_ENABLE_Pos                 0U                                            /*!< MPU 
 1243:Drivers/CMSIS/Include/core_cm4.h **** #define MPU_CTRL_ENABLE_Msk                (1UL /*<< MPU_CTRL_ENABLE_Pos*/)               /*!< MPU 
 1244:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 26
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 26
 
 
 1245:Drivers/CMSIS/Include/core_cm4.h **** /* MPU Region Number Register Definitions */
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1299:Drivers/CMSIS/Include/core_cm4.h ****  */
 1300:Drivers/CMSIS/Include/core_cm4.h **** 
 1301:Drivers/CMSIS/Include/core_cm4.h **** /**
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 27
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 27
 
 
 1302:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the Floating Point Unit (FPU).
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1356:Drivers/CMSIS/Include/core_cm4.h **** 
 1357:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPDSCR_RMode_Pos               22U                                            /*!< FPDS
 1358:Drivers/CMSIS/Include/core_cm4.h **** #define FPU_FPDSCR_RMode_Msk               (3UL << FPU_FPDSCR_RMode_Pos)                  /*!< FPDS
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 28
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 28
 
 
 1359:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1413:Drivers/CMSIS/Include/core_cm4.h **** /**
 1414:Drivers/CMSIS/Include/core_cm4.h ****   \brief  Structure type to access the Core Debug Register (CoreDebug).
 1415:Drivers/CMSIS/Include/core_cm4.h ****  */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 29
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 29
 
 
 1416:Drivers/CMSIS/Include/core_cm4.h **** typedef struct
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1470:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_TRCENA_Msk         (1UL << CoreDebug_DEMCR_TRCENA_Pos)            /*!< Core
 1471:Drivers/CMSIS/Include/core_cm4.h **** 
 1472:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_MON_REQ_Pos        19U                                            /*!< Core
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 30
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 30
 
 
 1473:Drivers/CMSIS/Include/core_cm4.h **** #define CoreDebug_DEMCR_MON_REQ_Msk        (1UL << CoreDebug_DEMCR_MON_REQ_Pos)           /*!< Core
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1527:Drivers/CMSIS/Include/core_cm4.h ****   \brief     Mask and shift a register value to extract a bit filed value.
 1528:Drivers/CMSIS/Include/core_cm4.h ****   \param[in] field  Name of the register bit field.
 1529:Drivers/CMSIS/Include/core_cm4.h ****   \param[in] value  Value of register. This parameter is interpreted as an uint32_t type.
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 31
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 31
 
 
 1530:Drivers/CMSIS/Include/core_cm4.h ****   \return           Masked and shifted bit field value.
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1584:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_Core_FunctionInterface Functions and Instructions Reference
 1585:Drivers/CMSIS/Include/core_cm4.h **** */
 1586:Drivers/CMSIS/Include/core_cm4.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 32
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 32
 
 
 1587:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1641:Drivers/CMSIS/Include/core_cm4.h ****   \details Sets the priority grouping field using the required unlock sequence.
 1642:Drivers/CMSIS/Include/core_cm4.h ****            The parameter PriorityGroup is assigned to the field SCB->AIRCR [10:8] PRIGROUP field.
 1643:Drivers/CMSIS/Include/core_cm4.h ****            Only values from 0..7 are used.
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 33
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 33
 
 
 1644:Drivers/CMSIS/Include/core_cm4.h ****            In case of a conflict between priority grouping and available
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  144:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** }
   77              		.loc 1 144 1 view .LVU19
   78 001e 7047     		bx	lr
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 34
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 34
 
 
   79              	.L3:
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1661:Drivers/CMSIS/Include/core_cm4.h **** 
 1662:Drivers/CMSIS/Include/core_cm4.h **** /**
 1663:Drivers/CMSIS/Include/core_cm4.h ****   \brief   Get Priority Grouping
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 35
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 35
 
 
 1664:Drivers/CMSIS/Include/core_cm4.h ****   \details Reads the priority grouping field from the NVIC Interrupt Controller.
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1701:Drivers/CMSIS/Include/core_cm4.h ****   {
 1702:Drivers/CMSIS/Include/core_cm4.h ****     return((uint32_t)(((NVIC->ISER[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL)
 1703:Drivers/CMSIS/Include/core_cm4.h ****   }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 36
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 36
 
 
 1704:Drivers/CMSIS/Include/core_cm4.h ****   else
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1758:Drivers/CMSIS/Include/core_cm4.h ****   {
 1759:Drivers/CMSIS/Include/core_cm4.h ****     NVIC->ISPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
 1760:Drivers/CMSIS/Include/core_cm4.h ****   }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 37
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 37
 
 
 1761:Drivers/CMSIS/Include/core_cm4.h **** }
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1815:Drivers/CMSIS/Include/core_cm4.h ****   else
 1816:Drivers/CMSIS/Include/core_cm4.h ****   {
 1817:Drivers/CMSIS/Include/core_cm4.h ****     SCB->SHP[(((uint32_t)IRQn) & 0xFUL)-4UL] = (uint8_t)((priority << (8U - __NVIC_PRIO_BITS)) & (u
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 38
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 38
 
 
 1818:Drivers/CMSIS/Include/core_cm4.h ****   }
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  134 000e BCF1040F 		cmp	ip, #4
  135 0012 28BF     		it	cs
  136 0014 4FF0040C 		movcs	ip, #4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 39
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 39
 
 
  137              	.LVL10:
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  179 0040 1201     		lsls	r2, r2, #4
  180              	.LVL17:
 1813:Drivers/CMSIS/Include/core_cm4.h ****   }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 40
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 40
 
 
  181              		.loc 2 1813 48 view .LVU55
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  223              	.LVL25:
 1817:Drivers/CMSIS/Include/core_cm4.h ****   }
  224              		.loc 2 1817 46 view .LVU68
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 41
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 41
 
 
  225 0062 1A54     		strb	r2, [r3, r0]
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  262              		.loc 2 1681 6 is_stmt 0 view .LVU76
  263 0000 0028     		cmp	r0, #0
  264              	.LVL28:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 42
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 42
 
 
 1681:Drivers/CMSIS/Include/core_cm4.h ****   {
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  194:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   */
  195:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** void HAL_NVIC_DisableIRQ(IRQn_Type IRQn)
  196:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** {
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 43
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 43
 
 
  304              		.loc 1 196 1 is_stmt 1 view -0
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
    7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
    8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2019 Arm Limited. All rights reserved.
    9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 44
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 44
 
 
   10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
   64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
   65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
   66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 45
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 45
 
 
   67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  121:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  122:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __PROGRAM_START
  123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 46
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 46
 
 
  124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  178:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __VECTOR_TABLE            __Vectors
  179:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  180:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 47
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 47
 
 
  181:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __VECTOR_TABLE_ATTRIBUTE
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  235:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  236:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  237:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control_ns" : "=r" (result) );
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 48
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 48
 
 
  238:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  292:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  293:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  294:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 49
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 49
 
 
  295:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  349:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  350:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
  351:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 50
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 50
 
 
  352:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
@@ -2998,7 +2998,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  406:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer (non-secure)
  407:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Main Stack Pointer (MSP) when in secure state.
  408:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfMainStack  Main Stack Pointer value to set
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 51
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 51
 
 
  409:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -3058,7 +3058,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  463:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  464:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void)
  465:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 52
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 52
 
 
  466:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
@@ -3118,7 +3118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  520:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  521:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  522:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 53
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 53
 
 
  523:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -3178,7 +3178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  577:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  578:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Base Priority with condition
  579:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register only if BASEPRI masking is disable
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 54
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 54
 
 
  580:Drivers/CMSIS/Include/cmsis_gcc.h ****            or the new value increases the BASEPRI priority level.
@@ -3238,7 +3238,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  634:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    faultMask  Fault Mask value to set
  635:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  636:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 55
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 55
 
 
  637:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -3298,7 +3298,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  691:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  692:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  693:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 56
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 56
 
 
  694:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -3358,7 +3358,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  748:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
  749:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
  750:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 57
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 57
 
 
  751:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
@@ -3418,7 +3418,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  805:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  806:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit (non-secure)
  807:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 58
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 58
 
 
  808:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
@@ -3478,7 +3478,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  862:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
  863:Drivers/CMSIS/Include/cmsis_gcc.h **** #if __has_builtin(__builtin_arm_set_fpscr)
  864:Drivers/CMSIS/Include/cmsis_gcc.h **** // Re-enable using built-in when GCC has been fixed
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 59
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 59
 
 
  865:Drivers/CMSIS/Include/cmsis_gcc.h **** // || (__GNUC__ > 7) || (__GNUC__ == 7 && __GNUC_MINOR__ >= 2)
@@ -3538,7 +3538,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  919:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  920:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  921:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Send Event
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 60
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 60
 
 
  922:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Send Event is a hint instruction. It causes an event to be signaled to the CPU.
@@ -3598,7 +3598,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  362              		.loc 3 935 3 is_stmt 0 view .LVU105
  363              	.LBE67:
  364              	.LBE66:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 61
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 61
 
 
  365              	.LBE63:
@@ -3658,7 +3658,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1885:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07UL);   /* only values 0..7 are used   
 1886:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PreemptPriorityBits;
 1887:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t SubPriorityBits;
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 62
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 62
 
 
 1888:Drivers/CMSIS/Include/core_cm4.h **** 
@@ -3718,7 +3718,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  399              		.loc 3 944 27 view .LVU111
  400              	.LBB77:
  401              		.loc 3 946 3 view .LVU112
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 63
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 63
 
 
  402              		.syntax unified
@@ -3778,7 +3778,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  443              		.thumb
  444              		.syntax unified
  445 0018 FDE7     		b	.L21
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 64
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 64
 
 
  446              	.L23:
@@ -3838,7 +3838,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1961:Drivers/CMSIS/Include/core_cm4.h **** /**
 1962:Drivers/CMSIS/Include/core_cm4.h ****   \ingroup  CMSIS_Core_FunctionInterface
 1963:Drivers/CMSIS/Include/core_cm4.h ****   \defgroup CMSIS_Core_FpuFunctions FPU Functions
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 65
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 65
 
 
 1964:Drivers/CMSIS/Include/core_cm4.h ****   \brief    Function that provides FPU type.
@@ -3898,7 +3898,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  474              		.loc 2 2017 26 view .LVU126
  475              	.LBB81:
 2018:Drivers/CMSIS/Include/core_cm4.h **** {
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 66
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 66
 
 
 2019:Drivers/CMSIS/Include/core_cm4.h ****   if ((ticks - 1UL) > SysTick_LOAD_RELOAD_Msk)
@@ -3958,7 +3958,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  513              		.loc 2 2030 3 is_stmt 1 view .LVU143
  514              		.loc 2 2030 10 is_stmt 0 view .LVU144
  515 001e 7047     		bx	lr
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 67
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 67
 
 
  516              	.L26:
@@ -4018,7 +4018,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  542              		.cfi_startproc
  543              		@ args = 0, pretend = 0, frame = 0
  544              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 68
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 68
 
 
  545              		@ link register save eliminated.
@@ -4078,7 +4078,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  273:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   * @param pPreemptPriority Pointer on the Preemptive priority value (starting from 0).
  274:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   * @param pSubPriority Pointer on the Subpriority value (starting from 0).
  275:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   * @retval None
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 69
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 69
 
 
  276:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   */
@@ -4138,7 +4138,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1885:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PreemptPriorityBits;
  615              		.loc 2 1885 3 view .LVU167
 1885:Drivers/CMSIS/Include/core_cm4.h ****   uint32_t PreemptPriorityBits;
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 70
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 70
 
 
  616              		.loc 2 1885 12 is_stmt 0 view .LVU168
@@ -4198,7 +4198,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
 1893:Drivers/CMSIS/Include/core_cm4.h **** }
  655              		.loc 2 1893 21 view .LVU184
  656 0048 1860     		str	r0, [r3]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 71
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 71
 
 
  657              	.LVL49:
@@ -4258,7 +4258,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  704              	HAL_NVIC_SetPendingIRQ:
  705              	.LVL53:
  706              	.LFB1112:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 72
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 72
 
 
  284:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** 
@@ -4318,7 +4318,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  737              	.L40:
 1759:Drivers/CMSIS/Include/core_cm4.h ****   }
  738              		.loc 2 1759 43 view .LVU206
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 73
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 73
 
 
  739              	.LBE99:
@@ -4378,7 +4378,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  774              	.LVL57:
 1738:Drivers/CMSIS/Include/core_cm4.h ****   {
  775              		.loc 2 1738 6 view .LVU214
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 74
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 74
 
 
  776 0002 0BDB     		blt	.L46
@@ -4438,7 +4438,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  324:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   * @retval None
  325:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   */
  326:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** void HAL_NVIC_ClearPendingIRQ(IRQn_Type IRQn)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 75
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 75
 
 
  327:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c **** {
@@ -4498,7 +4498,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  854              		.align	2
  855              	.L51:
  856 0018 00E100E0 		.word	-536813312
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 76
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 76
 
 
  857              		.cfi_endproc
@@ -4558,7 +4558,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  349:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   }
  890              		.loc 1 349 19 is_stmt 0 view .LVU246
  891 0012 4FF0E022 		mov	r2, #-536813568
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 77
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 77
 
 
  892 0016 1369     		ldr	r3, [r2, #16]
@@ -4618,7 +4618,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  929              		@ args = 0, pretend = 0, frame = 0
  930              		@ frame_needed = 0, uses_anonymous_args = 0
  931 0000 08B5     		push	{r3, lr}
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 78
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 78
 
 
  932              		.cfi_def_cfa_offset 8
@@ -4678,7 +4678,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  965 0000 BFF35F8F 		dmb 0xF
  966              	@ 0 "" 2
  967              		.thumb
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 79
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 79
 
 
  968              		.syntax unified
@@ -4738,7 +4738,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  1003              		@ frame_needed = 0, uses_anonymous_args = 0
  1004              		@ link register save eliminated.
  407:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   /* Enable the MPU */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 80
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 80
 
 
  408:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****   MPU->CTRL = (MPU_Control | MPU_CTRL_ENABLE_Msk);
@@ -4798,7 +4798,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  1046 001a 7047     		bx	lr
  1047              	.L65:
  1048              		.align	2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 81
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 81
 
 
  1049              	.L64:
@@ -4858,7 +4858,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  438:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****     assert_param(IS_MPU_TEX_LEVEL(MPU_Init->TypeExtField));
  1084              		.loc 1 438 5 view .LVU285
  439:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****     assert_param(IS_MPU_ACCESS_SHAREABLE(MPU_Init->IsShareable));
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 82
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 82
 
 
  1085              		.loc 1 439 5 view .LVU286
@@ -4918,7 +4918,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  1121              		.loc 1 452 36 view .LVU307
  1122 0036 417A     		ldrb	r1, [r0, #9]	@ zero_extendqisi2
  451:Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.c ****                 ((uint32_t)MPU_Init->IsBufferable            << MPU_RASR_B_Pos)    |
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 83
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 83
 
 
  1123              		.loc 1 451 84 view .LVU308
@@ -4969,58 +4969,58 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 1
  1157              		.file 5 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
  1158              		.file 6 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
  1159              		.file 7 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_cortex.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s 			page 84
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s 			page 84
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32wbxx_hal_cortex.c
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:20     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:26     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 HAL_NVIC_SetPriorityGrouping
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:82     .text.HAL_NVIC_SetPriorityGrouping:0000000000000020 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:87     .text.HAL_NVIC_SetPriority:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:93     .text.HAL_NVIC_SetPriority:0000000000000000 HAL_NVIC_SetPriority
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:235    .text.HAL_NVIC_SetPriority:0000000000000068 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:241    .text.HAL_NVIC_EnableIRQ:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:247    .text.HAL_NVIC_EnableIRQ:0000000000000000 HAL_NVIC_EnableIRQ
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:290    .text.HAL_NVIC_EnableIRQ:0000000000000018 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:295    .text.HAL_NVIC_DisableIRQ:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:301    .text.HAL_NVIC_DisableIRQ:0000000000000000 HAL_NVIC_DisableIRQ
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:372    .text.HAL_NVIC_DisableIRQ:0000000000000020 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:377    .text.HAL_NVIC_SystemReset:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:383    .text.HAL_NVIC_SystemReset:0000000000000000 HAL_NVIC_SystemReset
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:449    .text.HAL_NVIC_SystemReset:000000000000001c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:457    .text.HAL_SYSTICK_Config:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:463    .text.HAL_SYSTICK_Config:0000000000000000 HAL_SYSTICK_Config
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:528    .text.HAL_SYSTICK_Config:0000000000000024 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:533    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:539    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 HAL_NVIC_GetPriorityGrouping
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:563    .text.HAL_NVIC_GetPriorityGrouping:000000000000000c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:568    .text.HAL_NVIC_GetPriority:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:574    .text.HAL_NVIC_GetPriority:0000000000000000 HAL_NVIC_GetPriority
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:691    .text.HAL_NVIC_GetPriority:000000000000005c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:698    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:704    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 HAL_NVIC_SetPendingIRQ
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:746    .text.HAL_NVIC_SetPendingIRQ:0000000000000018 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:751    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:757    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 HAL_NVIC_GetPendingIRQ
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:803    .text.HAL_NVIC_GetPendingIRQ:0000000000000020 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:808    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:814    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 HAL_NVIC_ClearPendingIRQ
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:856    .text.HAL_NVIC_ClearPendingIRQ:0000000000000018 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:861    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:867    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 HAL_SYSTICK_CLKSourceConfig
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:900    .text.HAL_SYSTICK_Callback:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:906    .text.HAL_SYSTICK_Callback:0000000000000000 HAL_SYSTICK_Callback
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:919    .text.HAL_SYSTICK_IRQHandler:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:925    .text.HAL_SYSTICK_IRQHandler:0000000000000000 HAL_SYSTICK_IRQHandler
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:944    .text.HAL_MPU_Disable:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:950    .text.HAL_MPU_Disable:0000000000000000 HAL_MPU_Disable
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:986    .text.HAL_MPU_Disable:0000000000000018 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:991    .text.HAL_MPU_Enable:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:997    .text.HAL_MPU_Enable:0000000000000000 HAL_MPU_Enable
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:1050   .text.HAL_MPU_Enable:000000000000001c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:1055   .text.HAL_MPU_ConfigRegion:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:1061   .text.HAL_MPU_ConfigRegion:0000000000000000 HAL_MPU_ConfigRegion
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccuqsTMp.s:1150   .text.HAL_MPU_ConfigRegion:000000000000005c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:20     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:26     .text.HAL_NVIC_SetPriorityGrouping:0000000000000000 HAL_NVIC_SetPriorityGrouping
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:82     .text.HAL_NVIC_SetPriorityGrouping:0000000000000020 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:87     .text.HAL_NVIC_SetPriority:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:93     .text.HAL_NVIC_SetPriority:0000000000000000 HAL_NVIC_SetPriority
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:235    .text.HAL_NVIC_SetPriority:0000000000000068 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:241    .text.HAL_NVIC_EnableIRQ:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:247    .text.HAL_NVIC_EnableIRQ:0000000000000000 HAL_NVIC_EnableIRQ
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:290    .text.HAL_NVIC_EnableIRQ:0000000000000018 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:295    .text.HAL_NVIC_DisableIRQ:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:301    .text.HAL_NVIC_DisableIRQ:0000000000000000 HAL_NVIC_DisableIRQ
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:372    .text.HAL_NVIC_DisableIRQ:0000000000000020 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:377    .text.HAL_NVIC_SystemReset:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:383    .text.HAL_NVIC_SystemReset:0000000000000000 HAL_NVIC_SystemReset
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:449    .text.HAL_NVIC_SystemReset:000000000000001c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:457    .text.HAL_SYSTICK_Config:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:463    .text.HAL_SYSTICK_Config:0000000000000000 HAL_SYSTICK_Config
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:528    .text.HAL_SYSTICK_Config:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:533    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:539    .text.HAL_NVIC_GetPriorityGrouping:0000000000000000 HAL_NVIC_GetPriorityGrouping
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:563    .text.HAL_NVIC_GetPriorityGrouping:000000000000000c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:568    .text.HAL_NVIC_GetPriority:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:574    .text.HAL_NVIC_GetPriority:0000000000000000 HAL_NVIC_GetPriority
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:691    .text.HAL_NVIC_GetPriority:000000000000005c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:698    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:704    .text.HAL_NVIC_SetPendingIRQ:0000000000000000 HAL_NVIC_SetPendingIRQ
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:746    .text.HAL_NVIC_SetPendingIRQ:0000000000000018 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:751    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:757    .text.HAL_NVIC_GetPendingIRQ:0000000000000000 HAL_NVIC_GetPendingIRQ
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:803    .text.HAL_NVIC_GetPendingIRQ:0000000000000020 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:808    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:814    .text.HAL_NVIC_ClearPendingIRQ:0000000000000000 HAL_NVIC_ClearPendingIRQ
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:856    .text.HAL_NVIC_ClearPendingIRQ:0000000000000018 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:861    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:867    .text.HAL_SYSTICK_CLKSourceConfig:0000000000000000 HAL_SYSTICK_CLKSourceConfig
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:900    .text.HAL_SYSTICK_Callback:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:906    .text.HAL_SYSTICK_Callback:0000000000000000 HAL_SYSTICK_Callback
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:919    .text.HAL_SYSTICK_IRQHandler:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:925    .text.HAL_SYSTICK_IRQHandler:0000000000000000 HAL_SYSTICK_IRQHandler
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:944    .text.HAL_MPU_Disable:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:950    .text.HAL_MPU_Disable:0000000000000000 HAL_MPU_Disable
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:986    .text.HAL_MPU_Disable:0000000000000018 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:991    .text.HAL_MPU_Enable:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:997    .text.HAL_MPU_Enable:0000000000000000 HAL_MPU_Enable
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:1050   .text.HAL_MPU_Enable:000000000000001c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:1055   .text.HAL_MPU_ConfigRegion:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:1061   .text.HAL_MPU_ConfigRegion:0000000000000000 HAL_MPU_ConfigRegion
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccdn5Ni7.s:1150   .text.HAL_MPU_ConfigRegion:000000000000005c $d
 
 NO UNDEFINED SYMBOLS

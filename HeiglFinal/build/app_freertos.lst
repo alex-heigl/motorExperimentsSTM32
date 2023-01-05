@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
   19:Core/Src/app_freertos.c **** 
   20:Core/Src/app_freertos.c **** /* Includes ------------------------------------------------------------------*/
   21:Core/Src/app_freertos.c **** #include "FreeRTOS.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 2
 
 
   22:Core/Src/app_freertos.c **** #include "task.h"
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
   76:Core/Src/app_freertos.c **** void Display_Temp(float Temp, float Rh){
   77:Core/Src/app_freertos.c ****   lcd16x2_clear();
   78:Core/Src/app_freertos.c ****   lcd16x2_1stLine();
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 3
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 3
 
 
   79:Core/Src/app_freertos.c ****   lcd16x2_printf("Temp: %dC RH: %d", (int)Temp, (int)Rh);
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
  133:Core/Src/app_freertos.c ****   /* USER CODE END RTOS_THREADS */
  134:Core/Src/app_freertos.c **** 
  135:Core/Src/app_freertos.c ****   /* USER CODE BEGIN RTOS_EVENTS */
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 4
 
 
  136:Core/Src/app_freertos.c ****   /* add events, ... */
@@ -213,7 +213,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
   47              	.LVL1:
  152:Core/Src/app_freertos.c ****   HAL_TIM_Base_Start(&htim2);
   48              		.loc 1 152 3 view .LVU3
-  49 0008 1848     		ldr	r0, .L4
+  49 0008 1C48     		ldr	r0, .L4
   50 000a FFF7FEFF 		bl	HAL_TIM_Base_Start
   51              	.LVL2:
  153:Core/Src/app_freertos.c **** 
@@ -238,27 +238,27 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
   66 0030 0821     		movs	r1, #8
   67 0032 1846     		mov	r0, r3
   68 0034 FFF7FEFF 		bl	lcd16x2_init_4bits
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 5
 
 
   69              	.LVL4:
  158:Core/Src/app_freertos.c ****   lcd16x2_printf("Starting Program!");
   70              		.loc 1 158 3 view .LVU6
-  71 0038 0D48     		ldr	r0, .L4+4
+  71 0038 1148     		ldr	r0, .L4+4
   72 003a FFF7FEFF 		bl	lcd16x2_printf
   73              	.LVL5:
  159:Core/Src/app_freertos.c **** 
  160:Core/Src/app_freertos.c ****   osTimerStart(tempCheckHandle, 3000);
   74              		.loc 1 160 3 view .LVU7
   75 003e 40F6B831 		movw	r1, #3000
-  76 0042 0C4B     		ldr	r3, .L4+8
+  76 0042 104B     		ldr	r3, .L4+8
   77 0044 1868     		ldr	r0, [r3]
   78 0046 FFF7FEFF 		bl	osTimerStart
   79              	.LVL6:
  161:Core/Src/app_freertos.c ****   osTimerStart(checkADCHandle, 200);
   80              		.loc 1 161 3 view .LVU8
   81 004a C821     		movs	r1, #200
-  82 004c 0A4B     		ldr	r3, .L4+12
+  82 004c 0E4B     		ldr	r3, .L4+12
   83 004e 1868     		ldr	r0, [r3]
   84 0050 FFF7FEFF 		bl	osTimerStart
   85              	.LVL7:
@@ -284,546 +284,561 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 1
   99 0064 0120     		movs	r0, #1
  100 0066 FFF7FEFF 		bl	osDelay
  101              	.LVL10:
+ 168:Core/Src/app_freertos.c ****     HAL_GPIO_TogglePin(GPIOB, BlueLED_Pin);
+ 102              		.loc 1 168 5 discriminator 1 view .LVU13
+ 103 006a 2021     		movs	r1, #32
+ 104 006c 0748     		ldr	r0, .L4+16
+ 105 006e FFF7FEFF 		bl	HAL_GPIO_TogglePin
+ 106              	.LVL11:
+ 169:Core/Src/app_freertos.c ****     vTaskDelay(500 / portTICK_PERIOD_MS); 
+ 107              		.loc 1 169 5 discriminator 1 view .LVU14
+ 108 0072 4FF4FA70 		mov	r0, #500
+ 109 0076 FFF7FEFF 		bl	vTaskDelay
+ 110              	.LVL12:
  166:Core/Src/app_freertos.c ****     osDelay(1);
- 102              		.loc 1 166 3 discriminator 1 view .LVU13
- 103 006a FBE7     		b	.L2
- 104              	.L5:
- 105              		.align	2
- 106              	.L4:
- 107 006c 00000000 		.word	htim2
- 108 0070 00000000 		.word	.LC0
- 109 0074 00000000 		.word	.LANCHOR0
- 110 0078 00000000 		.word	.LANCHOR1
- 111              		.cfi_endproc
- 112              	.LFE1110:
- 114              		.section	.rodata.checkADCCallBack.str1.4,"aMS",%progbits,1
- 115              		.align	2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 6
+ 111              		.loc 1 166 3 discriminator 1 view .LVU15
+ 112 007a F3E7     		b	.L2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 6
 
 
- 116              	.LC1:
- 117 0000 44657369 		.ascii	"Desired Temp:%dC\000"
- 117      72656420 
- 117      54656D70 
- 117      3A256443 
- 117      00
- 118              		.section	.text.checkADCCallBack,"ax",%progbits
- 119              		.align	1
- 120              		.global	checkADCCallBack
- 121              		.syntax unified
- 122              		.thumb
- 123              		.thumb_func
- 125              	checkADCCallBack:
- 126              	.LVL11:
- 127              	.LFB1112:
- 168:Core/Src/app_freertos.c ****   }
- 169:Core/Src/app_freertos.c ****   /* USER CODE END StartDefaultTask */
- 170:Core/Src/app_freertos.c **** }
- 171:Core/Src/app_freertos.c **** 
- 172:Core/Src/app_freertos.c **** /* tempCheckCallBack function */
- 173:Core/Src/app_freertos.c **** void tempCheckCallBack(void *argument)
- 174:Core/Src/app_freertos.c **** {
- 175:Core/Src/app_freertos.c ****   /* USER CODE BEGIN tempCheckCallBack */
- 176:Core/Src/app_freertos.c ****   DHT_GetData(&DHT11_Data);
- 177:Core/Src/app_freertos.c ****   Temperature = DHT11_Data.Temperature;
- 178:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
- 179:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
- 180:Core/Src/app_freertos.c ****   /* USER CODE END tempCheckCallBack */
- 181:Core/Src/app_freertos.c **** }
- 182:Core/Src/app_freertos.c **** 
- 183:Core/Src/app_freertos.c **** /* checkADCCallBack function */
- 184:Core/Src/app_freertos.c **** void checkADCCallBack(void *argument)
- 185:Core/Src/app_freertos.c **** {
- 128              		.loc 1 185 1 view -0
- 129              		.cfi_startproc
- 130              		@ args = 0, pretend = 0, frame = 0
- 131              		@ frame_needed = 0, uses_anonymous_args = 0
- 132              		.loc 1 185 1 is_stmt 0 view .LVU15
- 133 0000 38B5     		push	{r3, r4, r5, lr}
- 134              		.cfi_def_cfa_offset 16
- 135              		.cfi_offset 3, -16
- 136              		.cfi_offset 4, -12
- 137              		.cfi_offset 5, -8
- 138              		.cfi_offset 14, -4
- 186:Core/Src/app_freertos.c ****   /* USER CODE BEGIN checkADCCallBack */
- 187:Core/Src/app_freertos.c ****   // Get ADC value
- 188:Core/Src/app_freertos.c ****   uint16_t raw;
- 139              		.loc 1 188 3 is_stmt 1 view .LVU16
- 189:Core/Src/app_freertos.c ****   uint16_t cThreshold;
- 140              		.loc 1 189 3 view .LVU17
- 190:Core/Src/app_freertos.c ****   int convertedC;
- 141              		.loc 1 190 3 view .LVU18
- 191:Core/Src/app_freertos.c ****   
- 192:Core/Src/app_freertos.c ****   HAL_ADC_Start(&hadc1);
- 142              		.loc 1 192 3 view .LVU19
- 143 0002 1A4C     		ldr	r4, .L13
- 144 0004 2046     		mov	r0, r4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 7
+ 113              	.L5:
+ 114              		.align	2
+ 115              	.L4:
+ 116 007c 00000000 		.word	htim2
+ 117 0080 00000000 		.word	.LC0
+ 118 0084 00000000 		.word	.LANCHOR0
+ 119 0088 00000000 		.word	.LANCHOR1
+ 120 008c 00040048 		.word	1207960576
+ 121              		.cfi_endproc
+ 122              	.LFE1110:
+ 124              		.section	.rodata.checkADCCallBack.str1.4,"aMS",%progbits,1
+ 125              		.align	2
+ 126              	.LC1:
+ 127 0000 44657369 		.ascii	"Desired Temp:%dC\000"
+ 127      72656420 
+ 127      54656D70 
+ 127      3A256443 
+ 127      00
+ 128              		.section	.text.checkADCCallBack,"ax",%progbits
+ 129              		.align	1
+ 130              		.global	checkADCCallBack
+ 131              		.syntax unified
+ 132              		.thumb
+ 133              		.thumb_func
+ 135              	checkADCCallBack:
+ 136              	.LVL13:
+ 137              	.LFB1112:
+ 170:Core/Src/app_freertos.c ****   }
+ 171:Core/Src/app_freertos.c ****   /* USER CODE END StartDefaultTask */
+ 172:Core/Src/app_freertos.c **** }
+ 173:Core/Src/app_freertos.c **** 
+ 174:Core/Src/app_freertos.c **** /* tempCheckCallBack function */
+ 175:Core/Src/app_freertos.c **** void tempCheckCallBack(void *argument)
+ 176:Core/Src/app_freertos.c **** {
+ 177:Core/Src/app_freertos.c ****   /* USER CODE BEGIN tempCheckCallBack */
+ 178:Core/Src/app_freertos.c ****   DHT_GetData(&DHT11_Data);
+ 179:Core/Src/app_freertos.c ****   Temperature = DHT11_Data.Temperature;
+ 180:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
+ 181:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
+ 182:Core/Src/app_freertos.c ****   /* USER CODE END tempCheckCallBack */
+ 183:Core/Src/app_freertos.c **** }
+ 184:Core/Src/app_freertos.c **** 
+ 185:Core/Src/app_freertos.c **** /* checkADCCallBack function */
+ 186:Core/Src/app_freertos.c **** void checkADCCallBack(void *argument)
+ 187:Core/Src/app_freertos.c **** {
+ 138              		.loc 1 187 1 view -0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142              		.loc 1 187 1 is_stmt 0 view .LVU17
+ 143 0000 38B5     		push	{r3, r4, r5, lr}
+ 144              		.cfi_def_cfa_offset 16
+ 145              		.cfi_offset 3, -16
+ 146              		.cfi_offset 4, -12
+ 147              		.cfi_offset 5, -8
+ 148              		.cfi_offset 14, -4
+ 188:Core/Src/app_freertos.c ****   /* USER CODE BEGIN checkADCCallBack */
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 7
 
 
- 145              	.LVL12:
- 146              		.loc 1 192 3 is_stmt 0 view .LVU20
- 147 0006 FFF7FEFF 		bl	HAL_ADC_Start
- 148              	.LVL13:
- 193:Core/Src/app_freertos.c ****   HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
- 149              		.loc 1 193 3 is_stmt 1 view .LVU21
- 150 000a 4FF0FF31 		mov	r1, #-1
- 151 000e 2046     		mov	r0, r4
- 152 0010 FFF7FEFF 		bl	HAL_ADC_PollForConversion
- 153              	.LVL14:
- 194:Core/Src/app_freertos.c ****   raw = HAL_ADC_GetValue(&hadc1);
- 154              		.loc 1 194 3 view .LVU22
- 155              		.loc 1 194 9 is_stmt 0 view .LVU23
- 156 0014 2046     		mov	r0, r4
- 157 0016 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 189:Core/Src/app_freertos.c ****   // Get ADC value
+ 190:Core/Src/app_freertos.c ****   uint16_t raw;
+ 149              		.loc 1 190 3 is_stmt 1 view .LVU18
+ 191:Core/Src/app_freertos.c ****   uint16_t cThreshold;
+ 150              		.loc 1 191 3 view .LVU19
+ 192:Core/Src/app_freertos.c ****   int convertedC;
+ 151              		.loc 1 192 3 view .LVU20
+ 193:Core/Src/app_freertos.c ****   
+ 194:Core/Src/app_freertos.c ****   HAL_ADC_Start(&hadc1);
+ 152              		.loc 1 194 3 view .LVU21
+ 153 0002 1A4C     		ldr	r4, .L13
+ 154 0004 2046     		mov	r0, r4
+ 155              	.LVL14:
+ 156              		.loc 1 194 3 is_stmt 0 view .LVU22
+ 157 0006 FFF7FEFF 		bl	HAL_ADC_Start
  158              	.LVL15:
- 195:Core/Src/app_freertos.c ****   convertedC = (raw * 40) / 4095; // User can set the desired temp from 0-40 celcius
- 159              		.loc 1 195 3 is_stmt 1 view .LVU24
- 160              		.loc 1 195 21 is_stmt 0 view .LVU25
- 161 001a 85B2     		uxth	r5, r0
- 162 001c 05EB8503 		add	r3, r5, r5, lsl #2
- 163 0020 DB00     		lsls	r3, r3, #3
- 164              		.loc 1 195 14 view .LVU26
- 165 0022 134C     		ldr	r4, .L13+4
- 166 0024 84FB0324 		smull	r2, r4, r4, r3
- 167 0028 1C44     		add	r4, r4, r3
- 168 002a E412     		asrs	r4, r4, #11
- 169              	.LVL16:
- 196:Core/Src/app_freertos.c ****   lcd16x2_2ndLine();
- 170              		.loc 1 196 3 is_stmt 1 view .LVU27
- 171 002c FFF7FEFF 		bl	lcd16x2_2ndLine
- 172              	.LVL17:
- 197:Core/Src/app_freertos.c ****   lcd16x2_printf("Desired Temp:%dC", convertedC);
- 173              		.loc 1 197 3 view .LVU28
- 174 0030 2146     		mov	r1, r4
- 175 0032 1048     		ldr	r0, .L13+8
- 176 0034 FFF7FEFF 		bl	lcd16x2_printf
- 177              	.LVL18:
- 198:Core/Src/app_freertos.c ****   if (convertedC > Temperature){
- 178              		.loc 1 198 3 view .LVU29
- 179              		.loc 1 198 18 is_stmt 0 view .LVU30
- 180 0038 07EE904A 		vmov	s15, r4	@ int
- 181 003c F8EEE77A 		vcvt.f32.s32	s15, s15
- 182 0040 0D4B     		ldr	r3, .L13+12
- 183 0042 93ED007A 		vldr.32	s14, [r3]
- 184              		.loc 1 198 6 view .LVU31
- 185 0046 F4EEC77A 		vcmpe.f32	s15, s14
- 186 004a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 187 004e 04DD     		ble	.L11
- 199:Core/Src/app_freertos.c ****     cThreshold = 0;
- 188              		.loc 1 199 5 is_stmt 1 view .LVU32
- 189              	.LVL19:
- 200:Core/Src/app_freertos.c ****     DC_MOTOR_Set_Speed(DC_MOTOR1, cThreshold);
- 190              		.loc 1 200 5 view .LVU33
- 191 0050 0021     		movs	r1, #0
- 192 0052 0846     		mov	r0, r1
- 193 0054 FFF7FEFF 		bl	DC_MOTOR_Set_Speed
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 8
+ 195:Core/Src/app_freertos.c ****   HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+ 159              		.loc 1 195 3 is_stmt 1 view .LVU23
+ 160 000a 4FF0FF31 		mov	r1, #-1
+ 161 000e 2046     		mov	r0, r4
+ 162 0010 FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 163              	.LVL16:
+ 196:Core/Src/app_freertos.c ****   raw = HAL_ADC_GetValue(&hadc1);
+ 164              		.loc 1 196 3 view .LVU24
+ 165              		.loc 1 196 9 is_stmt 0 view .LVU25
+ 166 0014 2046     		mov	r0, r4
+ 167 0016 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 168              	.LVL17:
+ 197:Core/Src/app_freertos.c ****   convertedC = (raw * 40) / 4095; // User can set the desired temp from 0-40 celcius
+ 169              		.loc 1 197 3 is_stmt 1 view .LVU26
+ 170              		.loc 1 197 21 is_stmt 0 view .LVU27
+ 171 001a 85B2     		uxth	r5, r0
+ 172 001c 05EB8503 		add	r3, r5, r5, lsl #2
+ 173 0020 DB00     		lsls	r3, r3, #3
+ 174              		.loc 1 197 14 view .LVU28
+ 175 0022 134C     		ldr	r4, .L13+4
+ 176 0024 84FB0324 		smull	r2, r4, r4, r3
+ 177 0028 1C44     		add	r4, r4, r3
+ 178 002a E412     		asrs	r4, r4, #11
+ 179              	.LVL18:
+ 198:Core/Src/app_freertos.c ****   lcd16x2_2ndLine();
+ 180              		.loc 1 198 3 is_stmt 1 view .LVU29
+ 181 002c FFF7FEFF 		bl	lcd16x2_2ndLine
+ 182              	.LVL19:
+ 199:Core/Src/app_freertos.c ****   lcd16x2_printf("Desired Temp:%dC", convertedC);
+ 183              		.loc 1 199 3 view .LVU30
+ 184 0030 2146     		mov	r1, r4
+ 185 0032 1048     		ldr	r0, .L13+8
+ 186 0034 FFF7FEFF 		bl	lcd16x2_printf
+ 187              	.LVL20:
+ 200:Core/Src/app_freertos.c ****   if (convertedC > Temperature){
+ 188              		.loc 1 200 3 view .LVU31
+ 189              		.loc 1 200 18 is_stmt 0 view .LVU32
+ 190 0038 07EE904A 		vmov	s15, r4	@ int
+ 191 003c F8EEE77A 		vcvt.f32.s32	s15, s15
+ 192 0040 0D4B     		ldr	r3, .L13+12
+ 193 0042 93ED007A 		vldr.32	s14, [r3]
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 8
 
 
- 194              	.LVL20:
- 195              	.L6:
- 201:Core/Src/app_freertos.c ****   }
- 202:Core/Src/app_freertos.c ****   else{
- 203:Core/Src/app_freertos.c ****     cThreshold = raw;
- 204:Core/Src/app_freertos.c ****     DC_MOTOR_Set_Speed(DC_MOTOR1, (4095 - cThreshold) >> 2);
- 205:Core/Src/app_freertos.c ****   }
- 206:Core/Src/app_freertos.c ****   /* USER CODE END checkADCCallBack */
- 207:Core/Src/app_freertos.c **** }
- 196              		.loc 1 207 1 is_stmt 0 view .LVU34
- 197 0058 38BD     		pop	{r3, r4, r5, pc}
- 198              	.LVL21:
- 199              	.L11:
- 203:Core/Src/app_freertos.c ****     DC_MOTOR_Set_Speed(DC_MOTOR1, (4095 - cThreshold) >> 2);
- 200              		.loc 1 203 5 is_stmt 1 view .LVU35
- 204:Core/Src/app_freertos.c ****   }
- 201              		.loc 1 204 5 view .LVU36
- 204:Core/Src/app_freertos.c ****   }
- 202              		.loc 1 204 41 is_stmt 0 view .LVU37
- 203 005a C5F57F61 		rsb	r1, r5, #4080
- 204 005e 0F31     		adds	r1, r1, #15
- 204:Core/Src/app_freertos.c ****   }
- 205              		.loc 1 204 5 view .LVU38
- 206 0060 C1F38F01 		ubfx	r1, r1, #2, #16
- 207 0064 0020     		movs	r0, #0
- 208 0066 FFF7FEFF 		bl	DC_MOTOR_Set_Speed
- 209              	.LVL22:
- 210              		.loc 1 207 1 view .LVU39
- 211 006a F5E7     		b	.L6
- 212              	.L14:
- 213              		.align	2
- 214              	.L13:
- 215 006c 00000000 		.word	hadc1
- 216 0070 81000880 		.word	-2146959231
- 217 0074 00000000 		.word	.LC1
- 218 0078 00000000 		.word	.LANCHOR2
- 219              		.cfi_endproc
- 220              	.LFE1112:
- 222              		.section	.rodata.Display_Temp.str1.4,"aMS",%progbits,1
+ 194              		.loc 1 200 6 view .LVU33
+ 195 0046 F4EEC77A 		vcmpe.f32	s15, s14
+ 196 004a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 197 004e 04DD     		ble	.L11
+ 201:Core/Src/app_freertos.c ****     cThreshold = 0;
+ 198              		.loc 1 201 5 is_stmt 1 view .LVU34
+ 199              	.LVL21:
+ 202:Core/Src/app_freertos.c ****     DC_MOTOR_Set_Speed(DC_MOTOR1, cThreshold);
+ 200              		.loc 1 202 5 view .LVU35
+ 201 0050 0021     		movs	r1, #0
+ 202 0052 0846     		mov	r0, r1
+ 203 0054 FFF7FEFF 		bl	DC_MOTOR_Set_Speed
+ 204              	.LVL22:
+ 205              	.L6:
+ 203:Core/Src/app_freertos.c ****   }
+ 204:Core/Src/app_freertos.c ****   else{
+ 205:Core/Src/app_freertos.c ****     cThreshold = raw;
+ 206:Core/Src/app_freertos.c ****     DC_MOTOR_Set_Speed(DC_MOTOR1, (4095 - cThreshold) >> 2);
+ 207:Core/Src/app_freertos.c ****   }
+ 208:Core/Src/app_freertos.c ****   /* USER CODE END checkADCCallBack */
+ 209:Core/Src/app_freertos.c **** }
+ 206              		.loc 1 209 1 is_stmt 0 view .LVU36
+ 207 0058 38BD     		pop	{r3, r4, r5, pc}
+ 208              	.LVL23:
+ 209              	.L11:
+ 205:Core/Src/app_freertos.c ****     DC_MOTOR_Set_Speed(DC_MOTOR1, (4095 - cThreshold) >> 2);
+ 210              		.loc 1 205 5 is_stmt 1 view .LVU37
+ 206:Core/Src/app_freertos.c ****   }
+ 211              		.loc 1 206 5 view .LVU38
+ 206:Core/Src/app_freertos.c ****   }
+ 212              		.loc 1 206 41 is_stmt 0 view .LVU39
+ 213 005a C5F57F61 		rsb	r1, r5, #4080
+ 214 005e 0F31     		adds	r1, r1, #15
+ 206:Core/Src/app_freertos.c ****   }
+ 215              		.loc 1 206 5 view .LVU40
+ 216 0060 C1F38F01 		ubfx	r1, r1, #2, #16
+ 217 0064 0020     		movs	r0, #0
+ 218 0066 FFF7FEFF 		bl	DC_MOTOR_Set_Speed
+ 219              	.LVL24:
+ 220              		.loc 1 209 1 view .LVU41
+ 221 006a F5E7     		b	.L6
+ 222              	.L14:
  223              		.align	2
- 224              	.LC2:
- 225 0000 54656D70 		.ascii	"Temp: %dC RH: %d\000"
- 225      3A202564 
- 225      43205248 
- 225      3A202564 
- 225      00
- 226              		.section	.text.Display_Temp,"ax",%progbits
- 227              		.align	1
- 228              		.global	Display_Temp
- 229              		.syntax unified
- 230              		.thumb
- 231              		.thumb_func
- 233              	Display_Temp:
- 234              	.LVL23:
- 235              	.LFB1108:
-  76:Core/Src/app_freertos.c ****   lcd16x2_clear();
- 236              		.loc 1 76 40 is_stmt 1 view -0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 9
+ 224              	.L13:
+ 225 006c 00000000 		.word	hadc1
+ 226 0070 81000880 		.word	-2146959231
+ 227 0074 00000000 		.word	.LC1
+ 228 0078 00000000 		.word	.LANCHOR2
+ 229              		.cfi_endproc
+ 230              	.LFE1112:
+ 232              		.section	.rodata.Display_Temp.str1.4,"aMS",%progbits,1
+ 233              		.align	2
+ 234              	.LC2:
+ 235 0000 54656D70 		.ascii	"Temp: %dC RH: %d\000"
+ 235      3A202564 
+ 235      43205248 
+ 235      3A202564 
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 9
 
 
- 237              		.cfi_startproc
- 238              		@ args = 0, pretend = 0, frame = 0
- 239              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235      00
+ 236              		.section	.text.Display_Temp,"ax",%progbits
+ 237              		.align	1
+ 238              		.global	Display_Temp
+ 239              		.syntax unified
+ 240              		.thumb
+ 241              		.thumb_func
+ 243              	Display_Temp:
+ 244              	.LVL25:
+ 245              	.LFB1108:
   76:Core/Src/app_freertos.c ****   lcd16x2_clear();
- 240              		.loc 1 76 40 is_stmt 0 view .LVU41
- 241 0000 08B5     		push	{r3, lr}
- 242              		.cfi_def_cfa_offset 8
- 243              		.cfi_offset 3, -8
- 244              		.cfi_offset 14, -4
- 245 0002 2DED028B 		vpush.64	{d8}
- 246              		.cfi_def_cfa_offset 16
- 247              		.cfi_offset 80, -16
- 248              		.cfi_offset 81, -12
- 249 0006 B0EE408A 		vmov.f32	s16, s0
- 250 000a F0EE608A 		vmov.f32	s17, s1
+ 246              		.loc 1 76 40 is_stmt 1 view -0
+ 247              		.cfi_startproc
+ 248              		@ args = 0, pretend = 0, frame = 0
+ 249              		@ frame_needed = 0, uses_anonymous_args = 0
+  76:Core/Src/app_freertos.c ****   lcd16x2_clear();
+ 250              		.loc 1 76 40 is_stmt 0 view .LVU43
+ 251 0000 08B5     		push	{r3, lr}
+ 252              		.cfi_def_cfa_offset 8
+ 253              		.cfi_offset 3, -8
+ 254              		.cfi_offset 14, -4
+ 255 0002 2DED028B 		vpush.64	{d8}
+ 256              		.cfi_def_cfa_offset 16
+ 257              		.cfi_offset 80, -16
+ 258              		.cfi_offset 81, -12
+ 259 0006 B0EE408A 		vmov.f32	s16, s0
+ 260 000a F0EE608A 		vmov.f32	s17, s1
   77:Core/Src/app_freertos.c ****   lcd16x2_1stLine();
- 251              		.loc 1 77 3 is_stmt 1 view .LVU42
- 252 000e FFF7FEFF 		bl	lcd16x2_clear
- 253              	.LVL24:
+ 261              		.loc 1 77 3 is_stmt 1 view .LVU44
+ 262 000e FFF7FEFF 		bl	lcd16x2_clear
+ 263              	.LVL26:
   78:Core/Src/app_freertos.c ****   lcd16x2_printf("Temp: %dC RH: %d", (int)Temp, (int)Rh);
- 254              		.loc 1 78 3 view .LVU43
- 255 0012 FFF7FEFF 		bl	lcd16x2_1stLine
- 256              	.LVL25:
+ 264              		.loc 1 78 3 view .LVU45
+ 265 0012 FFF7FEFF 		bl	lcd16x2_1stLine
+ 266              	.LVL27:
   79:Core/Src/app_freertos.c **** }
- 257              		.loc 1 79 3 view .LVU44
- 258 0016 FDEEE87A 		vcvt.s32.f32	s15, s17
- 259 001a 17EE902A 		vmov	r2, s15	@ int
- 260 001e FDEEC87A 		vcvt.s32.f32	s15, s16
- 261 0022 17EE901A 		vmov	r1, s15	@ int
- 262 0026 0348     		ldr	r0, .L17
- 263 0028 FFF7FEFF 		bl	lcd16x2_printf
- 264              	.LVL26:
+ 267              		.loc 1 79 3 view .LVU46
+ 268 0016 FDEEE87A 		vcvt.s32.f32	s15, s17
+ 269 001a 17EE902A 		vmov	r2, s15	@ int
+ 270 001e FDEEC87A 		vcvt.s32.f32	s15, s16
+ 271 0022 17EE901A 		vmov	r1, s15	@ int
+ 272 0026 0348     		ldr	r0, .L17
+ 273 0028 FFF7FEFF 		bl	lcd16x2_printf
+ 274              	.LVL28:
   80:Core/Src/app_freertos.c **** 
- 265              		.loc 1 80 1 is_stmt 0 view .LVU45
- 266 002c BDEC028B 		vldm	sp!, {d8}
- 267              		.cfi_restore 80
- 268              		.cfi_restore 81
- 269              		.cfi_def_cfa_offset 8
- 270              	.LVL27:
+ 275              		.loc 1 80 1 is_stmt 0 view .LVU47
+ 276 002c BDEC028B 		vldm	sp!, {d8}
+ 277              		.cfi_restore 80
+ 278              		.cfi_restore 81
+ 279              		.cfi_def_cfa_offset 8
+ 280              	.LVL29:
   80:Core/Src/app_freertos.c **** 
- 271              		.loc 1 80 1 view .LVU46
- 272 0030 08BD     		pop	{r3, pc}
- 273              	.L18:
- 274 0032 00BF     		.align	2
- 275              	.L17:
- 276 0034 00000000 		.word	.LC2
- 277              		.cfi_endproc
- 278              	.LFE1108:
- 280              		.section	.text.tempCheckCallBack,"ax",%progbits
- 281              		.align	1
- 282              		.global	tempCheckCallBack
- 283              		.syntax unified
- 284              		.thumb
- 285              		.thumb_func
- 287              	tempCheckCallBack:
- 288              	.LVL28:
- 289              	.LFB1111:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 10
+ 281              		.loc 1 80 1 view .LVU48
+ 282 0030 08BD     		pop	{r3, pc}
+ 283              	.L18:
+ 284 0032 00BF     		.align	2
+ 285              	.L17:
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 10
 
 
- 174:Core/Src/app_freertos.c ****   /* USER CODE BEGIN tempCheckCallBack */
- 290              		.loc 1 174 1 is_stmt 1 view -0
- 291              		.cfi_startproc
- 292              		@ args = 0, pretend = 0, frame = 0
- 293              		@ frame_needed = 0, uses_anonymous_args = 0
- 174:Core/Src/app_freertos.c ****   /* USER CODE BEGIN tempCheckCallBack */
- 294              		.loc 1 174 1 is_stmt 0 view .LVU48
- 295 0000 10B5     		push	{r4, lr}
- 296              		.cfi_def_cfa_offset 8
- 297              		.cfi_offset 4, -8
- 298              		.cfi_offset 14, -4
- 176:Core/Src/app_freertos.c ****   Temperature = DHT11_Data.Temperature;
- 299              		.loc 1 176 3 is_stmt 1 view .LVU49
- 300 0002 084C     		ldr	r4, .L21
- 301 0004 2046     		mov	r0, r4
- 302              	.LVL29:
- 176:Core/Src/app_freertos.c ****   Temperature = DHT11_Data.Temperature;
- 303              		.loc 1 176 3 is_stmt 0 view .LVU50
- 304 0006 FFF7FEFF 		bl	DHT_GetData
- 305              	.LVL30:
- 177:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
- 306              		.loc 1 177 3 is_stmt 1 view .LVU51
- 177:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
- 307              		.loc 1 177 27 is_stmt 0 view .LVU52
- 308 000a 94ED000A 		vldr.32	s0, [r4]
- 177:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
- 309              		.loc 1 177 15 view .LVU53
- 310 000e 064B     		ldr	r3, .L21+4
- 311 0010 83ED000A 		vstr.32	s0, [r3]
- 178:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
- 312              		.loc 1 178 3 is_stmt 1 view .LVU54
- 178:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
- 313              		.loc 1 178 24 is_stmt 0 view .LVU55
- 314 0014 D4ED010A 		vldr.32	s1, [r4, #4]
- 178:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
- 315              		.loc 1 178 12 view .LVU56
- 316 0018 044B     		ldr	r3, .L21+8
- 317 001a C3ED000A 		vstr.32	s1, [r3]
- 179:Core/Src/app_freertos.c ****   /* USER CODE END tempCheckCallBack */
- 318              		.loc 1 179 3 is_stmt 1 view .LVU57
- 319 001e FFF7FEFF 		bl	Display_Temp
- 320              	.LVL31:
- 181:Core/Src/app_freertos.c **** 
- 321              		.loc 1 181 1 is_stmt 0 view .LVU58
- 322 0022 10BD     		pop	{r4, pc}
- 323              	.L22:
- 324              		.align	2
- 325              	.L21:
- 326 0024 00000000 		.word	.LANCHOR3
- 327 0028 00000000 		.word	.LANCHOR2
- 328 002c 00000000 		.word	.LANCHOR4
- 329              		.cfi_endproc
- 330              	.LFE1111:
- 332              		.section	.text.MX_FREERTOS_Init,"ax",%progbits
- 333              		.align	1
- 334              		.global	MX_FREERTOS_Init
- 335              		.syntax unified
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 11
+ 286 0034 00000000 		.word	.LC2
+ 287              		.cfi_endproc
+ 288              	.LFE1108:
+ 290              		.section	.text.tempCheckCallBack,"ax",%progbits
+ 291              		.align	1
+ 292              		.global	tempCheckCallBack
+ 293              		.syntax unified
+ 294              		.thumb
+ 295              		.thumb_func
+ 297              	tempCheckCallBack:
+ 298              	.LVL30:
+ 299              	.LFB1111:
+ 176:Core/Src/app_freertos.c ****   /* USER CODE BEGIN tempCheckCallBack */
+ 300              		.loc 1 176 1 is_stmt 1 view -0
+ 301              		.cfi_startproc
+ 302              		@ args = 0, pretend = 0, frame = 0
+ 303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176:Core/Src/app_freertos.c ****   /* USER CODE BEGIN tempCheckCallBack */
+ 304              		.loc 1 176 1 is_stmt 0 view .LVU50
+ 305 0000 10B5     		push	{r4, lr}
+ 306              		.cfi_def_cfa_offset 8
+ 307              		.cfi_offset 4, -8
+ 308              		.cfi_offset 14, -4
+ 178:Core/Src/app_freertos.c ****   Temperature = DHT11_Data.Temperature;
+ 309              		.loc 1 178 3 is_stmt 1 view .LVU51
+ 310 0002 084C     		ldr	r4, .L21
+ 311 0004 2046     		mov	r0, r4
+ 312              	.LVL31:
+ 178:Core/Src/app_freertos.c ****   Temperature = DHT11_Data.Temperature;
+ 313              		.loc 1 178 3 is_stmt 0 view .LVU52
+ 314 0006 FFF7FEFF 		bl	DHT_GetData
+ 315              	.LVL32:
+ 179:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
+ 316              		.loc 1 179 3 is_stmt 1 view .LVU53
+ 179:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
+ 317              		.loc 1 179 27 is_stmt 0 view .LVU54
+ 318 000a 94ED000A 		vldr.32	s0, [r4]
+ 179:Core/Src/app_freertos.c ****   Humidity = DHT11_Data.Humidity;
+ 319              		.loc 1 179 15 view .LVU55
+ 320 000e 064B     		ldr	r3, .L21+4
+ 321 0010 83ED000A 		vstr.32	s0, [r3]
+ 180:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
+ 322              		.loc 1 180 3 is_stmt 1 view .LVU56
+ 180:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
+ 323              		.loc 1 180 24 is_stmt 0 view .LVU57
+ 324 0014 D4ED010A 		vldr.32	s1, [r4, #4]
+ 180:Core/Src/app_freertos.c ****   Display_Temp(Temperature, Humidity);
+ 325              		.loc 1 180 12 view .LVU58
+ 326 0018 044B     		ldr	r3, .L21+8
+ 327 001a C3ED000A 		vstr.32	s1, [r3]
+ 181:Core/Src/app_freertos.c ****   /* USER CODE END tempCheckCallBack */
+ 328              		.loc 1 181 3 is_stmt 1 view .LVU59
+ 329 001e FFF7FEFF 		bl	Display_Temp
+ 330              	.LVL33:
+ 183:Core/Src/app_freertos.c **** 
+ 331              		.loc 1 183 1 is_stmt 0 view .LVU60
+ 332 0022 10BD     		pop	{r4, pc}
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 11
 
 
- 336              		.thumb
- 337              		.thumb_func
- 339              	MX_FREERTOS_Init:
- 340              	.LFB1109:
+ 333              	.L22:
+ 334              		.align	2
+ 335              	.L21:
+ 336 0024 00000000 		.word	.LANCHOR3
+ 337 0028 00000000 		.word	.LANCHOR2
+ 338 002c 00000000 		.word	.LANCHOR4
+ 339              		.cfi_endproc
+ 340              	.LFE1111:
+ 342              		.section	.text.MX_FREERTOS_Init,"ax",%progbits
+ 343              		.align	1
+ 344              		.global	MX_FREERTOS_Init
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 349              	MX_FREERTOS_Init:
+ 350              	.LFB1109:
   99:Core/Src/app_freertos.c ****   /* USER CODE BEGIN Init */
- 341              		.loc 1 99 29 is_stmt 1 view -0
- 342              		.cfi_startproc
- 343              		@ args = 0, pretend = 0, frame = 0
- 344              		@ frame_needed = 0, uses_anonymous_args = 0
- 345 0000 08B5     		push	{r3, lr}
- 346              		.cfi_def_cfa_offset 8
- 347              		.cfi_offset 3, -8
- 348              		.cfi_offset 14, -4
+ 351              		.loc 1 99 29 is_stmt 1 view -0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355 0000 08B5     		push	{r3, lr}
+ 356              		.cfi_def_cfa_offset 8
+ 357              		.cfi_offset 3, -8
+ 358              		.cfi_offset 14, -4
  114:Core/Src/app_freertos.c **** 
- 349              		.loc 1 114 3 view .LVU60
+ 359              		.loc 1 114 3 view .LVU62
  114:Core/Src/app_freertos.c **** 
- 350              		.loc 1 114 21 is_stmt 0 view .LVU61
- 351 0002 0C4B     		ldr	r3, .L25
- 352 0004 0022     		movs	r2, #0
- 353 0006 0121     		movs	r1, #1
- 354 0008 0B48     		ldr	r0, .L25+4
- 355 000a FFF7FEFF 		bl	osTimerNew
- 356              	.LVL32:
+ 360              		.loc 1 114 21 is_stmt 0 view .LVU63
+ 361 0002 0C4B     		ldr	r3, .L25
+ 362 0004 0022     		movs	r2, #0
+ 363 0006 0121     		movs	r1, #1
+ 364 0008 0B48     		ldr	r0, .L25+4
+ 365 000a FFF7FEFF 		bl	osTimerNew
+ 366              	.LVL34:
  114:Core/Src/app_freertos.c **** 
- 357              		.loc 1 114 19 view .LVU62
- 358 000e 0B4B     		ldr	r3, .L25+8
- 359 0010 1860     		str	r0, [r3]
+ 367              		.loc 1 114 19 view .LVU64
+ 368 000e 0B4B     		ldr	r3, .L25+8
+ 369 0010 1860     		str	r0, [r3]
  117:Core/Src/app_freertos.c **** 
- 360              		.loc 1 117 3 is_stmt 1 view .LVU63
+ 370              		.loc 1 117 3 is_stmt 1 view .LVU65
  117:Core/Src/app_freertos.c **** 
- 361              		.loc 1 117 20 is_stmt 0 view .LVU64
- 362 0012 0B4B     		ldr	r3, .L25+12
- 363 0014 0022     		movs	r2, #0
- 364 0016 0121     		movs	r1, #1
- 365 0018 0A48     		ldr	r0, .L25+16
- 366 001a FFF7FEFF 		bl	osTimerNew
- 367              	.LVL33:
+ 371              		.loc 1 117 20 is_stmt 0 view .LVU66
+ 372 0012 0B4B     		ldr	r3, .L25+12
+ 373 0014 0022     		movs	r2, #0
+ 374 0016 0121     		movs	r1, #1
+ 375 0018 0A48     		ldr	r0, .L25+16
+ 376 001a FFF7FEFF 		bl	osTimerNew
+ 377              	.LVL35:
  117:Core/Src/app_freertos.c **** 
- 368              		.loc 1 117 18 view .LVU65
- 369 001e 0A4B     		ldr	r3, .L25+20
- 370 0020 1860     		str	r0, [r3]
+ 378              		.loc 1 117 18 view .LVU67
+ 379 001e 0A4B     		ldr	r3, .L25+20
+ 380 0020 1860     		str	r0, [r3]
  129:Core/Src/app_freertos.c **** 
- 371              		.loc 1 129 3 is_stmt 1 view .LVU66
+ 381              		.loc 1 129 3 is_stmt 1 view .LVU68
  129:Core/Src/app_freertos.c **** 
- 372              		.loc 1 129 23 is_stmt 0 view .LVU67
- 373 0022 0A4A     		ldr	r2, .L25+24
- 374 0024 0021     		movs	r1, #0
- 375 0026 0A48     		ldr	r0, .L25+28
- 376 0028 FFF7FEFF 		bl	osThreadNew
- 377              	.LVL34:
+ 382              		.loc 1 129 23 is_stmt 0 view .LVU69
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 12
+
+
+ 383 0022 0A4A     		ldr	r2, .L25+24
+ 384 0024 0021     		movs	r1, #0
+ 385 0026 0A48     		ldr	r0, .L25+28
+ 386 0028 FFF7FEFF 		bl	osThreadNew
+ 387              	.LVL36:
  129:Core/Src/app_freertos.c **** 
- 378              		.loc 1 129 21 view .LVU68
- 379 002c 094B     		ldr	r3, .L25+32
- 380 002e 1860     		str	r0, [r3]
+ 388              		.loc 1 129 21 view .LVU70
+ 389 002c 094B     		ldr	r3, .L25+32
+ 390 002e 1860     		str	r0, [r3]
  139:Core/Src/app_freertos.c **** 
- 381              		.loc 1 139 1 view .LVU69
- 382 0030 08BD     		pop	{r3, pc}
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 12
+ 391              		.loc 1 139 1 view .LVU71
+ 392 0030 08BD     		pop	{r3, pc}
+ 393              	.L26:
+ 394 0032 00BF     		.align	2
+ 395              	.L25:
+ 396 0034 00000000 		.word	.LANCHOR5
+ 397 0038 00000000 		.word	tempCheckCallBack
+ 398 003c 00000000 		.word	.LANCHOR0
+ 399 0040 00000000 		.word	.LANCHOR6
+ 400 0044 00000000 		.word	checkADCCallBack
+ 401 0048 00000000 		.word	.LANCHOR1
+ 402 004c 00000000 		.word	.LANCHOR7
+ 403 0050 00000000 		.word	StartDefaultTask
+ 404 0054 00000000 		.word	.LANCHOR8
+ 405              		.cfi_endproc
+ 406              	.LFE1109:
+ 408              		.global	Humidity
+ 409              		.global	Temperature
+ 410              		.global	DHT11_Data
+ 411              		.global	checkADC_attributes
+ 412              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 413              		.align	2
+ 414              	.LC3:
+ 415 0000 63686563 		.ascii	"checkADC\000"
+ 415      6B414443 
+ 415      00
+ 416              		.global	checkADCHandle
+ 417              		.global	tempCheck_attributes
+ 418 0009 000000   		.align	2
+ 419              	.LC4:
+ 420 000c 74656D70 		.ascii	"tempCheck\000"
+ 420      43686563 
+ 420      6B00
+ 421              		.global	tempCheckHandle
+ 422              		.global	defaultTask_attributes
+ 423 0016 0000     		.align	2
+ 424              	.LC5:
+ 425 0018 64656661 		.ascii	"defaultTask\000"
+ 425      756C7454 
+ 425      61736B00 
+ 426              		.global	defaultTaskHandle
+ 427              		.section	.bss.DHT11_Data,"aw",%nobits
+ 428              		.align	2
+ 429              		.set	.LANCHOR3,. + 0
+ 432              	DHT11_Data:
+ 433 0000 00000000 		.space	8
+ 433      00000000 
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 13
 
 
- 383              	.L26:
- 384 0032 00BF     		.align	2
- 385              	.L25:
- 386 0034 00000000 		.word	.LANCHOR5
- 387 0038 00000000 		.word	tempCheckCallBack
- 388 003c 00000000 		.word	.LANCHOR0
- 389 0040 00000000 		.word	.LANCHOR6
- 390 0044 00000000 		.word	checkADCCallBack
- 391 0048 00000000 		.word	.LANCHOR1
- 392 004c 00000000 		.word	.LANCHOR7
- 393 0050 00000000 		.word	StartDefaultTask
- 394 0054 00000000 		.word	.LANCHOR8
- 395              		.cfi_endproc
- 396              	.LFE1109:
- 398              		.global	Humidity
- 399              		.global	Temperature
- 400              		.global	DHT11_Data
- 401              		.global	checkADC_attributes
- 402              		.section	.rodata.str1.4,"aMS",%progbits,1
- 403              		.align	2
- 404              	.LC3:
- 405 0000 63686563 		.ascii	"checkADC\000"
- 405      6B414443 
- 405      00
- 406              		.global	checkADCHandle
- 407              		.global	tempCheck_attributes
- 408 0009 000000   		.align	2
- 409              	.LC4:
- 410 000c 74656D70 		.ascii	"tempCheck\000"
- 410      43686563 
- 410      6B00
- 411              		.global	tempCheckHandle
- 412              		.global	defaultTask_attributes
- 413 0016 0000     		.align	2
- 414              	.LC5:
- 415 0018 64656661 		.ascii	"defaultTask\000"
- 415      756C7454 
- 415      61736B00 
- 416              		.global	defaultTaskHandle
- 417              		.section	.bss.DHT11_Data,"aw",%nobits
- 418              		.align	2
- 419              		.set	.LANCHOR3,. + 0
- 422              	DHT11_Data:
- 423 0000 00000000 		.space	8
- 423      00000000 
- 424              		.section	.bss.Humidity,"aw",%nobits
- 425              		.align	2
- 426              		.set	.LANCHOR4,. + 0
- 429              	Humidity:
- 430 0000 00000000 		.space	4
- 431              		.section	.bss.Temperature,"aw",%nobits
- 432              		.align	2
- 433              		.set	.LANCHOR2,. + 0
- 436              	Temperature:
- 437 0000 00000000 		.space	4
- 438              		.section	.bss.checkADCHandle,"aw",%nobits
- 439              		.align	2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 13
+ 434              		.section	.bss.Humidity,"aw",%nobits
+ 435              		.align	2
+ 436              		.set	.LANCHOR4,. + 0
+ 439              	Humidity:
+ 440 0000 00000000 		.space	4
+ 441              		.section	.bss.Temperature,"aw",%nobits
+ 442              		.align	2
+ 443              		.set	.LANCHOR2,. + 0
+ 446              	Temperature:
+ 447 0000 00000000 		.space	4
+ 448              		.section	.bss.checkADCHandle,"aw",%nobits
+ 449              		.align	2
+ 450              		.set	.LANCHOR1,. + 0
+ 453              	checkADCHandle:
+ 454 0000 00000000 		.space	4
+ 455              		.section	.bss.defaultTaskHandle,"aw",%nobits
+ 456              		.align	2
+ 457              		.set	.LANCHOR8,. + 0
+ 460              	defaultTaskHandle:
+ 461 0000 00000000 		.space	4
+ 462              		.section	.bss.tempCheckHandle,"aw",%nobits
+ 463              		.align	2
+ 464              		.set	.LANCHOR0,. + 0
+ 467              	tempCheckHandle:
+ 468 0000 00000000 		.space	4
+ 469              		.section	.rodata.checkADC_attributes,"a"
+ 470              		.align	2
+ 471              		.set	.LANCHOR6,. + 0
+ 474              	checkADC_attributes:
+ 475 0000 00000000 		.word	.LC3
+ 476 0004 00000000 		.space	12
+ 476      00000000 
+ 476      00000000 
+ 477              		.section	.rodata.defaultTask_attributes,"a"
+ 478              		.align	2
+ 479              		.set	.LANCHOR7,. + 0
+ 482              	defaultTask_attributes:
+ 483 0000 18000000 		.word	.LC5
+ 484 0004 00000000 		.space	16
+ 484      00000000 
+ 484      00000000 
+ 484      00000000 
+ 485 0014 00020000 		.word	512
+ 486 0018 18000000 		.word	24
+ 487 001c 00000000 		.space	8
+ 487      00000000 
+ 488              		.section	.rodata.tempCheck_attributes,"a"
+ 489              		.align	2
+ 490              		.set	.LANCHOR5,. + 0
+ 493              	tempCheck_attributes:
+ 494 0000 0C000000 		.word	.LC4
+ 495 0004 00000000 		.space	12
+ 495      00000000 
+ 495      00000000 
+ 496              		.text
+ 497              	.Letext0:
+ 498              		.file 2 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 14
 
 
- 440              		.set	.LANCHOR1,. + 0
- 443              	checkADCHandle:
- 444 0000 00000000 		.space	4
- 445              		.section	.bss.defaultTaskHandle,"aw",%nobits
- 446              		.align	2
- 447              		.set	.LANCHOR8,. + 0
- 450              	defaultTaskHandle:
- 451 0000 00000000 		.space	4
- 452              		.section	.bss.tempCheckHandle,"aw",%nobits
- 453              		.align	2
- 454              		.set	.LANCHOR0,. + 0
- 457              	tempCheckHandle:
- 458 0000 00000000 		.space	4
- 459              		.section	.rodata.checkADC_attributes,"a"
- 460              		.align	2
- 461              		.set	.LANCHOR6,. + 0
- 464              	checkADC_attributes:
- 465 0000 00000000 		.word	.LC3
- 466 0004 00000000 		.space	12
- 466      00000000 
- 466      00000000 
- 467              		.section	.rodata.defaultTask_attributes,"a"
- 468              		.align	2
- 469              		.set	.LANCHOR7,. + 0
- 472              	defaultTask_attributes:
- 473 0000 18000000 		.word	.LC5
- 474 0004 00000000 		.space	16
- 474      00000000 
- 474      00000000 
- 474      00000000 
- 475 0014 00020000 		.word	512
- 476 0018 18000000 		.word	24
- 477 001c 00000000 		.space	8
- 477      00000000 
- 478              		.section	.rodata.tempCheck_attributes,"a"
- 479              		.align	2
- 480              		.set	.LANCHOR5,. + 0
- 483              	tempCheck_attributes:
- 484 0000 0C000000 		.word	.LC4
- 485 0004 00000000 		.space	12
- 485      00000000 
- 485      00000000 
- 486              		.text
- 487              	.Letext0:
- 488              		.file 2 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
- 489              		.file 3 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
- 490              		.file 4 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wb55xx.h"
- 491              		.file 5 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wbxx.h"
- 492              		.file 6 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h"
- 493              		.file 7 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h"
- 494              		.file 8 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_adc.h"
- 495              		.file 9 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_tim.h"
- 496              		.file 10 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
- 497              		.file 11 "Core/Inc/tim.h"
- 498              		.file 12 "Core/Inc/adc.h"
- 499              		.file 13 "Core/Inc/DHT.h"
- 500              		.file 14 "Core/Inc/DC_MOTOR.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 14
-
-
- 501              		.file 15 "Core/Inc/lcd16x2.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 15
+ 499              		.file 3 "/Users/aeheigl/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@
+ 500              		.file 4 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 501              		.file 5 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wb55xx.h"
+ 502              		.file 6 "Drivers/CMSIS/Device/ST/STM32WBxx/Include/stm32wbxx.h"
+ 503              		.file 7 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_def.h"
+ 504              		.file 8 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h"
+ 505              		.file 9 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_adc.h"
+ 506              		.file 10 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_tim.h"
+ 507              		.file 11 "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h"
+ 508              		.file 12 "Core/Inc/tim.h"
+ 509              		.file 13 "Core/Inc/adc.h"
+ 510              		.file 14 "Core/Inc/DHT.h"
+ 511              		.file 15 "Core/Inc/DC_MOTOR.h"
+ 512              		.file 16 "Middlewares/Third_Party/FreeRTOS/Source/include/task.h"
+ 513              		.file 17 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_gpio.h"
+ 514              		.file 18 "Core/Inc/lcd16x2.h"
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 app_freertos.c
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:20     .rodata.StartDefaultTask.str1.4:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:24     .text.StartDefaultTask:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:30     .text.StartDefaultTask:0000000000000000 StartDefaultTask
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:107    .text.StartDefaultTask:000000000000006c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:115    .rodata.checkADCCallBack.str1.4:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:119    .text.checkADCCallBack:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:125    .text.checkADCCallBack:0000000000000000 checkADCCallBack
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:215    .text.checkADCCallBack:000000000000006c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:223    .rodata.Display_Temp.str1.4:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:227    .text.Display_Temp:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:233    .text.Display_Temp:0000000000000000 Display_Temp
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:276    .text.Display_Temp:0000000000000034 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:281    .text.tempCheckCallBack:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:287    .text.tempCheckCallBack:0000000000000000 tempCheckCallBack
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:326    .text.tempCheckCallBack:0000000000000024 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:333    .text.MX_FREERTOS_Init:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:339    .text.MX_FREERTOS_Init:0000000000000000 MX_FREERTOS_Init
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:386    .text.MX_FREERTOS_Init:0000000000000034 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:429    .bss.Humidity:0000000000000000 Humidity
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:436    .bss.Temperature:0000000000000000 Temperature
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:422    .bss.DHT11_Data:0000000000000000 DHT11_Data
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:464    .rodata.checkADC_attributes:0000000000000000 checkADC_attributes
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:403    .rodata.str1.4:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:443    .bss.checkADCHandle:0000000000000000 checkADCHandle
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:483    .rodata.tempCheck_attributes:0000000000000000 tempCheck_attributes
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:457    .bss.tempCheckHandle:0000000000000000 tempCheckHandle
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:472    .rodata.defaultTask_attributes:0000000000000000 defaultTask_attributes
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:450    .bss.defaultTaskHandle:0000000000000000 defaultTaskHandle
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:418    .bss.DHT11_Data:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:425    .bss.Humidity:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:432    .bss.Temperature:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:439    .bss.checkADCHandle:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:446    .bss.defaultTaskHandle:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:453    .bss.tempCheckHandle:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:460    .rodata.checkADC_attributes:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:468    .rodata.defaultTask_attributes:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s:479    .rodata.tempCheck_attributes:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:20     .rodata.StartDefaultTask.str1.4:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:24     .text.StartDefaultTask:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:30     .text.StartDefaultTask:0000000000000000 StartDefaultTask
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:116    .text.StartDefaultTask:000000000000007c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:125    .rodata.checkADCCallBack.str1.4:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:129    .text.checkADCCallBack:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:135    .text.checkADCCallBack:0000000000000000 checkADCCallBack
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:225    .text.checkADCCallBack:000000000000006c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:233    .rodata.Display_Temp.str1.4:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:237    .text.Display_Temp:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:243    .text.Display_Temp:0000000000000000 Display_Temp
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:286    .text.Display_Temp:0000000000000034 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:291    .text.tempCheckCallBack:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:297    .text.tempCheckCallBack:0000000000000000 tempCheckCallBack
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:336    .text.tempCheckCallBack:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:343    .text.MX_FREERTOS_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:349    .text.MX_FREERTOS_Init:0000000000000000 MX_FREERTOS_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:396    .text.MX_FREERTOS_Init:0000000000000034 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:439    .bss.Humidity:0000000000000000 Humidity
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:446    .bss.Temperature:0000000000000000 Temperature
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:432    .bss.DHT11_Data:0000000000000000 DHT11_Data
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:474    .rodata.checkADC_attributes:0000000000000000 checkADC_attributes
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:413    .rodata.str1.4:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:453    .bss.checkADCHandle:0000000000000000 checkADCHandle
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:493    .rodata.tempCheck_attributes:0000000000000000 tempCheck_attributes
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:467    .bss.tempCheckHandle:0000000000000000 tempCheckHandle
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:482    .rodata.defaultTask_attributes:0000000000000000 defaultTask_attributes
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:460    .bss.defaultTaskHandle:0000000000000000 defaultTaskHandle
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:428    .bss.DHT11_Data:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:435    .bss.Humidity:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:442    .bss.Temperature:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:449    .bss.checkADCHandle:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:456    .bss.defaultTaskHandle:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:463    .bss.tempCheckHandle:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:470    .rodata.checkADC_attributes:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:478    .rodata.defaultTask_attributes:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s:489    .rodata.tempCheck_attributes:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 MX_TIM2_Init
@@ -835,16 +850,18 @@ osTimerStart
 DC_MOTOR_Init
 DC_MOTOR_Start
 osDelay
+HAL_GPIO_TogglePin
+vTaskDelay
 htim2
 HAL_ADC_Start
 HAL_ADC_PollForConversion
 HAL_ADC_GetValue
 lcd16x2_2ndLine
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccIdRqQb.s 			page 16
+
+
 DC_MOTOR_Set_Speed
 hadc1
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccXIJJG4.s 			page 16
-
-
 lcd16x2_clear
 lcd16x2_1stLine
 DHT_GetData

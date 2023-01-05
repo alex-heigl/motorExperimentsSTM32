@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
   29:Core/Src/lcd16x2.c **** #define LCD_DISPLAY_D         0x04
   30:Core/Src/lcd16x2.c **** //4) Shift control
   31:Core/Src/lcd16x2.c **** #define LCD_SHIFT_RL          0x04
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 2
 
 
   32:Core/Src/lcd16x2.c **** #define LCD_SHIFT_SC          0x08
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
   51              		.loc 1 62 13 is_stmt 0 view .LVU8
   52 0026 1A68     		ldr	r2, [r3]
   53 0028 42F00102 		orr	r2, r2, #1
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 3
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 3
 
 
   54 002c 1A60     		str	r2, [r3]
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
   92              	.LFE1107:
   94              		.section	.text.lcd16x2_rs,"ax",%progbits
   95              		.align	1
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 4
 
 
   96              		.syntax unified
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  125 0012 00BF     		.align	2
  126              	.L8:
  127 0014 00000000 		.word	.LANCHOR0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 5
 
 
  128 0018 00000000 		.word	.LANCHOR1
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  175 001a 144B     		ldr	r3, .L14+12
  176 001c A3FB0023 		umull	r2, r3, r3, r0
  177 0020 9B0C     		lsrs	r3, r3, #18
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 6
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 6
 
 
   83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  218              	.LVL11:
   83:Core/Src/lcd16x2.c ****  while ((DWT->CYCCNT - clk_cycle_start) < usec);
  219              		.loc 1 83 33 view .LVU48
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 7
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 7
 
 
  220 0048 084B     		ldr	r3, .L14+12
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  262              		.cfi_startproc
  263              		@ args = 0, pretend = 0, frame = 0
  264              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 8
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 8
 
 
  265              		.loc 1 110 1 is_stmt 0 view .LVU58
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  312              	.LVL19:
  118:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_LSB, D3_PIN, (GPIO_PinState)(LSB_nibble&0x8));
  313              		.loc 1 118 5 view .LVU68
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 9
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 9
 
 
  314 003c 04F00802 		and	r2, r4, #8
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  134:Core/Src/lcd16x2.c ****     //LSB data
  135:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D4_PIN, (GPIO_PinState)(LSB_nibble&0x1));
  136:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(LSB_nibble&0x2));
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 10
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 10
 
 
  137:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(LSB_nibble&0x4));
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  395 00e0 FFF7FEFF 		bl	HAL_GPIO_WritePin
  396              	.LVL33:
  136:Core/Src/lcd16x2.c ****     HAL_GPIO_WritePin(PORT_MSB, D6_PIN, (GPIO_PinState)(LSB_nibble&0x4));
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 11
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 11
 
 
  397              		.loc 1 136 5 view .LVU82
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  146:Core/Src/lcd16x2.c **** static void lcd16x2_writeCommand(uint8_t cmd)
  147:Core/Src/lcd16x2.c **** {
  446              		.loc 1 147 1 is_stmt 1 view -0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 12
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 12
 
 
  447              		.cfi_startproc
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  493              		.loc 1 157 3 is_stmt 0 view .LVU96
  494 0006 FFF7FEFF 		bl	lcd16x2_rs
  495              	.LVL44:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 13
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 13
 
 
  158:Core/Src/lcd16x2.c ****   lcd16x2_write(data);
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  170:Core/Src/lcd16x2.c ****   HAL_GPIO_WritePin(PORT_MSB, D5_PIN, (GPIO_PinState)(nib&0x2));
  540              		.loc 1 170 3 view .LVU104
  541 001a 04F00202 		and	r2, r4, #2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 14
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 14
 
 
  542 001e 0D4B     		ldr	r3, .L28+8
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  180:Core/Src/lcd16x2.c ****  * @param[in] *port_rs_e RS and EN GPIO Port (e.g. GPIOB)
  181:Core/Src/lcd16x2.c ****  * @param[in] *port_0_3 D0 to D3 GPIO Port
  182:Core/Src/lcd16x2.c ****  * @param[in] *port_4_7 D4 to D7 GPIO Port
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 15
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 15
 
 
  183:Core/Src/lcd16x2.c ****  * @param[in] x_pin GPIO pin (e.g. GPIO_PIN_1)
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  629 0024 1A80     		strh	r2, [r3]	@ movhi
  197:Core/Src/lcd16x2.c ****   D1_PIN = d1_pin;
  630              		.loc 1 197 3 is_stmt 1 view .LVU123
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 16
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 16
 
 
  631              		.loc 1 197 10 is_stmt 0 view .LVU124
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  206:Core/Src/lcd16x2.c ****   FunctionSet = 0x38;
  677              		.loc 1 206 3 is_stmt 1 view .LVU142
  678              		.loc 1 206 15 is_stmt 0 view .LVU143
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 17
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 17
 
 
  679 006a 3825     		movs	r5, #56
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  222:Core/Src/lcd16x2.c ****   //5. Clear LCD and return home
  223:Core/Src/lcd16x2.c ****   lcd16x2_writeCommand(LCD_CLEARDISPLAY);
  718              		.loc 1 223 3 view .LVU153
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 18
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 18
 
 
  719 00a6 2046     		mov	r0, r4
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  763              		@ args = 16, pretend = 0, frame = 0
  764              		@ frame_needed = 0, uses_anonymous_args = 0
  765              		.loc 1 235 1 is_stmt 0 view .LVU158
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 19
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 19
 
 
  766 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  811 0034 1A80     		strh	r2, [r3]	@ movhi
  245:Core/Src/lcd16x2.c ****   D7_PIN = d7_pin;
  812              		.loc 1 245 3 is_stmt 1 view .LVU174
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 20
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 20
 
 
  813              		.loc 1 245 10 is_stmt 0 view .LVU175
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  854 006e 0120     		movs	r0, #1
  855 0070 FFF7FEFF 		bl	HAL_Delay
  856              	.LVL79:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 21
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 21
 
 
  259:Core/Src/lcd16x2.c ****   lcd16x2_write4(0x2);  //4 bit mode
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  902              		.align	1
  903              		.global	lcd16x2_setCursor
  904              		.syntax unified
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 22
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 22
 
 
  905              		.thumb
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  939              	.LVL92:
  940              	.L39:
  286:Core/Src/lcd16x2.c ****     lcd16x2_writeCommand(maskData);
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 23
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 23
 
 
  941              		.loc 1 286 5 is_stmt 1 view .LVU207
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  298:Core/Src/lcd16x2.c ****  * @brief Move to beginning of 2nd line
  299:Core/Src/lcd16x2.c ****  */
  300:Core/Src/lcd16x2.c **** void lcd16x2_2ndLine(void)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 24
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 24
 
 
  301:Core/Src/lcd16x2.c **** {
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1033              		.loc 1 312 1 is_stmt 0 view .LVU221
  1034 0010 08BD     		pop	{r3, pc}
  1035              	.L49:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 25
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 25
 
 
  1036 0012 00BF     		.align	2
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  320:Core/Src/lcd16x2.c ****  * @brief Cursor ON/OFF
  321:Core/Src/lcd16x2.c ****  */
  322:Core/Src/lcd16x2.c **** void lcd16x2_cursorShow(bool state)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 26
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 26
 
 
  323:Core/Src/lcd16x2.c **** {
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1125              	.LVL104:
  1126              		.loc 1 334 1 is_stmt 0 view .LVU240
  1127 0022 F6E7     		b	.L54
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 27
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 27
 
 
  1128              	.L59:
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  346:Core/Src/lcd16x2.c ****  * @brief Display ON/OFF, to hide all characters, but not clear
  347:Core/Src/lcd16x2.c ****  */
  348:Core/Src/lcd16x2.c **** void lcd16x2_display(bool state)
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 28
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 28
 
 
  349:Core/Src/lcd16x2.c **** {
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1213              	.LVL112:
  1214              		.loc 1 360 1 is_stmt 0 view .LVU258
  1215 0022 F6E7     		b	.L62
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 29
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 29
 
 
  1216              	.L67:
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  367:Core/Src/lcd16x2.c ****   for(uint8_t i=0; i<offset;i++)
  1262              		.loc 1 367 30 is_stmt 0 discriminator 3 view .LVU267
  1263 0010 E4B2     		uxtb	r4, r4
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 30
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 30
 
 
  1264              	.LVL118:
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1308              		.loc 1 380 5 is_stmt 1 discriminator 3 view .LVU277
  1309 0008 1820     		movs	r0, #24
  1310 000a FFF7FEFF 		bl	lcd16x2_writeCommand
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 31
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 31
 
 
  1311              	.LVL122:
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1356 0006 08AA     		add	r2, sp, #32
  1357 0008 52F8041B 		ldr	r1, [r2], #4
  389:Core/Src/lcd16x2.c ****   char stringArray[20];
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 32
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 32
 
 
  1358              		.loc 1 389 3 is_stmt 1 view .LVU285
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  394:Core/Src/lcd16x2.c ****   for(uint8_t i=0;  i<strlen(stringArray) && i<16; i++)
  1402              		.loc 1 394 53 discriminator 4 view .LVU303
  1403              	.LBE12:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 33
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 33
 
 
  397:Core/Src/lcd16x2.c ****   }
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1471              	D6_PIN:
  1472 0000 0000     		.space	2
  1473              		.section	.bss.D7_PIN,"aw",%nobits
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 34
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 34
 
 
  1474              		.align	1
@@ -2036,94 +2036,94 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 1
  1544              		.file 11 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h"
  1545              		.file 12 "<built-in>"
  1546              		.file 13 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 35
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 35
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 lcd16x2.c
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:20     .text.DWT_Delay_Init:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:25     .text.DWT_Delay_Init:0000000000000000 DWT_Delay_Init
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:90     .text.DWT_Delay_Init:0000000000000044 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:95     .text.lcd16x2_rs:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:100    .text.lcd16x2_rs:0000000000000000 lcd16x2_rs
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:127    .text.lcd16x2_rs:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:133    .text.lcd16x2_enablePulse:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:138    .text.lcd16x2_enablePulse:0000000000000000 lcd16x2_enablePulse
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:245    .text.lcd16x2_enablePulse:0000000000000060 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:253    .text.lcd16x2_write:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:258    .text.lcd16x2_write:0000000000000000 lcd16x2_write
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:423    .text.lcd16x2_write:0000000000000114 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:438    .text.lcd16x2_writeCommand:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:443    .text.lcd16x2_writeCommand:0000000000000000 lcd16x2_writeCommand
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:472    .text.lcd16x2_writeData:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:477    .text.lcd16x2_writeData:0000000000000000 lcd16x2_writeData
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:506    .text.lcd16x2_write4:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:511    .text.lcd16x2_write4:0000000000000000 lcd16x2_write4
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:571    .text.lcd16x2_write4:000000000000004c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:580    .text.lcd16x2_init_8bits:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:586    .text.lcd16x2_init_8bits:0000000000000000 lcd16x2_init_8bits
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:733    .text.lcd16x2_init_8bits:00000000000000b4 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:752    .text.lcd16x2_init_4bits:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:758    .text.lcd16x2_init_4bits:0000000000000000 lcd16x2_init_4bits
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:888    .text.lcd16x2_init_4bits:000000000000009c $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:902    .text.lcd16x2_setCursor:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:908    .text.lcd16x2_setCursor:0000000000000000 lcd16x2_setCursor
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:954    .text.lcd16x2_1stLine:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:960    .text.lcd16x2_1stLine:0000000000000000 lcd16x2_1stLine
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:981    .text.lcd16x2_2ndLine:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:987    .text.lcd16x2_2ndLine:0000000000000000 lcd16x2_2ndLine
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1008   .text.lcd16x2_twoLines:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1014   .text.lcd16x2_twoLines:0000000000000000 lcd16x2_twoLines
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1038   .text.lcd16x2_twoLines:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1043   .text.lcd16x2_oneLine:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1049   .text.lcd16x2_oneLine:0000000000000000 lcd16x2_oneLine
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1073   .text.lcd16x2_oneLine:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1078   .text.lcd16x2_cursorShow:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1084   .text.lcd16x2_cursorShow:0000000000000000 lcd16x2_cursorShow
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1131   .text.lcd16x2_cursorShow:0000000000000024 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1136   .text.lcd16x2_clear:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1142   .text.lcd16x2_clear:0000000000000000 lcd16x2_clear
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1166   .text.lcd16x2_display:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1172   .text.lcd16x2_display:0000000000000000 lcd16x2_display
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1219   .text.lcd16x2_display:0000000000000024 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1224   .text.lcd16x2_shiftRight:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1230   .text.lcd16x2_shiftRight:0000000000000000 lcd16x2_shiftRight
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1277   .text.lcd16x2_shiftLeft:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1283   .text.lcd16x2_shiftLeft:0000000000000000 lcd16x2_shiftLeft
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1330   .text.lcd16x2_printf:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1336   .text.lcd16x2_printf:0000000000000000 lcd16x2_printf
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1425   .bss.D0_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1429   .bss.D0_PIN:0000000000000000 D0_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1432   .bss.D1_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1436   .bss.D1_PIN:0000000000000000 D1_PIN
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s 			page 36
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:20     .text.DWT_Delay_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:25     .text.DWT_Delay_Init:0000000000000000 DWT_Delay_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:90     .text.DWT_Delay_Init:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:95     .text.lcd16x2_rs:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:100    .text.lcd16x2_rs:0000000000000000 lcd16x2_rs
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:127    .text.lcd16x2_rs:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:133    .text.lcd16x2_enablePulse:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:138    .text.lcd16x2_enablePulse:0000000000000000 lcd16x2_enablePulse
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:245    .text.lcd16x2_enablePulse:0000000000000060 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:253    .text.lcd16x2_write:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:258    .text.lcd16x2_write:0000000000000000 lcd16x2_write
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:423    .text.lcd16x2_write:0000000000000114 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:438    .text.lcd16x2_writeCommand:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:443    .text.lcd16x2_writeCommand:0000000000000000 lcd16x2_writeCommand
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:472    .text.lcd16x2_writeData:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:477    .text.lcd16x2_writeData:0000000000000000 lcd16x2_writeData
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:506    .text.lcd16x2_write4:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:511    .text.lcd16x2_write4:0000000000000000 lcd16x2_write4
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:571    .text.lcd16x2_write4:000000000000004c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:580    .text.lcd16x2_init_8bits:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:586    .text.lcd16x2_init_8bits:0000000000000000 lcd16x2_init_8bits
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:733    .text.lcd16x2_init_8bits:00000000000000b4 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:752    .text.lcd16x2_init_4bits:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:758    .text.lcd16x2_init_4bits:0000000000000000 lcd16x2_init_4bits
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:888    .text.lcd16x2_init_4bits:000000000000009c $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:902    .text.lcd16x2_setCursor:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:908    .text.lcd16x2_setCursor:0000000000000000 lcd16x2_setCursor
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:954    .text.lcd16x2_1stLine:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:960    .text.lcd16x2_1stLine:0000000000000000 lcd16x2_1stLine
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:981    .text.lcd16x2_2ndLine:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:987    .text.lcd16x2_2ndLine:0000000000000000 lcd16x2_2ndLine
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1008   .text.lcd16x2_twoLines:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1014   .text.lcd16x2_twoLines:0000000000000000 lcd16x2_twoLines
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1038   .text.lcd16x2_twoLines:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1043   .text.lcd16x2_oneLine:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1049   .text.lcd16x2_oneLine:0000000000000000 lcd16x2_oneLine
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1073   .text.lcd16x2_oneLine:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1078   .text.lcd16x2_cursorShow:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1084   .text.lcd16x2_cursorShow:0000000000000000 lcd16x2_cursorShow
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1131   .text.lcd16x2_cursorShow:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1136   .text.lcd16x2_clear:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1142   .text.lcd16x2_clear:0000000000000000 lcd16x2_clear
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1166   .text.lcd16x2_display:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1172   .text.lcd16x2_display:0000000000000000 lcd16x2_display
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1219   .text.lcd16x2_display:0000000000000024 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1224   .text.lcd16x2_shiftRight:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1230   .text.lcd16x2_shiftRight:0000000000000000 lcd16x2_shiftRight
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1277   .text.lcd16x2_shiftLeft:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1283   .text.lcd16x2_shiftLeft:0000000000000000 lcd16x2_shiftLeft
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1330   .text.lcd16x2_printf:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1336   .text.lcd16x2_printf:0000000000000000 lcd16x2_printf
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1425   .bss.D0_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1429   .bss.D0_PIN:0000000000000000 D0_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1432   .bss.D1_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1436   .bss.D1_PIN:0000000000000000 D1_PIN
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s 			page 36
 
 
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1439   .bss.D2_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1443   .bss.D2_PIN:0000000000000000 D2_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1446   .bss.D3_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1450   .bss.D3_PIN:0000000000000000 D3_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1453   .bss.D4_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1457   .bss.D4_PIN:0000000000000000 D4_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1460   .bss.D5_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1464   .bss.D5_PIN:0000000000000000 D5_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1467   .bss.D6_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1471   .bss.D6_PIN:0000000000000000 D6_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1474   .bss.D7_PIN:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1478   .bss.D7_PIN:0000000000000000 D7_PIN
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1481   .bss.PIN_E:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1485   .bss.PIN_E:0000000000000000 PIN_E
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1488   .bss.PIN_RS:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1492   .bss.PIN_RS:0000000000000000 PIN_RS
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1495   .bss.PORT_LSB:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1499   .bss.PORT_LSB:0000000000000000 PORT_LSB
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1502   .bss.PORT_MSB:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1506   .bss.PORT_MSB:0000000000000000 PORT_MSB
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1509   .bss.PORT_RS_and_E:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1513   .bss.PORT_RS_and_E:0000000000000000 PORT_RS_and_E
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1519   .data.DisplayControl:0000000000000000 DisplayControl
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1525   .data.FunctionSet:0000000000000000 FunctionSet
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//cciIRPAG.s:1531   .data.is8BitsMode:0000000000000000 is8BitsMode
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1439   .bss.D2_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1443   .bss.D2_PIN:0000000000000000 D2_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1446   .bss.D3_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1450   .bss.D3_PIN:0000000000000000 D3_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1453   .bss.D4_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1457   .bss.D4_PIN:0000000000000000 D4_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1460   .bss.D5_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1464   .bss.D5_PIN:0000000000000000 D5_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1467   .bss.D6_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1471   .bss.D6_PIN:0000000000000000 D6_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1474   .bss.D7_PIN:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1478   .bss.D7_PIN:0000000000000000 D7_PIN
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1481   .bss.PIN_E:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1485   .bss.PIN_E:0000000000000000 PIN_E
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1488   .bss.PIN_RS:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1492   .bss.PIN_RS:0000000000000000 PIN_RS
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1495   .bss.PORT_LSB:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1499   .bss.PORT_LSB:0000000000000000 PORT_LSB
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1502   .bss.PORT_MSB:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1506   .bss.PORT_MSB:0000000000000000 PORT_MSB
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1509   .bss.PORT_RS_and_E:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1513   .bss.PORT_RS_and_E:0000000000000000 PORT_RS_and_E
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1519   .data.DisplayControl:0000000000000000 DisplayControl
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1525   .data.FunctionSet:0000000000000000 FunctionSet
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccob6IA4.s:1531   .data.is8BitsMode:0000000000000000 is8BitsMode
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

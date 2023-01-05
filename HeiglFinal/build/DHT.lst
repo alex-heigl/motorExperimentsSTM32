@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 2
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 2
 
 
   34              		@ link register save eliminated.
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
   80 0002 D3F8FC20 		ldr	r2, [r3, #252]
   81 0006 22F08072 		bic	r2, r2, #16777216
   82 000a C3F8FC20 		str	r2, [r3, #252]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 3
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 3
 
 
   36:Core/Src/DHT.c ****   /* Enable TRC */
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  119              		.syntax unified
  120 0038 5B68     		ldr	r3, [r3, #4]
  121              		.loc 1 53 8 view .LVU26
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 4
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 4
 
 
  122 003a 0BB1     		cbz	r3, .L7
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  156 0002 87B0     		sub	sp, sp, #28
  157              		.cfi_def_cfa_offset 32
   76:Core/Src/DHT.c **** 	GPIO_InitTypeDef GPIO_InitStruct = {0};
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 5
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 5
 
 
  158              		.loc 1 76 2 is_stmt 1 view .LVU32
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  206 0002 87B0     		sub	sp, sp, #28
  207              		.cfi_def_cfa_offset 32
   85:Core/Src/DHT.c **** 	GPIO_InitTypeDef GPIO_InitStruct = {0};
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 6
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 6
 
 
  208              		.loc 1 85 2 is_stmt 1 view .LVU44
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  254              		.loc 1 95 2 view .LVU54
  255 0002 FFF7FEFF 		bl	DWT_Delay_Init
  256              	.LVL9:
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 7
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 7
 
 
   96:Core/Src/DHT.c **** 	Set_Pin_Output (DHT_PORT, DHT_PIN);  // set the pin as output
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  296 0034 5B68     		ldr	r3, [r3, #4]
   71:Core/Src/DHT.c **** }
  297              		.loc 1 71 23 view .LVU68
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 8
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 8
 
 
  298 0036 5B1B     		subs	r3, r3, r5
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  334              		.loc 1 71 3 is_stmt 1 view .LVU80
  335              	.L16:
   71:Core/Src/DHT.c **** }
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 9
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 9
 
 
  336              		.loc 1 71 42 view .LVU81
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  383              		.cfi_offset 14, -4
  114:Core/Src/DHT.c **** 	uint8_t Response = 0;
  384              		.loc 1 114 2 view .LVU89
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 10
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 10
 
 
  385              	.LVL22:
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  424              		.loc 1 116 8 is_stmt 0 view .LVU105
  425 0022 0121     		movs	r1, #1
  426 0024 1448     		ldr	r0, .L29+8
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 11
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 11
 
 
  427 0026 FFF7FEFF 		bl	HAL_GPIO_ReadPin
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  460              		.loc 1 65 12 is_stmt 0 view .LVU118
  461 0040 0B4B     		ldr	r3, .L29
  462 0042 5D68     		ldr	r5, [r3, #4]
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 12
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 12
 
 
  463              	.LVL32:
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  502 006c FF24     		movs	r4, #255
  503              	.LVL36:
  120:Core/Src/DHT.c **** 	}
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 13
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 13
 
 
  504              		.loc 1 120 17 view .LVU134
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  549              		.loc 1 140 14 view .LVU142
  550 000c 0123     		movs	r3, #1
  551 000e 9340     		lsls	r3, r3, r2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 14
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 14
 
 
  552              		.loc 1 140 9 view .LVU143
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  591              	.LBB20:
  592              	.LBI20:
   63:Core/Src/DHT.c **** {
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 15
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 15
 
 
  593              		.loc 1 63 22 view .LVU156
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  632 005c 0028     		cmp	r0, #0
  633 005e D3D1     		bne	.L35
  138:Core/Src/DHT.c **** 		}
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 16
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 16
 
 
  634              		.loc 1 138 4 is_stmt 1 view .LVU172
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  678 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
  679              		.cfi_def_cfa_offset 24
  680              		.cfi_offset 4, -24
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 17
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 17
 
 
  681              		.cfi_offset 5, -20
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  728              	.LVL58:
  729 003a 82B2     		uxth	r2, r0
  730              		.loc 1 160 6 view .LVU200
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 18
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 18
 
 
  731 003c 124B     		ldr	r3, .L46+16
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  767              	.L46:
  768 0078 00000000 		.word	.LANCHOR0
  769 007c 00000000 		.word	.LANCHOR2
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 19
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 19
 
 
  770 0080 00000000 		.word	.LANCHOR3
@@ -1131,45 +1131,45 @@ ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 1
  830              		.file 10 "Core/Inc/tim.h"
  831              		.file 11 "Core/Inc/DHT.h"
  832              		.file 12 "Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc.h"
-ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s 			page 20
+ARM GAS  /var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 DHT.c
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:20     .text.delayTimeout:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:26     .text.delayTimeout:0000000000000000 delayTimeout
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:59     .text.delayTimeout:0000000000000014 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:64     .text.DWT_Delay_Init:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:70     .text.DWT_Delay_Init:0000000000000000 DWT_Delay_Init
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:134    .text.DWT_Delay_Init:0000000000000044 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:139    .text.Set_Pin_Output:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:145    .text.Set_Pin_Output:0000000000000000 Set_Pin_Output
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:189    .text.Set_Pin_Input:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:195    .text.Set_Pin_Input:0000000000000000 Set_Pin_Input
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:236    .text.DHT_Start:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:242    .text.DHT_Start:0000000000000000 DHT_Start
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:359    .text.DHT_Start:0000000000000070 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:366    .text.DHT_Check_Response:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:372    .text.DHT_Check_Response:0000000000000000 DHT_Check_Response
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:509    .text.DHT_Check_Response:0000000000000070 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:516    .text.DHT_Read:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:522    .text.DHT_Read:0000000000000000 DHT_Read
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:657    .text.DHT_Read:0000000000000074 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:664    .text.DHT_GetData:0000000000000000 $t
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:670    .text.DHT_GetData:0000000000000000 DHT_GetData
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:768    .text.DHT_GetData:0000000000000078 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:787    .bss.Presence:0000000000000000 Presence
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:806    .bss.SUM:0000000000000000 SUM
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:818    .bss.Temp_byte2:0000000000000000 Temp_byte2
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:812    .bss.Temp_byte1:0000000000000000 Temp_byte1
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:799    .bss.Rh_byte2:0000000000000000 Rh_byte2
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:793    .bss.Rh_byte1:0000000000000000 Rh_byte1
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:788    .bss.Presence:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:794    .bss.Rh_byte1:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:800    .bss.Rh_byte2:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:802    .bss.SUM:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:813    .bss.Temp_byte1:0000000000000000 $d
-/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccZE5HQY.s:819    .bss.Temp_byte2:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:20     .text.delayTimeout:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:26     .text.delayTimeout:0000000000000000 delayTimeout
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:59     .text.delayTimeout:0000000000000014 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:64     .text.DWT_Delay_Init:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:70     .text.DWT_Delay_Init:0000000000000000 DWT_Delay_Init
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:134    .text.DWT_Delay_Init:0000000000000044 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:139    .text.Set_Pin_Output:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:145    .text.Set_Pin_Output:0000000000000000 Set_Pin_Output
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:189    .text.Set_Pin_Input:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:195    .text.Set_Pin_Input:0000000000000000 Set_Pin_Input
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:236    .text.DHT_Start:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:242    .text.DHT_Start:0000000000000000 DHT_Start
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:359    .text.DHT_Start:0000000000000070 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:366    .text.DHT_Check_Response:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:372    .text.DHT_Check_Response:0000000000000000 DHT_Check_Response
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:509    .text.DHT_Check_Response:0000000000000070 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:516    .text.DHT_Read:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:522    .text.DHT_Read:0000000000000000 DHT_Read
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:657    .text.DHT_Read:0000000000000074 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:664    .text.DHT_GetData:0000000000000000 $t
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:670    .text.DHT_GetData:0000000000000000 DHT_GetData
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:768    .text.DHT_GetData:0000000000000078 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:787    .bss.Presence:0000000000000000 Presence
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:806    .bss.SUM:0000000000000000 SUM
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:818    .bss.Temp_byte2:0000000000000000 Temp_byte2
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:812    .bss.Temp_byte1:0000000000000000 Temp_byte1
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:799    .bss.Rh_byte2:0000000000000000 Rh_byte2
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:793    .bss.Rh_byte1:0000000000000000 Rh_byte1
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:788    .bss.Presence:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:794    .bss.Rh_byte1:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:800    .bss.Rh_byte2:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:802    .bss.SUM:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:813    .bss.Temp_byte1:0000000000000000 $d
+/var/folders/r0/ydptfcq11zg26w5yg1gx1gdc0000gn/T//ccJagLb7.s:819    .bss.Temp_byte2:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 htim2
