@@ -52,11 +52,18 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-  .name = "defaultTask",
+/* Definitions for LEDTask01 */
+osThreadId_t LEDTask01Handle;
+const osThreadAttr_t LEDTask01_attributes = {
+  .name = "LEDTask01",
   .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 128 * 4
+};
+/* Definitions for LEDTask02 */
+osThreadId_t LEDTask02Handle;
+const osThreadAttr_t LEDTask02_attributes = {
+  .name = "LEDTask02",
+  .priority = (osPriority_t) osPriorityLow,
   .stack_size = 128 * 4
 };
 /* Definitions for tempCheck */
@@ -86,6 +93,7 @@ float Humidity = 0;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
+void StartTask02(void *argument);
 void tempCheckCallBack(void *argument);
 void checkADCCallBack(void *argument);
 
@@ -125,8 +133,11 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of defaultTask */
-  defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+  /* creation of LEDTask01 */
+  LEDTask01Handle = osThreadNew(StartDefaultTask, NULL, &LEDTask01_attributes);
+
+  /* creation of LEDTask02 */
+  LEDTask02Handle = osThreadNew(StartTask02, NULL, &LEDTask02_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -169,6 +180,24 @@ void StartDefaultTask(void *argument)
     vTaskDelay(500 / portTICK_PERIOD_MS); 
   }
   /* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_StartTask02 */
+/**
+* @brief Function implementing the LEDTask02 thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask02 */
+void StartTask02(void *argument)
+{
+  /* USER CODE BEGIN StartTask02 */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartTask02 */
 }
 
 /* tempCheckCallBack function */
