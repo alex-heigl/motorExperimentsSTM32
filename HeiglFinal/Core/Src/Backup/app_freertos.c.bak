@@ -196,6 +196,8 @@ void StartTask02(void *argument)
   for(;;)
   {
     osDelay(1);
+    HAL_GPIO_TogglePin(GPIOB, RedLED_Pin);
+    vTaskDelay(100 / portTICK_PERIOD_MS);
   }
   /* USER CODE END StartTask02 */
 }
